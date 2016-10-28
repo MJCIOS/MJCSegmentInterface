@@ -2,7 +2,7 @@
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 
 ###分段控制器创建(几行代码即可使用)
-
+    
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     NSArray *titlesArr = @[@"爱你",@"恨你",@"喜欢你",@"么么",@"哈哈"]; //创建标题
     
