@@ -21,7 +21,7 @@
 
 
 效果展示:
- ![](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/lalala.imageset/05ae3731369e5f7f7b154d3a1487bc82.jpg)
+ ![](https://github.com/MJCIOS/MJCSegmentInterface/raw/MJC/lalala.imageset/05ae3731369e5f7f7b154d3a1487bc82.jpg)
 
     
     
