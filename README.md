@@ -23,12 +23,12 @@
     
 分段控制器属性:
     
-    // 1.右边竖线只用于SegMentInterfaceStyleClassic(right是否显示)
+    //  1.右边竖线只用于SegMentInterfaceStyleClassic(right是否显示)
     //    segmentInterface.rightViewShow = YES;
     //  自定义right颜色
-    //    segmentInterface.rightColor = [UIColor redColor];
+    //      segmentInterface.rightColor = [UIColor redColor];
     //  自定义right高度
-    //    segmentInterface.rightViewHegiht = 10;
+    //      segmentInterface.rightViewHegiht = 10;
     
     /**
      * !!!:1.设置标题栏
@@ -93,13 +93,13 @@
     /**
      * !!!:4.childView子界面
      */
-    //  (1)允许子界面来回滑动
+    //      (1)允许子界面来回滑动
           segmentInterface.childViewEnabled = YES;
-    //  (2)开启用户自己设置子界面frame(开启后,如果不设置,就会崩掉,就是提醒你,没设置frame)
+    //      (2)开启用户自己设置子界面frame(开启后,如果不设置,就会崩掉,就是提醒你,没设置frame)
     //    segmentInterface.isChildViewframe = YES;
-    //  (3)设置子界面frame
+    //      (3)设置子界面frame
     //    segmentInterface.childViewframe = CGRectMake(0, 0, 100, 100);
-    //  (4)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
+    //      (4)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
     //     [segmentInterface isChildViewframe:YES childViewframe:CGRectMake(0, 64, self.view.mjc_width, self.view.mjc_height)];
     
     /**
