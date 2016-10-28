@@ -37,7 +37,26 @@
 
 
 ###分段控制器属性列表:(所有的属性展示)
+
+####类型:
     
+    //子界面样式
+    typedef enum {
+        SegMentInterfaceStyleClassic,//经典样式
+        SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
+        SegMentInterfaceStyleLess,   //少用样式(格子竖线标题栏)
+        SegMentInterfaceStyleMoreUse,//更少用样式(格子穿透标题栏)
+        SegMentInterfaceStyleExceedUse //超少用样式(适用于上面没有导航栏的情况)
+    } MJCSegmentInterfaceStyle;
+
+    //底部指示器样式
+    typedef enum {
+        SegMentIndicatorItemStyle,
+        SegMentIndicatorItemTextStyle
+    } MJCSegmentIndicatorStyle;
+
+
+
 ####右边竖线属性:
     
     rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
