@@ -1,7 +1,7 @@
 # MJC
-☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
+##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 
-分段控制器创建(几行代码即可使用)
+###分段控制器创建(几行代码即可使用)
 
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     NSArray *titlesArr = @[@"爱你",@"恨你",@"喜欢你",@"么么",@"哈哈"]; //创建标题
@@ -21,7 +21,7 @@
     [segmentInterface setAddChildViewController:vc3];
     
     
-分段控制器属性用法:(要在添加标题栏之前自定义这些属性)
+###分段控制器属性用法:(要在添加标题栏之前自定义这些属性)
 
     segmentInterface.rightViewShow = YES;
     segmentInterface.rightViewHidden = YES;()
@@ -36,7 +36,7 @@
     segmentInterface.tabItemImageArray = imageArr;
 
 
-分段控制器属性列表:(所有的属性展示)
+###分段控制器属性列表:(所有的属性展示)
     
     //右边竖线属性:
     rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
