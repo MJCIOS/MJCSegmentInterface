@@ -68,13 +68,11 @@
         //如果外界没有设置frame,那我们这里面要设置下
         self.frame = [UIScreen mainScreen].bounds;
         
-        //实例化mainVC,为当前view创建一个mainVC
         _addChildViewController = [self viewController:self];
     }
     return self;
 }
 
-//给view加了一个UIViewController控制器
 - (UIViewController *)viewController:(UIView *)view{
     
     UIResponder *responder = view;
