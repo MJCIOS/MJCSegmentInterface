@@ -1,5 +1,5 @@
 //
-//  UIView+XMGExtension.m
+//  UIView+MJCExtension.m
 
 //
 //  Created by majiachen on 16/11/6.
