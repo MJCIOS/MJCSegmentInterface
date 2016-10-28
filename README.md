@@ -21,7 +21,8 @@
 
 
 效果展示:
-  ![](http://www.baidu.com/img/bdlogo.gif) 
+ ![](https://github.com/MJCIOS/MJCSegmentInterface/raw/gitHub/github图片/shishi.png)
+
     
     
 
