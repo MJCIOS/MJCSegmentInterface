@@ -30,73 +30,65 @@
     //  自定义right高度
     //    segmentInterface.rightViewHegiht = 10;
     
-    
-    
     /**
      * !!!:1.设置标题栏
      */
     //(2)是否开启用户自己设置标题Frame (默认是帮你设置好的,如果你开启了,那默认的就没有了)
-    //        self.segMentInterface.isTitlesViewframe = YES;
+    //        segmentInterface.isTitlesViewframe = YES;
     //(3)设置标题栏的frame(不开启isTitlesViewframe,那设置标题栏frame是没效果的)
-    //        self.segMentInterface.titlesViewframe = CGRectMake(0, 0, 321, 40);
+    //        segmentInterface.titlesViewframe = CGRectMake(0, 0, 321, 40);
     //(4)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的,这句等于上面那两句)
-    //        [self.segMentInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0, 321, 40)];
+    //        [segmentInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0, 321, 40)];
     //(5)设置标题栏的背景色(默认白色)
-    //        self.segMentInterface.titlesViewColor = [[UIColor redColor]colorWithAlphaComponent:1];
-    
-    
+    //        segmentInterface.titlesViewColor = [[UIColor redColor]colorWithAlphaComponent:1];
     
     /**
      * !!!:2.底部横线设置
      */
     //    (1)底部横线条是否显示
-    //        self.segMentInterface.bottomViewHidden = YES;
+    //        segmentInterface.bottomViewHidden = YES;
     //    (2)设置底部横线条高度
-    //        self.segMentInterface.bottomViewHegiht = 100;
+    //        segmentInterface.bottomViewHegiht = 100;
     //    (3)设置底部横线条颜色
-    segmentInterface.bottomViewColor = [UIColor redColor];
+              segmentInterface.bottomViewColor = [UIColor redColor];
     //    (4)设置底部横线条用户自行修改是否开启
-    //        self.segMentInterface.isBottomViewFrame = YES;
+    //        segmentInterface.isBottomViewFrame = YES;
     //    (5)设置底部横线条的frame
-    //        self.segMentInterface.bottomViewFrame = CGRectMake(0, 0, 320, 100);
+    //        segmentInterface.bottomViewFrame = CGRectMake(0, 0, 320, 100);
     //    (6)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
-    //        [self.segMentInterface isBottomViewFrame:YES setBottomViewFrame:CGRectMake(0, 0, 320, 100)];
-    
-    
+    //        [segmentInterface isBottomViewFrame:YES setBottomViewFrame:CGRectMake(0, 0, 320, 100)];
     
     /**
      * !!!:2.头部横线设置
      */
     //    (1)头部横线条是否显示
-    //            self.segMentInterface.topViewHidden = YES;
+    //       segmentInterface.topViewHidden = YES;
     //    (2)设置头部横线条高度
-    //            self.segMentInterface.topViewHegiht = 100;
+    //       segmentInterface.topViewHegiht = 100;
     //    (3)设置头部横线条颜色
-    segmentInterface.topViewColor = [UIColor purpleColor];
+             segmentInterface.topViewColor = [UIColor purpleColor];
     //    (4)设置头部横线条用户自行修改是否开启
-    //        self.segMentInterface.isTopViewFrame = YES;
+    //       segmentInterface.isTopViewFrame = YES;
     //    (5)设置头部横线条的frame
-    //        self.segMentInterface.topViewFrame = CGRectMake(0, 0, 320, 100);
+    //       segmentInterface.topViewFrame = CGRectMake(0, 0, 320, 100);
     //    (6)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
-    //       [self.segMentInterface isTopViewFrame:YES setTopViewFrame:CGRectMake(0, 0, 320, 100)];
-    
+    //       [segmentInterface isTopViewFrame:YES setTopViewFrame:CGRectMake(0, 0, 320, 100)];
     
     /**
      * !!!:3.底部指示器设置
      */
     //(1)是否显示底部指示器
-    //        self.segMentInterface.indicatorHidden = NO;
+    //    segmentInterface.indicatorHidden = NO;
     //(1)设置底部指示器的颜色
-    segmentInterface.indicatorColor = [UIColor purpleColor];
+          segmentInterface.indicatorColor = [UIColor purpleColor];
     //(2)设置底部指示器的宽度
-    //    self.segMentInterface.indicatorWidth = 100;
+    //    segmentInterface.indicatorWidth = 100;
     //(3)开启底部指示器用户设置位置
-    //    self.segMentInterface.isindicatorFrame = YES;
+    //    segmentInterface.isindicatorFrame = YES;
     //(4)设置底部指示器的位置
-    //    self.segMentInterface.indicatorFrame = CGRectMake(0, 0, 100, 30);
+    //    segmentInterface.indicatorFrame = CGRectMake(0, 0, 100, 30);
     //(5)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
-    //    [self.segMentInterface isindicatorFrame:YES indicatorFrame:CGRectMake(0, 0, 100, 10)];
-    
+    //    [segmentInterface isindicatorFrame:YES indicatorFrame:CGRectMake(0, 0, 100, 10)];
     
     /**
      * !!!:4.childView子界面
@@ -109,8 +101,6 @@
     //    segmentInterface.childViewframe = CGRectMake(0, 0, 100, 100);
     //  (4)为了方便用户,我还提供了一个方法(一行代码也是可以用户设置frame的)
     //     [segmentInterface isChildViewframe:YES childViewframe:CGRectMake(0, 64, self.view.mjc_width, self.view.mjc_height)];
-    
-    
     
     /**
      * !!!:5.tabitem的设置
@@ -139,9 +129,6 @@
         [segmentInterface isTabItemFrame:YES tabItemFrame:CGRectMake(0, 10, 100, 55)];
 
 
-  
-  
-  
   
   
   
