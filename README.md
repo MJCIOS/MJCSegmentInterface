@@ -38,27 +38,31 @@
 
 ###分段控制器属性列表:(所有的属性展示)
     
-    //右边竖线属性:
+####右边竖线属性:
+    
     rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
     rightColor
     rightViewHegiht
     rightViewHidden(只用于这两种SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse)
     
-    //标题栏属性
+#####标题栏属性
+    
     isTitlesViewframe
     titlesViewframe
     isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置)
     titlesViewColor设置标题栏的背景色
     
-    //底部横线设置
-    bottomViewHidden
+#####底部横线设置
+    
+    bottomViewHidden
     bottomViewHegiht
     bottomViewColor
     isBottomViewFrame
     bottomViewFrame
     isBottomViewFrame:BOOL setBottomViewFrame:CGRect
 
-    //头部横线设置
+#####头部横线设置
+     
      topViewHidden
      topViewHegiht
      topViewColor
@@ -66,7 +70,8 @@
      topViewFrame
      isTopViewFrame:BOOL setTopViewFrame:CGRect
 
-    //底部指示器设置
+#####底部指示器设置
+    
     indicatorHidden
     indicatorColor
     indicatorWidth
@@ -74,13 +79,15 @@
     indicatorFrame
     isindicatorFrame:BOOL indicatorFrame:CGRect
 
-    //childView子界面
+#####childView子界面
+     
      childViewEnabled
      isChildViewframe
      childViewframe
      isChildViewframe:BOOL childViewframe:CGRect
 
-    //tabitem的设置
+#####tabitem的设置
+     
      tabItemImageNormal
      tabItemImageSelected
      tabItemBackColor
