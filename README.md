@@ -50,33 +50,37 @@
     isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置)
     titlesViewColor  设置标题栏的背景色
     
-        //底部横线设置
+    //底部横线设置
     bottomViewHidden 
     bottomViewHegiht
     bottomViewColor
     isBottomViewFrame
     bottomViewFrame
     isBottomViewFrame:BOOL setBottomViewFrame:CGRect
-         //头部横线设置
+
+    //头部横线设置
      topViewHidden
      topViewHegiht
      topViewColor
      isTopViewFrame
      topViewFrame
      isTopViewFrame:BOOL setTopViewFrame:CGRect
-        //底部指示器设置
+
+    //底部指示器设置
     indicatorHidden
     indicatorColor
     indicatorWidth
     isindicatorFrame
     indicatorFrame
     isindicatorFrame:BOOL indicatorFrame:CGRect
-        //childView子界面
+
+    //childView子界面
      childViewEnabled
      isChildViewframe
      childViewframe
      isChildViewframe:BOOL childViewframe:CGRect
-        //tabitem的设置
+
+    //tabitem的设置
      tabItemImageNormal
      tabItemImageSelected
      tabItemBackColor
