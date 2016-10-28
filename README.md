@@ -47,9 +47,9 @@
     
 #####标题栏属性:
     
-    isTitlesViewframe
-    titlesViewframe
-    isTitlesViewframe:BOOL titlesViewframe:CGRect
+    isTitlesViewframe(是否开启设置frame)
+    titlesViewframe(设置frame)
+    isTitlesViewframe:BOOL titlesViewframe:CGRect (等于上面两句)
     titlesViewColor
     
 #####底部横线设置:
@@ -57,8 +57,8 @@
     bottomViewHidden
     bottomViewHegiht
     bottomViewColor
-    isBottomViewFrame
-    bottomViewFrame
+    isBottomViewFrame(是否开启设置frame)
+    bottomViewFrame(设置frame)
     isBottomViewFrame:BOOL setBottomViewFrame:CGRect
     
 #####头部横线设置
@@ -66,8 +66,8 @@
     topViewHidden
     topViewHegiht
     topViewColor
-    isTopViewFrame
-    topViewFrame
+    isTopViewFrame(是否开启设置frame)
+    topViewFrame(设置frame)
     isTopViewFrame:BOOL setTopViewFrame:CGRect
     
 #####底部指示器设置
@@ -75,15 +75,15 @@
     indicatorHidden
     indicatorColor
     indicatorWidth
-    isindicatorFrame
-    indicatorFrame
+    isindicatorFrame(是否开启设置frame)
+    indicatorFrame(设置frame)
     isindicatorFrame:BOOL indicatorFrame:CGRect
     
 #####childView子界面
     
     childViewEnabled
-    isChildViewframe
-    childViewframe
+    isChildViewframe(是否开启设置frame)
+    childViewframe(设置frame)
     isChildViewframe:BOOL childViewframe:CGRect
     
 #####tabitem的设置
@@ -96,8 +96,8 @@
     tabItemTitleNormalColor
     tabItemTitleSelectedColor
     tabItemTitlesfont
-    isTabItemFrame
-    tabItemFrame
+    isTabItemFrame(是否开启设置frame)
+    tabItemFrame(设置frame)
     isTabItemFrame:BOOL tabItemFrame:CGRect
 
        
