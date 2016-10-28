@@ -17,15 +17,3 @@
     //
     [segmentInterface setAddChildViewController:vc3];
     
-
-
-
-效果展示:
- ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/github图片/shishi.png)
-
-    
-    
-
-
-
-
