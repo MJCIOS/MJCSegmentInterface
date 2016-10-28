@@ -54,9 +54,7 @@
         SegMentIndicatorItemStyle,
         SegMentIndicatorItemTextStyle
     } MJCSegmentIndicatorStyle;
-
-
-
+    
 ####右边竖线属性:
     
     rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
