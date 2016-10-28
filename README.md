@@ -22,8 +22,8 @@
     
     
 ###分段控制器属性用法:(要在添加标题栏之前自定义这些属性)
-
-    segmentInterface.rightViewShow = YES;
+    
+    segmentInterface.rightViewShow = YES;
     segmentInterface.rightViewHidden = YES;()
     
     segmentInterface.rightColor = [UIColor redColor];
