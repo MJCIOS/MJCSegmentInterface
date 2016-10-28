@@ -46,21 +46,21 @@
     rightViewHidden(只用于这两种SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse)
     
 #####标题栏属性:
-
-    isTitlesViewframe
-    titlesViewframe
-    isTitlesViewframe:BOOL titlesViewframe:CGRect
-    titlesViewColor
+     
+     isTitlesViewframe
+     titlesViewframe
+     isTitlesViewframe:BOOL titlesViewframe:CGRect
+     titlesViewColor
     
 #####底部横线设置:
-    
-    bottomViewHidden
-    bottomViewHegiht
-    bottomViewColor
-    isBottomViewFrame
-    bottomViewFrame
-    isBottomViewFrame:BOOL setBottomViewFrame:CGRect
-
+     
+     bottomViewHidden
+     bottomViewHegiht
+     bottomViewColor
+     isBottomViewFrame
+     bottomViewFrame
+     isBottomViewFrame:BOOL setBottomViewFrame:CGRect
+    
 #####头部横线设置
      
      topViewHidden
@@ -69,23 +69,23 @@
      isTopViewFrame
      topViewFrame
      isTopViewFrame:BOOL setTopViewFrame:CGRect
-
+     
 #####底部指示器设置
-    
-    indicatorHidden
-    indicatorColor
-    indicatorWidth
-    isindicatorFrame
-    indicatorFrame
-    isindicatorFrame:BOOL indicatorFrame:CGRect
-
+     
+     indicatorHidden
+     indicatorColor
+     indicatorWidth
+     isindicatorFrame
+     indicatorFrame
+     isindicatorFrame:BOOL indicatorFrame:CGRect
+    
 #####childView子界面
      
      childViewEnabled
      isChildViewframe
      childViewframe
      isChildViewframe:BOOL childViewframe:CGRect
-
+     
 #####tabitem的设置
      
      tabItemImageNormal
