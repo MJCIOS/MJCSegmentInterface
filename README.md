@@ -17,3 +17,5 @@
     //
     [segmentInterface setAddChildViewController:vc3];
     
+  
+  https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg
