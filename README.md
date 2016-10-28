@@ -14,8 +14,7 @@
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     //在这之间传数据
     vc3.style = style;
-    //
     [segmentInterface setAddChildViewController:vc3];
     
   
-  ![image](https://github.com/MJCIOS/MJCSegmentInterface/master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg)
+  ![image](https://github.com/MJCIOS/MJCSegmentInterface//master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg)
