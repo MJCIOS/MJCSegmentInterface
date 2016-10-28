@@ -1,2 +1,2 @@
 # MJC
-MJCSegmentInterface分段控制器
+☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
