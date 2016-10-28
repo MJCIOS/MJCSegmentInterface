@@ -49,7 +49,7 @@
     
     isTitlesViewframe
     titlesViewframe
-    isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置) 
+    isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>
     titlesViewColor
     
 #####底部横线设置
@@ -59,7 +59,6 @@
     bottomViewColor
     isBottomViewFrame
     bottomViewFrame
-    
     isBottomViewFrame:BOOL setBottomViewFrame:CGRect
 
 #####头部横线设置
