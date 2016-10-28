@@ -65,8 +65,8 @@
 #####标题栏属性:
     
     isTitlesViewframe(是否开启设置frame)
-    titlesViewframe(设置frame)
-    isTitlesViewframe:BOOL titlesViewframe:CGRect (等于上面两句)
+    titlesViewframe(设置frame)
+    isTitlesViewframe:BOOL titlesViewframe:CGRect (等于上面两句)
     titlesViewColor
     
 #####底部横线设置:
