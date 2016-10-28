@@ -204,14 +204,14 @@
 			children = (
 				25A91C4E1DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.h */,
 				25A91C4F1DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m */,
-				25A91C501DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.h */,
-				25A91C511DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m */,
+				25A91C561DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.h */,
+				25A91C571DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.m */,
 				25A91C521DC2FFCB0009313D /* SegMentInterfaceStyleLessVC.h */,
 				25A91C531DC2FFCB0009313D /* SegMentInterfaceStyleLessVC.m */,
 				25A91C541DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.h */,
 				25A91C551DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m */,
-				25A91C561DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.h */,
-				25A91C571DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.m */,
+				25A91C501DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.h */,
+				25A91C511DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m */,
 			);
 			path = demo;
 			sourceTree = "<group>";

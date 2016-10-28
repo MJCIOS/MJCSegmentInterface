@@ -37,7 +37,7 @@
     if (self.style == 0) {
         
         self.tableView2 = [[UITableView alloc]init];
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,114,0);
+        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,(MJCNavMaxY+MJCTitlesViewH),0);
         self.tableView2.backgroundColor = [UIColor redColor];
         self.tableView2.frame = self.view.bounds;
         self.tableView2.delegate = self;
@@ -45,12 +45,14 @@
         [self.view addSubview:self.tableView2];
         
         UIView *view1 = [[UIView alloc]init];
-        view1.frame = CGRectMake(0,500, 375, 50);
+        view1.mjc_height = 50;
+        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY),MJCScreenWidth,view1.mjc_height);
         view1.backgroundColor = [[UIColor blueColor]colorWithAlphaComponent:0.2];
         [self.view addSubview:view1];
         
         UILabel *lablew1 = [[UILabel alloc]init];
-        lablew1.frame = CGRectMake((view1.mjc_width - 100) * 0.5,0,100,50);
+        lablew1.mjc_width = 100;
+        lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
         lablew1.textAlignment = NSTextAlignmentCenter;
         lablew1.font = [UIFont systemFontOfSize:16];
         lablew1.textColor = [UIColor blackColor];
@@ -61,9 +63,6 @@
     }
     
 
-    
-    
-    
     if (self.style == 3) {
         
         /**
@@ -72,7 +71,7 @@
          *
          */
         self.tableView2 = [[UITableView alloc]init];
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,64,0);
+        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,MJCNavMaxY,0);
         self.tableView2.backgroundColor = [UIColor redColor];
         self.tableView2.frame = self.view.bounds;
         self.tableView2.delegate = self;
@@ -81,7 +80,8 @@
         
         
         UIView *view1 = [[UIView alloc]init];
-        view1.frame = CGRectMake(0,550,375, 50);
+        view1.mjc_height = 50;
+        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCNavMaxY),MJCScreenWidth,view1.mjc_height);
         view1.backgroundColor = [[UIColor blueColor]colorWithAlphaComponent:0.2];
         [self.view addSubview:view1];
         
@@ -96,38 +96,33 @@
         [view1 addSubview:lablew1];
 
         
-        
         return;
     }
 
-    
-    
     if (self.style == 5) {
         
-
         /**
          * 根据样式修改子控件大小位置,还有一些内边距
          *  超少用样式修改后的大小位置,是因为,我们将子界面Y轴往上调了 ,64 -49 = 15
          *
          */
         self.tableView2 = [[UITableView alloc]init];
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,49,0);
+        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,MJCTabBarH,0);
         self.tableView2.backgroundColor = [UIColor redColor];
         self.tableView2.frame = self.view.bounds;
         self.tableView2.delegate = self;
         self.tableView2.dataSource = self;
         [self.view addSubview:self.tableView2];
         
-        
         UIView *view1 = [[UIView alloc]init];
-        view1.frame = CGRectMake(0,self.tableView2.mjc_height - 100,self.view.mjc_size.width, 50);
+        view1.frame = CGRectMake(0,self.tableView2.mjc_height - 100,MJCScreenWidth, 50);
         view1.backgroundColor = [[UIColor blueColor]colorWithAlphaComponent:0.2];
         [self.view addSubview:view1];
         
         
-        
         UILabel *lablew1 = [[UILabel alloc]init];
-        lablew1.frame = CGRectMake((view1.mjc_width - 100) * 0.5,0,100,50);
+        lablew1.mjc_width = 100;
+        lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
         lablew1.textAlignment = NSTextAlignmentCenter;
         lablew1.font = [UIFont systemFontOfSize:16];
         lablew1.textColor = [UIColor blackColor];
@@ -137,8 +132,6 @@
         
         return;
     }
-
-    
 
 }
 

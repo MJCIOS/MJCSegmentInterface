@@ -41,7 +41,6 @@
             
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
         }else if (SegmentInterFaceStyle == SegMentInterfaceStyleLess){
-            
             self.frame =  CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
@@ -50,7 +49,6 @@
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
         
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleExceedUse){
-            
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH));
         }else{
             

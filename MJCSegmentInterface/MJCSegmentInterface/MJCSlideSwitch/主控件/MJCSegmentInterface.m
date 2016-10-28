@@ -114,7 +114,7 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.delegate = self;
-//    //    scrollView.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
+    //    scrollView.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     scrollView.contentSize = CGSizeMake(scollViewArr.count * scrollView.mjc_width, 0);
     [self addSubview:scrollView];
 }

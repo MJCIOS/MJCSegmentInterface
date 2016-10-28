@@ -11,6 +11,6 @@
 @interface UITestViewController1 : UIViewController
 
 /** 注释 */
-@property (nonatomic,copy) NSString *asdsad;
+@property (nonatomic,assign) NSInteger style;
 
 @end

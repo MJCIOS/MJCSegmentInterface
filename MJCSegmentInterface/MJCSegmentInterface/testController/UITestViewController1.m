@@ -25,6 +25,7 @@
     [self.view setBackgroundColor:[UIColor blueColor]];
     
     
+    
     /**
      * 根据样式修改子控件大小位置,还有一些内边距
      *
@@ -50,6 +51,7 @@
 //        self.tableView1.dataSource = self;
 //    
 //        [self.view addSubview:self.tableView1];
+    
     
     
     /**
