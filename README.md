@@ -26,16 +26,11 @@
     segmentInterface.rightViewShow = YES;
     segmentInterface.rightColor = [UIColor redColor];
     segmentInterface.rightViewHegiht = 10;
+    [segmentInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0, 321, 40)];//自定义位置大小尺寸 
+    segmentInterface.tabItemImageNormal = [MJCSegmentInterface imageWithColor:[UIColor orangeColor]];//(1)设置tabItem按钮的背景图片 (如果你不想用图片,想要用颜色,我也提供一个方法)
+    segmentInterface.tabItemImageNormal = [UIImage imageNamed:@"111"];//设置tabItem图片
     
-    //自定义位置大小尺寸
-    [segmentInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0, 321, 40)];  
-    
-    //(1)设置tabItem按钮的背景图片 (如果你不想用图片,想要用颜色,我也提供一个方法)
-    segmentInterface.tabItemImageNormal = [MJCSegmentInterface imageWithColor:[UIColor orangeColor]];
-    //设置tabItem图片
-    segmentInterface.tabItemImageNormal = [UIImage imageNamed:@"111"];
-    //设置tabitem多张图片
-    NSArray *imageArr = @[@"111",@"222",@"333",@"444",@"555",@"666",@"777"];
+    NSArray *imageArr = @[@"111",@"222",@"333",@"444",@"555",@"666",@"777"];//设置tabitem多张图片
     segmentInterface.tabItemImageArray = imageArr;
 
 
