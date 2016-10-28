@@ -34,7 +34,7 @@
     
     
 }
-
+//
 - (IBAction)button11:(id)sender {
     
     SegMentInterfaceStyleClassicVC *vc1 = [SegMentInterfaceStyleClassicVC new];
