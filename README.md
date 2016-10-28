@@ -45,14 +45,14 @@
     rightViewHegiht
     rightViewHidden(只用于这两种SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse)
     
-#####标题栏属性
-    
+#####标题栏属性:
+
     isTitlesViewframe
     titlesViewframe
-    isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>
+    isTitlesViewframe:BOOL titlesViewframe:CGRect
     titlesViewColor
     
-#####底部横线设置
+#####底部横线设置:
     
     bottomViewHidden
     bottomViewHegiht
