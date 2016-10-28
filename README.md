@@ -38,13 +38,13 @@
 
 分段控制器属性列表:(所有的属性展示)
     
-        //右边竖线属性:
+    //右边竖线属性:
     rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
     rightColor
     rightViewHegiht
     rightViewHidden(只用于这两种SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse)
     
-        //标题栏属性
+    //标题栏属性
     isTitlesViewframe
     titlesViewframe
     isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置)
