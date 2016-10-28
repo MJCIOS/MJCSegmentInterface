@@ -18,4 +18,4 @@
     [segmentInterface setAddChildViewController:vc3];
     
   
-  ![image](https://github.com/MJCIOS/MJCSegmentInterface/MJC/GItHub/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg)
+  ![image](https://github.com/MJCIOS/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg)
