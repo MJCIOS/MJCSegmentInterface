@@ -48,10 +48,10 @@
     isTitlesViewframe
     titlesViewframe
     isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置)
-    titlesViewColor  设置标题栏的背景色
+    titlesViewColor设置标题栏的背景色
     
     //底部横线设置
-    bottomViewHidden 
+    bottomViewHidden
     bottomViewHegiht
     bottomViewColor
     isBottomViewFrame
