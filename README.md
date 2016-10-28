@@ -31,6 +31,7 @@
     //(1)设置tabItem按钮的背景图片 (如果你不想用图片,想要用颜色,我也提供一个方法)
     segmentInterface.tabItemImageNormal = [MJCSegmentInterface imageWithColor:[UIColor orangeColor]];
     segmentInterface.tabItemImageNormal = [UIImage imageNamed:@"111"];
+    
     //设置tabitem多张图片
     NSArray *imageArr = @[@"111",@"222",@"333",@"444",@"555",@"666",@"777"];
     segmentInterface.tabItemImageArray = imageArr;
