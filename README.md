@@ -17,7 +17,11 @@
     //
     [segmentInterface setAddChildViewController:vc3];
     
-    
+
+
+
+效果展示:
+  ![](http://www.baidu.com/img/bdlogo.gif) 
     
     
 
