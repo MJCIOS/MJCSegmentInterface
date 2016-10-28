@@ -49,8 +49,9 @@
     
     isTitlesViewframe
     titlesViewframe
-    isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>(这句等于上面两句,自定义尺寸位置)
-    titlesViewColor设置标题栏的背景色
+    (这句等于上面两句,自定义尺寸位置)
+    isTitlesViewframe:<#(BOOL)#> titlesViewframe:<#(CGRect)#>
+    titlesViewColor
     
 #####底部横线设置
     
