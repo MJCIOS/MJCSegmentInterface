@@ -12,8 +12,6 @@
 @interface MJCChildScrollView : UIScrollView
 
 
-
-//设置位置
 -(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
 

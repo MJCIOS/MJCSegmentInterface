@@ -34,14 +34,14 @@
 
 -(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
 {
-    //如果不同意用户设置frame
+    
     if (isChildFrame == kNilOptions) {
-        //如果是默认样式(设置界面样式)
+        
         if (SegmentInterFaceStyle ==  SegMentInterfaceStyleClassic) {
-            //子界面位置()
+            
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
         }else if (SegmentInterFaceStyle == SegMentInterfaceStyleLess){
-            //那就给它设置了frame
+            
             self.frame =  CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
@@ -50,15 +50,15 @@
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
         
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleExceedUse){
-            //子界面位置()
+            
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH));
         }else{
-            //子界面位置()
+            
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
         }
         
     }else{
-        //传入用户设置的frame
+        
         self.frame = childFrame;
     }
 }

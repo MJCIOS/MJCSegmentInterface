@@ -36,7 +36,6 @@
 
 -(void)setBottomHidden:(BOOL)bottomHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 {
-    //如果是SegMentInterfaceStyleLess少用样式
     if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
         
         if (bottomHidden == kNilOptions) {

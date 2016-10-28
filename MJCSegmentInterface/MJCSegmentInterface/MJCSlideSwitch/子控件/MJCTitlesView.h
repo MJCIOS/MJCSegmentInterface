@@ -12,11 +12,8 @@
 @interface MJCTitlesView : UIView
 
 
-
-//设置标题颜色
 -(void)setTitlesViewColor:(UIColor *)titlesViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
-//设置frame
 -(void)isTitlesViewframe:(BOOL)isTitlesViewframe titlesViewframe:(CGRect)titlesViewframe;
 
 

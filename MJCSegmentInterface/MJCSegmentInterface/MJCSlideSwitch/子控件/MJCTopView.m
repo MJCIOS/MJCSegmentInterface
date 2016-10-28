@@ -41,7 +41,6 @@
 -(void)settopHidden:(BOOL)topHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
 {
     
-    //SegMentInterfaceStyleLess少用样式
     if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
         if (topHidden == kNilOptions) {
             self.hidden = NO;
@@ -68,16 +67,14 @@
 
 -(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView
 {
-    //如果用户未开启自己设置frame
     if (isTopFrame == kNilOptions) {
-        //如果未设置了底部高度(设置为1)
+    
         if (topHegiht == kNilOptions) {
             self.mjc_x = titlesView.mjc_x;
             self.mjc_height = 1;
             self.mjc_y = titlesView.mjc_y;
             self.mjc_width = titlesView.mjc_width ;
         }else{
-            //如果未设置了底部高度(那我们就将用户设置的传进去)
             self.mjc_x = titlesView.mjc_x;
             self.mjc_height = topHegiht;
             self.mjc_y = titlesView.mjc_y;

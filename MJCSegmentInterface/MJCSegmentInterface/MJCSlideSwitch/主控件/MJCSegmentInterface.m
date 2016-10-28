@@ -89,71 +89,43 @@
 -(void)setAddChildViewController:(UIViewController *)addChildViewController
 {
     _addChildViewController = addChildViewController;
-    
-    //实例化mainVC,为当前view创建一个主控制器
     _addChildViewController = [self viewController:self];
-    
     [_addChildViewController addChildViewController:addChildViewController];
-    
-    //添加子控制器的view
     [self addChildVcView];
 }
-
-/**
- *  !!!:添加子控制器的view
- */
 - (void)addChildVcView
 {
     
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
-    
-    
     UIViewController *childVc = _addChildViewController.childViewControllers[index];
-    
     if ([childVc isViewLoaded]) return;
-    
-    
     childVc.view.frame = self.scrollView.bounds;
-    
-    
     [self.scrollView addSubview:childVc.view];
 }
 
 #pragma mark -- 子控制器的滚动界面
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
-    
     _addChildViewController.automaticallyAdjustsScrollViewInsets = NO;
-    
-
     MJCChildScrollView *scrollView = [[MJCChildScrollView alloc] init];
     self.scrollView = scrollView;
     scrollView.backgroundColor = [UIColor whiteColor];
-
     [self isChildViewframe:_isChildViewframe childViewframe:_childViewframe];
-
     scrollView.pagingEnabled = YES;
-
     scrollView.scrollEnabled = _childViewEnabled;
-
     scrollView.showsHorizontalScrollIndicator = NO;
-
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.delegate = self;
 //    //    scrollView.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     scrollView.contentSize = CGSizeMake(scollViewArr.count * scrollView.mjc_width, 0);
-    
     [self addSubview:scrollView];
 }
 -(void)isChildViewframe:(BOOL)isChildViewframe childViewframe:(CGRect)childViewframe
 {
     _isChildViewframe = isChildViewframe;
     _childViewframe = childViewframe;
-    
     [self.scrollView isChildFrame:isChildViewframe setChildFrame:childViewframe SegmentInterFaceStyle:_SegmentInterFaceStyle];
 }
-
-
 #pragma mark -- 标题栏设置创建
 -(void)addTitlesArray:(NSArray *)titlesArray
 {

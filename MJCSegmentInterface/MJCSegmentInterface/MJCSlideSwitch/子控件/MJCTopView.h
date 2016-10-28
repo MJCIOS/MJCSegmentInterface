@@ -12,14 +12,12 @@
 @interface MJCTopView : UIView
 
 
-/** 背景色 */
 @property (nonatomic,strong) UIColor *topBackgroundColor;
 
 
 
 -(void)settopHidden:(BOOL)topHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
-//设置底部横线的frame
 -(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView;
 
 

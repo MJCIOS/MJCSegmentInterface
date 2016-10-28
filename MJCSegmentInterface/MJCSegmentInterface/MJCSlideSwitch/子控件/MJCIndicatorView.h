@@ -16,10 +16,10 @@
 
 -(void)setIndicatorViewHidden:(BOOL)indicatorViewHidden;
 
-//设置位置
+
 -(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
 
-//设置底部指示器的颜色
+
 -(void)setIndicatorColor:(UIColor *)indicatorColor firstTitleButton:(UIButton*)firstTitleButton;
 
 
