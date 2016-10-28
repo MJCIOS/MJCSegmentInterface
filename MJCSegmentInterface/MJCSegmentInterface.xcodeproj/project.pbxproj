@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		25A91C251DC2EC090009313D /* woyuanyi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A91C241DC2EC090009313D /* woyuanyi.jpg */; };
+		25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */; };
+		25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */; };
+		25A91C441DC2FA1F0009313D /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C311DC2FA1F0009313D /* MJCBottomView.m */; };
+		25A91C451DC2FA1F0009313D /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */; };
+		25A91C461DC2FA1F0009313D /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */; };
+		25A91C471DC2FA1F0009313D /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C371DC2FA1F0009313D /* MJCRightView.m */; };
+		25A91C481DC2FA1F0009313D /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C391DC2FA1F0009313D /* MJCTitlesView.m */; };
+		25A91C491DC2FA1F0009313D /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C3B1DC2FA1F0009313D /* MJCTopView.m */; };
+		25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */; };
+		25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C411DC2FA1F0009313D /* MJCConst.m */; };
 		25D9DB471DC2635C00B903B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB461DC2635C00B903B1 /* main.m */; };
 		25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB491DC2635C00B903B1 /* AppDelegate.m */; };
 		25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB4C1DC2635C00B903B1 /* ViewController.m */; };
@@ -37,6 +47,26 @@
 
 /* Begin PBXFileReference section */
 		25A91C241DC2EC090009313D /* woyuanyi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woyuanyi.jpg; sourceTree = "<group>"; };
+		25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
+		25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
+		25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSlideInterface.h; sourceTree = "<group>"; };
+		25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSlideInterface.m; sourceTree = "<group>"; };
+		25A91C301DC2FA1F0009313D /* MJCBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCBottomView.h; sourceTree = "<group>"; };
+		25A91C311DC2FA1F0009313D /* MJCBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCBottomView.m; sourceTree = "<group>"; };
+		25A91C321DC2FA1F0009313D /* MJCChildScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildScrollView.h; sourceTree = "<group>"; };
+		25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildScrollView.m; sourceTree = "<group>"; };
+		25A91C341DC2FA1F0009313D /* MJCIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicatorView.h; sourceTree = "<group>"; };
+		25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCIndicatorView.m; sourceTree = "<group>"; };
+		25A91C361DC2FA1F0009313D /* MJCRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCRightView.h; sourceTree = "<group>"; };
+		25A91C371DC2FA1F0009313D /* MJCRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCRightView.m; sourceTree = "<group>"; };
+		25A91C381DC2FA1F0009313D /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
+		25A91C391DC2FA1F0009313D /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
+		25A91C3A1DC2FA1F0009313D /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
+		25A91C3B1DC2FA1F0009313D /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
+		25A91C3D1DC2FA1F0009313D /* UIView+MJCExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCExtenSion.h"; sourceTree = "<group>"; };
+		25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCExtenSion.m"; sourceTree = "<group>"; };
+		25A91C401DC2FA1F0009313D /* MJCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCConst.h; sourceTree = "<group>"; };
+		25A91C411DC2FA1F0009313D /* MJCConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCConst.m; sourceTree = "<group>"; };
 		25D9DB421DC2635C00B903B1 /* MJCSegmentInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJCSegmentInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D9DB461DC2635C00B903B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25D9DB481DC2635C00B903B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +110,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25A91C271DC2F9F20009313D /* testController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = testController;
+			sourceTree = "<group>";
+		};
+		25A91C281DC2F9F40009313D /* demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = demo;
+			sourceTree = "<group>";
+		};
+		25A91C291DC2FA1F0009313D /* MJCSlideSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				25A91C2A1DC2FA1F0009313D /* 主控件 */,
+				25A91C2F1DC2FA1F0009313D /* 子控件 */,
+				25A91C3C1DC2FA1F0009313D /* 设置尺寸 */,
+				25A91C3F1DC2FA1F0009313D /* 通用属性 */,
+			);
+			path = MJCSlideSwitch;
+			sourceTree = "<group>";
+		};
+		25A91C2A1DC2FA1F0009313D /* 主控件 */ = {
+			isa = PBXGroup;
+			children = (
+				25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */,
+				25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */,
+				25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */,
+				25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */,
+			);
+			path = "主控件";
+			sourceTree = "<group>";
+		};
+		25A91C2F1DC2FA1F0009313D /* 子控件 */ = {
+			isa = PBXGroup;
+			children = (
+				25A91C301DC2FA1F0009313D /* MJCBottomView.h */,
+				25A91C311DC2FA1F0009313D /* MJCBottomView.m */,
+				25A91C321DC2FA1F0009313D /* MJCChildScrollView.h */,
+				25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */,
+				25A91C341DC2FA1F0009313D /* MJCIndicatorView.h */,
+				25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */,
+				25A91C361DC2FA1F0009313D /* MJCRightView.h */,
+				25A91C371DC2FA1F0009313D /* MJCRightView.m */,
+				25A91C381DC2FA1F0009313D /* MJCTitlesView.h */,
+				25A91C391DC2FA1F0009313D /* MJCTitlesView.m */,
+				25A91C3A1DC2FA1F0009313D /* MJCTopView.h */,
+				25A91C3B1DC2FA1F0009313D /* MJCTopView.m */,
+			);
+			path = "子控件";
+			sourceTree = "<group>";
+		};
+		25A91C3C1DC2FA1F0009313D /* 设置尺寸 */ = {
+			isa = PBXGroup;
+			children = (
+				25A91C3D1DC2FA1F0009313D /* UIView+MJCExtenSion.h */,
+				25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */,
+			);
+			path = "设置尺寸";
+			sourceTree = "<group>";
+		};
+		25A91C3F1DC2FA1F0009313D /* 通用属性 */ = {
+			isa = PBXGroup;
+			children = (
+				25A91C401DC2FA1F0009313D /* MJCConst.h */,
+				25A91C411DC2FA1F0009313D /* MJCConst.m */,
+			);
+			path = "通用属性";
+			sourceTree = "<group>";
+		};
 		25D9DB391DC2635C00B903B1 = {
 			isa = PBXGroup;
 			children = (
@@ -103,15 +206,12 @@
 		25D9DB441DC2635C00B903B1 /* MJCSegmentInterface */ = {
 			isa = PBXGroup;
 			children = (
-				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
-				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
+				25A91C291DC2FA1F0009313D /* MJCSlideSwitch */,
+				25A91C281DC2F9F40009313D /* demo */,
+				25A91C271DC2F9F20009313D /* testController */,
 				25D9DB4B1DC2635C00B903B1 /* ViewController.h */,
 				25D9DB4C1DC2635C00B903B1 /* ViewController.m */,
 				25D9DB4E1DC2635C00B903B1 /* Main.storyboard */,
-				25D9DB511DC2635C00B903B1 /* Assets.xcassets */,
-				25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */,
-				25A91C241DC2EC090009313D /* woyuanyi.jpg */,
-				25D9DB561DC2635C00B903B1 /* Info.plist */,
 				25D9DB451DC2635C00B903B1 /* Supporting Files */,
 			);
 			path = MJCSegmentInterface;
@@ -120,6 +220,12 @@
 		25D9DB451DC2635C00B903B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
+				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
+				25A91C241DC2EC090009313D /* woyuanyi.jpg */,
+				25D9DB511DC2635C00B903B1 /* Assets.xcassets */,
+				25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */,
+				25D9DB561DC2635C00B903B1 /* Info.plist */,
 				25D9DB461DC2635C00B903B1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -277,9 +383,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A91C491DC2FA1F0009313D /* MJCTopView.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
+				25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */,
+				25A91C481DC2FA1F0009313D /* MJCTitlesView.m in Sources */,
+				25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */,
+				25A91C441DC2FA1F0009313D /* MJCBottomView.m in Sources */,
+				25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */,
+				25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
+				25A91C451DC2FA1F0009313D /* MJCChildScrollView.m in Sources */,
+				25A91C461DC2FA1F0009313D /* MJCIndicatorView.m in Sources */,
+				25A91C471DC2FA1F0009313D /* MJCRightView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
