@@ -21,7 +21,7 @@
 
 
 效果展示:
- ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/gitHub/github图片/shishi.png)
+ ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/github图片/shishi.png)
 
     
     
