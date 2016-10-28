@@ -464,20 +464,20 @@ static const CGFloat btnMargain = 0;
 #pragma mark -- 底部横线的设置创建
 -(void)setupBottomView:(UIScrollView *)titleScrollView
 {
-    // !!!:底部横线
+    
     UIView *bottomView = [[UIView alloc]init];
     self.bottomView = bottomView;
-    //设置底部横线的颜色
+    
     [self setBottomViewColor:_bottomViewColor];
-    //设置底部横线的位置
+    
     [self isBottomViewFrame:_isBottomViewFrame setBottomViewFrame:_bottomViewFrame];
-    //设置底部横线是否隐藏
+    
     [self setBottomViewHidden:_bottomViewHidden];
     [titleScrollView addSubview:bottomView];
 }
 
 
-//设置底部横线是否隐藏
+
 -(void)setBottomViewHidden:(BOOL)bottomViewHidden
 {
     _bottomViewHidden = bottomViewHidden;
@@ -488,7 +488,7 @@ static const CGFloat btnMargain = 0;
     }
 }
 
-//设置底部横线的颜色
+
 -(void)setBottomViewColor:(UIColor *)bottomViewColor
 {
     _bottomViewColor = bottomViewColor;
@@ -500,22 +500,22 @@ static const CGFloat btnMargain = 0;
     }
 }
 
-//设置底部横线的frame
+
 -(void)isBottomViewFrame:(BOOL)isBottomViewFrame setBottomViewFrame:(CGRect)setBottomViewFrame
 {
     self.isBottomViewFrame = isBottomViewFrame;
     self.bottomViewFrame = setBottomViewFrame;
     
-    //如果用户未开启自己设置frame
+    
     if (isBottomViewFrame == kNilOptions) {
-        //如果未设置了底部高度(设置为1)
+        
         if (_bottomViewHegiht == kNilOptions) {
             self.bottomView.mjc_x = self.titlesScrollView.mjc_x;
             self.bottomView.mjc_height = 1;
             self.bottomView.mjc_y = self.titlesScrollView.mjc_height - self.bottomView.mjc_height;
             self.bottomView.mjc_width = self.titlesScrollView.contentSize.width ;
         }else{
-            //如果未设置了底部高度(那我们就将用户设置的传进去)
+        
             self.bottomView.mjc_x = self.titlesScrollView.mjc_x;
             self.bottomView.mjc_height = _bottomViewHegiht;
             self.bottomView.mjc_y = self.titlesScrollView.mjc_height - self.bottomView.mjc_height;
@@ -532,21 +532,17 @@ static const CGFloat btnMargain = 0;
 #pragma mark -- 底部指示器创建设置
 -(void)setupindicatorView:(UIScrollView *)titlesScrollView
 {
-    // !!!:这是第一个按钮
     UIButton *firstTitleButton = _titlesScrollView.subviews.firstObject;
-    // 立刻根据文字内容计算label的宽度
+
     [firstTitleButton.titleLabel sizeToFit];
-    // 默认情况: 选中最前面的标题按钮
+
     firstTitleButton.selected = YES;
     self.firstTitleButton = firstTitleButton;
     
-    // !!!: 底部的指示器
     UIView *indicatorView = [[UIView alloc] init];
     self.indicatorView = indicatorView;
-    
-    //设置底部指示器的颜色
     [self setIndicatorColor:_indicatorColor];
-    //设置底部指示器的frame
+    
     [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
 
     [_titlesScrollView addSubview:indicatorView];
@@ -559,7 +555,6 @@ static const CGFloat btnMargain = 0;
     
 }
 
-//设置底部指示器的frame
 -(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame
 {
     _isindicatorFrame = isindicatorFrame;
@@ -567,14 +562,14 @@ static const CGFloat btnMargain = 0;
 
     if (_isindicatorFrame == kNilOptions) {
         if (_indicatorWidth == kNilOptions) {
-            //默认设置的宽度大小(中心X要最后设置,要不然会出问题)
+            
             self.indicatorView.mjc_height = 1;
             self.indicatorView.mjc_y = _titlesScrollView.mjc_height - self.indicatorView.mjc_height;
             self.indicatorView.mjc_width = self.firstTitleButton.titleLabel.mjc_width;
             self.indicatorView.mjc_centerX = self.firstTitleButton.mjc_centerX;
 
         }else{
-            //用户传入的宽度
+            
             self.indicatorView.mjc_height = 1;
             self.indicatorView.mjc_y = _titlesScrollView.mjc_height - self.indicatorView.mjc_height;
             self.indicatorView.mjc_width = _indicatorWidth;
@@ -582,13 +577,13 @@ static const CGFloat btnMargain = 0;
         }
 
     }else{
-        //用户传入的frame
+        
         self.indicatorView.frame = indicatorFrame;
     }
     
 }
 
-//设置底部指示器的颜色
+
 -(void)setIndicatorColor:(UIColor *)indicatorColor
 {
     _indicatorColor = indicatorColor;
@@ -599,21 +594,20 @@ static const CGFloat btnMargain = 0;
     }
 }
 
-/** 按钮的点击事件 */
 - (void)titleClick:(UIButton *)titleButton
 {
-    // 控制按钮状态
+
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
     
-    // 指示器动画
+
     [UIView animateWithDuration:0.25 animations:^{
         [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
         self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
     }];
     
-    // 让UIScrollView滚动到对应位置
+
     CGPoint offset = self.scrollView.contentOffset;
     offset.x = titleButton.tag * self.scrollView.mjc_width;
     [self.scrollView setContentOffset:offset animated:YES];
@@ -636,12 +630,10 @@ static const CGFloat btnMargain = 0;
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    // 选中\点击对应的按钮
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
     UIButton *titleButton = self.titlesScrollView.subviews[index];
     [self titleClick:titleButton];
     
-    // 添加子控制器的view
     [self addChildVcView];
     
 }
