@@ -11,7 +11,7 @@
 
 @interface MJCChildScrollView : UIScrollView
 
-
+//
 -(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
 
