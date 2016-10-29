@@ -14,7 +14,7 @@
     [segmentInterface addTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
-    //添加控制器
+    //添加控制器(添加多少个标题,我们就创多少个控制器)
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     //在这之间传数据
     vc3.style = style;
@@ -44,9 +44,9 @@
     typedef enum {
         SegMentInterfaceStyleClassic,//经典样式
         SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
-        SegMentInterfaceStyleLess,   //少用样式(格子竖线标题栏)
-        SegMentInterfaceStyleMoreUse,//更少用样式(格子穿透标题栏)
-        SegMentInterfaceStyleExceedUse //超少用样式(适用于上面没有导航栏的情况)
+        SegMentInterfaceStyleLess,   //(格子竖线标题栏)
+        SegMentInterfaceStyleMoreUse,//(格子穿透标题栏)
+        SegMentInterfaceStyleExceedUse //(适用于上面没有导航栏的情况)
     } MJCSegmentInterfaceStyle;
 
     //底部指示器样式
