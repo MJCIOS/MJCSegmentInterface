@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */; };
+		2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */; };
+		2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */; };
+		2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1151DC4A8B300977EB8 /* MJCRightView.m */; };
+		2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */; };
+		2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1191DC4A8B300977EB8 /* MJCTopView.m */; };
 		25A91C251DC2EC090009313D /* woyuanyi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A91C241DC2EC090009313D /* woyuanyi.jpg */; };
 		25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */; };
 		25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */; };
-		25A91C441DC2FA1F0009313D /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C311DC2FA1F0009313D /* MJCBottomView.m */; };
-		25A91C451DC2FA1F0009313D /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */; };
-		25A91C461DC2FA1F0009313D /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */; };
-		25A91C471DC2FA1F0009313D /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C371DC2FA1F0009313D /* MJCRightView.m */; };
-		25A91C481DC2FA1F0009313D /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C391DC2FA1F0009313D /* MJCTitlesView.m */; };
-		25A91C491DC2FA1F0009313D /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C3B1DC2FA1F0009313D /* MJCTopView.m */; };
 		25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */; };
 		25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C411DC2FA1F0009313D /* MJCConst.m */; };
 		25A91C581DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C4F1DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m */; };
@@ -56,23 +56,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCBottomView.h; sourceTree = "<group>"; };
+		2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCBottomView.m; sourceTree = "<group>"; };
+		2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildScrollView.h; sourceTree = "<group>"; };
+		2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildScrollView.m; sourceTree = "<group>"; };
+		2555F1121DC4A8B300977EB8 /* MJCIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicatorView.h; sourceTree = "<group>"; };
+		2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCIndicatorView.m; sourceTree = "<group>"; };
+		2555F1141DC4A8B300977EB8 /* MJCRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCRightView.h; sourceTree = "<group>"; };
+		2555F1151DC4A8B300977EB8 /* MJCRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCRightView.m; sourceTree = "<group>"; };
+		2555F1161DC4A8B300977EB8 /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
+		2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
+		2555F1181DC4A8B300977EB8 /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
+		2555F1191DC4A8B300977EB8 /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
 		25A91C241DC2EC090009313D /* woyuanyi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woyuanyi.jpg; sourceTree = "<group>"; };
 		25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
 		25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
 		25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSlideInterface.h; sourceTree = "<group>"; };
 		25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSlideInterface.m; sourceTree = "<group>"; };
-		25A91C301DC2FA1F0009313D /* MJCBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCBottomView.h; sourceTree = "<group>"; };
-		25A91C311DC2FA1F0009313D /* MJCBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCBottomView.m; sourceTree = "<group>"; };
-		25A91C321DC2FA1F0009313D /* MJCChildScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildScrollView.h; sourceTree = "<group>"; };
-		25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildScrollView.m; sourceTree = "<group>"; };
-		25A91C341DC2FA1F0009313D /* MJCIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicatorView.h; sourceTree = "<group>"; };
-		25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCIndicatorView.m; sourceTree = "<group>"; };
-		25A91C361DC2FA1F0009313D /* MJCRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCRightView.h; sourceTree = "<group>"; };
-		25A91C371DC2FA1F0009313D /* MJCRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCRightView.m; sourceTree = "<group>"; };
-		25A91C381DC2FA1F0009313D /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
-		25A91C391DC2FA1F0009313D /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
-		25A91C3A1DC2FA1F0009313D /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
-		25A91C3B1DC2FA1F0009313D /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
 		25A91C3D1DC2FA1F0009313D /* UIView+MJCExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCExtenSion.h"; sourceTree = "<group>"; };
 		25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCExtenSion.m"; sourceTree = "<group>"; };
 		25A91C401DC2FA1F0009313D /* MJCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCConst.h; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				25A91C2A1DC2FA1F0009313D /* 主控件 */,
-				25A91C2F1DC2FA1F0009313D /* 子控件 */,
 				25A91C3C1DC2FA1F0009313D /* 设置尺寸 */,
 				25A91C3F1DC2FA1F0009313D /* 通用属性 */,
 			);
@@ -158,27 +157,20 @@
 				25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */,
 				25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */,
 				25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */,
+				2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */,
+				2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */,
+				2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */,
+				2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */,
+				2555F1121DC4A8B300977EB8 /* MJCIndicatorView.h */,
+				2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */,
+				2555F1141DC4A8B300977EB8 /* MJCRightView.h */,
+				2555F1151DC4A8B300977EB8 /* MJCRightView.m */,
+				2555F1161DC4A8B300977EB8 /* MJCTitlesView.h */,
+				2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */,
+				2555F1181DC4A8B300977EB8 /* MJCTopView.h */,
+				2555F1191DC4A8B300977EB8 /* MJCTopView.m */,
 			);
 			path = "主控件";
-			sourceTree = "<group>";
-		};
-		25A91C2F1DC2FA1F0009313D /* 子控件 */ = {
-			isa = PBXGroup;
-			children = (
-				25A91C301DC2FA1F0009313D /* MJCBottomView.h */,
-				25A91C311DC2FA1F0009313D /* MJCBottomView.m */,
-				25A91C321DC2FA1F0009313D /* MJCChildScrollView.h */,
-				25A91C331DC2FA1F0009313D /* MJCChildScrollView.m */,
-				25A91C341DC2FA1F0009313D /* MJCIndicatorView.h */,
-				25A91C351DC2FA1F0009313D /* MJCIndicatorView.m */,
-				25A91C361DC2FA1F0009313D /* MJCRightView.h */,
-				25A91C371DC2FA1F0009313D /* MJCRightView.m */,
-				25A91C381DC2FA1F0009313D /* MJCTitlesView.h */,
-				25A91C391DC2FA1F0009313D /* MJCTitlesView.m */,
-				25A91C3A1DC2FA1F0009313D /* MJCTopView.h */,
-				25A91C3B1DC2FA1F0009313D /* MJCTopView.m */,
-			);
-			path = "子控件";
 			sourceTree = "<group>";
 		};
 		25A91C3C1DC2FA1F0009313D /* 设置尺寸 */ = {
@@ -433,28 +425,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25A91C491DC2FA1F0009313D /* MJCTopView.m in Sources */,
+				2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
+				2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */,
 				25A91C671DC2FFDE0009313D /* UITestViewController.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
 				25A91C681DC2FFDE0009313D /* UITestViewController1.m in Sources */,
 				25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */,
-				25A91C481DC2FA1F0009313D /* MJCTitlesView.m in Sources */,
 				25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */,
 				25A91C5B1DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m in Sources */,
 				25A91C591DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m in Sources */,
-				25A91C441DC2FA1F0009313D /* MJCBottomView.m in Sources */,
 				25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */,
 				25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */,
 				25A91C691DC2FFDE0009313D /* UITestViewController2.m in Sources */,
+				2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				25A91C581DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m in Sources */,
-				25A91C451DC2FA1F0009313D /* MJCChildScrollView.m in Sources */,
+				2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */,
 				25A91C5A1DC2FFCB0009313D /* SegMentInterfaceStyleLessVC.m in Sources */,
-				25A91C461DC2FA1F0009313D /* MJCIndicatorView.m in Sources */,
-				25A91C471DC2FA1F0009313D /* MJCRightView.m in Sources */,
+				2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */,
 				25A91C6A1DC2FFDE0009313D /* UITestViewController3.m in Sources */,
 				25A91C5C1DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.m in Sources */,
+				2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */,
 				25A91C6B1DC2FFDE0009313D /* UITestViewController4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
