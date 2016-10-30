@@ -119,4 +119,4 @@
 
        
 
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/11077777_60.png)
+https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/11077777_60.png
