@@ -1,7 +1,8 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
-SegMentInterfaceStyleClassic
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)   SegMentInterfaceStylePenetrate![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/chuantou.gif)
+
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/chuantou.gif)
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gezi.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gezichuantou.gif)
 
 ###分段控制器创建(几行代码即可使用)
     
@@ -119,8 +120,3 @@ SegMentInterfaceStyleClassic
     tabItemFrame(设置frame)
     isTabItemFrame:BOOL tabItemFrame:CGRect
 
-       
-
-
-
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gezi.gif)    ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gezichuantou.gif)
