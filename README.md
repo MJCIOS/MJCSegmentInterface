@@ -1,7 +1,7 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
-SegMentInterfaceStyleClassic   SegMentInterfaceStylePenetrate
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/chuantou.gif)
+SegMentInterfaceStyleClassic
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)   SegMentInterfaceStylePenetrate![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/chuantou.gif)
 
 ###分段控制器创建(几行代码即可使用)
     
