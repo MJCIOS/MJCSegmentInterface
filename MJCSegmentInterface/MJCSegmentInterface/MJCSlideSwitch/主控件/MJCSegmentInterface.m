@@ -428,16 +428,16 @@
 
 #pragma mark -- 工具方法
 //  颜色转换为背景图片
-+ (UIImage *)imageWithColor:(UIColor *)color
+- (UIImage *)imageWithColor:(UIColor *)color
 {
     CGRect rect1;
  
-    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     
-    if (segmentInterface.SegmentInterFaceStyle == SegMentInterfaceStylePenetrate ) {
+    
+    if (_SegmentInterFaceStyle == SegMentInterfaceStylePenetrate ) {
         CGRect rect = CGRectMake(0.0f, 0.0f, 0.3f, 0.3f);
         rect1 = rect;
-    }else if (segmentInterface.SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
+    }else if (_SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
         CGRect rect = CGRectMake(0.0f, 0.0f, 0.3f, 0.3f);
         rect1 = rect;
     }else{

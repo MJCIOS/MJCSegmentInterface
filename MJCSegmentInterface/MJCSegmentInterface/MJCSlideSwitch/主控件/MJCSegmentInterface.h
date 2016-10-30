@@ -253,7 +253,7 @@ typedef enum {
 /**
  *  图片转换成颜色的方法
  */
-+ (UIImage *)imageWithColor:(UIColor *)color;
+- (UIImage *)imageWithColor:(UIColor *)color;
 
 /**
  *  颜色机制转换

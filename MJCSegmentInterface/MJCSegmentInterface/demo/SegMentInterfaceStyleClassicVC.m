@@ -48,6 +48,10 @@
 
     //设置底部指示器的样式(有默认样式,可以不用设置)
     [segmentInterface setSegmentIndicatorStyle:SegMentIndicatorItemStyle];
+    
+    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor orangeColor]];
+    //点击状态下的背景图片(如果你不想用图片,想要用颜色,我也提供一个方法)
+    segmentInterface.tabItemImageSelected = [segmentInterface imageWithColor:[UIColor blueColor]];
 
     
     //在添加标题栏之前做其他属性操作
