@@ -13,6 +13,7 @@
 		2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1151DC4A8B300977EB8 /* MJCRightView.m */; };
 		2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */; };
 		2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1191DC4A8B300977EB8 /* MJCTopView.m */; };
+		2555F1231DC6332500977EB8 /* 11077777_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 2555F1221DC6332500977EB8 /* 11077777_60.png */; };
 		25A91C251DC2EC090009313D /* woyuanyi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A91C241DC2EC090009313D /* woyuanyi.jpg */; };
 		25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */; };
 		25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */; };
@@ -68,6 +69,7 @@
 		2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
 		2555F1181DC4A8B300977EB8 /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
 		2555F1191DC4A8B300977EB8 /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
+		2555F1221DC6332500977EB8 /* 11077777_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11077777_60.png; sourceTree = "<group>"; };
 		25A91C241DC2EC090009313D /* woyuanyi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woyuanyi.jpg; sourceTree = "<group>"; };
 		25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
 		25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		25D9DB451DC2635C00B903B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2555F1221DC6332500977EB8 /* 11077777_60.png */,
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
 				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
 				25A91C241DC2EC090009313D /* woyuanyi.jpg */,
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
+				2555F1231DC6332500977EB8 /* 11077777_60.png in Resources */,
 				25A91C251DC2EC090009313D /* woyuanyi.jpg in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
