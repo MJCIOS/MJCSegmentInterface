@@ -181,7 +181,8 @@
         [self setTabItemTitleSelectedColor:_tabItemTitleSelectedColor];
         [self setTabItemImageNormal:_tabItemImageNormal];
         [self setTabItemImageSelected:_tabItemImageSelected];
-        [self setTabItemImageArray:titleButton buttonTag:i];
+        [self setTabItemNormalImageArray:titleButton buttonTag:i];
+        [self setTabItemImageSelectedArray:titleButton buttonTag:i];
         [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
         [self setupRightView:i titlesArr:titles];
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
@@ -274,13 +275,22 @@
         [self.titlesButton setBackgroundImage:tabItemImageSelected forState:UIControlStateSelected];
     }
 }
--(void)setTabItemImageArray:(UIButton *)titleButton buttonTag:(NSUInteger)buttonTag
+-(void)setTabItemNormalImageArray:(UIButton *)titleButton buttonTag:(NSUInteger)buttonTag
 {
-    if (_tabItemImageArray == kNilOptions) {
+    if (_tabItemImageNormalArray == kNilOptions) {
         //        [titleButton setBackgroundImage:tabItemImageNormal forState:UIControlStateNormal];
     }else{
-        [titleButton setBackgroundImage:[UIImage imageNamed:_tabItemImageArray[buttonTag]] forState:UIControlStateNormal];
+        [titleButton setBackgroundImage:[UIImage imageNamed:_tabItemImageNormalArray[buttonTag]] forState:UIControlStateNormal];
     }
+}
+-(void)setTabItemImageSelectedArray:(UIButton *)titleButton buttonTag:(NSUInteger)buttonTag
+{
+    if (_tabItemImageSelectedArray == kNilOptions) {
+        //        [titleButton setBackgroundImage:tabItemImageNormal forState:UIControlStateNormal];
+    }else{
+        [titleButton setBackgroundImage:[UIImage imageNamed:_tabItemImageSelectedArray[buttonTag]] forState:UIControlStateSelected];
+    }
+    
 }
 
 #pragma mark -- 右边竖线的设置创建

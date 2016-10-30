@@ -191,7 +191,8 @@ typedef enum {
 
 
 /** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
-@property (nonatomic,strong) NSArray *tabItemImageArray;
+@property (nonatomic,strong) NSArray *tabItemImageNormalArray;
+@property (nonatomic,strong) NSArray *tabItemImageSelectedArray;
 
 /** tabItemtitle普通状态颜色 */
 @property (nonatomic,strong) UIColor *tabItemTitleNormalColor;
