@@ -119,4 +119,4 @@
 
        
 
-  ![image](https://github.com/MJCIOS/MJCSegmentInterface//master/MJCSegmentInterface/MJCSegmentInterface/MJCSegmentInterface/woyuanyi.jpg)
+   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/woyuanyi.jpg)
