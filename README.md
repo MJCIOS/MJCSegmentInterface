@@ -1,6 +1,6 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
-
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)
 ###分段控制器创建(几行代码即可使用)
     
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
@@ -43,7 +43,6 @@
     //子界面样式
     typedef enum {
         SegMentInterfaceStyleClassic,//经典样式
-        ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)
         SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
         SegMentInterfaceStyleLess,   //(格子竖线标题栏)
         SegMentInterfaceStyleMoreUse,//(格子穿透标题栏)
