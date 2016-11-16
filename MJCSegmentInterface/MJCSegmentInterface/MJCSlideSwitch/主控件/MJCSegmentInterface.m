@@ -442,8 +442,6 @@
 {
     CGRect rect1;
  
-    
-    
     if (_SegmentInterFaceStyle == SegMentInterfaceStylePenetrate ) {
         CGRect rect = CGRectMake(0.0f, 0.0f, 0.3f, 0.3f);
         rect1 = rect;

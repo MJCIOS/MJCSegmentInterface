@@ -213,14 +213,9 @@ typedef enum {
 /** 是否同意让用户设置间距 */
 @property (nonatomic,getter=isMargin) BOOL isMargin;
 
-
-
 /** 一句代码设置tabItem的Frame */
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
 
-
-//设置tabitem的Frame间距;(这个方法不够完善,你们也可以用用看)
-//-(void)isTabItemFrame:(BOOL)isTabItemFrame margin:(CGFloat)margin tabItemMargin:(CGFloat)tabItemMargin tabItemWidth:(CGFloat)tabItemWidth tabItemHeight:(CGFloat)tabItemHeight tabItemY:(CGFloat)tabItemY;
 
 //*******************//
 
