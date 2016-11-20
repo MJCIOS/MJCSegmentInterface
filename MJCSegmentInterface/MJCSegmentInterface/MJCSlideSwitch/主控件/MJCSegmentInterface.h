@@ -4,19 +4,12 @@
 //
 //  Created by mjc on 16/10/7.
 //  Copyright © 2016年 MJC. All rights reserved.
-//  有啥问题加我QQ: 1611891567 一起交流,我是菜菜..求大神指教
+//  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MJCConst.h"
 #import "UIView+MJCExtenSion.h"
-//#import "MJCBottomView.h"
-//#import "MJCTopView.h"
-//#import "MJCTitlesView.h"
-//#import "MJCChildScrollView.h"
-//#import "MJCRightView.h"
-//#import "MJCIndicatorView.h"
-
 
 #define SDColorCreater(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
 
