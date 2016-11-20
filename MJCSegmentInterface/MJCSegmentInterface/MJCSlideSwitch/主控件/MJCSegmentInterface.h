@@ -10,6 +10,13 @@
 #import <UIKit/UIKit.h>
 #import "MJCConst.h"
 #import "UIView+MJCExtenSion.h"
+//#import "MJCBottomView.h"
+//#import "MJCTopView.h"
+//#import "MJCTitlesView.h"
+//#import "MJCChildScrollView.h"
+//#import "MJCRightView.h"
+//#import "MJCIndicatorView.h"
+
 
 #define SDColorCreater(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
 
@@ -32,18 +39,27 @@ typedef enum {
     SegMentIndicatorItemTextStyle
 } MJCSegmentIndicatorStyle;
 
-//@protocol MJCSlideSwitchViewDelegate <NSObject>
-//
-//@required
-//
-//
-//@optional
-//
-//
-//@end
+@class MJCSegmentInterface;
+
+@protocol MJCSlideSwitchViewDelegate <NSObject>
+
+@required
+
+@optional
+
+/** 在scrollView滚动的时候动画结束时, 就会调用这个方法 */
+- (void)mjc_ScrollViewDidEndScrollingAnimation:(MJCSegmentInterface *)segmentInterface;
+
+/** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
+- (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
+
+@end
 
 
 @interface MJCSegmentInterface : UIView
+
+/** slideDelegate代理方法 */
+@property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
 #pragma mark -- 默认为样式 
 /** segmentInterface 样式，默认为样式 */
@@ -51,9 +67,6 @@ typedef enum {
 
 /** 底部指示器样式 */
 @property (nonatomic,assign) MJCSegmentIndicatorStyle SegmentIndicatorStyle;
-
-
-
 
 #pragma mark -- 滚动标题栏设置创建
 //***********************//

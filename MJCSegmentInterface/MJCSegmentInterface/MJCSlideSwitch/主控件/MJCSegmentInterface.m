@@ -93,7 +93,6 @@
 }
 - (void)addChildVcView
 {
-    
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
     UIViewController *childVc = _addChildViewController.childViewControllers[index];
     if ([childVc isViewLoaded]) return;
@@ -310,7 +309,6 @@
 #pragma mark -- 顶部横线的设置创建
 -(void)setupTopView:(UIView *)titleView
 {
-    
     MJCTopView *topView = [[MJCTopView alloc]init];
     self.topView = topView;
     [self setTopViewColor:_topViewColor];
@@ -419,6 +417,11 @@
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     [self addChildVcView];
+    
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
+        [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
+    }
+    
 }
 
 /**
@@ -432,12 +435,17 @@
     [self titleClick:titleButton];
     
     [self addChildVcView];
+    
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
+        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
+    }
+    
 }
 
 
 
 #pragma mark -- 工具方法
-//  颜色转换为背景图片
+// 图片转换颜色
 - (UIImage *)imageWithColor:(UIColor *)color
 {
     CGRect rect1;
