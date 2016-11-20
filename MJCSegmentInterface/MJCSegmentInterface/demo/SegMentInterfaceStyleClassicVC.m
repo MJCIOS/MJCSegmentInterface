@@ -99,7 +99,6 @@
     [MJCPromptsMessage showMessageFrame:CGRectMake(0,64+50, self.view.mjc_width, 50)];
     
 }
-
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface
 {
