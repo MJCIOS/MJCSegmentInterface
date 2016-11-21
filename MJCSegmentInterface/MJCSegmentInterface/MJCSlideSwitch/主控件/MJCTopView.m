@@ -84,6 +84,26 @@
     }else{
         self.frame = topFrame;
     }
+}
+
+-(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesScroll:(UIScrollView *)titlesScroll;
+{
+    if (isTopFrame == kNilOptions) {
+        
+        if (topHegiht == kNilOptions) {
+            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_height = 1;
+            self.mjc_y = titlesScroll.mjc_y;
+            self.mjc_width = titlesScroll.contentSize.width;
+        }else{
+            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_height = topHegiht;
+            self.mjc_y = titlesScroll.mjc_y;
+            self.mjc_width = titlesScroll.mjc_width;
+        }
+    }else{
+        self.frame = topFrame;
+    }
 
 }
 

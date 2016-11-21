@@ -33,31 +33,22 @@
     
 }
 
-
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle
+-(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesScroll:(UIScrollView *)titlesScroll firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
 {
-    
     if (isindicatorFrame == kNilOptions) {
-        
         if (indicatorWidth == kNilOptions) {
-            
-            
             self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            
+            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
             if (SegmentIndicatorStyle == SegMentIndicatorItemStyle) {
-            
                 self.mjc_width = firstTitleButton.mjc_width;
-            
             }else{
                 self.mjc_width = firstTitleButton.titleLabel.mjc_width;
             }
             self.mjc_centerX = firstTitleButton.mjc_centerX;
             
         }else{
-            
             self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
+            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
             self.mjc_width = indicatorWidth;
             self.mjc_centerX =firstTitleButton.mjc_centerX;
         }
@@ -66,7 +57,34 @@
         
         self.frame = indicatorFrame;
     }
-    
+
+}
+
+
+-(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle
+{
+    if (isindicatorFrame == kNilOptions) {
+        if (indicatorWidth == kNilOptions) {
+            self.mjc_height = 1;
+            self.mjc_y = titlesView.mjc_height - self.mjc_height;
+            if (SegmentIndicatorStyle == SegMentIndicatorItemStyle) {
+                self.mjc_width = firstTitleButton.mjc_width;
+            }else{
+                self.mjc_width = firstTitleButton.titleLabel.mjc_width;
+            }
+            self.mjc_centerX = firstTitleButton.mjc_centerX;
+            
+        }else{
+            self.mjc_height = 1;
+            self.mjc_y = titlesView.mjc_height - self.mjc_height;
+            self.mjc_width = indicatorWidth;
+            self.mjc_centerX = firstTitleButton.mjc_centerX;
+        }
+        
+    }else{
+        
+        self.frame = indicatorFrame;
+    }
 }
 
 

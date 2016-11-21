@@ -13,6 +13,7 @@
 #import "MJCChildScrollView.h"
 #import "MJCRightView.h"
 #import "MJCIndicatorView.h"
+#import "MJCTitlesScollView.h"
 
 
 //标题栏宽度
@@ -34,6 +35,9 @@
 
 /** 标题栏view */
 @property (nonatomic, strong) MJCTitlesView *titlesView;
+
+/** 标题栏view */
+@property (nonatomic, strong) MJCTitlesScollView *titlesScrollView;
 
 /** 顶部横线 */
 @property (nonatomic,strong) MJCTopView *topView;
@@ -68,7 +72,6 @@
         //如果外界没有设置frame,那我们这里面要设置下
         self.frame = [UIScreen mainScreen].bounds;
         
-        _addChildViewController = [self viewController:self];
     }
     return self;
 }
@@ -127,16 +130,54 @@
 -(void)addTitlesArray:(NSArray *)titlesArray
 {
     [self setScollViewArr:titlesArray];
-    [self setupTitlesView];
+    if (_scrollTitlesEnabled == kNilOptions) {
+        [self setupTitlesView];
+    }else{
+        [self setupScrollTitlesView];
+    }
     [self setupTitlesButton:titlesArray];
     [self setupTopView:_titlesView];
     [self setupBottomView:_titlesView];
     [self setupindicatorView:_titlesView];
 }
+
+#pragma mark --创建滚动标题栏数据
+-(void)setupScrollTitlesView
+{
+    MJCTitlesScollView *titleScrollView = [[MJCTitlesScollView alloc] init];
+    _titlesScrollView = titleScrollView;
+    
+    [self setuptitleScrollViewData:titleScrollView];
+    
+    titleScrollView.showsVerticalScrollIndicator = NO;
+    titleScrollView.showsHorizontalScrollIndicator = NO;
+    
+    [self addSubview:titleScrollView];
+}
+-(void)setuptitleScrollViewData:(MJCTitlesScollView *)titleScrollView
+{
+    [self isTitlesScrollframe:_isTitleScrollframe titlesScrollframe:_titleScrollframe];
+    
+    [self setTitleScrollColor:_titleScrollColor];
+}
+-(void)isTitlesScrollframe:(BOOL)isTitlesScrollframe titlesScrollframe:(CGRect)titlesScrollframe;
+{
+    _isTitleScrollframe = isTitlesScrollframe;
+    _titleScrollframe = titlesScrollframe;
+    
+    [self.titlesScrollView isTitlesScrollViewframe:isTitlesScrollframe titlesViewframe:titlesScrollframe];
+    
+}
+-(void)setTitleScrollColor:(UIColor *)titleScrollColor
+{
+    _titleScrollColor = titleScrollColor;
+    [self.titlesScrollView setTitlesScrollViewColor:titleScrollColor SegmentInterFaceStyle:_SegmentInterFaceStyle];
+    
+}
+
 #pragma mark -- 创建标题栏数据
 -(void)setupTitlesView
 {
-    
     MJCTitlesView *titlesView = [[MJCTitlesView alloc] init];
     self.titlesView = titlesView;
     [self setuptitlesViewData:_titlesView];
@@ -164,16 +205,21 @@
 {
     NSArray *titles = titlesArray;
     NSUInteger count = titles.count;
-    CGFloat titleButtonW = _titlesView.mjc_width / count;
-    self.btnW = titleButtonW;
-    CGFloat titleButtonH = _titlesView.mjc_height;
-    self.btnH = titleButtonH;
+    
+    if (_scrollTitlesEnabled == kNilOptions) {
+        self.btnW = _titlesView.mjc_width / count;
+        self.btnH = _titlesView.mjc_height;
+    }else{
+        [self setTabItemWidth:_tabItemWidth];
+        self.btnH = _titlesScrollView.mjc_height;
+    }
+    
     for (NSUInteger i = 0; i < count; i++) {
         UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.titlesButton = titleButton;
         titleButton.backgroundColor = [UIColor redColor];
         titleButton.tag = i;
-        self.btnX = i * titleButtonW;
+        self.btnX = i * self.btnW;
         [self setTabItemTitlesfont:_tabItemTitlesfont];
         [self setTabItemBackColor:_tabItemBackColor];
         [self setTabItemTitleNormalColor:_tabItemTitleNormalColor];
@@ -186,9 +232,30 @@
         [self setupRightView:i titlesArr:titles];
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_titlesView addSubview:titleButton];
+        
+        if (_scrollTitlesEnabled == kNilOptions) {
+            
+            [_titlesView addSubview:titleButton];
+        }else{
+            [_titlesScrollView addSubview:titleButton];
+        }
     }
+    self.titlesScrollView.contentSize = CGSizeMake(count * _btnW, 0);
 }
+
+-(void)setTabItemWidth:(CGFloat)tabItemWidth
+{
+    _tabItemWidth = tabItemWidth;
+
+    if (_tabItemWidth == kNilOptions) {
+        
+        self.btnW = MJCScrollW;
+    }else{
+        self.btnW = tabItemWidth;
+    }
+    
+}
+
 
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame
 {
@@ -307,14 +374,20 @@
 
 
 #pragma mark -- 顶部横线的设置创建
--(void)setupTopView:(UIView *)titleView
+-(void)setupTopView:(MJCTitlesView *)titleView
 {
     MJCTopView *topView = [[MJCTopView alloc]init];
     self.topView = topView;
     [self setTopViewColor:_topViewColor];
     [self isTopViewFrame:_isTopViewFrame setTopViewFrame:_topViewFrame];
     [self setTopViewHidden:_topViewHidden];
-    [titleView addSubview:topView];
+    if (_scrollTitlesEnabled == kNilOptions) {
+        // !!!:添加标题栏
+        [titleView addSubview:topView];
+    }else{
+        [_titlesScrollView addSubview:topView];
+    }
+
 }
 
 -(void)setTopViewHidden:(BOOL)topViewHidden
@@ -333,7 +406,14 @@
 {
     self.isTopViewFrame = isTopViewFrame;
     self.topViewFrame = topViewFrame;
-    [self.topView isTopFrame:isTopViewFrame settopFrame:topViewFrame topHegiht:_topViewHegiht titlesView:self.titlesView];
+    
+    if (_scrollTitlesEnabled == kNilOptions) {
+        [self.topView isTopFrame:isTopViewFrame settopFrame:topViewFrame topHegiht:_topViewHegiht titlesView:self.titlesView];
+    }else{
+        [self.topView isTopFrame:isTopViewFrame settopFrame:topViewFrame topHegiht:_topViewHegiht titlesScroll:_titlesScrollView];
+    }
+    
+
 }
 
 #pragma mark -- 底部横线的设置创建
@@ -344,7 +424,12 @@
     [self setBottomViewColor:_bottomViewColor];
     [self setBottomViewHidden:_bottomViewHidden];
     [self isBottomViewFrame:_isBottomViewFrame setBottomViewFrame:_bottomViewFrame];
-    [titleView addSubview:bottomView];
+    if (_scrollTitlesEnabled == kNilOptions) {
+        [titleView addSubview:bottomView];
+    }else{
+        [_titlesScrollView addSubview:bottomView];
+    }
+
 }
 -(void)setBottomViewHidden:(BOOL)bottomViewHidden
 {
@@ -362,7 +447,12 @@
 {
     self.isBottomViewFrame = isBottomViewFrame;
     self.bottomViewFrame = bottomViewFrame;
-    [self.bottomView isBottomFrame:isBottomViewFrame setBottomFrame:bottomViewFrame bottomHegiht:_bottomViewHegiht titlesView:self.titlesView];
+    
+    if (_scrollTitlesEnabled ==kNilOptions) {
+        [self.bottomView isBottomFrame:isBottomViewFrame setBottomFrame:bottomViewFrame bottomHegiht:_bottomViewHegiht titlesView:self.titlesView];
+    }else{
+        [self.bottomView isBottomFrame:isBottomViewFrame setBottomFrame:bottomViewFrame bottomHegiht:_bottomViewHegiht titlesScroll:_titlesScrollView];
+    }
 }
 
 
@@ -377,7 +467,11 @@
     self.indicatorView = indicatorView;
     [self setIndicatorColor:_indicatorColor];
     [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
-    [_titlesView addSubview:indicatorView];
+    if (_scrollTitlesEnabled == kNilOptions) {
+        [titlesView addSubview:indicatorView];
+    }else{
+        [_titlesScrollView addSubview:indicatorView];
+    }
     [indicatorView setIndicatorViewHidden:_indicatorHidden];
 }
 -(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame
@@ -385,7 +479,12 @@
     _isindicatorFrame = isindicatorFrame;
     _indicatorFrame = indicatorFrame;
     
-    [self.indicatorView isindicatorFrame:isindicatorFrame indicatorFrame:indicatorFrame indicatorWidth:_indicatorWidth titlesView:_titlesView firstTitleButton:_firstTitleButton SegmentInterFaceStyle:_SegmentIndicatorStyle];
+    if (_scrollTitlesEnabled == kNilOptions) {
+        [self.indicatorView isindicatorFrame:isindicatorFrame indicatorFrame:indicatorFrame indicatorWidth:_indicatorWidth titlesView:_titlesView firstTitleButton:_firstTitleButton SegmentInterFaceStyle:_SegmentIndicatorStyle];
+    }else{
+        [self.indicatorView isindicatorFrame:isindicatorFrame indicatorFrame:indicatorFrame indicatorWidth:_indicatorWidth titlesScroll:_titlesScrollView firstTitleButton:_firstTitleButton SegmentInterFaceStyle:_SegmentIndicatorStyle];
+    }
+    
 }
 -(void)setIndicatorColor:(UIColor *)indicatorColor
 {
@@ -395,7 +494,6 @@
 
 - (void)titleClick:(UIButton *)titleButton
 {
-
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
@@ -406,6 +504,7 @@
     CGPoint offset = self.scrollView.contentOffset;
     offset.x = titleButton.tag * self.scrollView.mjc_width;
     [self.scrollView setContentOffset:offset animated:YES];
+    [self selButton:titleButton];
 }
 
 
@@ -431,9 +530,16 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
-    UIButton *titleButton = self.titlesView.subviews[index];
-    [self titleClick:titleButton];
-    
+    if (_scrollTitlesEnabled == kNilOptions) {
+        UIButton *titleButton = self.titlesView.subviews[index];
+        [self titleClick:titleButton];
+        [self selButton:titleButton];
+    }else{
+        UIButton *titleButton = self.titlesScrollView.subviews[index];
+        [self titleClick:titleButton];
+        [self selButton:titleButton];
+    }
+
     [self addChildVcView];
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
@@ -498,6 +604,32 @@
               blue: (float)blueByte / 0xff
               alpha:1.0];
     return result;
+}
+
+#pragma mark - 选中标题
+- (void)selButton:(UIButton *)button
+{
+    // 标题居中
+    [self setupTitleCenter:button];
+}
+
+#pragma mark - 标题居中
+- (void)setupTitleCenter:(UIButton *)button
+{
+    // 本质:修改titleScrollView偏移量
+    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
+    
+    if (offsetX < 0) {
+        offsetX = 0;
+    }
+    
+    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth;
+    
+    if (offsetX > maxOffsetX) {
+        offsetX = maxOffsetX;
+    }
+    
+    [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
 
 

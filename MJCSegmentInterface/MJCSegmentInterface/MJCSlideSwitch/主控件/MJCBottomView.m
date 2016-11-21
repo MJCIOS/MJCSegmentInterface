@@ -87,6 +87,29 @@
 
 }
 
+-(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesScroll:(UIScrollView *)titlesScroll;
+{
+    //如果用户未开启自己设置frame
+    if (isBottomFrame == kNilOptions) {
+        //如果未设置了底部高度(设置为1)
+        if (bottomHegiht == kNilOptions) {
+            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_height = 1;
+            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
+            self.mjc_width = titlesScroll.contentSize.width;
+        }else{
+            //如果未设置了底部高度(那我们就将用户设置的传进去)
+            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_height = bottomHegiht;
+            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
+            self.mjc_width = titlesScroll.mjc_width;
+        }
+        
+    }else{
+        self.frame = setBottomFrame;
+    }
+
+}
 
 
 @end

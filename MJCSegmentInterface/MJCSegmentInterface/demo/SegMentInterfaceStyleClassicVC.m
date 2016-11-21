@@ -46,11 +46,21 @@
     //创建标题栏控件
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     _segmentInterface = segmentInterface;
+    segmentInterface.scrollTitlesEnabled = YES;
     //添加标题栏
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     segmentInterface.childViewEnabled = YES;
     segmentInterface.slideDelegate = self;
     segmentInterface.rightViewShow = YES;
+    segmentInterface.indicatorHidden = NO;
+    segmentInterface.topViewHidden = NO;
+    segmentInterface.topViewColor = [UIColor redColor];
+    segmentInterface.bottomViewColor = [UIColor blackColor];
+    segmentInterface.bottomViewHidden=NO;
+    segmentInterface.tabItemBackColor = [UIColor clearColor];
+    segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
+    
+    
     
     //在添加标题栏之前做其他属性操作
     [segmentInterface addTitlesArray:titlesArr];

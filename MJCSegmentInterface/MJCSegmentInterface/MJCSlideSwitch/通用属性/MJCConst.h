@@ -12,3 +12,6 @@ UIKIT_EXTERN CGFloat const MJCTitlesViewH;
 /** 全局统一的间距 */
 UIKIT_EXTERN CGFloat const MJCMarin;
 
+/** 全局统一的滚动标题宽度 */
+UIKIT_EXTERN CGFloat const MJCScrollW;
+

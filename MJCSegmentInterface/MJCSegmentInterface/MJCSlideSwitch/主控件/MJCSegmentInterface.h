@@ -54,6 +54,8 @@ typedef enum {
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
+
+
 #pragma mark -- 默认为样式 
 /** segmentInterface 样式，默认为样式 */
 @property (nonatomic, assign) MJCSegmentInterfaceStyle SegmentInterFaceStyle;
@@ -61,8 +63,11 @@ typedef enum {
 /** 底部指示器样式 */
 @property (nonatomic,assign) MJCSegmentIndicatorStyle SegmentIndicatorStyle;
 
-#pragma mark -- 滚动标题栏设置创建
+#pragma mark -- 标题栏设置创建和滚动标题栏的设置
 //***********************//
+
+/** 是否滚动标题 */
+@property (nonatomic,getter=isScrollTitles) BOOL scrollTitlesEnabled;
 
 /** 标题栏Frame */
 @property(nonatomic) CGRect titlesViewframe;
@@ -73,6 +78,16 @@ typedef enum {
 
 /** 一句代码设置标题栏Frame */
 -(void)isTitlesViewframe:(BOOL)isTitlesViewframe titlesViewframe:(CGRect)titlesViewframe;
+
+/** 滚动标题栏Frame */
+@property(nonatomic) CGRect titleScrollframe;
+/** 是否自己设置滚动标题栏的frame */
+@property(nonatomic,getter = isTitleScrollframe) BOOL isTitleScrollframe;
+/** 滚动标题栏颜色 */
+@property (nonatomic,strong) UIColor *titleScrollColor;
+
+/** 一句代码设置滚动标题栏Frame */
+-(void)isTitlesScrollframe:(BOOL)isTitlesScrollframe titlesScrollframe:(CGRect)titlesScrollframe;
 
 
 //*******************//
@@ -190,6 +205,9 @@ typedef enum {
 
 //*******************//
 
+/** tabItemWidth */
+@property (nonatomic,assign) CGFloat tabItemWidth;
+
 /** tabItem按钮的普通状态下背景图片 */
 @property (nonatomic,strong) UIImage *tabItemImageNormal;
 /** tabItem按钮的点击状态下背景图片 */
@@ -217,7 +235,7 @@ typedef enum {
 
 
 /** 是否同意让用户设置间距 */
-@property (nonatomic,getter=isMargin) BOOL isMargin;
+//@property (nonatomic,getter=isMargin) BOOL isMargin;
 
 /** 一句代码设置tabItem的Frame */
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
