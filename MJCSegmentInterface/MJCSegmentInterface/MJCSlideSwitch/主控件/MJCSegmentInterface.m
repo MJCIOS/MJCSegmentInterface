@@ -5,6 +5,7 @@
 //  Created by mjc on 16/10/7.
 //  Copyright © 2016年 MJC. All rights reserved.
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
+//  新增了标题栏滑动功能
 
 #import "MJCSegmentInterface.h"
 #import "MJCBottomView.h"
