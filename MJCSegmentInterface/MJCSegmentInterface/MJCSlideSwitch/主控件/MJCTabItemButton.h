@@ -13,5 +13,6 @@
 
 -(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame tabItemTitlesfont:(UIFont*)tabItemTitlesfont SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle tabItemBackColor:(UIColor*)tabItemBackColor tabItemTitleNormalColor:(UIColor*)tabItemTitleNormalColor tabItemTitleSelectedColor:(UIColor*)tabItemTitleSelectedColor tabItemImageNormal:(UIImage*)tabItemImageNormal tabItemImageSelected:(UIImage *)tabItemImageSelected tabItemNormalImageArray:(NSArray *)tabItemNormalImageArray tabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray;
 
+-(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
 
 @end

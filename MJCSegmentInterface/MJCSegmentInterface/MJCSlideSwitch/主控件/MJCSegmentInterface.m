@@ -143,7 +143,7 @@
     }else{
         [self setupScrollTitlesView];
     }
-    [self setupTitlesButton1:titlesArray];
+    [self setupTitlesButton:titlesArray];
     [self setupTopView:_titlesView];
     [self setupBottomView:_titlesView];
     [self setupindicatorView:_titlesView];
@@ -209,33 +209,40 @@
     [self.titlesView setTitlesViewColor:titlesViewColor SegmentInterFaceStyle:_SegmentInterFaceStyle];
 }
 #pragma mark -- 创建标题按钮数据
--(void)setupTitlesButton1:(NSArray *)titlesArray1
+-(void)setupTitlesButton:(NSArray *)titlesArray
 {
     if (_scrollTitlesEnabled == kNilOptions) {
-        self.btnW = _titlesView.mjc_width / titlesArray1.count;
+        self.btnW = _titlesView.mjc_width / titlesArray.count;
         self.btnH = _titlesView.mjc_height;
     }else{
         [self setTabItemWidth:_tabItemWidth];
         self.btnH = _titlesScrollView.mjc_height;
     }
-    for (NSUInteger i = 0 ; i < titlesArray1.count; i++) {
+    for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
         self.titlesButton = tabbutton;
-        [tabbutton setTitle:titlesArray1[i] forState:UIControlStateNormal];
+        [tabbutton setTitle:titlesArray[i] forState:UIControlStateNormal];
         [tabbutton arraycount:i buttonW:_btnW buttonH:_btnH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame tabItemTitlesfont:_tabItemTitlesfont SegmentInterFaceStyle:_SegmentInterFaceStyle tabItemBackColor:_tabItemBackColor tabItemTitleNormalColor:_tabItemTitleNormalColor tabItemTitleSelectedColor:_tabItemTitleSelectedColor tabItemImageNormal:_tabItemImageNormal tabItemImageSelected:_tabItemImageSelected tabItemNormalImageArray:_tabItemImageNormalArray tabItemImageSelectedArray:_tabItemImageSelectedArray];
-        
-        [self setupRightView:i titlesArr:titlesArray1];
+        [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
+        [self setupRightView:i titlesArr:titlesArray];
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     }
-    self.titlesScrollView.contentSize = CGSizeMake(titlesArray1.count * _btnW, 0);
+    self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _btnW, 0);
 }
+-(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
+{
+    _isTabItemFrame = isTabItemFrame;
+    _tabItemFrame = tabItemFrame;
+    [_titlesButton isTabItemFrame:isTabItemFrame tabItemFrame:tabItemFrame];
+}
+
 //设置tabItem的宽度
 -(void)setTabItemWidth:(CGFloat)tabItemWidth
 {
     _tabItemWidth = tabItemWidth;
 
     if (_tabItemWidth == kNilOptions) {
-        self.btnW = 80;
+        self.btnW = MJCTabitemW;
     }else{
         self.btnW = tabItemWidth;
     }
@@ -253,7 +260,6 @@
 
     [rightView setRightViewHidden:_rightViewHidden setRightViewShow:_rightViewShow inter:inter titlesArr:titlesArr SegmentInterFaceStyle:_SegmentInterFaceStyle];
 }
-
 
 #pragma mark -- 顶部横线的设置创建
 -(void)setupTopView:(MJCTitlesView *)titleView

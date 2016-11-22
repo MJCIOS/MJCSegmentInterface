@@ -40,10 +40,10 @@
     //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
     [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStylePenetrate];
     segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    segmentInterface.indicatorHidden = NO;
+    segmentInterface.indicatorHidden = YES;
     segmentInterface.bottomViewHidden = NO;
     segmentInterface.tabItemBackColor = [UIColor clearColor];
-    segmentInterface.rightViewShow = YES;
+    segmentInterface.rightViewShow = NO;
     
     //在添加标题栏之前做其他操作
     [segmentInterface addTitlesArray:titlesArr];
