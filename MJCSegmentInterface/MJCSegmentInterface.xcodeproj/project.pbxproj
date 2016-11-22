@@ -65,6 +65,7 @@
 		25D9DB601DC2635C00B903B1 /* MJCSegmentInterfaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB5F1DC2635C00B903B1 /* MJCSegmentInterfaceTests.m */; };
 		25D9DB6B1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */; };
 		25F727C51DE3F1AA00574F06 /* gundonggongn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25F727C41DE3F1AA00574F06 /* gundonggongn.gif */; };
+		25F727C81DE401EB00574F06 /* MJCTabItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F727C71DE401EB00574F06 /* MJCTabItemButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,8 @@
 		25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterfaceUITests.m; sourceTree = "<group>"; };
 		25D9DB6C1DC2635C00B903B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25F727C41DE3F1AA00574F06 /* gundonggongn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gundonggongn.gif; sourceTree = "<group>"; };
+		25F727C61DE401EB00574F06 /* MJCTabItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItemButton.h; sourceTree = "<group>"; };
+		25F727C71DE401EB00574F06 /* MJCTabItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTabItemButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +275,8 @@
 				2555F1191DC4A8B300977EB8 /* MJCTopView.m */,
 				25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */,
 				25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */,
+				25F727C61DE401EB00574F06 /* MJCTabItemButton.h */,
+				25F727C71DE401EB00574F06 /* MJCTabItemButton.m */,
 			);
 			path = "主控件";
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 				25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */,
 				25A47AA31DE1ECB700AE2829 /* UIView+MJCExtenSion.m in Sources */,
 				25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */,
+				25F727C81DE401EB00574F06 /* MJCTabItemButton.m in Sources */,
 				25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */,
 				25A91C5B1DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m in Sources */,
 				25A91C591DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m in Sources */,

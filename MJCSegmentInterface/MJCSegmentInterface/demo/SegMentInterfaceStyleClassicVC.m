@@ -56,7 +56,7 @@
     segmentInterface.topViewColor = [UIColor redColor];
     segmentInterface.bottomViewColor = [UIColor blackColor];
     segmentInterface.bottomViewHidden=NO;
-    segmentInterface.tabItemBackColor = [UIColor clearColor];
+    segmentInterface.tabItemBackColor = [UIColor redColor];
     segmentInterface.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
     
     
