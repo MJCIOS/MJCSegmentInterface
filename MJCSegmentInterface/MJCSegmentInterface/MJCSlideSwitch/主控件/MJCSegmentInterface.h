@@ -11,7 +11,8 @@
 #import "MJCConst.h"
 #import "UIView+MJCExtenSion.h"
 
-#define SDColorCreater(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
+//RBG颜色
+#define MJCRGBColor(r,g,b,alphas) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:alphas]
 
 #define MJCScreenbound [UIScreen mainScreen].bounds
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
