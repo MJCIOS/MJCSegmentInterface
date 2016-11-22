@@ -46,19 +46,18 @@
     //创建标题栏控件
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     _segmentInterface = segmentInterface;
-    segmentInterface.scrollTitlesEnabled = YES;
+    segmentInterface.scrollTitlesEnabled = NO;
     //添加标题栏
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     segmentInterface.childViewEnabled = YES;
     segmentInterface.slideDelegate = self;
-    segmentInterface.rightViewShow = YES;
     segmentInterface.indicatorHidden = NO;
     segmentInterface.topViewHidden = NO;
     segmentInterface.topViewColor = [UIColor redColor];
     segmentInterface.bottomViewColor = [UIColor blackColor];
     segmentInterface.bottomViewHidden=NO;
     segmentInterface.tabItemBackColor = [UIColor clearColor];
-    segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
+    segmentInterface.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
     
     
     
@@ -112,9 +111,7 @@
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface
 {
-    
     [MJCPromptsMessage hideDismiss];
-    
 }
 
 -(void)hideDismis1
