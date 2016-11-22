@@ -71,7 +71,6 @@
     
     if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
         
-        
         if (rightViewHidden == kNilOptions) {
             
             if (inter+1 == titlesArr.count) {

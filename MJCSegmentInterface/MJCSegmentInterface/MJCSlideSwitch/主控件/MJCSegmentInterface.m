@@ -224,173 +224,18 @@
     for (NSUInteger i = 0 ; i < titlesArray1.count; i++) {
         
         MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
-        _titlesButton = tabbutton;
+        self.titlesButton = tabbutton;
         [tabbutton setTitle:titlesArray1[i] forState:UIControlStateNormal];
         
         [tabbutton arraycount:i buttonW:_btnW buttonH:_btnH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame tabItemTitlesfont:_tabItemTitlesfont SegmentInterFaceStyle:_SegmentInterFaceStyle tabItemBackColor:_tabItemBackColor tabItemTitleNormalColor:_tabItemTitleNormalColor tabItemTitleSelectedColor:_tabItemTitleSelectedColor tabItemImageNormal:_tabItemImageNormal tabItemImageSelected:_tabItemImageSelected tabItemNormalImageArray:_tabItemImageNormalArray tabItemImageSelectedArray:_tabItemImageSelectedArray];
+        
+        [self setupRightView:i titlesArr:titlesArray1];
         
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 
     self.titlesScrollView.contentSize = CGSizeMake(titlesArray1.count * _btnW, 0);
 }
-
-
-
--(void)setupTitlesButton:(NSArray *)titlesArray
-{
-    NSArray *titles = titlesArray;
-    NSUInteger count = titles.count;
-    
-    if (_scrollTitlesEnabled == kNilOptions) {
-        self.btnW = _titlesView.mjc_width / count;
-        self.btnH = _titlesView.mjc_height;
-    }else{
-        [self setTabItemWidth:_tabItemWidth];
-        self.btnH = _titlesScrollView.mjc_height;
-    }
-    
-    for (NSUInteger i = 0; i < count; i++) {
-        UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.titlesButton = titleButton;
-        titleButton.tag = i;
-        self.btnX = i * self.btnW;
-        [self setTabItemTitlesfont:_tabItemTitlesfont];
-        [self setTabItemBackColor:_tabItemBackColor];
-        [self setTabItemTitleNormalColor:_tabItemTitleNormalColor];
-        [self setTabItemTitleSelectedColor:_tabItemTitleSelectedColor];
-        [self setTabItemImageNormal:_tabItemImageNormal];
-        [self setTabItemImageSelected:_tabItemImageSelected];
-        [self setTabItemNormalImageArray:titleButton buttonTag:i];
-        [self setTabItemImageSelectedArray:titleButton buttonTag:i];
-        [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
-        [self setupRightView:i titlesArr:titles];
-        [titleButton setTitle:titles[i] forState:UIControlStateNormal];
-        [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        if (_scrollTitlesEnabled == kNilOptions) {
-            
-            [_titlesView addSubview:titleButton];
-        }else{
-            [_titlesScrollView addSubview:titleButton];
-        }
-    }
-    self.titlesScrollView.contentSize = CGSizeMake(count * _btnW, 0);
-}
-
--(void)setTabItemWidth:(CGFloat)tabItemWidth
-{
-    _tabItemWidth = tabItemWidth;
-    if (_tabItemWidth == kNilOptions) {
-        self.btnW = MJCScrollW;
-    }else{
-        self.btnW = tabItemWidth;
-    }
-    
-}
-
--(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame
-{
-    _isTabItemFrame = isTabItemFrame;
-    _tabItemFrame = tabItemFrame;
-    
-    if (_isTabItemFrame == kNilOptions) {
-        self.titlesButton.frame = CGRectMake(self.btnX, 0, self.btnW, self.btnH);
-        
-    }else{
-        self.titlesButton.frame = tabItemFrame;
-    }
-
-}
-
--(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont
-{
-    _tabItemTitlesfont = tabItemTitlesfont;
-    if (_tabItemTitlesfont == kNilOptions) {
-        self.titlesButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    }else{
-        self.titlesButton.titleLabel.font = _tabItemTitlesfont;
-    }
-    
-}
-
--(void)setTabItemBackColor:(UIColor *)tabItemBackColor
-{
-    _tabItemBackColor = tabItemBackColor;
-    if (_tabItemBackColor == kNilOptions) {
-        
-        if (self.SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse) {
-            self.titlesButton.backgroundColor = [UIColor clearColor];
-        }else if (self.SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
-            self.titlesButton.backgroundColor = [UIColor clearColor];
-        }else{
-            self.titlesButton.backgroundColor = [UIColor whiteColor];
-        }
-    }else{
-        
-        self.titlesButton.backgroundColor = tabItemBackColor;
-    }
-}
-
--(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
-{
-    _tabItemTitleNormalColor = tabItemTitleNormalColor;
-    if (_tabItemTitleNormalColor == kNilOptions) {
-        [self.titlesButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    }else{
-        [self.titlesButton setTitleColor:tabItemTitleNormalColor forState:UIControlStateNormal];
-    }
-}
-
--(void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor
-{
-    _tabItemTitleSelectedColor = tabItemTitleSelectedColor;
-    if (_tabItemTitleNormalColor == kNilOptions) {
-        [self.titlesButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-    }else{
-        [self.titlesButton setTitleColor:tabItemTitleSelectedColor forState:UIControlStateSelected];
-    }
-    
-}
--(void)setTabItemImageNormal:(UIImage *)tabItemImageNormal
-{
-    _tabItemImageNormal = tabItemImageNormal;
-    
-    if (_tabItemImageNormal == kNilOptions) {
-        [self.titlesButton setBackgroundImage:nil forState:UIControlStateNormal];
-    }else{
-        [self.titlesButton setBackgroundImage:tabItemImageNormal forState:UIControlStateNormal];
-    }
-}
-
--(void)setTabItemImageSelected:(UIImage *)tabItemImageSelected
-{
-    _tabItemImageSelected = tabItemImageSelected;
-    
-    if (_tabItemImageSelected == kNilOptions) {
-        [self.titlesButton setBackgroundImage:nil forState:UIControlStateSelected];
-    }else{
-        [self.titlesButton setBackgroundImage:tabItemImageSelected forState:UIControlStateSelected];
-    }
-}
--(void)setTabItemNormalImageArray:(UIButton *)titleButton buttonTag:(NSUInteger)buttonTag
-{
-    if (_tabItemImageNormalArray == kNilOptions) {
-        //        [titleButton setBackgroundImage:tabItemImageNormal forState:UIControlStateNormal];
-    }else{
-        [titleButton setBackgroundImage:[UIImage imageNamed:_tabItemImageNormalArray[buttonTag]] forState:UIControlStateNormal];
-    }
-}
--(void)setTabItemImageSelectedArray:(UIButton *)titleButton buttonTag:(NSUInteger)buttonTag
-{
-    if (_tabItemImageSelectedArray == kNilOptions) {
-        //        [titleButton setBackgroundImage:tabItemImageNormal forState:UIControlStateNormal];
-    }else{
-        [titleButton setBackgroundImage:[UIImage imageNamed:_tabItemImageSelectedArray[buttonTag]] forState:UIControlStateSelected];
-    }
-    
-}
-
 #pragma mark -- 右边竖线的设置创建
 -(void)setupRightView:(NSUInteger)inter titlesArr:(NSArray *)titlesArr
 {
