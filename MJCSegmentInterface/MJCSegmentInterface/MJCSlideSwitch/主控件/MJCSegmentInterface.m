@@ -460,10 +460,15 @@
 #pragma mark -- 底部指示器创建设置
 -(void)setupindicatorView:(UIView *)titlesView
 {
-    UIButton *firstTitleButton = _titlesView.subviews.firstObject;
-    [firstTitleButton.titleLabel sizeToFit];
-    firstTitleButton.selected = YES;
-    self.firstTitleButton = firstTitleButton;
+    if (_scrollTitlesEnabled == kNilOptions) {
+        UIButton *firstTitleButton = _titlesView.subviews.firstObject;
+        self.firstTitleButton = firstTitleButton;
+    }else{
+        UIButton *firstTitleButton = _titlesScrollView.subviews.firstObject;
+        self.firstTitleButton = firstTitleButton;
+    }
+    [_firstTitleButton.titleLabel sizeToFit];
+    _firstTitleButton.selected = YES;
     MJCIndicatorView *indicatorView = [[MJCIndicatorView alloc] init];
     self.indicatorView = indicatorView;
     [self setIndicatorColor:_indicatorColor];

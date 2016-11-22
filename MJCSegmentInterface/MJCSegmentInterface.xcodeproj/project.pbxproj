@@ -64,6 +64,7 @@
 		25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */; };
 		25D9DB601DC2635C00B903B1 /* MJCSegmentInterfaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB5F1DC2635C00B903B1 /* MJCSegmentInterfaceTests.m */; };
 		25D9DB6B1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */; };
+		25F727C51DE3F1AA00574F06 /* gundonggongn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25F727C41DE3F1AA00574F06 /* gundonggongn.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		25D9DB661DC2635C00B903B1 /* MJCSegmentInterfaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJCSegmentInterfaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterfaceUITests.m; sourceTree = "<group>"; };
 		25D9DB6C1DC2635C00B903B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25F727C41DE3F1AA00574F06 /* gundonggongn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gundonggongn.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +373,7 @@
 				2555F1251DC63EFA00977EB8 /* chuantou.gif */,
 				2555F1261DC63EFA00977EB8 /* gezi.gif */,
 				2555F1271DC63EFA00977EB8 /* gezichuantou.gif */,
+				25F727C41DE3F1AA00574F06 /* gundonggongn.gif */,
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
 				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
 				25D9DB511DC2635C00B903B1 /* Assets.xcassets */,
@@ -520,6 +523,7 @@
 				25A47A9B1DE1ECB700AE2829 /* successblack.png in Resources */,
 				2523F2721DC64C2A0010B617 /* tupianxiaoguo.gif in Resources */,
 				25A47A9D1DE1ECB700AE2829 /* successblack@3x.png in Resources */,
+				25F727C51DE3F1AA00574F06 /* gundonggongn.gif in Resources */,
 				25A47A9E1DE1ECB700AE2829 /* successwhite.png in Resources */,
 				25A47A9C1DE1ECB700AE2829 /* successblack@2x.png in Resources */,
 				25A47A8F1DE1ECB700AE2829 /* errorblack.png in Resources */,

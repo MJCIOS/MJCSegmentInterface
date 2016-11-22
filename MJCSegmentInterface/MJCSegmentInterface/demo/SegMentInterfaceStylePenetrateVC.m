@@ -34,11 +34,14 @@
     
     
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
+    segmentInterface.scrollTitlesEnabled = YES;
     //创建标题栏
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
     [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStylePenetrate];
-    
+    segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
+    segmentInterface.indicatorHidden = NO;
+    segmentInterface.bottomViewHidden = NO;
     //在添加标题栏之前做其他操作
     [segmentInterface addTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
