@@ -43,6 +43,7 @@
     segmentInterface.indicatorHidden = NO;
     segmentInterface.bottomViewHidden = NO;
     segmentInterface.tabItemBackColor = [UIColor clearColor];
+    segmentInterface.rightViewShow = YES;
     
     //在添加标题栏之前做其他操作
     [segmentInterface addTitlesArray:titlesArr];
