@@ -15,3 +15,6 @@ CGFloat const MJCMarin = 10;
 /** 全局统一的滚动标题按钮的宽度 */
 CGFloat const MJCTabitemW = 80;
 
+
+/** 标题按钮被重复点击的通知 */
+NSString * const XMGTitleButtonDidRepeatClickNotification = @"XMGTitleButtonDidRepeatClickNotification";

@@ -29,7 +29,12 @@
 ///** 当前选中的标题按钮 */
 //@property (nonatomic, strong) UIButton *firstTitleButton;
 
+/** rightButton */
+@property (nonatomic,strong) UIButton *rightButton;
+
+//第一个按钮
 @property (nonatomic, strong) MJCTabItemButton *firstTitleButton;
+
 /** 标题tabitem */
 //@property (nonatomic,strong) UIButton *titlesButton;
 
@@ -70,6 +75,82 @@
 
 
 @implementation MJCSegmentInterface
+
+//懒加载(因为数据只需要加载一次)
+- (MJCChildScrollView*)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [MJCChildScrollView  new];
+    }
+    return _scrollView;
+}
+- (UIButton*)rightButton
+{
+    if (!_rightButton) {
+        _rightButton = [UIButton  new];
+    }
+    return _rightButton;
+}
+- (MJCTabItemButton*)firstTitleButton
+{
+    if (!_firstTitleButton) {
+        _firstTitleButton = [MJCTabItemButton  new];
+    }
+    return _firstTitleButton;
+}
+- (MJCTabItemButton*)titlesButton
+{
+    if (!_titlesButton) {
+        _titlesButton = [MJCTabItemButton  new];
+    }
+    return _titlesButton;
+}
+- (MJCIndicatorView*)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [MJCIndicatorView  new];
+    }
+    return _indicatorView;
+}
+- (MJCTitlesView*)titlesView
+{
+    if (!_titlesView) {
+        _titlesView = [MJCTitlesView  new];
+    }
+    return _titlesView;
+}
+- (MJCTitlesScollView*)titlesScrollView
+{
+    if (!_titlesScrollView) {
+        _titlesScrollView = [MJCTitlesScollView  new];
+    }
+    return _titlesScrollView;
+}
+- (MJCTopView*)topView
+{
+    if (!_topView) {
+        _topView = [MJCTopView  new];
+    }
+    return _topView;
+}
+- (MJCBottomView*)bottomView
+{
+    if (!_bottomView) {
+        _bottomView = [MJCBottomView  new];
+    }
+    return _bottomView;
+}
+- (MJCRightView*)rightView
+{
+    if (!_rightView) {
+        _rightView = [MJCRightView  new];
+    }
+    return _rightView;
+}
+
+
+
+
 
 //重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
@@ -144,10 +225,60 @@
         [self setupScrollTitlesView];
     }
     [self setupTitlesButton:titlesArray];
+    
     [self setupTopView:_titlesView];
     [self setupBottomView:_titlesView];
     [self setupindicatorView:_titlesView];
+    
+    [self setupRightButton];
+    
 }
+
+-(void)setupRightButton
+{
+    _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [_rightButton addTarget:self action:@selector(titleClick1:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _rightButton.backgroundColor = [UIColor redColor];
+    _rightButton.frame = CGRectMake(320, 0, 40, 40);
+    [self addSubview:_rightButton];
+
+}
+
+- (void)titleClick1:(UIButton *)button1
+{
+    CGFloat scrollViewWidth = _scrollView.contentSize.width;
+    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+    
+    _rightButton.enabled = NO;
+    
+    /**
+     *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
+     *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
+     *
+     */
+    //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
+    if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
+        
+        //这是回到第一个界面的方法
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = 0;
+        [self.scrollView setContentOffset:offset animated:YES];
+        _rightButton.enabled = YES;
+        
+    }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
+        
+        //这是跳到最后一个界面的方法
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
+        [self.scrollView setContentOffset:offset animated:YES];
+        _rightButton.enabled = YES;
+        
+    }
+
+}
+
 
 #pragma mark --创建滚动标题栏数据
 -(void)setupScrollTitlesView
@@ -226,6 +357,8 @@
         [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
         [self setupRightView:i titlesArr:titlesArray];
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
     }
     self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _btnW, 0);
 }
@@ -387,13 +520,16 @@
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
+    
     [UIView animateWithDuration:0.25 animations:^{
         [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
         self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
     }];
+    
     CGPoint offset = self.scrollView.contentOffset;
     offset.x = titleButton.tag * self.scrollView.mjc_width;
     [self.scrollView setContentOffset:offset animated:YES];
+    
     [self selButton:titleButton];
 }
 
@@ -401,10 +537,12 @@
 #pragma mark -- <UIScrollViewDelegate>
 /**
  * 在scrollView滚动动画结束时, 就会调用这个方法
- * 前提: 使用setContentOffset:animated:或者scrollRectVisible:animated:方法让scrollView产生滚动动画
  */
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+    
+    [self setupScollTitlesButton:scrollView];
+    
     [self addChildVcView];
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
@@ -419,6 +557,17 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    [self setupScollTitlesButton:scrollView];
+    [self addChildVcView];
+    
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
+        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
+    }
+    
+}
+
+-(void)setupScollTitlesButton:(UIScrollView *)scrollView
+{
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
     if (_scrollTitlesEnabled == kNilOptions) {
         MJCTabItemButton *titleButton = self.titlesView.subviews[index];
@@ -430,12 +579,6 @@
         [self selButton:titleButton];
     }
 
-    [self addChildVcView];
-    
-    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
-        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
-    }
-    
 }
 
 

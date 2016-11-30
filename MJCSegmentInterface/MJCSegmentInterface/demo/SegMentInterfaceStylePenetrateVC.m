@@ -36,14 +36,16 @@
     segmentInterface.scrollTitlesEnabled = YES;
     
     //创建标题栏
+//    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
     [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStylePenetrate];
     segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    segmentInterface.indicatorHidden = YES;
+    segmentInterface.indicatorHidden = NO;
     segmentInterface.bottomViewHidden = NO;
     segmentInterface.tabItemBackColor = [UIColor clearColor];
     segmentInterface.rightViewShow = NO;
+    segmentInterface.childViewEnabled = YES;
     
     //在添加标题栏之前做其他操作
     [segmentInterface addTitlesArray:titlesArr];
@@ -73,6 +75,16 @@
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
     [segmentInterface setAddChildViewController:vc4];
+    
+    UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
+    [segmentInterface setAddChildViewController:vc5];
+
+    UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
+    [segmentInterface setAddChildViewController:vc6];
+
+    UITestViewController4 *vc7 = [[UITestViewController4 alloc]init];
+    [segmentInterface setAddChildViewController:vc7];
+
     
     
     

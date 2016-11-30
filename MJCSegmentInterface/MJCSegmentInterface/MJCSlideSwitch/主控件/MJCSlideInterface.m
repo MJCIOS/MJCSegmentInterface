@@ -246,7 +246,7 @@ static const CGFloat btnMargain = 0;
         
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         
-        [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        [titleButton addTarget:self action:@selector(titleClick1:) forControlEvents:UIControlEventTouchUpInside];
         
         [_titlesScrollView addSubview:titleButton];
     }
@@ -539,7 +539,7 @@ static const CGFloat btnMargain = 0;
     }
 }
 
-- (void)titleClick:(UIButton *)titleButton
+- (void)titleClick1:(UIButton *)titleButton
 {
 
     self.firstTitleButton.selected = NO;
@@ -577,7 +577,7 @@ static const CGFloat btnMargain = 0;
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
     UIButton *titleButton = self.titlesScrollView.subviews[index];
-    [self titleClick:titleButton];
+    [self titleClick1:titleButton];
     
     [self addChildVcView];
     
