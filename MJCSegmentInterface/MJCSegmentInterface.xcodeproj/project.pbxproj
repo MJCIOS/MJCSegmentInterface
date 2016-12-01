@@ -43,7 +43,6 @@
 		25A47AA31DE1ECB700AE2829 /* UIView+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A47A8E1DE1ECB700AE2829 /* UIView+MJCExtenSion.m */; };
 		25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */; };
 		25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */; };
-		25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */; };
 		25A91C4A1DC2FA1F0009313D /* UIView+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */; };
 		25A91C4B1DC2FA1F0009313D /* MJCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C411DC2FA1F0009313D /* MJCConst.m */; };
 		25A91C581DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C4F1DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m */; };
@@ -133,8 +132,6 @@
 		25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesScollView.m; sourceTree = "<group>"; };
 		25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
 		25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
-		25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSlideInterface.h; sourceTree = "<group>"; };
-		25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSlideInterface.m; sourceTree = "<group>"; };
 		25A91C3D1DC2FA1F0009313D /* UIView+MJCExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCExtenSion.h"; sourceTree = "<group>"; };
 		25A91C3E1DC2FA1F0009313D /* UIView+MJCExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCExtenSion.m"; sourceTree = "<group>"; };
 		25A91C401DC2FA1F0009313D /* MJCConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCConst.h; sourceTree = "<group>"; };
@@ -259,8 +256,6 @@
 			children = (
 				25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */,
 				25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */,
-				25A91C2D1DC2FA1F0009313D /* MJCSlideInterface.h */,
-				25A91C2E1DC2FA1F0009313D /* MJCSlideInterface.m */,
 				2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */,
 				2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */,
 				2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */,
@@ -580,7 +575,6 @@
 				25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */,
 				25A91C5B1DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m in Sources */,
 				25A91C591DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m in Sources */,
-				25A91C431DC2FA1F0009313D /* MJCSlideInterface.m in Sources */,
 				25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */,
 				25A91C691DC2FFDE0009313D /* UITestViewController2.m in Sources */,
 				2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */,

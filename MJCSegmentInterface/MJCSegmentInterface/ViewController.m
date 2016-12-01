@@ -15,7 +15,6 @@
 #import "UITestViewController4.h"
 
 #import "MJCSegmentInterface.h"
-#import "MJCSlideInterface.h"
 
 #import "SegMentInterfaceStyleClassicVC.h"
 #import "SegMentInterfaceStyleLessVC.h"
