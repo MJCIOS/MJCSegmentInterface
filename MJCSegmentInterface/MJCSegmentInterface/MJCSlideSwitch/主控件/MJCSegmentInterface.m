@@ -17,22 +17,15 @@
 #import "MJCTitlesScollView.h"
 #import "MJCTabItemButton.h"
 
-
-
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
-///** 当前选中的标题按钮 */
-//@property (nonatomic, strong) UIButton *firstTitleButton;
-
-/** rightButton */
+/** 右边按钮 */
 @property (nonatomic,strong) UIButton *rightButton;
 
 //第一个按钮
 @property (nonatomic, strong) MJCTabItemButton *firstTitleButton;
 
 /** 标题tabitem */
-//@property (nonatomic,strong) UIButton *titlesButton;
-
 @property (nonatomic,strong) MJCTabItemButton *titlesButton;
 
 
@@ -565,11 +558,11 @@
 //手势方法
 -(void)tap
 {
-    //    [NSThread sleepForTimeInterval:0.05];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+//     [NSThread sleepForTimeInterval:0.05];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    
         [self.mainShadeView removeFromSuperview];
-    });
+//    });
 }
 
 #pragma mark -- <UIScrollViewDelegate>
@@ -632,7 +625,8 @@
     }
 
 }
-//选中标题居中效果的方法的效果
+
+//选中滚动标题居中效果的方法的效果
 - (void)setupTitleCenter:(UIButton *)button
 {
     // 本质:修改titleScrollView偏移量
@@ -667,7 +661,6 @@
     }
 
 }
-
 
 #pragma mark -- 工具方法
 // 图片转换颜色
