@@ -18,11 +18,6 @@
 #import "MJCTabItemButton.h"
 
 
-//标题栏宽度
-//static const CGFloat MJCTitlesViewH = 50;
-//static const CGFloat MJCNavMaxY = 64;
-//static const CGFloat tabBarHeight = 50;
-
 
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
@@ -71,13 +66,36 @@
 @property (nonatomic,assign) CGFloat btnX;
 
 
-/** <#  注释  #> */
-@property (nonatomic,strong) UIView *mainView;
+/** 右边按钮的遮挡物 */
+@property (nonatomic,strong) UIView *rightMembraneView;
+/** 主页面的遮挡物 */
+@property (nonatomic,strong) UIView *mainShadeView;
 
 @end
 
 
 @implementation MJCSegmentInterface
+
+
+//懒加载(因为数据只需要加载一次)
+- (UIView *)mainShadeView
+{
+    if (!_mainShadeView) {
+        _mainShadeView = [[UIView alloc]init];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        [_mainShadeView addGestureRecognizer:tapGesture];
+        _mainShadeView.userInteractionEnabled = YES;
+    }
+    return _mainShadeView;
+}
+//懒加载(因为数据只需要加载一次)
+- (UIView*)rightMembraneView
+{
+    if (!_rightMembraneView) {
+        _rightMembraneView = [[UIView  alloc]init];
+    }
+    return _rightMembraneView;
+}
 
 //懒加载(因为数据只需要加载一次)
 - (MJCChildScrollView*)scrollView
@@ -150,9 +168,6 @@
     }
     return _rightView;
 }
-
-
-
 
 
 //重写方法 通过代码自定义控件,都要重写这个方法
@@ -243,7 +258,7 @@
 {
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [_rightButton addTarget:self action:@selector(titleClick1:) forControlEvents:UIControlEventTouchUpInside];
+    [_rightButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _rightButton.backgroundColor = [UIColor redColor];
     
@@ -253,45 +268,6 @@
 
 }
 
-- (void)titleClick1:(UIButton *)button1
-{
-    CGFloat scrollViewWidth = _scrollView.contentSize.width;
-    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
-    
-    _rightButton.enabled = NO;
-    
-    _mainView = [[UIView alloc]init];
-    
-    _mainView.frame = MJCScreenbound;
-    _mainView.backgroundColor = [UIColor clearColor];
-    
-    [self addSubview:_mainView];
-    
-    /**
-     *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
-     *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
-     *
-     */
-    //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
-    if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
-        
-        //这是回到第一个界面的方法
-        CGPoint offset = self.scrollView.contentOffset;
-        offset.x = 0;
-        [self.scrollView setContentOffset:offset animated:YES];
-//        _rightButton.enabled = YES;
-        
-    }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
-        
-        //这是跳到最后一个界面的方法
-        CGPoint offset = self.scrollView.contentOffset;
-        offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
-        [self.scrollView setContentOffset:offset animated:YES];
-//        _rightButton.enabled = YES;
-        
-    }
-    
-}
 
 
 #pragma mark --创建滚动标题栏数据
@@ -529,8 +505,47 @@
     [self.indicatorView setIndicatorColor:indicatorColor firstTitleButton:self.firstTitleButton];
 }
 
+
+//右边按钮的点击事件
+- (void)rightClick:(UIButton *)button
+{
+    CGFloat scrollViewWidth = _scrollView.contentSize.width;
+    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+    
+    _rightButton.enabled = NO;
+    
+    self.rightMembraneView.frame = MJCScreenbound;
+    self.rightMembraneView.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.rightMembraneView];
+    
+    /**
+     *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
+     *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
+     *
+     */
+    //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
+    if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
+        //这是回到第一个界面的方法
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = 0;
+        [self.scrollView setContentOffset:offset animated:YES];
+    }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
+        
+        //这是跳到最后一个界面的方法
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
+        [self.scrollView setContentOffset:offset animated:YES];
+        
+    }
+}
+
+//点击标题的点击事件
 - (void)titleClick:(MJCTabItemButton *)titleButton
 {
+    self.mainShadeView.frame = MJCScreenbound;
+    self.mainShadeView.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.mainShadeView];
+
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
@@ -544,12 +559,20 @@
     offset.x = titleButton.tag * self.scrollView.mjc_width;
     [self.scrollView setContentOffset:offset animated:YES];
     
-    [self selButton:titleButton];
+    [self setupTitleCenter:titleButton];
 }
 
+//手势方法
+-(void)tap
+{
+    //    [NSThread sleepForTimeInterval:0.05];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.mainShadeView removeFromSuperview];
+    });
+}
 
 #pragma mark -- <UIScrollViewDelegate>
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.rightButton.enabled = NO;
@@ -565,24 +588,9 @@
     
     [self addChildVcView];
     
-    CGFloat scrollViewWidth = _scrollView.contentSize.width;
-    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+    [self.mainShadeView removeFromSuperview];
     
-    if(scrollViewContentX <= scrollViewWidth - MJCScreenWidth) {
-        
-        [_mainView removeFromSuperview];
-        _rightButton.enabled = YES;
-      
-        return;
-    }
-    if (scrollViewContentX == 0) {
-        
-        [_mainView removeFromSuperview];
-        
-        return;
-    }
-    
-    
+    [self setupMembrane];
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
         [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
@@ -597,31 +605,68 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self setupScollTitlesButton:scrollView];
+    
     [self addChildVcView];
     
-    
-    
+    //销毁
+    [self.mainShadeView removeFromSuperview];
+
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
         [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
     }
     
 }
 
+//设置滚动的时候的点击方法以及标题居中的方法
 -(void)setupScollTitlesButton:(UIScrollView *)scrollView
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
     if (_scrollTitlesEnabled == kNilOptions) {
         MJCTabItemButton *titleButton = self.titlesView.subviews[index];
         [self titleClick:titleButton];
-        [self selButton:titleButton];
+        [self setupTitleCenter:titleButton];
     }else{
         MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
         [self titleClick:titleButton];
-        [self selButton:titleButton];
+        [self setupTitleCenter:titleButton];
     }
 
 }
+//选中标题居中效果的方法的效果
+- (void)setupTitleCenter:(UIButton *)button
+{
+    // 本质:修改titleScrollView偏移量
+    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
+    
+    if (offsetX < 0) {
+        offsetX = 0;
+    }
+    
+    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth;
+    
+    if (offsetX > maxOffsetX) {
+        offsetX = maxOffsetX;
+    }
+    
+    [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
+}
 
+//设置遮挡物
+-(void)setupMembrane
+{
+    CGFloat scrollViewWidth = _scrollView.contentSize.width;
+    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+    if(scrollViewContentX <= scrollViewWidth - MJCScreenWidth) {
+        [self.rightMembraneView removeFromSuperview];
+        _rightButton.enabled = YES;
+        return;
+    }
+    if (scrollViewContentX == 0) {
+        [self.rightMembraneView removeFromSuperview];
+        return;
+    }
+
+}
 
 
 #pragma mark -- 工具方法
@@ -680,31 +725,7 @@
     return result;
 }
 
-#pragma mark - 选中标题
-- (void)selButton:(UIButton *)button
-{
-    // 标题居中
-    [self setupTitleCenter:button];
-}
 
-#pragma mark - 标题居中
-- (void)setupTitleCenter:(UIButton *)button
-{
-    // 本质:修改titleScrollView偏移量
-    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
-    
-    if (offsetX < 0) {
-        offsetX = 0;
-    }
-    
-    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth;
-    
-    if (offsetX > maxOffsetX) {
-        offsetX = maxOffsetX;
-    }
-    
-    [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
-}
 
 
 
