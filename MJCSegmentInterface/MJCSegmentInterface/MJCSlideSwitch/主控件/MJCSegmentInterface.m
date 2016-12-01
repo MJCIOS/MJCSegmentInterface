@@ -71,6 +71,9 @@
 @property (nonatomic,assign) CGFloat btnX;
 
 
+/** <#  注释  #> */
+@property (nonatomic,strong) UIView *mainView;
+
 @end
 
 
@@ -204,6 +207,8 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.delegate = self;
+    scrollView.bounces = YES;
+    scrollView.directionalLockEnabled = YES;
     //    scrollView.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     scrollView.contentSize = CGSizeMake(scollViewArr.count * scrollView.mjc_width, 0);
     [self addSubview:scrollView];
@@ -241,7 +246,9 @@
     [_rightButton addTarget:self action:@selector(titleClick1:) forControlEvents:UIControlEventTouchUpInside];
     
     _rightButton.backgroundColor = [UIColor redColor];
-    _rightButton.frame = CGRectMake(320, 0, 40, 40);
+    
+    _rightButton.frame = CGRectMake(MJCScreenWidth - self.titlesButton.mjc_height-1,0,self.titlesButton.mjc_height,self.titlesButton.mjc_height);
+    
     [self addSubview:_rightButton];
 
 }
@@ -252,6 +259,13 @@
     CGFloat scrollViewContentX = _scrollView.contentOffset.x;
     
     _rightButton.enabled = NO;
+    
+    _mainView = [[UIView alloc]init];
+    
+    _mainView.frame = MJCScreenbound;
+    _mainView.backgroundColor = [UIColor clearColor];
+    
+    [self addSubview:_mainView];
     
     /**
      *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
@@ -265,7 +279,7 @@
         CGPoint offset = self.scrollView.contentOffset;
         offset.x = 0;
         [self.scrollView setContentOffset:offset animated:YES];
-        _rightButton.enabled = YES;
+//        _rightButton.enabled = YES;
         
     }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
         
@@ -273,10 +287,10 @@
         CGPoint offset = self.scrollView.contentOffset;
         offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
         [self.scrollView setContentOffset:offset animated:YES];
-        _rightButton.enabled = YES;
+//        _rightButton.enabled = YES;
         
     }
-
+    
 }
 
 
@@ -535,8 +549,14 @@
 
 
 #pragma mark -- <UIScrollViewDelegate>
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.rightButton.enabled = NO;
+}
+
 /**
- * 在scrollView滚动动画结束时, 就会调用这个方法
+ * 在scrollView滚动动画结束时, 点击按钮动画滚动结束时,就会调用这个方法
  */
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
@@ -544,6 +564,25 @@
     [self setupScollTitlesButton:scrollView];
     
     [self addChildVcView];
+    
+    CGFloat scrollViewWidth = _scrollView.contentSize.width;
+    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+    
+    if(scrollViewContentX <= scrollViewWidth - MJCScreenWidth) {
+        
+        [_mainView removeFromSuperview];
+        _rightButton.enabled = YES;
+      
+        return;
+    }
+    if (scrollViewContentX == 0) {
+        
+        [_mainView removeFromSuperview];
+        
+        return;
+    }
+    
+    
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
         [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
@@ -559,6 +598,8 @@
 {
     [self setupScollTitlesButton:scrollView];
     [self addChildVcView];
+    
+    
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
         [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
