@@ -57,33 +57,33 @@
      */
     UITestViewController *vc = [[UITestViewController alloc]init];
     
-    [segmentInterface setAddChildViewController:vc];
+    [segmentInterface mjc_AddChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface setAddChildViewController:vc1];
+    [segmentInterface mjc_AddChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface setAddChildViewController:vc2];
+    [segmentInterface mjc_AddChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     
     vc3.style = style;
     
-    [segmentInterface setAddChildViewController:vc3];
+    [segmentInterface mjc_AddChildViewController:vc3];
     
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface setAddChildViewController:vc4];
+    [segmentInterface mjc_AddChildViewController:vc4];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface setAddChildViewController:vc5];
+    [segmentInterface mjc_AddChildViewController:vc5];
 
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentInterface setAddChildViewController:vc6];
+    [segmentInterface mjc_AddChildViewController:vc6];
 
     UITestViewController4 *vc7 = [[UITestViewController4 alloc]init];
-    [segmentInterface setAddChildViewController:vc7];
+    [segmentInterface mjc_AddChildViewController:vc7];
 
     
     

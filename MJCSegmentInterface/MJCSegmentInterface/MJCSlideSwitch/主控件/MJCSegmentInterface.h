@@ -254,6 +254,8 @@ typedef enum {
 /** 添加控制器(添加控制器按照控制器添加的先后顺序与按钮对应的:比如说第一个按钮对应第一个添加的控制器)*/
 @property (nonatomic,strong) UIViewController *addChildViewController;
 
+-(void)mjc_AddChildViewController:(UIViewController *)childViewController;
+
 
 //**********重写set方法***********//
 

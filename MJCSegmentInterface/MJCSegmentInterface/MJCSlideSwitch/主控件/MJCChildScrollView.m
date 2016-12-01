@@ -15,7 +15,14 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
+     
+//        scrollView.backgroundColor = [UIColor whiteColor];
+        self.pagingEnabled = YES;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
+        self.bounces = YES;
+        self.directionalLockEnabled = YES;
+//        self.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     }
     
     return self;

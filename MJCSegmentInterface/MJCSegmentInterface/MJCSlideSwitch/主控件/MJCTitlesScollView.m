@@ -10,6 +10,32 @@
 
 @implementation MJCTitlesScollView
 
+//重写方法 通过代码自定义控件,都要重写这个方法
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        
+    }
+    
+    
+    return self;
+    
+}
+//获取子控件(重写方法,保证能赋值成功)
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    
+    
+}
+
+
+
+
 //设置标题颜色
 -(void)setTitlesScrollViewColor:(UIColor *)titlesScrollViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 {
