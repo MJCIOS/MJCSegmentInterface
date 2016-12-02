@@ -48,7 +48,7 @@
     segmentInterface.childViewEnabled = YES;
     
     //在添加标题栏之前做其他操作
-    [segmentInterface addTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
     
@@ -57,33 +57,33 @@
      */
     UITestViewController *vc = [[UITestViewController alloc]init];
     
-    [segmentInterface mjc_AddChildViewController:vc];
+    [segmentInterface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface mjc_AddChildViewController:vc1];
+    [segmentInterface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface mjc_AddChildViewController:vc2];
+    [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     
     vc3.style = style;
     
-    [segmentInterface mjc_AddChildViewController:vc3];
+    [segmentInterface intoChildViewController:vc3];
     
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface mjc_AddChildViewController:vc4];
+    [segmentInterface intoChildViewController:vc4];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface mjc_AddChildViewController:vc5];
+    [segmentInterface intoChildViewController:vc5];
 
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentInterface mjc_AddChildViewController:vc6];
+    [segmentInterface intoChildViewController:vc6];
 
     UITestViewController4 *vc7 = [[UITestViewController4 alloc]init];
-    [segmentInterface mjc_AddChildViewController:vc7];
+    [segmentInterface intoChildViewController:vc7];
 
     
     

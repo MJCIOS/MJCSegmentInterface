@@ -30,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    [self.navigationController.navigationBar setHidden:NO];
+
+    
     
 }
 //

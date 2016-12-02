@@ -46,7 +46,7 @@
 //    segmentInterface.tabItemImageSelected = [segmentInterface imageWithColor:[UIColor blueColor]];    
     
     //在添加标题栏之前做其他操作
-    [segmentInterface addTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
     
@@ -54,24 +54,24 @@
      * 添加控制器
      */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface setAddChildViewController:vc];
+    [segmentInterface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface setAddChildViewController:vc1];
+    [segmentInterface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface setAddChildViewController:vc2];
+    [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     
     vc3.style = style;
     
-    [segmentInterface setAddChildViewController:vc3];
+    [segmentInterface intoChildViewController:vc3];
     
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface setAddChildViewController:vc4];
+    [segmentInterface intoChildViewController:vc4];
     
 }
 

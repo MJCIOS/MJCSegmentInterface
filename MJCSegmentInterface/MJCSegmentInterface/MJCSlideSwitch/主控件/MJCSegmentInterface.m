@@ -51,9 +51,6 @@
 /** 主页面的遮挡物 */
 @property (nonatomic,copy) UIView *mainShadeView;
 
-
-
-
 /** tabitem宽度 */
 @property (nonatomic,assign) CGFloat tabItemW;
 /** tabitemH */
@@ -164,7 +161,6 @@
     }
     return _rightMembraneView;
 }
-
 - (UIButton*)rightButton
 {
     if (!_rightButton) {
@@ -172,6 +168,7 @@
     }
     return _rightButton;
 }
+
 
 
 //重写方法 通过代码自定义控件,都要重写这个方法
@@ -196,7 +193,7 @@
 }
 
 #pragma mark -- 添加子控制器
--(void)mjc_AddChildViewController:(UIViewController *)childViewController;
+-(void)intoChildViewController:(UIViewController *)childViewController;
 {
     self.viewController = childViewController;
     self.viewController = [self viewController:self];
@@ -232,7 +229,7 @@
     [self.scrollView isChildFrame:isChildViewframe setChildFrame:childViewframe SegmentInterFaceStyle:_SegmentInterFaceStyle];
 }
 #pragma mark -- 标题栏设置创建
--(void)addTitlesArray:(NSArray *)titlesArray
+-(void)intoTitlesArray:(NSArray *)titlesArray
 {
     [self setScollViewArr:titlesArray];
     
