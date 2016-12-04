@@ -46,6 +46,9 @@
     segmentInterface.tabItemBackColor = [UIColor clearColor];
     segmentInterface.rightViewShow = NO;
     segmentInterface.childViewEnabled = YES;
+    segmentInterface.rightMostBtnShow = YES;
+    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
+    segmentInterface.rightMostBtnColor = [UIColor redColor];
     
     //在添加标题栏之前做其他操作
     [segmentInterface intoTitlesArray:titlesArr];

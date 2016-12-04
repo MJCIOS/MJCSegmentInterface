@@ -52,6 +52,8 @@ typedef enum {
 
 @interface MJCSegmentInterface : UIView
 
+
+
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
@@ -291,6 +293,23 @@ typedef enum {
 
 //***************** 创建set方法 ****************//
 
+#pragma mark -- 右边按钮
+/** 最右边按钮是否隐藏 */
+@property (nonatomic,getter=rightMostBtnShow) BOOL rightMostBtnShow;
+
+/** 最右边按钮的颜色 */
+@property (nonatomic,strong) UIColor *rightMostBtnColor;
+
+/** 最右边按钮的图片 */
+@property (nonatomic,strong) UIImage *rightMostBtnImage;
+
+@property(nonatomic) CGRect  rightMostBtnFrame;
+
+/** tabItem的位置(是否开启用户修改tabItem的位置) */
+@property (nonatomic,getter=isrightMostBtnFrame) BOOL isrightMostBtnFrame;
+
+/** 一句代码设置tabItem的Frame */
+-(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
 
 
 

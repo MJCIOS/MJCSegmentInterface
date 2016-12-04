@@ -17,6 +17,11 @@
 #import "MJCTitlesScollView.h"
 #import "MJCTabItemButton.h"
 
+static const CGFloat rightBottomMargin = 2;
+static const CGFloat rightTopMargin = 2;
+static const CGFloat rightMargin = 2;
+
+
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
 
@@ -188,7 +193,6 @@
     while ((responder = [responder nextResponder]))
         if ([responder isKindOfClass: [UIViewController class]])
             return (UIViewController *)responder;
-    
     return nil;
 }
 
@@ -255,14 +259,50 @@
     
     [self.rightButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.rightButton.backgroundColor = [UIColor redColor];
+    [self setupRightData];
     
-    self.rightButton.frame = CGRectMake(MJCScreenWidth - self.titlesButton.mjc_height-1,0,self.titlesButton.mjc_height,self.titlesButton.mjc_height);
     
     [self addSubview:self.rightButton];
 
 }
 
+-(void)setupRightData
+{
+    if (_rightMostBtnColor == kNilOptions) {
+        self.rightButton.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.rightButton.backgroundColor = _rightMostBtnColor;
+    }
+    
+    if (_rightMostBtnImage == kNilOptions) {
+        [self.rightButton setImage:nil forState:0];
+    }else{
+        [self.rightButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
+    }
+    
+    
+    if (_rightMostBtnShow == NO) {
+        self.rightButton.hidden = YES;
+    }else{
+        self.rightButton.hidden = NO;
+    }
+    
+    
+    [self isRigthMostFrame:_isrightMostBtnFrame rightMostBtnFrame:_rightMostBtnFrame];
+    
+}
+-(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
+{
+    _isrightMostBtnFrame = isRigthMostFrame;
+    _rightMostBtnFrame = rightMostBtnFrame;
+    
+    if (isRigthMostFrame == YES) {
+        self.rightButton.frame = _rightMostBtnFrame;
+    }else{
+        self.rightButton.frame = CGRectMake(MJCScreenWidth-(self.titlesButton.mjc_height/2+rightMargin),rightTopMargin,self.titlesButton.mjc_height,self.titlesButton.mjc_height-(rightTopMargin+rightBottomMargin));
+    }
+    
+}
 
 
 #pragma mark --创建滚动标题栏数据
