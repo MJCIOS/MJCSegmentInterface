@@ -50,7 +50,7 @@ static const CGFloat rightMargin = 2;
 /** 底部横线 */
 @property (nonatomic,copy) MJCBottomView *bottomView;
 /** 右边按钮 */
-@property (nonatomic,copy) UIButton *rightButton;
+@property (nonatomic,copy) UIButton *rightMostButton;
 /** 右边按钮的遮挡物 */
 @property (nonatomic,copy) UIView *rightMembraneView;
 /** 主页面的遮挡物 */
@@ -152,7 +152,7 @@ static const CGFloat rightMargin = 2;
 {
     if (!_mainShadeView) {
         _mainShadeView = [[UIView alloc]init];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemoveView)];
         [_mainShadeView addGestureRecognizer:tapGesture];
         _mainShadeView.userInteractionEnabled = YES;
     }
@@ -163,15 +163,20 @@ static const CGFloat rightMargin = 2;
 {
     if (!_rightMembraneView) {
         _rightMembraneView = [[UIView  alloc]init];
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemoveView)];
+//        [_rightMembraneView addGestureRecognizer:tapGesture];
+//        _rightMembraneView.userInteractionEnabled = YES;
+
     }
     return _rightMembraneView;
 }
-- (UIButton*)rightButton
+
+- (UIButton*)rightMostButton
 {
-    if (!_rightButton) {
-        _rightButton = [[UIButton  alloc]init];
+    if (!_rightMostButton) {
+        _rightMostButton = [[UIButton  alloc]init];
     }
-    return _rightButton;
+    return _rightMostButton;
 }
 
 
@@ -252,43 +257,47 @@ static const CGFloat rightMargin = 2;
     [self setupRightButton];
     
 }
-
+#pragma mark -- 最右边按钮
 -(void)setupRightButton
 {
 //    _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [self.rightButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [self setupRightData];
     
     
-    [self addSubview:self.rightButton];
+    [self addSubview:self.rightMostButton];
 
 }
 
 -(void)setupRightData
 {
+    
     if (_rightMostBtnColor == kNilOptions) {
-        self.rightButton.backgroundColor = [UIColor whiteColor];
+        self.rightMostButton.backgroundColor = [UIColor whiteColor];
     }else{
-        self.rightButton.backgroundColor = _rightMostBtnColor;
+        self.rightMostButton.backgroundColor = _rightMostBtnColor;
+    }
+    
+    if (_rightMostBtnShow == NO) {
+        self.rightMostButton.hidden = YES;
+    }else{
+        self.rightMostButton.hidden = NO;
     }
     
     if (_rightMostBtnImage == kNilOptions) {
-        [self.rightButton setImage:nil forState:0];
+        [self.rightMostButton setImage:[UIImage imageNamed:@"向右箭头"] forState:UIControlStateNormal];
     }else{
-        [self.rightButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
-    }
-    
-    
-    if (_rightMostBtnShow == NO) {
-        self.rightButton.hidden = YES;
-    }else{
-        self.rightButton.hidden = NO;
+        [self.rightMostButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
     }
     
     
     [self isRigthMostFrame:_isrightMostBtnFrame rightMostBtnFrame:_rightMostBtnFrame];
+    
+    
+    
     
 }
 -(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
@@ -297,9 +306,9 @@ static const CGFloat rightMargin = 2;
     _rightMostBtnFrame = rightMostBtnFrame;
     
     if (isRigthMostFrame == YES) {
-        self.rightButton.frame = _rightMostBtnFrame;
+        self.rightMostButton.frame = _rightMostBtnFrame;
     }else{
-        self.rightButton.frame = CGRectMake(MJCScreenWidth-(self.titlesButton.mjc_height/2+rightMargin),rightTopMargin,self.titlesButton.mjc_height,self.titlesButton.mjc_height-(rightTopMargin+rightBottomMargin));
+        self.rightMostButton.frame = CGRectMake(MJCScreenWidth-(self.titlesButton.mjc_height/2+rightMargin),rightTopMargin,self.titlesButton.mjc_height/2,self.titlesButton.mjc_height-(rightTopMargin+rightBottomMargin));
     }
     
 }
@@ -538,35 +547,70 @@ static const CGFloat rightMargin = 2;
 //右边按钮的点击事件
 - (void)rightClick:(UIButton *)button
 {
-    CGFloat scrollViewWidth = _scrollView.contentSize.width;
-    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
     
-    _rightButton.enabled = NO;
+    self.rightMostButton.enabled = NO;
+    self.rightMostButton.selected = NO;
     
     
-    self.rightMembraneView.frame = MJCScreenbound;
-    self.rightMembraneView.backgroundColor = [UIColor clearColor];
-    [self addSubview:self.rightMembraneView];
     
-    /**
-     *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
-     *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
-     *
-     */
-    //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
-    if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
-        //这是回到第一个界面的方法
-        CGPoint offset = self.scrollView.contentOffset;
-        offset.x = 0;
-        [self.scrollView setContentOffset:offset animated:YES];
-    }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
-        
-        //这是跳到最后一个界面的方法
-        CGPoint offset = self.scrollView.contentOffset;
-        offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
-        [self.scrollView setContentOffset:offset animated:YES];
-        
+    [self isOpenJump:_isOpenJump mostLeftPosition:_mostLeftPosition mostRightPosition:_mostRightPosition];
+    
+    [self performSelector:@selector(tapRemoveView) withObject:nil afterDelay:0.2];
+    
+    if (_isOpenJump == NO) {
+        if ([self.slideDelegate respondsToSelector:@selector(mjc_MostClickEvent:segmentInterface:)]) {
+            [self.slideDelegate mjc_MostClickEvent:_rightMostButton segmentInterface:self];
+        }
+        return;
     }
+    
+}
+
+
+-(void)isOpenJump:(BOOL)isOpenJump mostLeftPosition:(UIImage *)mostLeftPosition mostRightPosition:(UIImage *)mostRightPosition
+{
+    _isOpenJump = isOpenJump;
+    _mostLeftPosition = mostLeftPosition;
+    _mostRightPosition = mostRightPosition;
+    
+    if (isOpenJump == YES) {
+    
+        self.rightMembraneView.frame = MJCScreenbound;
+        self.rightMembraneView.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.rightMembraneView];
+
+        CGFloat scrollViewWidth = _scrollView.contentSize.width;
+        CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+        
+        /**
+         *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
+         *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
+         *
+         */
+        //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
+        if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
+            //这是回到第一个界面的方法
+            CGPoint offset = self.scrollView.contentOffset;
+            offset.x = 0;
+            [self.scrollView setContentOffset:offset animated:YES];
+            [self.rightMostButton setImage:mostLeftPosition forState:UIControlStateNormal];
+        }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
+            
+            self.rightMembraneView.frame = MJCScreenbound;
+            self.rightMembraneView.backgroundColor = [UIColor clearColor];
+            [self addSubview:self.rightMembraneView];
+
+            //这是跳到最后一个界面的方法
+            CGPoint offset = self.scrollView.contentOffset;
+            offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
+            [self.scrollView setContentOffset:offset animated:YES];
+            [self.rightMostButton setImage:mostRightPosition forState:UIControlStateNormal];
+        }
+
+        return;
+    }
+    
+
 }
 
 //点击标题的点击事件
@@ -590,22 +634,30 @@ static const CGFloat rightMargin = 2;
     [self.scrollView setContentOffset:offset animated:YES];
     
     [self setupTitleCenter:titleButton];
+    
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_ClickEvent:segmentInterface:)]) {
+        [self.slideDelegate mjc_ClickEvent:titleButton segmentInterface:self];
+    }
+
+    
 }
 
 //手势方法
--(void)tap
+-(void)tapRemoveView
 {
 //     [NSThread sleepForTimeInterval:0.05];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
         [self.mainShadeView removeFromSuperview];
+    self.rightMostButton.enabled = YES;
+//    [self.rightMembraneView removeFromSuperview];
 //    });
 }
 
 #pragma mark -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.rightButton.enabled = NO;
+    self.rightMostButton.enabled = NO;
 }
 
 /**
@@ -689,7 +741,7 @@ static const CGFloat rightMargin = 2;
     CGFloat scrollViewContentX = _scrollView.contentOffset.x;
     if(scrollViewContentX <= scrollViewWidth - MJCScreenWidth) {
         [self.rightMembraneView removeFromSuperview];
-        _rightButton.enabled = YES;
+        self.rightMostButton.enabled = YES;
         return;
     }
     if (scrollViewContentX == 0) {

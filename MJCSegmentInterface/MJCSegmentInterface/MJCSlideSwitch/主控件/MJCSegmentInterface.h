@@ -47,12 +47,15 @@ typedef enum {
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
 
+/** 点击标题栏按钮的点击事件 */
+- (void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 右边按钮的点击事件 */
+- (void)mjc_MostClickEvent:(UIButton *)rightMostButton segmentInterface:(MJCSegmentInterface *)segmentInterface;
+
 @end
 
 
 @interface MJCSegmentInterface : UIView
-
-
 
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
@@ -311,6 +314,17 @@ typedef enum {
 /** 一句代码设置tabItem的Frame */
 -(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
 
+/** 设置最右边按钮的点击后跳转最左边位置的图片和最右边位置的图片 */
+-(void)isOpenJump:(BOOL)isOpenJump mostLeftPosition:(UIImage *)mostLeftPosition mostRightPosition:(UIImage *)mostRightPosition;
+
+
+/** 最左边位置的时候最左边按钮的图片 */
+@property (nonatomic,strong) UIImage *mostLeftPosition;
+/** 最右边位置的时候的最右边按钮的图片 */
+@property (nonatomic,strong) UIImage *mostRightPosition;
+
+/** 是否开启跳转子界面最左边位置以及最右边位置 */
+@property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
 
 @end
