@@ -265,6 +265,10 @@ static const CGFloat rightMargin = 2;
     [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    self.rightMostButton.adjustsImageWhenHighlighted = NO;
+    
+    self.rightMostButton.showsTouchWhenHighlighted = NO;
+    
     [self setupRightData];
     
     
@@ -548,14 +552,7 @@ static const CGFloat rightMargin = 2;
 - (void)rightClick:(UIButton *)button
 {
     
-    self.rightMostButton.enabled = NO;
-    self.rightMostButton.selected = NO;
-    
-    
-    
     [self isOpenJump:_isOpenJump mostLeftPosition:_mostLeftPosition mostRightPosition:_mostRightPosition];
-    
-    [self performSelector:@selector(tapRemoveView) withObject:nil afterDelay:0.2];
     
     if (_isOpenJump == NO) {
         if ([self.slideDelegate respondsToSelector:@selector(mjc_MostClickEvent:segmentInterface:)]) {
@@ -649,7 +646,6 @@ static const CGFloat rightMargin = 2;
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     
         [self.mainShadeView removeFromSuperview];
-    self.rightMostButton.enabled = YES;
 //    [self.rightMembraneView removeFromSuperview];
 //    });
 }
@@ -691,6 +687,7 @@ static const CGFloat rightMargin = 2;
     
     //销毁
     [self.mainShadeView removeFromSuperview];
+    
     [self setupMembrane];
 
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
@@ -734,7 +731,7 @@ static const CGFloat rightMargin = 2;
     [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
 
-//设置遮挡物
+//销毁遮挡物
 -(void)setupMembrane
 {
     CGFloat scrollViewWidth = _scrollView.contentSize.width;
@@ -744,12 +741,16 @@ static const CGFloat rightMargin = 2;
         self.rightMostButton.enabled = YES;
         return;
     }
+    
     if (scrollViewContentX == 0) {
         [self.rightMembraneView removeFromSuperview];
         return;
     }
 
 }
+
+
+
 
 #pragma mark -- 工具方法
 // 图片转换颜色

@@ -51,8 +51,9 @@
     segmentInterface.rightViewShow = NO;
     segmentInterface.childViewEnabled = YES;
     segmentInterface.rightMostBtnShow = YES;
-    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
-//    segmentInterface.rightMostBtnColor = [UIColor clearColor];
+    segmentInterface.rightMostBtnColor = [UIColor whiteColor];
+    
+//    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
 
     [segmentInterface isOpenJump:NO mostLeftPosition:[UIImage imageNamed:@"向右箭头"] mostRightPosition:[UIImage imageNamed:@"向左箭头"]];
     
