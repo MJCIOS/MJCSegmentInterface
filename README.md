@@ -1,11 +1,11 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
-## 新增了标题栏滑动功能
+## 新增了标题栏滑动功能   新增了一个最右侧的按钮,可以滚动到第一页和最后一页,也可自己跳转所需要的界面
 ###一旦创建,并不会一上来就将所有控制器创建出来,当你点击下一个标题的时候.才会将对应的控制器创建出来,不用担心性能太差的问题...
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/jingdian.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/chuantou.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gundonggongn.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/gezichuantou.gif)
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/yanse.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/tupianxiaoguo.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/tupianshuzu.gif)
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/yanse.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/tupianxiaoguo.gif)
 
 ###分段控制器创建(几行代码即可使用)
     
