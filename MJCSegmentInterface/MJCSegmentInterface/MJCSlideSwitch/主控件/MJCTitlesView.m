@@ -32,8 +32,6 @@
     
 }
 
-
-
 -(void)setTitlesViewColor:(UIColor *)titlesViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
 {
     if (titlesViewColor == kNilOptions) {

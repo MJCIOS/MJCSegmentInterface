@@ -54,6 +54,8 @@
     segmentInterface.rightMostBtnColor = [UIColor whiteColor];
     
 //    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
+    
+    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor redColor]];
 
     [segmentInterface isOpenJump:NO mostLeftPosition:[UIImage imageNamed:@"向右箭头"] mostRightPosition:[UIImage imageNamed:@"向左箭头"]];
     
