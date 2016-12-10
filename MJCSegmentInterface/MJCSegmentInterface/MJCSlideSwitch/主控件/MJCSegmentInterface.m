@@ -264,7 +264,6 @@ static const CGFloat rightMargin = 2;
     
     [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    
     self.rightMostButton.adjustsImageWhenHighlighted = NO;
     
     self.rightMostButton.showsTouchWhenHighlighted = NO;
