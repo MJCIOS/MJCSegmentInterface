@@ -41,9 +41,9 @@
     //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
     [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStyleMoreUse];
     
-//    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor orangeColor]];
+    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor orangeColor]];
     //点击状态下的背景图片(如果你不想用图片,想要用颜色,我也提供一个方法)
-//    segmentInterface.tabItemImageSelected = [segmentInterface imageWithColor:[UIColor blueColor]];    
+    segmentInterface.tabItemImageSelected = [segmentInterface imageWithColor:[UIColor blueColor]];    
     
     //在添加标题栏之前做其他操作
     [segmentInterface intoTitlesArray:titlesArr];

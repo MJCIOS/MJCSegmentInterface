@@ -52,9 +52,9 @@ static const CGFloat rightMargin = 2;
 /** 右边按钮 */
 @property (nonatomic,copy) UIButton *rightMostButton;
 /** 右边按钮的遮挡物 */
-@property (nonatomic,copy) UIView *rightMembraneView;
+//@property (nonatomic,copy) UIView *rightMembraneView;
 /** 主页面的遮挡物 */
-@property (nonatomic,copy) UIView *mainShadeView;
+//@property (nonatomic,copy) UIView *mainShadeView;
 
 /** tabitem宽度 */
 @property (nonatomic,assign) CGFloat tabItemW;
@@ -64,6 +64,10 @@ static const CGFloat rightMargin = 2;
 @property (nonatomic,assign) CGFloat tabItemX;
 
 @property (nonatomic,strong) UIViewController *viewController;
+
+
+/** 界面滚动动画世界 */
+@property (nonatomic,assign) NSTimeInterval scollAnimal;
 
 @end
 
@@ -107,7 +111,12 @@ static const CGFloat rightMargin = 2;
 - (MJCTabItemButton*)firstTitleButton
 {
     if (!_firstTitleButton) {
-        _firstTitleButton = [[MJCTabItemButton  alloc]init];
+        if (_scrollTitlesEnabled == kNilOptions) {
+            _firstTitleButton = self.titlesView.subviews.firstObject;
+        }else{
+            _firstTitleButton = self.titlesScrollView.subviews.firstObject;
+        }
+
     }
     return _firstTitleButton;
 }
@@ -145,30 +154,6 @@ static const CGFloat rightMargin = 2;
         _rightView = [[MJCRightView  alloc]init];
     }
     return _rightView;
-}
-
-//懒加载(因为数据只需要加载一次)
-- (UIView *)mainShadeView
-{
-    if (!_mainShadeView) {
-        _mainShadeView = [[UIView alloc]init];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemoveView)];
-        [_mainShadeView addGestureRecognizer:tapGesture];
-        _mainShadeView.userInteractionEnabled = YES;
-    }
-    return _mainShadeView;
-}
-//懒加载(因为数据只需要加载一次)
-- (UIView*)rightMembraneView
-{
-    if (!_rightMembraneView) {
-        _rightMembraneView = [[UIView  alloc]init];
-//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRemoveView)];
-//        [_rightMembraneView addGestureRecognizer:tapGesture];
-//        _rightMembraneView.userInteractionEnabled = YES;
-
-    }
-    return _rightMembraneView;
 }
 
 - (UIButton*)rightMostButton
@@ -223,8 +208,6 @@ static const CGFloat rightMargin = 2;
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
     self.viewController.automaticallyAdjustsScrollViewInsets = NO;
-//    MJCChildScrollView *scrollView = [[MJCChildScrollView alloc] init];
-//    self.scrollView = scrollView;
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = _childViewEnabled;
     [self isChildViewframe:_isChildViewframe childViewframe:_childViewframe];
@@ -240,6 +223,7 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 标题栏设置创建
 -(void)intoTitlesArray:(NSArray *)titlesArray
 {
+    
     [self setScollViewArr:titlesArray];
     
     if (_scrollTitlesEnabled == kNilOptions) {
@@ -260,16 +244,17 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 最右边按钮
 -(void)setupRightButton
 {
-//    _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
+//    self.rightMostButton.adjustsImageWhenHighlighted = NO;
+//    self.rightMostButton.showsTouchWhenHighlighted = NO;
     
-    self.rightMostButton.adjustsImageWhenHighlighted = NO;
-    
-    self.rightMostButton.showsTouchWhenHighlighted = NO;
-    
+    if (_childViewScollAnimal == YES) {
+        _scollAnimal = 0.25;
+    }else{
+        _scollAnimal = 0;
+    }
+
     [self setupRightData];
-    
     
     [self addSubview:self.rightMostButton];
 
@@ -291,7 +276,7 @@ static const CGFloat rightMargin = 2;
     }
     
     if (_rightMostBtnImage == kNilOptions) {
-        [self.rightMostButton setImage:[UIImage imageNamed:@"向右箭头"] forState:UIControlStateNormal];
+        [self.rightMostButton setImage:nil forState:UIControlStateNormal];
     }else{
         [self.rightMostButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
     }
@@ -320,9 +305,6 @@ static const CGFloat rightMargin = 2;
 #pragma mark --创建滚动标题栏数据
 -(void)setupScrollTitlesView
 {
-//    MJCTitlesScollView *titleScrollView = [[MJCTitlesScollView alloc] init];
-//    _titlesScrollView = titleScrollView;
-    
     [self setuptitleScrollViewData:self.titlesScrollView];
     
     [self addSubview:self.titlesScrollView];
@@ -349,8 +331,6 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 创建标题栏数据
 -(void)setupTitlesView
 {
-//    MJCTitlesView *titlesView = [[MJCTitlesView alloc] init];
-//    self.titlesView = titlesView;
     [self setuptitlesViewData:self.titlesView ];
     [self addSubview:self.titlesView ];
 }
@@ -427,9 +407,6 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 顶部横线的设置创建
 -(void)setupTopView:(MJCTitlesView *)titleView
 {
-//    MJCTopView *topView = [[MJCTopView alloc]init];
-//    self.topView = topView;
-    
     [self setTopViewColor:_topViewColor];
     [self isTopViewFrame:_isTopViewFrame setTopViewFrame:_topViewFrame];
     [self setTopViewHidden:_topViewHidden];
@@ -469,8 +446,6 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 底部横线的设置创建
 -(void)setupBottomView:(UIView *)titleView
 {
-//    MJCBottomView *bottomView = [[MJCBottomView alloc]init];
-//    self.bottomView = bottomView;
     [self setBottomViewColor:_bottomViewColor];
     [self setBottomViewHidden:_bottomViewHidden];
     [self isBottomViewFrame:_isBottomViewFrame setBottomViewFrame:_bottomViewFrame];
@@ -508,17 +483,16 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 底部指示器创建设置
 -(void)setupindicatorView:(UIView *)titlesView
 {
-    if (_scrollTitlesEnabled == kNilOptions) {
-        MJCTabItemButton *firstTitleButton = self.titlesView.subviews.firstObject;
-        self.firstTitleButton = firstTitleButton;
-    }else{
-        MJCTabItemButton *firstTitleButton = self.titlesScrollView.subviews.firstObject;
-        self.firstTitleButton = firstTitleButton;
-    }
+//    if (_scrollTitlesEnabled == kNilOptions) {
+//        MJCTabItemButton *firstTitleButton = self.titlesView.subviews.firstObject;
+//        self.firstTitleButton = firstTitleButton;
+//    }else{
+//        MJCTabItemButton *firstTitleButton = self.titlesScrollView.subviews.firstObject;
+//        self.firstTitleButton = firstTitleButton;
+//    }
     [self.firstTitleButton.titleLabel sizeToFit];
     self.firstTitleButton.selected = YES;
-//    MJCIndicatorView *indicatorView = [[MJCIndicatorView alloc] init];
-//    self.indicatorView = indicatorView;
+    
     [self setIndicatorColor:_indicatorColor];
     [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
     if (_scrollTitlesEnabled == kNilOptions) {
@@ -569,12 +543,11 @@ static const CGFloat rightMargin = 2;
     _mostLeftPosition = mostLeftPosition;
     _mostRightPosition = mostRightPosition;
     
-    if (isOpenJump == YES) {
     
-        self.rightMembraneView.frame = MJCScreenbound;
-        self.rightMembraneView.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.rightMembraneView];
 
+    
+    if (isOpenJump == YES) {
+        
         CGFloat scrollViewWidth = _scrollView.contentSize.width;
         CGFloat scrollViewContentX = _scrollView.contentOffset.x;
         
@@ -585,22 +558,30 @@ static const CGFloat rightMargin = 2;
          */
         //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
         if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
-            //这是回到第一个界面的方法
-            CGPoint offset = self.scrollView.contentOffset;
-            offset.x = 0;
-            [self.scrollView setContentOffset:offset animated:YES];
+            
+            
+            [UIView animateWithDuration:_scollAnimal animations:^{
+                //这是回到第一个界面的方法
+                CGPoint offset = self.scrollView.contentOffset;
+                offset.x = 0;
+                [self.scrollView setContentOffset:offset animated:NO];
+            }];
+            
             [self.rightMostButton setImage:mostLeftPosition forState:UIControlStateNormal];
+            [self setupScollTitlesButton:_scrollView];
+            
         }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
             
-            self.rightMembraneView.frame = MJCScreenbound;
-            self.rightMembraneView.backgroundColor = [UIColor clearColor];
-            [self addSubview:self.rightMembraneView];
-
-            //这是跳到最后一个界面的方法
-            CGPoint offset = self.scrollView.contentOffset;
-            offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
-            [self.scrollView setContentOffset:offset animated:YES];
+            
+            [UIView animateWithDuration:_scollAnimal animations:^{
+                //这是跳到最后一个界面的方法
+                CGPoint offset = self.scrollView.contentOffset;
+                offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
+                [self.scrollView setContentOffset:offset animated:NO];
+            }];
+            
             [self.rightMostButton setImage:mostRightPosition forState:UIControlStateNormal];
+            [self setupScollTitlesButton:_scrollView];
         }
 
         return;
@@ -612,22 +593,39 @@ static const CGFloat rightMargin = 2;
 //点击标题的点击事件
 - (void)titleClick:(MJCTabItemButton *)titleButton
 {
-    self.mainShadeView.frame = MJCScreenbound;
-    self.mainShadeView.backgroundColor = [UIColor clearColor];
-    [self addSubview:self.mainShadeView];
 
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
     
-    [UIView animateWithDuration:0.25 animations:^{
+    
+    if (_childViewScollAnimal == YES) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
+            self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
+        }];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            CGPoint offset = self.scrollView.contentOffset;
+            offset.x = titleButton.tag * self.scrollView.mjc_width;
+            [self.scrollView setContentOffset:offset animated:NO];
+        }];
+
+    }else{
+        
         [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
         self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
-    }];
+        
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = titleButton.tag * self.scrollView.mjc_width;
+        [self.scrollView setContentOffset:offset animated:NO];
+    }
     
-    CGPoint offset = self.scrollView.contentOffset;
-    offset.x = titleButton.tag * self.scrollView.mjc_width;
-    [self.scrollView setContentOffset:offset animated:YES];
+    
+    
+    
+    [self addChildVcView];
     
     [self setupTitleCenter:titleButton];
     
@@ -638,62 +636,41 @@ static const CGFloat rightMargin = 2;
     
 }
 
-//手势方法
--(void)tapRemoveView
-{
-//     [NSThread sleepForTimeInterval:0.05];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    
-        [self.mainShadeView removeFromSuperview];
-//    [self.rightMembraneView removeFromSuperview];
-//    });
-}
 
 #pragma mark -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.rightMostButton.enabled = NO;
 }
 
 /**
- * 在scrollView滚动动画结束时, 点击按钮动画滚动结束时,就会调用这个方法
+ * 点击按钮scollview产生动画滚动结束时,就会调用这个方法
  */
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    
-    
-    [self setupScollTitlesButton:scrollView];
-    [self addChildVcView];
-    
-    [self.mainShadeView removeFromSuperview];
-    [self setupMembrane];
-    
-    
-    if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
-        [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
-    }
-    
-}
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+//{
+//    [self setupScollTitlesButton:scrollView];
+//    [self addChildVcView];
+
+//    if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
+//        [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
+//    }
+//}
 
 /**
  * 在scrollView滚动动画结束时, 就会调用这个方法
- * 前提: 人为拖拽scrollView产生的滚动动画
+ * 拖拽scrollView产生的滚动动画
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self setupScollTitlesButton:scrollView];
     [self addChildVcView];
     
-    //销毁
-    [self.mainShadeView removeFromSuperview];
-    
-    [self setupMembrane];
 
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
         [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
     }
     
 }
+
 
 //设置滚动的时候的点击方法以及标题居中的方法
 -(void)setupScollTitlesButton:(UIScrollView *)scrollView
@@ -729,27 +706,6 @@ static const CGFloat rightMargin = 2;
     
     [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
-
-//销毁遮挡物
--(void)setupMembrane
-{
-    CGFloat scrollViewWidth = _scrollView.contentSize.width;
-    CGFloat scrollViewContentX = _scrollView.contentOffset.x;
-    if(scrollViewContentX <= scrollViewWidth - MJCScreenWidth) {
-        [self.rightMembraneView removeFromSuperview];
-        self.rightMostButton.enabled = YES;
-        return;
-    }
-    
-    if (scrollViewContentX == 0) {
-        [self.rightMembraneView removeFromSuperview];
-        return;
-    }
-
-}
-
-
-
 
 #pragma mark -- 工具方法
 // 图片转换颜色

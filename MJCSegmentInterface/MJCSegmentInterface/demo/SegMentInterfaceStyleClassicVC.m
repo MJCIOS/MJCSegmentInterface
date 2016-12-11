@@ -48,11 +48,13 @@
     segmentInterface.indicatorHidden = NO;
     segmentInterface.topViewHidden = NO;
     segmentInterface.topViewColor = [UIColor redColor];
-    segmentInterface.bottomViewColor = [UIColor blackColor];
+//    segmentInterface.bottomViewColor = [UIColor blackColor];
     segmentInterface.bottomViewHidden=NO;
     segmentInterface.tabItemBackColor = [UIColor redColor];
     segmentInterface.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    
+    segmentInterface.rightMostBtnShow = YES;
+    segmentInterface.isOpenJump = YES;
+ 
     
     
     //在添加标题栏之前做其他属性操作

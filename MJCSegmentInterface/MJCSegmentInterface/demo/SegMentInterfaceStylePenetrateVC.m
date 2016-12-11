@@ -52,12 +52,16 @@
     segmentInterface.childViewEnabled = YES;
     segmentInterface.rightMostBtnShow = YES;
     segmentInterface.rightMostBtnColor = [UIColor whiteColor];
+    segmentInterface.childViewScollAnimal = YES;
     
 //    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
     
-    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor redColor]];
+    segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor blackColor]];
 
-    [segmentInterface isOpenJump:NO mostLeftPosition:[UIImage imageNamed:@"向右箭头"] mostRightPosition:[UIImage imageNamed:@"向左箭头"]];
+    segmentInterface.isOpenJump=YES;
+    segmentInterface.mostLeftPosition = [UIImage imageNamed:@"向右箭头"];
+    segmentInterface.mostRightPosition = [UIImage imageNamed:@"向左箭头"];
+    
     
     //在添加标题栏之前做其他操作
     [segmentInterface intoTitlesArray:titlesArr];
@@ -94,7 +98,7 @@
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
     [segmentInterface intoChildViewController:vc6];
 
-    UITestViewController4 *vc7 = [[UITestViewController4 alloc]init];
+    UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
     [segmentInterface intoChildViewController:vc7];
 
     

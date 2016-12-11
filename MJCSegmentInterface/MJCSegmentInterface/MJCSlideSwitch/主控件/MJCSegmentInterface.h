@@ -41,14 +41,15 @@ typedef enum {
 
 @optional
 
-/** 在scrollView滚动的时候动画结束时, 就会调用这个方法 */
-- (void)mjc_ScrollViewDidEndScrollingAnimation:(MJCSegmentInterface *)segmentInterface;
+/** 点击按钮scollview产生动画滚动结束时,就会调用这个方法 */
+//- (void)mjc_ScrollViewDidEndScrollingAnimation:(MJCSegmentInterface *)segmentInterface;
 
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
 
 /** 点击标题栏按钮的点击事件 */
 - (void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface;
+
 /** 右边按钮的点击事件 */
 - (void)mjc_MostClickEvent:(UIButton *)rightMostButton segmentInterface:(MJCSegmentInterface *)segmentInterface;
 
@@ -200,6 +201,9 @@ typedef enum {
 /** 子界面是否滑动 */
 @property(nonatomic,assign,getter = isChildViewEnabled) BOOL childViewEnabled;
 
+/** 子界面滚动是否有动画 */
+@property(nonatomic,assign,getter= isChildViewScollAnimal) BOOL childViewScollAnimal;
+
 /** 一句代码设置子界面的frame */
 -(void)isChildViewframe:(BOOL)isChildViewframe childViewframe:(CGRect)childViewframe;
 
@@ -313,9 +317,6 @@ typedef enum {
 
 /** 一句代码设置tabItem的Frame */
 -(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
-
-/** 设置最右边按钮的点击后跳转最左边位置的图片和最右边位置的图片 */
--(void)isOpenJump:(BOOL)isOpenJump mostLeftPosition:(UIImage *)mostLeftPosition mostRightPosition:(UIImage *)mostRightPosition;
 
 
 /** 最左边位置的时候最左边按钮的图片 */
