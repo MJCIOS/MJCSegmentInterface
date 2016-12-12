@@ -483,13 +483,7 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 底部指示器创建设置
 -(void)setupindicatorView:(UIView *)titlesView
 {
-//    if (_scrollTitlesEnabled == kNilOptions) {
-//        MJCTabItemButton *firstTitleButton = self.titlesView.subviews.firstObject;
-//        self.firstTitleButton = firstTitleButton;
-//    }else{
-//        MJCTabItemButton *firstTitleButton = self.titlesScrollView.subviews.firstObject;
-//        self.firstTitleButton = firstTitleButton;
-//    }
+    
     [self.firstTitleButton.titleLabel sizeToFit];
     self.firstTitleButton.selected = YES;
     
@@ -542,9 +536,6 @@ static const CGFloat rightMargin = 2;
     _isOpenJump = isOpenJump;
     _mostLeftPosition = mostLeftPosition;
     _mostRightPosition = mostRightPosition;
-    
-    
-
     
     if (isOpenJump == YES) {
         
@@ -637,6 +628,7 @@ static const CGFloat rightMargin = 2;
 }
 
 
+
 #pragma mark -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -706,6 +698,8 @@ static const CGFloat rightMargin = 2;
     
     [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
+
+
 
 #pragma mark -- 工具方法
 // 图片转换颜色

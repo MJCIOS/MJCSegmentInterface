@@ -54,7 +54,7 @@
     segmentInterface.rightMostBtnColor = [UIColor whiteColor];
     segmentInterface.childViewScollAnimal = YES;
     
-//    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"456"];
+    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
     
     segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor blackColor]];
 
