@@ -2,7 +2,7 @@
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 ## 新增了标题栏滑动功能   新增了一个最右侧的按钮,可以滚动到第一页和最后一页,也可自己跳转所需要的界面
 ###一旦创建,并不会一上来就将所有控制器创建出来,当你点击下一个标题的时候.才会将对应的控制器创建出来,不用担心性能太差的问题...
-
+####用在我模仿的很喜欢的项目中,请看以下示例图
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu1.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu1.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
