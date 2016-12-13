@@ -222,20 +222,6 @@ static UIImageView *imageView;
     label.frame = window.bounds;
     label.textAlignment = NSTextAlignmentCenter;
     
-//    label.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideDismiss)];
-//    [label addGestureRecognizer:tapGesture];
-    
-//    if (loading == kNilOptions) {
-//        label.text = @"正在加载中...";
-//    }else{
-//        if ([loading  isEqual: @""]) {
-//            label.text = @"正在加载中...";
-//        }else{
-//            
-//        }
-//    }
-    
     label.text = loading;
     
     [self showMessageTextColor:textColor];

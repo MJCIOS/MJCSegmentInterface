@@ -20,7 +20,7 @@ static int imageInter;
 
 @implementation MJCPromptsMessage
 
-//修改成功和失败的图片颜色样式
+
 +(void)showPromptsTypeStyle:(MJCPromptsTypeStyle)MJCPromptsTypeStyle;
 {
     if (MJCPromptsTypeStyle == MJCPromptsTypeblack) {
