@@ -164,8 +164,6 @@ static const CGFloat rightMargin = 2;
     return _rightMostButton;
 }
 
-
-
 //重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -550,7 +548,6 @@ static const CGFloat rightMargin = 2;
         //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
         if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
             
-            
             [UIView animateWithDuration:_scollAnimal animations:^{
                 //这是回到第一个界面的方法
                 CGPoint offset = self.scrollView.contentOffset;
@@ -630,9 +627,9 @@ static const CGFloat rightMargin = 2;
 
 
 #pragma mark -- <UIScrollViewDelegate>
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//}
 
 /**
  * 点击按钮scollview产生动画滚动结束时,就会调用这个方法
@@ -657,9 +654,13 @@ static const CGFloat rightMargin = 2;
     [self addChildVcView];
     
 
-    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
-        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:segmentInterface:)]) {
+        [self.slideDelegate mjc_scrollDidEndDecelerating:self.firstTitleButton segmentInterface:self];
     }
+    
+//    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
+//        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
+//    }
     
 }
 
@@ -671,11 +672,13 @@ static const CGFloat rightMargin = 2;
     if (_scrollTitlesEnabled == kNilOptions) {
         MJCTabItemButton *titleButton = self.titlesView.subviews[index];
         [self titleClick:titleButton];
+        self.firstTitleButton = titleButton;
 //        [self setupTitleCenter:titleButton];
     }else{
         MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
         [self titleClick:titleButton];
         [self setupTitleCenter:titleButton];
+        self.firstTitleButton = titleButton;
     }
 
 }

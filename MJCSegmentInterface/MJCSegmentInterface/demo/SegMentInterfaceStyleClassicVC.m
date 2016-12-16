@@ -7,12 +7,8 @@
 //
 
 #import "SegMentInterfaceStyleClassicVC.h"
-#import "MJCSegmentInterface.h"
-#import "UITestViewController.h"
-#import "UITestViewController1.h"
-#import "UITestViewController2.h"
-#import "UITestViewController3.h"
-#import "UITestViewController4.h"
+#import "MJCPrefixHeader.pch"
+
 
 @interface SegMentInterfaceStyleClassicVC ()<MJCSlideSwitchViewDelegate>
 

@@ -44,8 +44,10 @@ typedef enum {
 /** 点击按钮scollview产生动画滚动结束时,就会调用这个方法 */
 //- (void)mjc_ScrollViewDidEndScrollingAnimation:(MJCSegmentInterface *)segmentInterface;
 
+//- (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
+
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
-- (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
+- (void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface;
 
 /** 点击标题栏按钮的点击事件 */
 - (void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface;

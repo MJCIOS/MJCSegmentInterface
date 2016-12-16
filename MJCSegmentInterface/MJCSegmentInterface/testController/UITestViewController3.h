@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJCSegmentInterface.h"
 
 @interface UITestViewController3 : UIViewController
 

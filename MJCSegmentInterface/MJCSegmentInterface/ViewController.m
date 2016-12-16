@@ -8,18 +8,13 @@
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import "ViewController.h"
-#import "UITestViewController.h"
-#import "UITestViewController1.h"
-#import "UITestViewController2.h"
-#import "UITestViewController3.h"
-#import "UITestViewController4.h"
-
 
 #import "SegMentInterfaceStyleClassicVC.h"
 #import "SegMentInterfaceStyleLessVC.h"
 #import "SegMentInterfaceStylePenetrateVC.h"
 #import "SegMentInterfaceStyleMoreUseVC.h"
 #import "SegMentInterfaceStyleExceedUseVC.h"
+#import "MJCCustomController.h"
 
 @interface ViewController ()
 
@@ -30,13 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [UIApplication sharedApplication].statusBarHidden = NO;
-    [self.navigationController.navigationBar setHidden:NO];
-
-    
     
 }
-//
+
+
 - (IBAction)button11:(id)sender {
     
     SegMentInterfaceStyleClassicVC *vc1 = [SegMentInterfaceStyleClassicVC new];
@@ -69,6 +61,13 @@
     SegMentInterfaceStyleExceedUseVC *vc5 = [SegMentInterfaceStyleExceedUseVC new];
     
     [self.navigationController pushViewController:vc5 animated:YES];
+    
+}
+- (IBAction)custombutton:(id)sender {
+    
+    MJCCustomController *custon = [MJCCustomController new];
+    
+    [self.navigationController pushViewController:custon animated:YES];
     
 }
 

@@ -14,6 +14,8 @@
 		2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */; };
 		2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1191DC4A8B300977EB8 /* MJCTopView.m */; };
 		256BD88B1E0376D9005185C9 /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256BD88A1E0376D9005185C9 /* xiangmu3.gif */; };
+		256BD88F1E037BA3005185C9 /* MJCCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD88D1E037BA3005185C9 /* MJCCustomController.m */; };
+		256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256BD88E1E037BA3005185C9 /* MJCCustomController.xib */; };
 		259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BB1DF519120075F7BB /* 向右箭头.png */; };
 		259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BD1DF519170075F7BB /* 向左箭头.png */; };
 		25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */; };
@@ -74,6 +76,10 @@
 		2555F1181DC4A8B300977EB8 /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
 		2555F1191DC4A8B300977EB8 /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
 		256BD88A1E0376D9005185C9 /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
+		256BD88C1E037BA3005185C9 /* MJCCustomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCCustomController.h; sourceTree = "<group>"; };
+		256BD88D1E037BA3005185C9 /* MJCCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCCustomController.m; sourceTree = "<group>"; };
+		256BD88E1E037BA3005185C9 /* MJCCustomController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCCustomController.xib; sourceTree = "<group>"; };
+		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		259D33BB1DF519120075F7BB /* 向右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向右箭头.png"; sourceTree = "<group>"; };
 		259D33BD1DF519170075F7BB /* 向左箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向左箭头.png"; sourceTree = "<group>"; };
 		25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesScollView.h; sourceTree = "<group>"; };
@@ -227,6 +233,9 @@
 				25A91C551DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m */,
 				25A91C501DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.h */,
 				25A91C511DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m */,
+				256BD88C1E037BA3005185C9 /* MJCCustomController.h */,
+				256BD88D1E037BA3005185C9 /* MJCCustomController.m */,
+				256BD88E1E037BA3005185C9 /* MJCCustomController.xib */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */,
 				25D9DB561DC2635C00B903B1 /* Info.plist */,
 				25D9DB461DC2635C00B903B1 /* main.m */,
+				256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -430,6 +440,7 @@
 				256BD88B1E0376D9005185C9 /* xiangmu3.gif in Resources */,
 				259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
+				256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */,
 				259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +477,7 @@
 				25F727C81DE401EB00574F06 /* MJCTabItemButton.m in Sources */,
 				25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */,
 				25A91C5B1DC2FFCB0009313D /* SegMentInterfaceStyleMoreUseVC.m in Sources */,
+				256BD88F1E037BA3005185C9 /* MJCCustomController.m in Sources */,
 				25A91C591DC2FFCB0009313D /* SegMentInterfaceStyleExceedUseVC.m in Sources */,
 				25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */,
 				25A91C691DC2FFDE0009313D /* UITestViewController2.m in Sources */,
