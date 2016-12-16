@@ -26,21 +26,20 @@
     [super viewDidLoad];
     
     NSInteger style = 5;
-    //有导航栏或者tabbar时,保证标题栏不会被覆盖
-    //    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-    //        self.edgesForExtendedLayout = UIRectEdgeNone;
-    ////    }
+//    有导航栏或者tabbar时,保证标题栏不会被覆盖
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+        }
+    
+    
     self.view.backgroundColor = [UIColor redColor];
-    [UIApplication sharedApplication].statusBarHidden = YES;
-    [self.navigationController.navigationBar setHidden:YES];
-    
-    
-    
     
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     //创建标题栏
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
-    [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStyleExceedUse];
+    NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];
+    
+    [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStyleClassic];
+    segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:15];
     
     
     //在添加标题栏之前做其他操作
@@ -57,16 +56,6 @@
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
     [segmentInterface intoChildViewController:vc1];
-    
-    UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2];
-    
-    UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    vc3.style = style;
-    [segmentInterface intoChildViewController:vc3];
-    
-    UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4];
     
 }
 

@@ -13,8 +13,6 @@
 #import "UITestViewController2.h"
 #import "UITestViewController3.h"
 #import "UITestViewController4.h"
-#import "MJCPromptsMessage.h"
-
 
 @interface SegMentInterfaceStyleClassicVC ()<MJCSlideSwitchViewDelegate>
 
@@ -53,7 +51,12 @@
     segmentInterface.tabItemBackColor = [UIColor redColor];
     segmentInterface.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
     segmentInterface.rightMostBtnShow = YES;
-    segmentInterface.isOpenJump = YES;
+    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
+    segmentInterface.isOpenJump=YES;
+    segmentInterface.rightMostBtnColor = [UIColor clearColor];
+    segmentInterface.mostLeftPosition = [UIImage imageNamed:@"向右箭头"];
+    segmentInterface.mostRightPosition = [UIImage imageNamed:@"向左箭头"];
+
  
     
     
@@ -99,20 +102,16 @@
     [subview1 addSubview:buewe];
     
     
-    [MJCPromptsMessage mjc_addSubview:subview1];
-    [MJCPromptsMessage showMessageColor:[UIColor redColor]];
-    [MJCPromptsMessage showMessageFrame:CGRectMake(0,64+50, self.view.mjc_width, 50)];
-    
 }
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface
 {
-    [MJCPromptsMessage hideDismiss];
+    
 }
 
 -(void)hideDismis1
 {
-    [MJCPromptsMessage hideDismiss];
+    
 }
 
 

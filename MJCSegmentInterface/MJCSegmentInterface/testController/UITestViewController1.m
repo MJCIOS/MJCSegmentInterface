@@ -31,42 +31,22 @@
      *
      */
     self.tableView1 = [[UITableView alloc]init];
-    self.tableView1.contentInset = UIEdgeInsetsMake(0,0,114,0);
+    self.tableView1.contentInset = UIEdgeInsetsMake(50,0,64,0);
     self.tableView1.backgroundColor = [UIColor redColor];
     self.tableView1.frame = self.view.bounds;
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
+
+    
+    if (_style ==3) {
+        self.tableView1.contentInset = UIEdgeInsetsMake(50,0,64,0);
+    }else{
+       self.tableView1.contentInset = UIEdgeInsetsMake(0,0,114,0);
+    }
+    
+    
     [self.view addSubview:self.tableView1];
     
-    
-    /**
-     * 根据样式修改子控件大小位置,还有一些内边距
-     *  穿透样式和很少用样式修改后的大小位置,是因为,我将子界面Y轴往上调了
-     */
-//        self.tableView1 = [[UITableView alloc]init];
-//        self.tableView1.contentInset = UIEdgeInsetsMake(0,0,64,0);
-//        self.tableView1.backgroundColor = [UIColor redColor];
-//        self.tableView1.frame = self.view.bounds;
-//        self.tableView1.delegate = self;
-//        self.tableView1.dataSource = self;
-//    
-//        [self.view addSubview:self.tableView1];
-    
-    
-    
-    /**
-     * 根据样式修改子控件大小位置,还有一些内边距
-     * 超少用样式修改后的大小位置,是因为,我将子界面Y轴往上调了
-     */
-//    self.tableView1 = [[UITableView alloc]init];
-//    self.tableView1.contentInset = UIEdgeInsetsMake(0,0,49,0);
-//    self.tableView1.backgroundColor = [UIColor redColor];
-//    self.tableView1.frame = self.view.bounds;
-//    self.tableView1.delegate = self;
-//    self.tableView1.dataSource = self;
-//    
-//    [self.view addSubview:self.tableView1];
-
 
 
 }
@@ -81,7 +61,7 @@
 //每组多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 60;
+    return 40;
 }
 //每行表格什么内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

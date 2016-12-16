@@ -36,35 +36,50 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izc-Lq-JXd">
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="SegMentInterfaceStyleClassic经典样式"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="azQ-nh-7k8"/>
+                                </constraints>
+                                <state key="normal" title="经典样式"/>
                                 <connections>
                                     <action selector="button11:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxG-JW-pJ6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zu5-h2-dhk">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="SegMentInterfaceStylePenetrate普通穿透标题栏"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WwU-i0-gA9"/>
+                                </constraints>
+                                <state key="normal" title="样式2"/>
                                 <connections>
                                     <action selector="button33:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRI-tD-3tV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdP-3c-lEu">
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="SegMentInterfaceStyleMoreUse(格子穿透标题栏)"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3Re-Rd-L33"/>
+                                </constraints>
+                                <state key="normal" title="样式3"/>
                                 <connections>
                                     <action selector="button44:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kPE-HR-PP1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y90-V3-uo3">
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="SegMentInterfaceStyleExceedUse上面没有导航栏的情况"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8ft-l1-unO"/>
+                                </constraints>
+                                <state key="normal" title="样式4"/>
                                 <connections>
                                     <action selector="button55:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhH-X0-CS9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5u-St-gRP">
                                 <color key="backgroundColor" red="0.36718569220000002" green="0.57269368009999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="SegMentInterfaceStyleLess格子竖线标题栏)"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FuB-5p-h86"/>
+                                </constraints>
+                                <state key="normal" title="样式1"/>
                                 <connections>
                                     <action selector="button22:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rg0-yM-WGQ"/>
                                 </connections>
@@ -72,35 +87,28 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="y90-V3-uo3" firstAttribute="top" secondItem="BdP-3c-lEu" secondAttribute="bottom" id="75h-eG-3bV"/>
-                            <constraint firstItem="C5u-St-gRP" firstAttribute="leading" secondItem="y90-V3-uo3" secondAttribute="leading" id="8N6-xB-D8Y"/>
-                            <constraint firstItem="C5u-St-gRP" firstAttribute="width" secondItem="y90-V3-uo3" secondAttribute="width" id="8rT-mc-uSL"/>
-                            <constraint firstItem="izc-Lq-JXd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="A3Y-nk-nI0"/>
-                            <constraint firstItem="C5u-St-gRP" firstAttribute="top" secondItem="izc-Lq-JXd" secondAttribute="bottom" id="BgS-L6-iN4"/>
-                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="top" secondItem="C5u-St-gRP" secondAttribute="bottom" id="F5s-ar-352"/>
-                            <constraint firstItem="BdP-3c-lEu" firstAttribute="top" secondItem="Zu5-h2-dhk" secondAttribute="bottom" id="FMP-nv-ROj"/>
-                            <constraint firstItem="izc-Lq-JXd" firstAttribute="width" secondItem="y90-V3-uo3" secondAttribute="width" id="Gy6-7j-ERe"/>
-                            <constraint firstItem="izc-Lq-JXd" firstAttribute="height" secondItem="y90-V3-uo3" secondAttribute="height" id="HUs-AV-RE2"/>
-                            <constraint firstItem="BdP-3c-lEu" firstAttribute="height" secondItem="y90-V3-uo3" secondAttribute="height" id="Imd-RO-6zM"/>
-                            <constraint firstItem="BdP-3c-lEu" firstAttribute="leading" secondItem="y90-V3-uo3" secondAttribute="leading" id="PN6-cL-75K"/>
-                            <constraint firstItem="y90-V3-uo3" firstAttribute="top" secondItem="BdP-3c-lEu" secondAttribute="bottom" id="RBt-Qk-D2I"/>
-                            <constraint firstItem="izc-Lq-JXd" firstAttribute="leading" secondItem="y90-V3-uo3" secondAttribute="leading" id="TsH-rd-9ef"/>
-                            <constraint firstItem="BdP-3c-lEu" firstAttribute="top" secondItem="Zu5-h2-dhk" secondAttribute="bottom" id="WdW-xR-9Ob"/>
-                            <constraint firstItem="BdP-3c-lEu" firstAttribute="width" secondItem="y90-V3-uo3" secondAttribute="width" id="XnK-YS-f2f"/>
-                            <constraint firstItem="C5u-St-gRP" firstAttribute="height" secondItem="y90-V3-uo3" secondAttribute="height" id="Zu7-7d-AOS"/>
-                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="height" secondItem="y90-V3-uo3" secondAttribute="height" id="acj-EC-eg6"/>
-                            <constraint firstAttribute="trailing" secondItem="y90-V3-uo3" secondAttribute="trailing" id="eBJ-Yi-eq1"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y90-V3-uo3" secondAttribute="bottom" id="n5H-c7-wQT"/>
-                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="leading" secondItem="y90-V3-uo3" secondAttribute="leading" id="oYS-85-rAa"/>
-                            <constraint firstItem="y90-V3-uo3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sye-vd-dP6"/>
-                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="width" secondItem="y90-V3-uo3" secondAttribute="width" id="tdx-hg-oLc"/>
+                            <constraint firstItem="y90-V3-uo3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3PO-mR-VVI"/>
+                            <constraint firstAttribute="trailing" secondItem="izc-Lq-JXd" secondAttribute="trailing" id="5dg-j5-x8j"/>
+                            <constraint firstAttribute="trailing" secondItem="C5u-St-gRP" secondAttribute="trailing" id="CaX-0e-hLy"/>
+                            <constraint firstAttribute="trailing" secondItem="y90-V3-uo3" secondAttribute="trailing" id="Ddi-ul-sA7"/>
+                            <constraint firstItem="BdP-3c-lEu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Dv1-lb-vgc"/>
+                            <constraint firstAttribute="trailing" secondItem="Zu5-h2-dhk" secondAttribute="trailing" id="HqQ-nk-PfW"/>
+                            <constraint firstItem="C5u-St-gRP" firstAttribute="top" secondItem="izc-Lq-JXd" secondAttribute="bottom" id="Mku-Ha-cFa"/>
+                            <constraint firstItem="y90-V3-uo3" firstAttribute="top" secondItem="BdP-3c-lEu" secondAttribute="bottom" id="OWD-6U-gNy"/>
+                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TYo-If-8ag"/>
+                            <constraint firstItem="izc-Lq-JXd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cGq-kJ-nxm"/>
+                            <constraint firstItem="izc-Lq-JXd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fQI-If-VvT"/>
+                            <constraint firstAttribute="trailing" secondItem="BdP-3c-lEu" secondAttribute="trailing" id="hTx-IL-T40"/>
+                            <constraint firstItem="BdP-3c-lEu" firstAttribute="top" secondItem="Zu5-h2-dhk" secondAttribute="bottom" id="lZK-Iq-DrL"/>
+                            <constraint firstItem="C5u-St-gRP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tKx-l5-5Zs"/>
+                            <constraint firstItem="Zu5-h2-dhk" firstAttribute="top" secondItem="C5u-St-gRP" secondAttribute="bottom" id="w4l-zS-6IA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="81M-CB-Jbf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-319" y="-360"/>
+            <point key="canvasLocation" x="-319.19999999999999" y="-360.2698650674663"/>
         </scene>
     </scenes>
 </document>
