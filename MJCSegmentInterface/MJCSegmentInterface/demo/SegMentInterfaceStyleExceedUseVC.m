@@ -32,15 +32,9 @@
         }
     
     
-    self.view.backgroundColor = [UIColor redColor];
-    
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
-    //创建标题栏
-    NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];
-    
-    [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStyleClassic];
+    NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];//创建标题栏
     segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:15];
-    
     
     //在添加标题栏之前做其他操作
     [segmentInterface intoTitlesArray:titlesArr];

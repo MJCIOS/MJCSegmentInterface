@@ -13,6 +13,7 @@
 		2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1151DC4A8B300977EB8 /* MJCRightView.m */; };
 		2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */; };
 		2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1191DC4A8B300977EB8 /* MJCTopView.m */; };
+		256BD88B1E0376D9005185C9 /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256BD88A1E0376D9005185C9 /* xiangmu3.gif */; };
 		259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BB1DF519120075F7BB /* 向右箭头.png */; };
 		259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BD1DF519170075F7BB /* 向左箭头.png */; };
 		25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */; };
@@ -39,7 +40,6 @@
 		25D9DB6B1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */; };
 		25E01CBA1DFEC52A0008BE32 /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E01CB61DFEC5290008BE32 /* xiangmu2.gif */; };
 		25E01CBC1DFEC52A0008BE32 /* xiangmu2.1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */; };
-		25E01CBF1DFEC68F0008BE32 /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E01CBE1DFEC68F0008BE32 /* xiangmu3.gif */; };
 		25F727C81DE401EB00574F06 /* MJCTabItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F727C71DE401EB00574F06 /* MJCTabItemButton.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +73,7 @@
 		2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
 		2555F1181DC4A8B300977EB8 /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
 		2555F1191DC4A8B300977EB8 /* MJCTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTopView.m; sourceTree = "<group>"; };
+		256BD88A1E0376D9005185C9 /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		259D33BB1DF519120075F7BB /* 向右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向右箭头.png"; sourceTree = "<group>"; };
 		259D33BD1DF519170075F7BB /* 向左箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向左箭头.png"; sourceTree = "<group>"; };
 		25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesScollView.h; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		25D9DB6C1DC2635C00B903B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E01CB61DFEC5290008BE32 /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
 		25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.1.gif; sourceTree = "<group>"; };
-		25E01CBE1DFEC68F0008BE32 /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		25F727C61DE401EB00574F06 /* MJCTabItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItemButton.h; sourceTree = "<group>"; };
 		25F727C71DE401EB00574F06 /* MJCTabItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTabItemButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,7 +285,7 @@
 		25D9DB451DC2635C00B903B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				25E01CBE1DFEC68F0008BE32 /* xiangmu3.gif */,
+				256BD88A1E0376D9005185C9 /* xiangmu3.gif */,
 				25E01CB61DFEC5290008BE32 /* xiangmu2.gif */,
 				25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */,
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
@@ -427,7 +427,7 @@
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
 				25E01CBC1DFEC52A0008BE32 /* xiangmu2.1.gif in Resources */,
-				25E01CBF1DFEC68F0008BE32 /* xiangmu3.gif in Resources */,
+				256BD88B1E0376D9005185C9 /* xiangmu3.gif in Resources */,
 				259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
 				259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */,

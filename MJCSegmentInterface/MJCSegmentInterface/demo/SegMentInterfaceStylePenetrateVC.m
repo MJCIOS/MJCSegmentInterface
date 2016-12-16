@@ -35,12 +35,13 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
+    
+    
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     segmentInterface.scrollTitlesEnabled = YES;
     segmentInterface.slideDelegate = self;
     
     //创建标题栏
-//    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
     [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStylePenetrate];
@@ -53,19 +54,17 @@
     segmentInterface.rightMostBtnShow = YES;
     segmentInterface.rightMostBtnColor = [UIColor whiteColor];
     segmentInterface.childViewScollAnimal = YES;
-    
     segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
-    
     segmentInterface.tabItemImageNormal = [segmentInterface imageWithColor:[UIColor blackColor]];
-
     segmentInterface.isOpenJump=YES;
     segmentInterface.mostLeftPosition = [UIImage imageNamed:@"向右箭头"];
     segmentInterface.mostRightPosition = [UIImage imageNamed:@"向左箭头"];
     
-    
     //在添加标题栏之前做其他操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
+    
+    
     
     
     /**
@@ -83,11 +82,9 @@
     [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    
     vc3.style = style;
-    
     [segmentInterface intoChildViewController:vc3];
-    
+
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
     [segmentInterface intoChildViewController:vc4];

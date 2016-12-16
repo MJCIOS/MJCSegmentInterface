@@ -64,9 +64,7 @@
     [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    
     vc3.style = style;
-    
     [segmentInterface intoChildViewController:vc3];
     
     

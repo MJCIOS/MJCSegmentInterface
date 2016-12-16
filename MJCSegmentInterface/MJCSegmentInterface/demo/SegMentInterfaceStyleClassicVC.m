@@ -45,21 +45,8 @@
     segmentInterface.slideDelegate = self;
     segmentInterface.indicatorHidden = NO;
     segmentInterface.topViewHidden = NO;
-    segmentInterface.topViewColor = [UIColor redColor];
-//    segmentInterface.bottomViewColor = [UIColor blackColor];
-    segmentInterface.bottomViewHidden=NO;
-    segmentInterface.tabItemBackColor = [UIColor redColor];
-    segmentInterface.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    segmentInterface.rightMostBtnShow = YES;
-    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
-    segmentInterface.isOpenJump=YES;
-    segmentInterface.rightMostBtnColor = [UIColor clearColor];
-    segmentInterface.mostLeftPosition = [UIImage imageNamed:@"向右箭头"];
-    segmentInterface.mostRightPosition = [UIImage imageNamed:@"向左箭头"];
-
+    segmentInterface.bottomViewHidden = NO;
  
-    
-    
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
