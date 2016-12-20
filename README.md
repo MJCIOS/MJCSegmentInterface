@@ -11,14 +11,10 @@
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     UIView *view1 = segmentsface.intoFaceView;
-    
-    (所有属性的修改要将在这中间部分里面修改....)
-    
+    (所有属性的修改要将在这中间部分里面修改....)
     [segmentsface intoTitlesArray:titlesArr];
     [self.view addSubview:view1];
-    
-     //添加控制器
-    UITestViewController *vc = [[UITestViewController alloc]init];
+    UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
     [segmentsface intoChildViewController:vc];
 
 
