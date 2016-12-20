@@ -396,7 +396,7 @@ static const CGFloat rightMargin = 1;
     _tabItemWidth = tabItemWidth;
 
     if (_tabItemWidth == kNilOptions) {
-        self.tabItemW = MJCTabitemW;
+        self.tabItemW = 100;
     }else{
         self.tabItemW = tabItemWidth;
     }
