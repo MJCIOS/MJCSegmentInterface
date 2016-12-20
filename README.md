@@ -19,7 +19,7 @@
 
 
     
-###分段控制器属性用法:(添加标题栏之前可自定义这些属性)
+###分段控制器属性用法:(添加标题栏之前可自定义修改属性)
 
     segmentsface.scrollTitlesEnabled = YES;
     segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;
