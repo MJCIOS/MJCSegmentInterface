@@ -1,7 +1,7 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 ## 新增了标题栏滑动功能   新增了一个最右侧的按钮,可以滚动到第一页和最后一页,也可自己跳转所需要的界面
-###有啥问题联系我QQ292252588,希望大神们和我多多交流,和大神们一起学习.....
+###有啥问题联系我QQ292251588,希望大神们和我多多交流,和大神们一起学习.....
 ####用在我仿做的很喜欢的项目中,请看以下示例图
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
