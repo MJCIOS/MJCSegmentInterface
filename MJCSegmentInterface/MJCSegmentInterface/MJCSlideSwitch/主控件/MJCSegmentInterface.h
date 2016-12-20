@@ -263,7 +263,7 @@ typedef enum {
 
 
 /** 添加控制器(添加控制器按照控制器添加的先后顺序与按钮对应的:比如说第一个按钮对应第一个添加的控制器)*/
-@property (nonatomic,strong) UIViewController *addChildViewController;
+//@property (nonatomic,strong) UIViewController *addChildViewController;
 
 -(void)intoChildViewController:(UIViewController *)childViewController;
 
@@ -311,7 +311,7 @@ typedef enum {
 
 /** 最右边按钮的图片 */
 @property (nonatomic,strong) UIImage *rightMostBtnImage;
-
+/** 最右边按钮的大小位置 */
 @property(nonatomic) CGRect  rightMostBtnFrame;
 
 /** tabItem的位置(是否开启用户修改tabItem的位置) */
@@ -328,6 +328,23 @@ typedef enum {
 
 /** 是否开启跳转子界面最左边位置以及最右边位置 */
 @property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
+
+
+
+/** 标题居中间距 */
+@property (nonatomic,assign) CGFloat titleCenterMargin;
+
+
+/** 最右边按钮的顶部间距 */
+@property (nonatomic,assign) CGFloat rightBtnTopMargin;
+
+/** 最右边按钮的底部间距 */
+@property (nonatomic,assign) CGFloat rightBtnBottomMargin;
+
+/** 最右边按钮的右边间距 */
+@property (nonatomic,assign) CGFloat rightBtnRightMargin;
+
+
 
 
 @end

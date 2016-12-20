@@ -45,7 +45,6 @@
     if (isChildFrame == kNilOptions) {
         
         if (SegmentInterFaceStyle ==  SegMentInterfaceStyleClassic) {
-            
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
         }else if (SegmentInterFaceStyle == SegMentInterfaceStyleLess){
             self.frame =  CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));

@@ -10,7 +10,7 @@
 #import "MJCPrefixHeader.pch"
 
 
-@interface SegMentInterfaceStyleLessVC ()
+@interface SegMentInterfaceStyleLessVC ()<MJCSlideSwitchViewDelegate>
 
 @end
 
@@ -28,44 +28,36 @@
     }
 
     
-    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
-    //创建标题栏
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
-    //经典样式(如果你什么都不自定义设置,只需几句代码,帮你创建了经典样式的标题栏)
-    [segmentInterface setSegmentInterFaceStyle:SegMentInterfaceStyleLess];
+    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+    UIView *view1 = segmentsface.intoFaceView;
+    segmentsface.scrollTitlesEnabled = NO;
+    segmentsface.interFaceControlStyle = SegMentInterfaceStyleLess;
+    segmentsface.slideDelegate = self;
+    segmentsface.childScollEnabled = YES;
+//    segmentsface.childViewScollAnimal = YES;
     
-    //在添加标题栏之前做其他操作
-    [segmentInterface intoTitlesArray:titlesArr];
-    [self.view addSubview:segmentInterface];
+    [segmentsface intoTitlesArray:titlesArr];
+    [self.view addSubview:view1];
     
-    
-    /**
-     * 添加控制器
-     */
+    /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    //传数据在这之间传
-    
-    [segmentInterface intoChildViewController:vc];
+    [segmentsface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1];
+    [segmentsface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2];
+    [segmentsface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;
-    [segmentInterface intoChildViewController:vc3];
-    
+    [segmentsface intoChildViewController:vc3];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4];
-
+    [segmentsface intoChildViewController:vc4];
     
-    
-    
-
 }
 
 

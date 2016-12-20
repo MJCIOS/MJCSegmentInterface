@@ -68,16 +68,15 @@
 -(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView
 {
     if (isTopFrame == kNilOptions) {
-    
         if (topHegiht == kNilOptions) {
-            self.mjc_x = titlesView.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_y;
-            self.mjc_width = titlesView.mjc_width ;
+            self.mjc_y = 0;
+            self.mjc_width = titlesView.mjc_width;
         }else{
-            self.mjc_x = titlesView.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = topHegiht;
-            self.mjc_y = titlesView.mjc_y;
+            self.mjc_y = 0;
             self.mjc_width = titlesView.mjc_width;
         }
         
@@ -91,15 +90,15 @@
     if (isTopFrame == kNilOptions) {
         
         if (topHegiht == kNilOptions) {
-            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = 1;
-            self.mjc_y = titlesScroll.mjc_y;
+            self.mjc_y = 0;
             self.mjc_width = titlesScroll.contentSize.width;
         }else{
-            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = topHegiht;
-            self.mjc_y = titlesScroll.mjc_y;
-            self.mjc_width = titlesScroll.mjc_width;
+            self.mjc_y = 0;
+            self.mjc_width = titlesScroll.contentSize.width;
         }
     }else{
         self.frame = topFrame;

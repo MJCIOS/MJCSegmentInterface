@@ -17,9 +17,9 @@
 #import "MJCTitlesScollView.h"
 #import "MJCTabItemButton.h"
 
-static const CGFloat rightBottomMargin = 2;
-static const CGFloat rightTopMargin = 2;
-static const CGFloat rightMargin = 2;
+static const CGFloat rightBottomMargin = 1;
+static const CGFloat rightTopMargin = 1;
+static const CGFloat rightMargin = 1;
 
 
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
@@ -51,10 +51,6 @@ static const CGFloat rightMargin = 2;
 @property (nonatomic,copy) MJCBottomView *bottomView;
 /** 右边按钮 */
 @property (nonatomic,copy) UIButton *rightMostButton;
-/** 右边按钮的遮挡物 */
-//@property (nonatomic,copy) UIView *rightMembraneView;
-/** 主页面的遮挡物 */
-//@property (nonatomic,copy) UIView *mainShadeView;
 
 /** tabitem宽度 */
 @property (nonatomic,assign) CGFloat tabItemW;
@@ -68,6 +64,14 @@ static const CGFloat rightMargin = 2;
 
 /** 界面滚动动画世界 */
 @property (nonatomic,assign) NSTimeInterval scollAnimal;
+
+
+/** 按钮tag值 */
+@property (nonatomic,assign) NSUInteger btnTag;
+
+
+/** 数组count */
+@property (nonatomic,strong) NSArray *countArr;
 
 @end
 
@@ -196,6 +200,8 @@ static const CGFloat rightMargin = 2;
 - (void)addChildVcView
 {
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
+    _btnTag = index;
+    
     UIViewController *childVc = self.viewController.childViewControllers[index];
     if ([childVc isViewLoaded]) return;
     childVc.view.frame = self.scrollView.bounds;
@@ -221,6 +227,7 @@ static const CGFloat rightMargin = 2;
 #pragma mark -- 标题栏设置创建
 -(void)intoTitlesArray:(NSArray *)titlesArray
 {
+    _countArr = titlesArray;
     
     [self setScollViewArr:titlesArray];
     
@@ -255,14 +262,13 @@ static const CGFloat rightMargin = 2;
     [self setupRightData];
     
     [self addSubview:self.rightMostButton];
-
 }
 
 -(void)setupRightData
 {
     
     if (_rightMostBtnColor == kNilOptions) {
-        self.rightMostButton.backgroundColor = [UIColor whiteColor];
+        self.rightMostButton.backgroundColor = [UIColor clearColor];
     }else{
         self.rightMostButton.backgroundColor = _rightMostBtnColor;
     }
@@ -274,7 +280,7 @@ static const CGFloat rightMargin = 2;
     }
     
     if (_rightMostBtnImage == kNilOptions) {
-        [self.rightMostButton setImage:nil forState:UIControlStateNormal];
+        [self.rightMostButton setImage:[UIImage imageNamed:@"向右箭头"] forState:UIControlStateNormal];
     }else{
         [self.rightMostButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
     }
@@ -293,10 +299,14 @@ static const CGFloat rightMargin = 2;
     
     if (isRigthMostFrame == YES) {
         self.rightMostButton.frame = _rightMostBtnFrame;
-    }else{
-        self.rightMostButton.frame = CGRectMake(MJCScreenWidth-(self.titlesButton.mjc_height/2+rightMargin),rightTopMargin,self.titlesButton.mjc_height/2,self.titlesButton.mjc_height-(rightTopMargin+rightBottomMargin));
-    }
     
+    }else{
+        
+        CGFloat HEE = self.titlesButton.mjc_height - (rightTopMargin + rightBottomMargin);
+        CGFloat WEE = self.titlesButton.mjc_width / 2 ;
+        self.rightMostButton.frame = CGRectMake(MJCScreenWidth - WEE - rightMargin - _rightBtnRightMargin ,rightTopMargin +_rightBtnTopMargin ,WEE,HEE - _rightBtnBottomMargin);
+    
+    }
 }
 
 
@@ -364,7 +374,8 @@ static const CGFloat rightMargin = 2;
         self.titlesButton = tabbutton;
         [self.titlesButton setTitle:titlesArray[i] forState:UIControlStateNormal];
         [self.titlesButton arraycount:i buttonW:_tabItemW buttonH:_tabItemH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame tabItemTitlesfont:_tabItemTitlesfont SegmentInterFaceStyle:_SegmentInterFaceStyle tabItemBackColor:_tabItemBackColor tabItemTitleNormalColor:_tabItemTitleNormalColor tabItemTitleSelectedColor:_tabItemTitleSelectedColor tabItemImageNormal:_tabItemImageNormal tabItemImageSelected:_tabItemImageSelected tabItemNormalImageArray:_tabItemImageNormalArray tabItemImageSelectedArray:_tabItemImageSelectedArray];
-        [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
+        
+//        [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
         [self setupRightView:i titlesArr:titlesArray];
         [self.titlesButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -555,20 +566,17 @@ static const CGFloat rightMargin = 2;
                 [self.scrollView setContentOffset:offset animated:NO];
             }];
             
-            [self.rightMostButton setImage:mostLeftPosition forState:UIControlStateNormal];
             [self setupScollTitlesButton:_scrollView];
             
         }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
             
-            
+            //这是跳到最后一个界面的方法
+            CGPoint offset = self.scrollView.contentOffset;
+            offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
             [UIView animateWithDuration:_scollAnimal animations:^{
-                //这是跳到最后一个界面的方法
-                CGPoint offset = self.scrollView.contentOffset;
-                offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
                 [self.scrollView setContentOffset:offset animated:NO];
             }];
             
-            [self.rightMostButton setImage:mostRightPosition forState:UIControlStateNormal];
             [self setupScollTitlesButton:_scrollView];
         }
 
@@ -586,7 +594,6 @@ static const CGFloat rightMargin = 2;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
     
-    
     if (_childViewScollAnimal == YES) {
         
         [UIView animateWithDuration:0.25 animations:^{
@@ -599,7 +606,7 @@ static const CGFloat rightMargin = 2;
             offset.x = titleButton.tag * self.scrollView.mjc_width;
             [self.scrollView setContentOffset:offset animated:NO];
         }];
-
+        
     }else{
         
         [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
@@ -610,12 +617,16 @@ static const CGFloat rightMargin = 2;
         [self.scrollView setContentOffset:offset animated:NO];
     }
     
-    
-    
-    
     [self addChildVcView];
     
     [self setupTitleCenter:titleButton];
+    
+    if (_btnTag == (_countArr.count - 1)) {
+        [self.rightMostButton setImage:_mostLeftPosition forState:UIControlStateNormal];
+    }else{
+        [self.rightMostButton setImage:_mostRightPosition forState:UIControlStateNormal];
+    }
+
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_ClickEvent:segmentInterface:)]) {
         [self.slideDelegate mjc_ClickEvent:titleButton segmentInterface:self];
@@ -669,6 +680,7 @@ static const CGFloat rightMargin = 2;
 -(void)setupScollTitlesButton:(UIScrollView *)scrollView
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
+
     if (_scrollTitlesEnabled == kNilOptions) {
         MJCTabItemButton *titleButton = self.titlesView.subviews[index];
         [self titleClick:titleButton];
@@ -693,7 +705,7 @@ static const CGFloat rightMargin = 2;
         offsetX = 0;
     }
     
-    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth;
+    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth + _titleCenterMargin;
     
     if (offsetX > maxOffsetX) {
         offsetX = maxOffsetX;
@@ -759,8 +771,6 @@ static const CGFloat rightMargin = 2;
               alpha:1.0];
     return result;
 }
-
-
 
 
 

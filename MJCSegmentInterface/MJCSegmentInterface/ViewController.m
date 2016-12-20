@@ -15,6 +15,7 @@
 #import "SegMentInterfaceStyleMoreUseVC.h"
 #import "SegMentInterfaceStyleExceedUseVC.h"
 #import "MJCCustomController.h"
+#import "MJCSegmentFaceController.h"
 
 @interface ViewController ()
 
@@ -38,15 +39,17 @@
     
 }
 - (IBAction)button22:(id)sender {
-    SegMentInterfaceStyleLessVC *vc2 = [SegMentInterfaceStyleLessVC new];
-    
-    [self.navigationController pushViewController:vc2 animated:YES];
-}
-- (IBAction)button33:(id)sender {
     SegMentInterfaceStylePenetrateVC *vc3 = [SegMentInterfaceStylePenetrateVC new];
     
     [self.navigationController pushViewController:vc3 animated:YES];
+
+}
+- (IBAction)button33:(id)sender {
     
+    SegMentInterfaceStyleLessVC *vc2 = [SegMentInterfaceStyleLessVC new];
+    
+    [self.navigationController pushViewController:vc2 animated:YES];
+
     
 }
 - (IBAction)button44:(id)sender {
@@ -68,6 +71,13 @@
     MJCCustomController *custon = [MJCCustomController new];
     
     [self.navigationController pushViewController:custon animated:YES];
+    
+}
+- (IBAction)oterBtn:(id)sender {
+    
+    MJCSegmentFaceController *control = [MJCSegmentFaceController new];
+    
+    [self.navigationController pushViewController:control animated:YES];
     
 }
 

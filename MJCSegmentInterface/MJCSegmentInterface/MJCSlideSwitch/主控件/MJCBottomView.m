@@ -69,13 +69,13 @@
     if (isBottomFrame == kNilOptions) {
         //如果未设置了底部高度(设置为1)
         if (bottomHegiht == kNilOptions) {
-            self.mjc_x = titlesView.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = 1;
             self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            self.mjc_width = titlesView.mjc_width ;
+            self.mjc_width = titlesView.mjc_width;
         }else{
             //如果未设置了底部高度(那我们就将用户设置的传进去)
-            self.mjc_x = titlesView.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = bottomHegiht;
             self.mjc_y = titlesView.mjc_height - self.mjc_height;
             self.mjc_width = titlesView.mjc_width;
@@ -93,16 +93,16 @@
     if (isBottomFrame == kNilOptions) {
         //如果未设置了底部高度(设置为1)
         if (bottomHegiht == kNilOptions) {
-            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = 1;
             self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
             self.mjc_width = titlesScroll.contentSize.width;
         }else{
             //如果未设置了底部高度(那我们就将用户设置的传进去)
-            self.mjc_x = titlesScroll.mjc_x;
+            self.mjc_x = 0;
             self.mjc_height = bottomHegiht;
             self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
-            self.mjc_width = titlesScroll.mjc_width;
+            self.mjc_width = titlesScroll.contentSize.width;
         }
         
     }else{

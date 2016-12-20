@@ -26,24 +26,29 @@
         }
     
     
-    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
     NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];//创建标题栏
-    segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:15];
+    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+    UIView *view1 = segmentsface.intoFaceView;
+    segmentsface.scrollTitlesEnabled = NO;
+    segmentsface.interFaceControlStyle = SegMentInterfaceStyleExceedUse;
+    segmentsface.childScollEnabled = YES;
+    segmentsface.childViewScollAnimal = YES;
+    segmentsface.verticalLineHidden = YES;
+    segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     
-    //在添加标题栏之前做其他操作
-    [segmentInterface intoTitlesArray:titlesArr];
-    [self.view addSubview:segmentInterface];
+    [segmentsface intoTitlesArray:titlesArr];
+    [self.view addSubview:view1];
     
     
     /**
      * 添加控制器
      */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc];
+    [segmentsface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1];
+    [segmentsface intoChildViewController:vc1];
     
 }
 

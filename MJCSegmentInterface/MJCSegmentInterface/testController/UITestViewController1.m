@@ -7,6 +7,7 @@
 //
 
 #import "UITestViewController1.h"
+#import "MJCPrefixHeader.pch"
 
 @interface UITestViewController1 ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -25,27 +26,32 @@
     [self.view setBackgroundColor:[UIColor blueColor]];
     
     
-    
-    /**
-     * 根据样式修改子控件大小位置,还有一些内边距
-     *
-     */
     self.tableView1 = [[UITableView alloc]init];
-    self.tableView1.contentInset = UIEdgeInsetsMake(50,0,64,0);
+    self.tableView1.contentInset = UIEdgeInsetsMake(50,0,0,0);
     self.tableView1.backgroundColor = [UIColor redColor];
     self.tableView1.frame = self.view.bounds;
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
+    [self.view addSubview:self.tableView1];
 
     
     if (_style ==3) {
-        self.tableView1.contentInset = UIEdgeInsetsMake(50,0,64,0);
+        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64);
     }else{
        self.tableView1.contentInset = UIEdgeInsetsMake(0,0,114,0);
     }
     
     
-    [self.view addSubview:self.tableView1];
+    if (_style == 2) {
+        
+        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
+        self.tableView1.contentInset = UIEdgeInsetsMake(0,0,0,0);
+        
+        return;
+    }
+    
+    
+    
     
 
 
@@ -61,7 +67,7 @@
 //每组多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 40;
+    return 20;
 }
 //每行表格什么内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +92,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-
 //在TableView上选中某个Cell会触发点击方法,被选中时调用的方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

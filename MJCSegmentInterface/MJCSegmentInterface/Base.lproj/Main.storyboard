@@ -94,10 +94,21 @@
                                     <action selector="custombutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2vQ-4B-ThT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Val-JV-osJ">
+                                <color key="backgroundColor" red="0.36718569220000002" green="0.57269368009999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zt8-3x-yIg"/>
+                                </constraints>
+                                <state key="normal" title="其他"/>
+                                <connections>
+                                    <action selector="oterBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="usF-11-eK9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cus-K1-iTe" secondAttribute="trailing" id="0x5-Xj-ovG"/>
+                            <constraint firstAttribute="trailing" secondItem="Val-JV-osJ" secondAttribute="trailing" id="2WQ-t6-2fg"/>
                             <constraint firstItem="y90-V3-uo3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3PO-mR-VVI"/>
                             <constraint firstAttribute="trailing" secondItem="izc-Lq-JXd" secondAttribute="trailing" id="5dg-j5-x8j"/>
                             <constraint firstAttribute="trailing" secondItem="C5u-St-gRP" secondAttribute="trailing" id="CaX-0e-hLy"/>
@@ -108,7 +119,9 @@
                             <constraint firstItem="C5u-St-gRP" firstAttribute="top" secondItem="izc-Lq-JXd" secondAttribute="bottom" id="Mku-Ha-cFa"/>
                             <constraint firstItem="y90-V3-uo3" firstAttribute="top" secondItem="BdP-3c-lEu" secondAttribute="bottom" id="OWD-6U-gNy"/>
                             <constraint firstItem="Zu5-h2-dhk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TYo-If-8ag"/>
+                            <constraint firstItem="Val-JV-osJ" firstAttribute="top" secondItem="cus-K1-iTe" secondAttribute="bottom" id="UhJ-87-3fr"/>
                             <constraint firstItem="izc-Lq-JXd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cGq-kJ-nxm"/>
+                            <constraint firstItem="Val-JV-osJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dyl-9O-pS0"/>
                             <constraint firstItem="izc-Lq-JXd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fQI-If-VvT"/>
                             <constraint firstAttribute="trailing" secondItem="BdP-3c-lEu" secondAttribute="trailing" id="hTx-IL-T40"/>
                             <constraint firstItem="cus-K1-iTe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kfn-zP-KWi"/>
