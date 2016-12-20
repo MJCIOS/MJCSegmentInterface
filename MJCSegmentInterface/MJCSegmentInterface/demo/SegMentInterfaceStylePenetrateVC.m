@@ -38,7 +38,6 @@
     segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];
     segmentsface.mostLeftPosition = [UIImage imageNamed:@"向左箭头"];
     
-    
     [segmentsface intoTitlesArray:titlesArr];
     [self.view addSubview:view1];
     
