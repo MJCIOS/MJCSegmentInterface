@@ -7,39 +7,32 @@
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
 
 ###分段控制器创建(几行代码即可使用)
-    
-    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
-    NSArray *titlesArr = @[@"爱你",@"恨你",@"喜欢你",@"么么",@"哈哈"]; //创建标题
-    
-    /**
-     * 所有属性的修改要将在这中间部分里面修改....(不添加都有默认属性)
-     */
-     
-    //添加标题栏(这样就创建成功了)
-    [segmentInterface addTitlesArray:titlesArr];
-    [self.view addSubview:segmentInterface];
-    
-    //添加控制器(添加多少个标题,我们就创多少个控制器)
-    UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    //在这之间传数据
-    vc3.style = style;
-    [segmentInterface setAddChildViewController:vc3];
-    
-    
-###分段控制器属性用法:(要在添加标题栏之前自定义这些属性)
-    
-    segmentInterface.rightViewShow = YES;
-    segmentInterface.rightViewHidden = YES;()
-    
-    segmentInterface.rightColor = [UIColor redColor];
-    segmentInterface.rightViewHegiht = 10;
-    [segmentInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0, 321, 40)];//自定义位置大小尺寸 
-    segmentInterface.tabItemImageNormal = [MJCSegmentInterface imageWithColor:[UIColor orangeColor]];//(1)(如果你不想用图片,想要用颜色,我也提供一个方法)
-    segmentInterface.tabItemImageNormal = [UIImage imageNamed:@"111"];//设置tabItem图片
-    
-    NSArray *imageArr = @[@"111",@"222",@"333",@"444",@"555",@"666",@"777"];//设置tabitem多张图片
-    segmentInterface.tabItemImageArray = imageArr;
 
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
+    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+    UIView *view1 = segmentsface.intoFaceView;
+    
+    (所有属性的修改要将在这中间部分里面修改....)
+    
+    [segmentsface intoTitlesArray:titlesArr];
+    [self.view addSubview:view1];
+    
+     //添加控制器
+    UITestViewController *vc = [[UITestViewController alloc]init];
+    [segmentsface intoChildViewController:vc];
+
+
+    
+###分段控制器属性用法:(添加标题栏之前可自定义这些属性)
+
+    segmentsface.scrollTitlesEnabled = YES;
+    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;
+    segmentsface.slideDelegate = self;
+    segmentsface.childScollEnabled = YES;
+    segmentsface.rightMostBtnShow = YES;
+    segmentsface.isOpenJump = YES;
+    segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];
+    segmentsface.mostLeftPosition = [UIImage imageNamed:@"向左箭头"];
 
 ###分段控制器属性列表:(所有的属性展示)
 
