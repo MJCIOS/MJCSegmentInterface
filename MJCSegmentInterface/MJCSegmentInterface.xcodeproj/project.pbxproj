@@ -82,8 +82,8 @@
 		256BD88D1E037BA3005185C9 /* MJCCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCCustomController.m; sourceTree = "<group>"; };
 		256BD88E1E037BA3005185C9 /* MJCCustomController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCCustomController.xib; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
-		256BD8951E03F342005185C9 /* MJCSegmentFaceControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentFaceControl.h; sourceTree = "<group>"; };
-		256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentFaceControl.m; sourceTree = "<group>"; };
+		256BD8951E03F342005185C9 /* MJCSegmentFaceControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJCSegmentFaceControl.h; path = "主控件/MJCSegmentFaceControl.h"; sourceTree = "<group>"; };
+		256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJCSegmentFaceControl.m; path = "主控件/MJCSegmentFaceControl.m"; sourceTree = "<group>"; };
 		256CB0241E09031500CA1F9A /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		259D33BB1DF519120075F7BB /* 向右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向右箭头.png"; sourceTree = "<group>"; };
 		259D33BD1DF519170075F7BB /* 向左箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向左箭头.png"; sourceTree = "<group>"; };
@@ -177,6 +177,8 @@
 		25A91C291DC2FA1F0009313D /* MJCSlideSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				256BD8951E03F342005185C9 /* MJCSegmentFaceControl.h */,
+				256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */,
 				259D33BA1DF5190C0075F7BB /* images */,
 				25A91C2A1DC2FA1F0009313D /* 主控件 */,
 				25A91C3C1DC2FA1F0009313D /* 设置尺寸 */,
@@ -206,8 +208,6 @@
 				25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */,
 				25F727C61DE401EB00574F06 /* MJCTabItemButton.h */,
 				25F727C71DE401EB00574F06 /* MJCTabItemButton.m */,
-				256BD8951E03F342005185C9 /* MJCSegmentFaceControl.h */,
-				256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */,
 			);
 			path = "主控件";
 			sourceTree = "<group>";
