@@ -311,10 +311,11 @@
 {
     _segerntInterface.rightBtnBottomMargin = rightBtnBottomMargin;
 }
+
 // 图片转换颜色
 + (UIImage *)imageWithColor:(UIColor *)color
 {
-    CGRect rect1;
+    CGRect rect1 = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     
     UIGraphicsBeginImageContext(rect1.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
