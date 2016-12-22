@@ -20,15 +20,17 @@
     [super viewDidLoad];
     
     NSInteger style = 0;
+    
     //有导航栏或者tabbar时,保证标题栏不会被覆盖
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+//    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//    }
     self.view.backgroundColor = [UIColor redColor];
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     UIView *view1 = segmentsface.intoFaceView;
+    segmentsface.faceViewFrame = CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight);
     segmentsface.slideDelegate = self;
     segmentsface.childScollEnabled = YES;
     
@@ -36,12 +38,12 @@
     [self.view addSubview:view1];
 
     //添加控制器
-    UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentsface intoChildViewController:vc];
-    
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
     [segmentsface intoChildViewController:vc1];
+    
+    UITestViewController *vc = [[UITestViewController alloc]init];
+    [segmentsface intoChildViewController:vc];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
     [segmentsface intoChildViewController:vc2];

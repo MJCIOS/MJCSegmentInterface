@@ -22,7 +22,7 @@
     NSInteger style = 2;
     
 
-    //有导航栏或者tabbar时,保证标题栏不会被覆盖
+//    //有导航栏或者tabbar时,保证标题栏不会被覆盖
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -72,13 +72,18 @@
     segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     segmentsface.tabItemTitleNormalColor = [UIColor purpleColor];
     segmentsface.tabItemTitleSelectedColor = [UIColor redColor];
-    segmentsface.tabItemImageNormal = [UIImage imageNamed:@"111"];
-    segmentsface.tabItemImageSelected = [UIImage imageNamed:@"333"];
+    segmentsface.tabItemBackImageNormal = [UIImage imageNamed:@"diamond"];
+    segmentsface.tabItemBackImageSelected = [UIImage imageNamed:@"diamond-2"];
     
-//    NSArray *imageArr = @[@"555",@"666",@"567",@"啪啪",@"啪啪"];
-//    NSArray *imageArr1 = @[@"999",@"888",@"777",@"啪啪",@"啪啪"];
-//    segmentsface.tabItemImageNormalArray = imageArr;
-//    segmentsface.tabItemImageSelectedArray = imageArr1;
+    NSArray *imageArr = @[@"123",
+                           @"234",
+                           @"345",
+                           @"456",
+                           @"567"];
+    NSArray *imageArr1 = @[@"666",@"777",@"888",@"999",@"1111"];
+    
+    segmentsface.tabItemBackImageNormalArray = imageArr;
+    segmentsface.tabItemBackImageSelectedArray = imageArr1;
     
     
 #pragma mark -- 竖线属性
@@ -86,19 +91,7 @@
     segmentsface.verticalLineColor = [UIColor purpleColor];
     segmentsface.verticalLineHegiht = 30;
     segmentsface.verticalLineHidden = NO;
-    
-#pragma mark -- 最右边滚动切换按钮属性
-    segmentsface.rightMostBtnShow = YES;
-    segmentsface.isOpenJump = NO;
-//    segmentsface.rightMostBtnFrame = CGRectMake(MJCScreenWidth-50/2 - 15,15,25,50 - 10);
-    segmentsface.rightMostBtnColor = [UIColor whiteColor];
-    segmentsface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
-    segmentsface.mostLeftPosition = [UIImage imageNamed:@"向左箭头"];
-    segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];
-    
-    segmentsface.rightBtnTopMargin = 10;
-    segmentsface.rightBtnRightMargin = 0;
-    
+        
     
     [segmentsface intoTitlesArray:titlesArr];
     [self.view addSubview:view1];
@@ -125,6 +118,7 @@
  
 }
 
+
 -(void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
     if (titleButton.tag == 1) {
@@ -132,6 +126,7 @@
     }else{
         [titleButton setTitle:@"请看代码" forState:UIControlStateNormal];
     }
+
 }
 
 -(void)mjc_MostClickEvent:(UIButton *)rightMostButton segmentInterface:(MJCSegmentInterface *)segmentInterface
@@ -146,7 +141,6 @@
 {
     [self setupButton:button];
 }
-
 
 
 -(void)setupButton:(UIButton *)button

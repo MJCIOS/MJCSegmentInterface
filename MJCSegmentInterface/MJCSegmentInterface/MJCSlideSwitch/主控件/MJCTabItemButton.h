@@ -11,8 +11,33 @@
 
 @interface MJCTabItemButton : UIButton
 
--(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame tabItemTitlesfont:(UIFont*)tabItemTitlesfont SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle tabItemBackColor:(UIColor*)tabItemBackColor tabItemTitleNormalColor:(UIColor*)tabItemTitleNormalColor tabItemTitleSelectedColor:(UIColor*)tabItemTitleSelectedColor tabItemImageNormal:(UIImage*)tabItemImageNormal tabItemImageSelected:(UIImage *)tabItemImageSelected tabItemNormalImageArray:(NSArray *)tabItemNormalImageArray tabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray;
+-(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyle)imageStyle;
+
+-(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont;
+
+-(void)setTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+
+-(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor;
+
+-(void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor;
+
+-(void)setTabItemImageNormal:(UIImage *)tabItemImageNormal;
+
+-(void)setTabItemImageSelected:(UIImage *)tabItemImageSelected;
+
+-(void)setTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag;
+
+-(void)setTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag;
 
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
+
+-(void)setTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal;
+
+-(void)setTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected;
+
+-(void)setTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag;
+
+-(void)setTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag;
+
 
 @end

@@ -28,15 +28,18 @@
 //}
 
 
-
 -(UIView *)intoFaceView
 {
-    MJCSegmentInterface *segernsinterface = [[MJCSegmentInterface alloc]init];
-    _segerntInterface = segernsinterface;
-    _segerntInterface.frame = MJCScreenbound;
-    [segernsinterface setSegmentInterFaceStyle:SegMentInterfaceStyleClassic];
-    
+    if (!_segerntInterface) {
+        
+        _segerntInterface = [[MJCSegmentInterface  alloc]init];
+        
+        _segerntInterface.frame = MJCScreenbound;
+
+        [_segerntInterface setSegmentInterFaceStyle:SegMentInterfaceStyleClassic];
+    }
     return _segerntInterface;
+
 }
 
 -(void)intoTitlesArray:(NSArray *)titlesArray
@@ -61,6 +64,11 @@
     
 }
 
+-(void)setImageEffectStyle:(MJCImageEffectStyle)imageEffectStyle
+{
+    _segerntInterface.MJCImageEffectStyle = imageEffectStyle;
+}
+
 -(void)setScrollTitlesEnabled:(BOOL)scrollTitlesEnabled
 {
     _segerntInterface.scrollTitlesEnabled = scrollTitlesEnabled;
@@ -71,7 +79,7 @@
     _segerntInterface.childViewEnabled = childScollEnabled;
 }
 
--(void)setupFaceViewFrame:(CGRect)faceViewFrame;
+-(void)setFaceViewFrame:(CGRect)faceViewFrame
 {
     _segerntInterface.frame = faceViewFrame;
 }
@@ -225,6 +233,23 @@
     _segerntInterface.tabItemImageSelectedArray = tabItemImageSelectedArray;
 }
 
+-(void)setTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal
+{
+    _segerntInterface.tabItemBackImageNormal = tabItemBackImageNormal;
+}
+
+-(void)setTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected
+{
+    _segerntInterface.tabItemBackImageSelected = tabItemBackImageSelected;
+}
+-(void)setTabItemBackImageNormalArray:(NSArray *)tabItemBackImageNormalArray
+{
+    _segerntInterface.tabItemBackImageNormalArray = tabItemBackImageNormalArray;
+}
+-(void)setTabItemBackImageSelectedArray:(NSArray *)tabItemBackImageSelectedArray
+{
+    _segerntInterface.tabItemBackImageSelectedArray = tabItemBackImageSelectedArray;
+}
 
 
 -(void)setVerticalLineShow:(BOOL)verticalLineShow
@@ -287,7 +312,6 @@
 {
     _segerntInterface.slideDelegate = slideDelegate;
 }
-
 
 
 
@@ -354,6 +378,15 @@
               blue: (float)blueByte / 0xff
               alpha:1.0];
     return result;
+}
+
+/** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
++(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers;
+{
+    if ([controllers respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        controllers.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "UITestViewController.h"
+#import "MJCPrefixHeader.pch"
 
 @interface UITestViewController ()
 
@@ -20,13 +21,13 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor purpleColor];
-    
+    self.view.frame = MJCScreenbound;
     
     UIButton *butatat = [UIButton buttonWithType:UIButtonTypeCustom];
     
     butatat.backgroundColor = [UIColor redColor];
     [butatat addTarget:self action:@selector(dismisadasd) forControlEvents:UIControlEventTouchUpInside];
-    butatat.frame = CGRectMake(30, 30, 50, 50);
+    butatat.frame = CGRectMake(30,100, 50, 50);
     
     [self.view addSubview:butatat];
     

@@ -33,6 +33,12 @@ typedef enum {
     SegMentIndicatorItemTextStyle
 } MJCSegmentIndicatorStyle;
 
+typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
+    MJCImageLeftRightStyle = 0,
+    MJCImageUpDownStyle = 1
+};
+
+
 @class MJCSegmentInterface;
 
 @protocol MJCSlideSwitchViewDelegate <NSObject>
@@ -71,6 +77,9 @@ typedef enum {
 
 /** 底部指示器样式 */
 @property (nonatomic,assign) MJCSegmentIndicatorStyle SegmentIndicatorStyle;
+
+/** 标题图片样式 */
+@property (nonatomic,assign) MJCImageEffectStyle MJCImageEffectStyle;
 
 #pragma mark -- 标题栏设置创建和滚动标题栏的设置
 //***********************//
@@ -224,11 +233,19 @@ typedef enum {
 @property (nonatomic,strong) UIImage *tabItemImageNormal;
 /** tabItem按钮的点击状态下背景图片 */
 @property (nonatomic,strong) UIImage *tabItemImageSelected;
-
-
 /** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
 @property (nonatomic,strong) NSArray *tabItemImageNormalArray;
 @property (nonatomic,strong) NSArray *tabItemImageSelectedArray;
+
+/** tabItem按钮的普通状态下背景图片 */
+@property (nonatomic,strong) UIImage *tabItemBackImageNormal;
+/** tabItem按钮的点击状态下背景图片 */
+@property (nonatomic,strong) UIImage *tabItemBackImageSelected;
+/** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
+@property (nonatomic,strong) NSArray *tabItemBackImageNormalArray;
+@property (nonatomic,strong) NSArray *tabItemBackImageSelectedArray;
+
+
 
 /** tabItemtitle普通状态颜色 */
 @property (nonatomic,strong) UIColor *tabItemTitleNormalColor;
@@ -287,12 +304,12 @@ typedef enum {
 /**
  *  图片转换成颜色的方法
  */
-- (UIImage *)imageWithColor:(UIColor *)color;
+//- (UIImage *)imageWithColor:(UIColor *)color;
 
 /**
  *  颜色机制转换
  */
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString;
+//+ (UIColor *)colorFromHexRGB:(NSString *)inColorString;
 
 /**
  *  添加子控制器的view

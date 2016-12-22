@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		253A2D5F1E0A65C000E40F6B /* MJCImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */; };
+		253A2D601E0A65C000E40F6B /* MJCImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */; };
 		2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */; };
 		2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */; };
 		2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */; };
@@ -66,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		253A2D5C1E0A65C000E40F6B /* MJCImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCImageViewController.h; sourceTree = "<group>"; };
+		253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCImageViewController.m; sourceTree = "<group>"; };
+		253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCImageViewController.xib; sourceTree = "<group>"; };
 		2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCBottomView.h; sourceTree = "<group>"; };
 		2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCBottomView.m; sourceTree = "<group>"; };
 		2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildScrollView.h; sourceTree = "<group>"; };
@@ -249,6 +254,9 @@
 				25D54EF81E0783D2005DC7EA /* MJCSegmentFaceController.h */,
 				25D54EF91E0783D2005DC7EA /* MJCSegmentFaceController.m */,
 				25D54EFA1E0783D2005DC7EA /* MJCSegmentFaceController.xib */,
+				253A2D5C1E0A65C000E40F6B /* MJCImageViewController.h */,
+				253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */,
+				253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
 				25E01CBC1DFEC52A0008BE32 /* xiangmu2.1.gif in Resources */,
+				253A2D601E0A65C000E40F6B /* MJCImageViewController.xib in Resources */,
 				256CB0251E09031500CA1F9A /* xiangmu3.gif in Resources */,
 				259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
@@ -483,6 +492,7 @@
 				2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
 				2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */,
+				253A2D5F1E0A65C000E40F6B /* MJCImageViewController.m in Sources */,
 				25A91C671DC2FFDE0009313D /* UITestViewController.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
 				25A91C681DC2FFDE0009313D /* UITestViewController1.m in Sources */,

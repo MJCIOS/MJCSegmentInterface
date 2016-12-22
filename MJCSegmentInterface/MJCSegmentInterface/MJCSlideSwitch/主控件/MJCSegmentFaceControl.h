@@ -16,7 +16,7 @@
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
-/** 添加控件 */
+/** 添加分段控件 */
 -(UIView *)intoFaceView;
 
 /** 添加标题 */
@@ -25,13 +25,18 @@
 /** 添加控制器 */
 -(void)intoChildViewController:(UIViewController *)childViewController;
 
--(void)setupFaceViewFrame:(CGRect)faceViewFrame;
+
+/** 分段控件的尺寸位置 */
+@property (nonatomic,assign) CGRect faceViewFrame;
 
 /** segmentInterface 样式，默认为SegMentInterfaceStyleClassic样式 */
 @property (nonatomic, assign) MJCSegmentInterfaceStyle interFaceControlStyle;
 
 /** 底部指示器样式 */
 @property (nonatomic,assign) MJCSegmentIndicatorStyle indicatorStyle;
+
+/** 标题栏图片样式 */
+@property (nonatomic,assign) MJCImageEffectStyle imageEffectStyle;
 
 /** 是否滚动标题 */
 @property(nonatomic,assign,getter = scrollTitlesEnabled) BOOL scrollTitlesEnabled;
@@ -56,9 +61,9 @@
 @property (nonatomic,strong) UIColor *titleScrollColor;
 
 #pragma mark -- childView子界面的属性设置
+
 /** 子控制器视图界面的Frame */
 @property(nonatomic,assign) CGRect  childViewframe;
-
 
 #pragma mark -- 底部指示器的属性设置
 /** 底部指示器的宽度 */
@@ -126,10 +131,17 @@
 @property (nonatomic,strong) UIImage *tabItemImageNormal;
 /** tabItem按钮的点击状态下背景图片 */
 @property (nonatomic,strong) UIImage *tabItemImageSelected;
-
 /** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
 @property (nonatomic,strong) NSArray *tabItemImageNormalArray;
 @property (nonatomic,strong) NSArray *tabItemImageSelectedArray;
+
+/** tabItem按钮的普通状态下背景图片 */
+@property (nonatomic,strong) UIImage *tabItemBackImageNormal;
+/** tabItem按钮的点击状态下背景图片 */
+@property (nonatomic,strong) UIImage *tabItemBackImageSelected;
+/** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
+@property (nonatomic,strong) NSArray *tabItemBackImageNormalArray;
+@property (nonatomic,strong) NSArray *tabItemBackImageSelectedArray;
 
 
 #pragma mark -- 右部竖线的属性设置
@@ -198,6 +210,8 @@
 /** 最右边按钮的右边间距 */
 @property (nonatomic,assign) CGFloat rightBtnRightMargin;
 
+/** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
++(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers;
 
 
 

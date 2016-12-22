@@ -24,22 +24,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor purpleColor];
-    
     self.tableView2 = [[UITableView alloc]init];
-    self.tableView2.backgroundColor = [UIColor redColor];
-    self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight);
+    UIImageView *imamgview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"皎月"]];
+    self.tableView2.backgroundView =imamgview;
+    self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64);
     self.tableView2.delegate = self;
     self.tableView2.dataSource = self;
     [self.view addSubview:self.tableView2];
     
     UIView *view1 = [[UIView alloc]init];
     view1.mjc_height = 50;
+    view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height + 64)-2,self.view.mjc_width,view1.mjc_height);
     view1.backgroundColor = [[UIColor blueColor]colorWithAlphaComponent:0.2];
     [self.view addSubview:view1];
 
     UILabel *lablew1 = [[UILabel alloc]init];
     lablew1.mjc_width = 100;
+    lablew1.mjc_centerX = view1.mjc_width / 2;
+    lablew1.mjc_height = view1.mjc_height / 2;
+    lablew1.mjc_centerY = view1.mjc_height / 2 ;
+    lablew1.backgroundColor = [UIColor redColor];
     lablew1.textAlignment = NSTextAlignmentCenter;
     lablew1.font = [UIFont systemFontOfSize:16];
     lablew1.textColor = [UIColor blackColor];
@@ -52,44 +56,27 @@
      * 修改子控件大小位置,还有一些内边距
      */
     if (self.style == 0) {
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,(MJCNavMaxY+MJCTitlesViewH),0);
+        self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64-50);
         view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-2,self.view.mjc_width,view1.mjc_height);
         lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
         return;
     }
-    
 
+    if (self.style == 2) {
+        self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
+        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-12,self.view.mjc_width-20,view1.mjc_height);
+        lablew1.mjc_width = 100;
+        lablew1.mjc_centerX = view1.mjc_width / 2;
+        lablew1.mjc_height = view1.mjc_height / 2;
+        lablew1.mjc_centerY = view1.mjc_height / 2 ;
+        
+        return;
+    }
+    
     if (self.style == 3) {
         
-        /**
-         * 根据样式修改子控件大小位置,还有一些内边距
-         *  穿透样式和很少用样式修改后的大小位置,是因为,我们将子界面Y轴往上调了
-         */
-        self.tableView2.contentInset = UIEdgeInsetsMake(50,0,MJCNavMaxY,0);
-        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCNavMaxY)-2,self.view.mjc_width,view1.mjc_height);
-        lablew1.frame = CGRectMake((view1.mjc_width - 100) * 0.5,0,100,50);
+        self.tableView2.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         
-        return;
-    }
-    
-    if (self.style == 5) {
-        /**
-         * 根据样式修改子控件大小位置,还有一些内边距
-         *  超少用样式修改后的大小位置,是因为,我们将子界面Y轴往上调了 ,64 -49 = 15
-         */
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,MJCTabBarH,0);
-        view1.frame = CGRectMake(0,self.tableView2.mjc_height - 100,self.view.mjc_width, 50);
-        lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
-        
-        return;
-    }
-    
-    
-    if (self.style == 2) {
-        self.tableView2.contentInset = UIEdgeInsetsMake(0,0,0,0);
-        self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
-        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-12,self.view.mjc_width,view1.mjc_height);
-        lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
         return;
     }
     
@@ -126,12 +113,17 @@
     if (indexPath.row == 1) {
         cell.textLabel.text = @"MJC啦啦啦3333MJC啦啦啦3333333333333333333333333333";
     }else if(indexPath.row == 0 ){
-                cell.textLabel.text = @"MJC啦啦啦2222";
+        cell.textLabel.text = @"MJC啦啦啦2222";
     }else{
-    
-    cell.textLabel.text = @"MJC啦啦啦1111";
+        
+        cell.textLabel.text = @"MJC啦啦啦1111";
     }
-    cell.backgroundColor = [UIColor orangeColor];
+    
+    cell.textColor = [UIColor grayColor];
+    
+    
+    cell.backgroundColor = [UIColor clearColor];
+    
     
     return cell;
     

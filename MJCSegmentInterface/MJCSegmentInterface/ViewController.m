@@ -16,6 +16,7 @@
 #import "SegMentInterfaceStyleExceedUseVC.h"
 #import "MJCCustomController.h"
 #import "MJCSegmentFaceController.h"
+#import "MJCImageViewController.h"
 
 @interface ViewController ()
 
@@ -81,6 +82,11 @@
     
 }
 
+- (IBAction)five:(id)sender {
+    MJCImageViewController *imageVC = [MJCImageViewController new];
+    
+    [self.navigationController pushViewController:imageVC animated:YES];
+}
 
 
 

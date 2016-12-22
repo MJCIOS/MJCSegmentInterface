@@ -21,7 +21,7 @@
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.bounces = YES;
-        self.directionalLockEnabled = YES;
+//        self.directionalLockEnabled = YES;
 //        self.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     }
     
@@ -41,7 +41,7 @@
 
 -(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
 {
-    
+
     if (isChildFrame == kNilOptions) {
         
         if (SegmentInterFaceStyle ==  SegMentInterfaceStyleClassic) {
@@ -50,12 +50,11 @@
             self.frame =  CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
-        
         }else if(SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
             self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
         
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleExceedUse){
-            self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH));
+            self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
         }else{
             
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));

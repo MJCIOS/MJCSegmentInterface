@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSInteger style = 5;
+    NSInteger style = 0;
 //    有导航栏或者tabbar时,保证标题栏不会被覆盖
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
             self.edgesForExtendedLayout = UIRectEdgeNone;

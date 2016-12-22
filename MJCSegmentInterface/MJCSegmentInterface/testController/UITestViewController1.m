@@ -23,25 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor blueColor]];
-    
     
     self.tableView1 = [[UITableView alloc]init];
-    self.tableView1.contentInset = UIEdgeInsetsMake(50,0,0,0);
-    self.tableView1.backgroundColor = [UIColor redColor];
-    self.tableView1.frame = self.view.bounds;
+    UIImageView *imamgview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"月光"]];
+    self.tableView1.backgroundView =imamgview;
+    self.tableView1.frame = CGRectMake(0,0, MJCScreenWidth, MJCScreenHeight - 64);
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
     [self.view addSubview:self.tableView1];
 
     
-    if (_style ==3) {
-        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64);
-    }else{
-       self.tableView1.contentInset = UIEdgeInsetsMake(0,0,114,0);
+    if (_style == 0) {
+        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64-50);
+        return;
     }
     
+    if (_style == 1) {
+        self.tableView1.contentInset = UIEdgeInsetsMake(50,0,0,0);
+        return;
+    }
     
+
     if (_style == 2) {
         
         self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
@@ -85,7 +87,7 @@
     }
     
     cell.textLabel.text = @"MJC啦啦啦";
-    cell.backgroundColor = [UIColor blueColor];
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
     

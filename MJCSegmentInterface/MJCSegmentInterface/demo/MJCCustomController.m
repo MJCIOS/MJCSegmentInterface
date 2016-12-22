@@ -18,10 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 有导航栏或者tabbar时,保证标题栏不会被覆盖
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+    [MJCSegmentFaceControl useNavOrTabbarNotBeCover:self];
     
 //    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
@@ -151,8 +148,6 @@
 {
     [self setupButton:button];
 }
-
-
 
 -(void)setupButton:(UIButton *)button
 {

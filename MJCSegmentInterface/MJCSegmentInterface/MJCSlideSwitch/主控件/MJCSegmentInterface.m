@@ -120,7 +120,6 @@ static const CGFloat rightMargin = 1;
         }else{
             _firstTitleButton = self.titlesScrollView.subviews.firstObject;
         }
-
     }
     return _firstTitleButton;
 }
@@ -176,6 +175,9 @@ static const CGFloat rightMargin = 1;
         //如果外界没有设置frame,那我们这里面要设置下
         self.frame = [UIScreen mainScreen].bounds;
         
+        
+        
+        
     }
     return self;
 }
@@ -203,8 +205,19 @@ static const CGFloat rightMargin = 1;
     _btnTag = index;
     
     UIViewController *childVc = self.viewController.childViewControllers[index];
+    
     if ([childVc isViewLoaded]) return;
-    childVc.view.frame = self.scrollView.bounds;
+    
+    if (self.viewController.edgesForExtendedLayout == UIRectEdgeNone) {
+        childVc.view.frame = self.scrollView.bounds;
+    }else{
+        if (index == 0) {
+            childVc.view.frame = CGRectMake(0,-64,MJCScreenWidth, MJCScreenHeight);
+        }else{
+            childVc.view.frame = self.scrollView.bounds;
+        }
+    }
+    
     [self.scrollView addSubview:childVc.view];
 }
 
@@ -250,8 +263,6 @@ static const CGFloat rightMargin = 1;
 -(void)setupRightButton
 {
     [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
-//    self.rightMostButton.adjustsImageWhenHighlighted = NO;
-//    self.rightMostButton.showsTouchWhenHighlighted = NO;
     
     if (_childViewScollAnimal == YES) {
         _scollAnimal = 0.25;
@@ -287,8 +298,6 @@ static const CGFloat rightMargin = 1;
     
     
     [self isRigthMostFrame:_isrightMostBtnFrame rightMostBtnFrame:_rightMostBtnFrame];
-    
-    
     
     
 }
@@ -369,25 +378,38 @@ static const CGFloat rightMargin = 1;
         [self setTabItemWidth:_tabItemWidth];
         self.tabItemH = _titlesScrollView.mjc_height;
     }
+    
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
-        MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
-        self.titlesButton = tabbutton;
-        [self.titlesButton setTitle:titlesArray[i] forState:UIControlStateNormal];
-        [self.titlesButton arraycount:i buttonW:_tabItemW buttonH:_tabItemH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame tabItemTitlesfont:_tabItemTitlesfont SegmentInterFaceStyle:_SegmentInterFaceStyle tabItemBackColor:_tabItemBackColor tabItemTitleNormalColor:_tabItemTitleNormalColor tabItemTitleSelectedColor:_tabItemTitleSelectedColor tabItemImageNormal:_tabItemImageNormal tabItemImageSelected:_tabItemImageSelected tabItemNormalImageArray:_tabItemImageNormalArray tabItemImageSelectedArray:_tabItemImageSelectedArray];
         
-//        [self isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
+        MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
+        
+        [tabbutton arraycount:i buttonW:_tabItemW buttonH:_tabItemH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView titlesArr:titlesArray imageStyle:_MJCImageEffectStyle];
+        [tabbutton isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
+        [tabbutton setTabItemTitlesfont:_tabItemTitlesfont];
+        [tabbutton setTabItemBackColor:_tabItemBackColor SegmentInterFaceStyle:_SegmentInterFaceStyle];
+        [tabbutton setTabItemTitleNormalColor:_tabItemTitleNormalColor];
+        [tabbutton setTabItemTitleSelectedColor:_tabItemTitleSelectedColor];
+        [tabbutton setTabItemImageNormal:_tabItemImageNormal];
+        [tabbutton setTabItemImageSelected:_tabItemImageSelected];
+        [tabbutton setTabItemNormalImageArray:_tabItemImageNormalArray buttonTag:i];
+        [tabbutton setTabItemImageSelectedArray:_tabItemImageSelectedArray buttonTag:i];
+        [tabbutton setTabItemBackImageNormal:_tabItemBackImageNormal];
+        [tabbutton setTabItemBackImageSelected:_tabItemBackImageSelected];
+        [tabbutton setTabItemNormalBackImageArray:_tabItemBackImageNormalArray buttonTag:i];
+        [tabbutton setTabItemBackImageSelectedArray:_tabItemBackImageSelectedArray buttonTag:i];
+        self.titlesButton = tabbutton;
+        
         [self setupRightView:i titlesArr:titlesArray];
         [self.titlesButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
     }
     self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _tabItemW, 0);
 }
+
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
 {
     _isTabItemFrame = isTabItemFrame;
     _tabItemFrame = tabItemFrame;
-    [_titlesButton isTabItemFrame:isTabItemFrame tabItemFrame:tabItemFrame];
+    [self.titlesButton isTabItemFrame:isTabItemFrame tabItemFrame:tabItemFrame];
 }
 
 //设置tabItem的宽度
@@ -420,7 +442,7 @@ static const CGFloat rightMargin = 1;
     [self isTopViewFrame:_isTopViewFrame setTopViewFrame:_topViewFrame];
     [self setTopViewHidden:_topViewHidden];
     if (_scrollTitlesEnabled == kNilOptions) {
-        // !!!:添加标题栏
+        
         [titleView addSubview:self.topView];
     }else{
         [_titlesScrollView addSubview:self.topView];
@@ -627,34 +649,18 @@ static const CGFloat rightMargin = 1;
         [self.rightMostButton setImage:_mostRightPosition forState:UIControlStateNormal];
     }
 
-    
-    if ([self.slideDelegate respondsToSelector:@selector(mjc_ClickEvent:segmentInterface:)]) {
-        [self.slideDelegate mjc_ClickEvent:titleButton segmentInterface:self];
-    }
 
+    if ([self.slideDelegate respondsToSelector:@selector(mjc_ClickEvent:segmentInterface:)]) {
+    
+        [self.slideDelegate mjc_ClickEvent:titleButton segmentInterface:self];
+    
+    }
     
 }
 
 
 
 #pragma mark -- <UIScrollViewDelegate>
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//}
-
-/**
- * 点击按钮scollview产生动画滚动结束时,就会调用这个方法
- */
-//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-//{
-//    [self setupScollTitlesButton:scrollView];
-//    [self addChildVcView];
-
-//    if ([self.slideDelegate respondsToSelector:@selector(mjc_ScrollViewDidEndScrollingAnimation:)]) {
-//        [self.slideDelegate mjc_ScrollViewDidEndScrollingAnimation:self];
-//    }
-//}
-
 /**
  * 在scrollView滚动动画结束时, 就会调用这个方法
  * 拖拽scrollView产生的滚动动画
@@ -663,16 +669,10 @@ static const CGFloat rightMargin = 1;
 {
     [self setupScollTitlesButton:scrollView];
     [self addChildVcView];
-    
 
     if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:segmentInterface:)]) {
         [self.slideDelegate mjc_scrollDidEndDecelerating:self.firstTitleButton segmentInterface:self];
     }
-    
-//    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollViewDidEndDecelerating:)]) {
-//        [self.slideDelegate mjc_scrollViewDidEndDecelerating:self];
-//    }
-    
 }
 
 
@@ -715,62 +715,7 @@ static const CGFloat rightMargin = 1;
 }
 
 
-
 #pragma mark -- 工具方法
-// 图片转换颜色
-- (UIImage *)imageWithColor:(UIColor *)color
-{
-    CGRect rect1;
- 
-    if (_SegmentInterFaceStyle == SegMentInterfaceStylePenetrate ) {
-        CGRect rect = CGRectMake(0.0f, 0.0f, 0.3f, 0.3f);
-        rect1 = rect;
-    }else if (_SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-        CGRect rect = CGRectMake(0.0f, 0.0f, 0.3f, 0.3f);
-        rect1 = rect;
-    }else{
-        CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-        rect1 = rect;
-    }
-    
-    UIGraphicsBeginImageContext(rect1.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect1);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-
-/*!
- *  通过16进制计算颜色
- *  16机制
- *  颜色对象
- */
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString
-{
-    UIColor *result = nil;
-    unsigned int colorCode = 0;
-    unsigned char redByte, greenByte, blueByte;
-    
-    if (nil != inColorString)
-    {
-        NSScanner *scanner = [NSScanner scannerWithString:inColorString];
-        (void) [scanner scanHexInt:&colorCode]; // ignore error
-    }
-    redByte = (unsigned char) (colorCode >> 16);
-    greenByte = (unsigned char) (colorCode >> 8);
-    blueByte = (unsigned char) (colorCode); // masks off high bits
-    result = [UIColor
-              colorWithRed: (float)redByte / 0xff
-              green: (float)greenByte/ 0xff
-              blue: (float)blueByte / 0xff
-              alpha:1.0];
-    return result;
-}
 
 
 

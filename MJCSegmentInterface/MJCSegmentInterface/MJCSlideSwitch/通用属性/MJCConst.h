@@ -15,6 +15,3 @@ UIKIT_EXTERN CGFloat const MJCMarin;
 /** 全局统一的滚动标题按钮的宽度 */
 UIKIT_EXTERN CGFloat const MJCTabitemW;
 
-/** 标题按钮被重复点击的通知 */
-UIKIT_EXTERN NSString * const XMGTitleButtonDidRepeatClickNotification;
-
