@@ -57,11 +57,9 @@
     _segerntInterface.SegmentInterFaceStyle = interFaceControlStyle;
 }
 
-
 -(void)setInterFacesStyle:(MJCSegmentInterfaceStyle)interFacesStyle
 {
     _segerntInterface.SegmentInterFaceStyle = interFacesStyle;
-    
 }
 
 -(void)setImageEffectStyle:(MJCImageEffectStyle)imageEffectStyle
