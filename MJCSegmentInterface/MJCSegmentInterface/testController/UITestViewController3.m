@@ -62,6 +62,7 @@
         return;
     }
 
+    
     if (self.style == 2) {
         self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
         view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-12,self.view.mjc_width-20,view1.mjc_height);
