@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		253A2D5F1E0A65C000E40F6B /* MJCImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */; };
 		253A2D601E0A65C000E40F6B /* MJCImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */; };
-		253A2DC11E0BC52100E40F6B /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 253A2DC01E0BC52100E40F6B /* xiangmu3.gif */; };
 		2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */; };
 		2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */; };
 		2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */; };
@@ -19,6 +18,7 @@
 		256BD88F1E037BA3005185C9 /* MJCCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD88D1E037BA3005185C9 /* MJCCustomController.m */; };
 		256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256BD88E1E037BA3005185C9 /* MJCCustomController.xib */; };
 		256BD8971E03F342005185C9 /* MJCSegmentFaceControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */; };
+		256D29BB1E10C6DF00B6FE0E /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256D29BA1E10C6DF00B6FE0E /* xiangmu3.gif */; };
 		259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BB1DF519120075F7BB /* 向右箭头.png */; };
 		259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */ = {isa = PBXBuildFile; fileRef = 259D33BD1DF519170075F7BB /* 向左箭头.png */; };
 		25A47AA91DE2EA1200AE2829 /* MJCTitlesScollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */; };
@@ -73,7 +73,6 @@
 		253A2D5C1E0A65C000E40F6B /* MJCImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCImageViewController.h; sourceTree = "<group>"; };
 		253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCImageViewController.m; sourceTree = "<group>"; };
 		253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCImageViewController.xib; sourceTree = "<group>"; };
-		253A2DC01E0BC52100E40F6B /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCBottomView.h; sourceTree = "<group>"; };
 		2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCBottomView.m; sourceTree = "<group>"; };
 		2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildScrollView.h; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		256BD8951E03F342005185C9 /* MJCSegmentFaceControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJCSegmentFaceControl.h; path = "主控件/MJCSegmentFaceControl.h"; sourceTree = "<group>"; };
 		256BD8961E03F342005185C9 /* MJCSegmentFaceControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJCSegmentFaceControl.m; path = "主控件/MJCSegmentFaceControl.m"; sourceTree = "<group>"; };
+		256D29BA1E10C6DF00B6FE0E /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		259D33BB1DF519120075F7BB /* 向右箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向右箭头.png"; sourceTree = "<group>"; };
 		259D33BD1DF519170075F7BB /* 向左箭头.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "向左箭头.png"; sourceTree = "<group>"; };
 		25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesScollView.h; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 		25D9DB451DC2635C00B903B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				253A2DC01E0BC52100E40F6B /* xiangmu3.gif */,
+				256D29BA1E10C6DF00B6FE0E /* xiangmu3.gif */,
 				25E01CB61DFEC5290008BE32 /* xiangmu2.gif */,
 				25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */,
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
@@ -462,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256D29BB1E10C6DF00B6FE0E /* xiangmu3.gif in Resources */,
 				25E01CBA1DFEC52A0008BE32 /* xiangmu2.gif in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
@@ -473,7 +474,6 @@
 				256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */,
 				259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */,
 				25D54EFC1E0783D2005DC7EA /* MJCSegmentFaceController.xib in Resources */,
-				253A2DC11E0BC52100E40F6B /* xiangmu3.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

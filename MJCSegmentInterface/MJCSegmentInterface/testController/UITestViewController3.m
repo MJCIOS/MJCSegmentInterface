@@ -9,6 +9,7 @@
 #import "UITestViewController3.h"
 #import "UIView+MJCExtenSion.h"
 #import "MJCSegmentInterface.h"
+#import "UITestViewController4.h"
 
 @interface UITestViewController3 ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -140,7 +141,9 @@
 //在TableView上选中某个Cell会触发点击方法,被选中时调用的方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITestViewController4 *textVC = [UITestViewController4 new];
     
+    [self.navigationController pushViewController:textVC animated:YES];
 }
 
 @end

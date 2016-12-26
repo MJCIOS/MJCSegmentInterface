@@ -40,8 +40,8 @@
     _style = style;
 
     
-    NSArray *titlesArr = @[@"啦啦",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
-//    NSArray *titlesArr = @[@"啦啦",@"啪啪"];
+//    NSArray *titlesArr = @[@"啦啦",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"啦啦",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     UIView *intoView = [segmentsface intoFaceView:SegMentInterfaceStyleNavBar];
     

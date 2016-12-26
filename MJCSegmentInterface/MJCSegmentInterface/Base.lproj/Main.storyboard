@@ -119,7 +119,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Wvr-Ty-csK"/>
                                     <constraint firstAttribute="height" constant="50" id="Xjy-5N-VgP"/>
                                 </constraints>
-                                <state key="normal" title="测试"/>
+                                <state key="normal" title="导航标题栏样式"/>
                                 <connections>
                                     <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgf-w8-qbM"/>
                                 </connections>
