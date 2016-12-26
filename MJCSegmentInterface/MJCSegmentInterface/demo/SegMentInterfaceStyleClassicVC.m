@@ -29,7 +29,7 @@
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleClassic];
     segmentsface.faceViewFrame = CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight);
     segmentsface.slideDelegate = self;
     segmentsface.childScollEnabled = YES;

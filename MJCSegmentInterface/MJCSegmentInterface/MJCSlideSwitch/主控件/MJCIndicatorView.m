@@ -23,16 +23,6 @@
     
 }
 
-
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    
-    
-}
-
 -(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesScroll:(UIScrollView *)titlesScroll firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
 {
     if (isindicatorFrame == kNilOptions) {
@@ -43,6 +33,9 @@
                 self.mjc_width = firstTitleButton.mjc_width;
             }else{
                 self.mjc_width = firstTitleButton.titleLabel.mjc_width;
+                
+                NSLog(@"%f",firstTitleButton.titleLabel.mjc_width);
+                
             }
             self.mjc_centerX = firstTitleButton.mjc_centerX;
             
@@ -64,14 +57,17 @@
 -(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle
 {
     if (isindicatorFrame == kNilOptions) {
+        
         if (indicatorWidth == kNilOptions) {
             self.mjc_height = 1;
             self.mjc_y = titlesView.mjc_height - self.mjc_height;
+            
             if (SegmentIndicatorStyle == SegMentIndicatorItemStyle) {
                 self.mjc_width = firstTitleButton.mjc_width;
             }else{
                 self.mjc_width = firstTitleButton.titleLabel.mjc_width;
             }
+            
             self.mjc_centerX = firstTitleButton.mjc_centerX;
             
         }else{
@@ -90,9 +86,7 @@
 
 -(void)setIndicatorColor:(UIColor *)indicatorColor firstTitleButton:(UIButton*)firstTitleButton
 {
-    
     if (indicatorColor == kNilOptions) {
-        
         self.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
     }else{
         self.backgroundColor = indicatorColor;
@@ -102,11 +96,7 @@
 
 -(void)setIndicatorViewHidden:(BOOL)indicatorViewHidden
 {
-    if (indicatorViewHidden == kNilOptions) {
-        self.hidden = NO;
-    }else{
-        self.hidden = YES;
-    }
+    self.hidden = indicatorViewHidden;
 }
 
 

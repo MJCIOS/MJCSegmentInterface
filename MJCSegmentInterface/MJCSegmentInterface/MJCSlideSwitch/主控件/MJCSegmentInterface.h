@@ -24,7 +24,8 @@ typedef enum {
     SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
     SegMentInterfaceStyleLess,   //少用样式(格子竖线标题栏)
     SegMentInterfaceStyleMoreUse,//更少用样式(格子穿透标题栏)
-    SegMentInterfaceStyleExceedUse //超少用样式(适用于上面没有导航栏的情况)
+    SegMentInterfaceStyleExceedUse, //超少用样式(适用于上面没有导航栏的情况)
+    SegMentInterfaceStyleNavBar
 } MJCSegmentInterfaceStyle;
 
 //底部指示器样式
@@ -112,10 +113,6 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 
 #pragma mark -- 右部竖线的属性设置
 //***********************//
-
-/** 右部竖线线条是否显示,只用于SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate*/
-@property (nonatomic,assign,getter= isRightViewShow) BOOL rightViewShow;
-
 /** 右部竖线线条高度 */
 @property (nonatomic,assign) CGFloat rightViewHegiht;
 
@@ -346,12 +343,6 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 /** 是否开启跳转子界面最左边位置以及最右边位置 */
 @property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
-
-
-/** 标题居中间距 */
-@property (nonatomic,assign) CGFloat titleCenterMargin;
-
-
 /** 最右边按钮的顶部间距 */
 @property (nonatomic,assign) CGFloat rightBtnTopMargin;
 
@@ -360,6 +351,15 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 
 /** 最右边按钮的右边间距 */
 @property (nonatomic,assign) CGFloat rightBtnRightMargin;
+
+
+-(UIView *)intoFaceView:(NSArray *)titlesArr;
+
+-(UIScrollView *)intoFaceScoll:(NSArray *)titlesArr;
+
+
+// 图片转换颜色
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 
 

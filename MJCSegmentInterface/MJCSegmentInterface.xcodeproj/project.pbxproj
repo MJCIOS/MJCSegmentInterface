@@ -47,6 +47,8 @@
 		25D9DB6B1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */; };
 		25E01CBA1DFEC52A0008BE32 /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E01CB61DFEC5290008BE32 /* xiangmu2.gif */; };
 		25E01CBC1DFEC52A0008BE32 /* xiangmu2.1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */; };
+		25EAA76D1E0C2B7D000A0E00 /* MJCTESTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA76B1E0C2B7D000A0E00 /* MJCTESTViewController.m */; };
+		25EAA76E1E0C2B7D000A0E00 /* MJCTESTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25EAA76C1E0C2B7D000A0E00 /* MJCTESTViewController.xib */; };
 		25F727C81DE401EB00574F06 /* MJCTabItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F727C71DE401EB00574F06 /* MJCTabItemButton.m */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +143,9 @@
 		25D9DB6C1DC2635C00B903B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E01CB61DFEC5290008BE32 /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
 		25E01CB81DFEC5290008BE32 /* xiangmu2.1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.1.gif; sourceTree = "<group>"; };
+		25EAA76A1E0C2B7D000A0E00 /* MJCTESTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTESTViewController.h; sourceTree = "<group>"; };
+		25EAA76B1E0C2B7D000A0E00 /* MJCTESTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTESTViewController.m; sourceTree = "<group>"; };
+		25EAA76C1E0C2B7D000A0E00 /* MJCTESTViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCTESTViewController.xib; sourceTree = "<group>"; };
 		25F727C61DE401EB00574F06 /* MJCTabItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItemButton.h; sourceTree = "<group>"; };
 		25F727C71DE401EB00574F06 /* MJCTabItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTabItemButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,20 +202,20 @@
 			children = (
 				25A91C2B1DC2FA1F0009313D /* MJCSegmentInterface.h */,
 				25A91C2C1DC2FA1F0009313D /* MJCSegmentInterface.m */,
-				2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */,
-				2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */,
 				2555F1101DC4A8B300977EB8 /* MJCChildScrollView.h */,
 				2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */,
+				2555F1161DC4A8B300977EB8 /* MJCTitlesView.h */,
+				2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */,
+				25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */,
+				25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */,
 				2555F1121DC4A8B300977EB8 /* MJCIndicatorView.h */,
 				2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */,
 				2555F1141DC4A8B300977EB8 /* MJCRightView.h */,
 				2555F1151DC4A8B300977EB8 /* MJCRightView.m */,
-				2555F1161DC4A8B300977EB8 /* MJCTitlesView.h */,
-				2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */,
 				2555F1181DC4A8B300977EB8 /* MJCTopView.h */,
 				2555F1191DC4A8B300977EB8 /* MJCTopView.m */,
-				25A47AA71DE2EA1200AE2829 /* MJCTitlesScollView.h */,
-				25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */,
+				2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */,
+				2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */,
 				25F727C61DE401EB00574F06 /* MJCTabItemButton.h */,
 				25F727C71DE401EB00574F06 /* MJCTabItemButton.m */,
 			);
@@ -257,6 +262,9 @@
 				253A2D5C1E0A65C000E40F6B /* MJCImageViewController.h */,
 				253A2D5D1E0A65C000E40F6B /* MJCImageViewController.m */,
 				253A2D5E1E0A65C000E40F6B /* MJCImageViewController.xib */,
+				25EAA76A1E0C2B7D000A0E00 /* MJCTESTViewController.h */,
+				25EAA76B1E0C2B7D000A0E00 /* MJCTESTViewController.m */,
+				25EAA76C1E0C2B7D000A0E00 /* MJCTESTViewController.xib */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -461,6 +469,7 @@
 				253A2D601E0A65C000E40F6B /* MJCImageViewController.xib in Resources */,
 				259D33BE1DF519170075F7BB /* 向左箭头.png in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
+				25EAA76E1E0C2B7D000A0E00 /* MJCTESTViewController.xib in Resources */,
 				256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */,
 				259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */,
 				25D54EFC1E0783D2005DC7EA /* MJCSegmentFaceController.xib in Resources */,
@@ -491,6 +500,7 @@
 			files = (
 				2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
+				25EAA76D1E0C2B7D000A0E00 /* MJCTESTViewController.m in Sources */,
 				2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */,
 				253A2D5F1E0A65C000E40F6B /* MJCImageViewController.m in Sources */,
 				25A91C671DC2FFDE0009313D /* UITestViewController.m in Sources */,

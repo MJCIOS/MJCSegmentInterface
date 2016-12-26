@@ -17,7 +17,7 @@
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
 /** 添加分段控件 */
--(UIView *)intoFaceView;
+-(UIView *)intoFaceView:(MJCSegmentInterfaceStyle)interfacestyle;
 
 /** 添加标题 */
 -(void)intoTitlesArray:(NSArray *)titlesArray;
@@ -145,13 +145,10 @@
 
 
 #pragma mark -- 右部竖线的属性设置
-/** 右部竖线线条是否显示(用于SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate) */
-@property (nonatomic,assign,getter = verticalLineShow) BOOL verticalLineShow;
-
 /** 右部竖线线条高度 */
 @property (nonatomic,assign) CGFloat verticalLineHegiht;
 
-/** 右部竖线线条是否显示(只用于SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse) */
+/** 右部竖线线条是否显示 */
 @property (nonatomic,assign,getter= verticalLineHidden) BOOL verticalLineHidden;
 
 /** 右边竖线颜色 */
@@ -183,6 +180,11 @@
 
 
 
+-(UIView *)intoTitlesFace:(NSArray *)titlesArr;
+
+-(UIScrollView *)intoScollFace:(NSArray *)titlesArr;
+
+
 
 #pragma mark -- 工具方法
 /**
@@ -195,14 +197,8 @@
  */
 + (UIColor *)colorFromHexRGB:(NSString *)inColorString;
 
-
-/** 标题居中间距 */
-@property (nonatomic,assign) CGFloat titleCenterMargin;
-
-
 /** 最右边按钮的顶部间距 */
 @property (nonatomic,assign) CGFloat rightBtnTopMargin;
-
 
 /** 最右边按钮的底部间距 */
 @property (nonatomic,assign) CGFloat rightBtnBottomMargin;
@@ -210,8 +206,11 @@
 /** 最右边按钮的右边间距 */
 @property (nonatomic,assign) CGFloat rightBtnRightMargin;
 
+
 /** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
 +(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers;
+
+
 
 
 

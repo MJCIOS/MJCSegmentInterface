@@ -13,31 +13,31 @@
 
 -(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyle)imageStyle;
 
--(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont;
+-(void)setupTabItemTitlesfont:(UIFont *)tabItemTitlesfont;
 
--(void)setTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setupTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
--(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor;
+-(void)setupTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor;
 
--(void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor;
+-(void)setupTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor;
 
--(void)setTabItemImageNormal:(UIImage *)tabItemImageNormal;
+-(void)setupTabItemImageNormal:(UIImage *)tabItemImageNormal;
 
--(void)setTabItemImageSelected:(UIImage *)tabItemImageSelected;
+-(void)setupTabItemImageSelected:(UIImage *)tabItemImageSelected;
 
--(void)setTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag;
+-(void)setupTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag;
 
--(void)setTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag;
+-(void)setupTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag;
 
--(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
+-(void)setupisTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
 
--(void)setTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal;
+-(void)setupTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal;
 
--(void)setTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected;
+-(void)setupTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected;
 
--(void)setTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag;
+-(void)setupTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag;
 
--(void)setTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag;
+-(void)setupTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag;
 
 
 @end

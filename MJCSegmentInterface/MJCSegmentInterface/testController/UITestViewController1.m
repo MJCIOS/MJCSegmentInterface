@@ -52,6 +52,11 @@
         return;
     }
     
+    if (self.style == 4) {
+        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight);
+        return;
+    }
+
     
     
     

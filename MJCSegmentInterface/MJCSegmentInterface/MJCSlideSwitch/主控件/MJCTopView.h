@@ -15,7 +15,7 @@
 @property (nonatomic,strong) UIColor *topBackgroundColor;
 
 
--(void)settopHidden:(BOOL)topHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)settopHidden:(BOOL)topHidden;
 
 -(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView;
 

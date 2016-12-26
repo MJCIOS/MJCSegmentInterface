@@ -11,6 +11,18 @@
 
 @interface MJCImageViewController ()<MJCSlideSwitchViewDelegate>
 
+
+/** <#  注释  #> */
+@property (nonatomic,strong) MJCSegmentFaceControl *segmentsface;
+
+/** <#  注释  #> */
+@property (nonatomic,assign) NSInteger style;
+
+
+/** <#  注释  #> */
+@property (nonatomic,strong) UITestViewController *vc;
+
+
 @end
 
 @implementation MJCImageViewController
@@ -19,20 +31,22 @@
     [super viewDidLoad];
 
     NSInteger style = 3;
+    _style = style;
 
     [MJCSegmentFaceControl useNavOrTabbarNotBeCover:self];
-    
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *intoView = segmentsface.intoFaceView;
+    UIView *intoView = [segmentsface intoFaceView:SegMentInterfaceStylePenetrate];
+    _segmentsface = segmentsface;
 //    segmentsface.faceViewFrame = CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight);
     segmentsface.slideDelegate = self;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;//样式
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;//样式
     segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
     segmentsface.imageEffectStyle = MJCImageUpDownStyle;
     segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
     segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
+//    segmentsface.childViewframe = CGRectMake(0, 64, MJCScreenWidth, MJCScreenHeight);
     
     
 #pragma mark -- 标题栏的属性
@@ -62,19 +76,17 @@
     segmentsface.tabItemImageSelectedArray = imageArr1;
     
 #pragma mark -- 竖线属性
-    segmentsface.verticalLineShow = YES;
     segmentsface.verticalLineColor = [UIColor blackColor];
     segmentsface.verticalLineHegiht = 30;
-//    segmentsface.verticalLineHidden = NO;
-    
+    segmentsface.verticalLineHidden = NO;
     
     [segmentsface intoTitlesArray:titlesArr];
     [self.view addSubview:intoView];
     
     
     /** 添加控制器 */
-
     UITestViewController *vc = [[UITestViewController alloc]init];
+    _vc = vc;
     [segmentsface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
@@ -101,23 +113,34 @@
     vc7.style = style;
     [segmentsface intoChildViewController:vc7];
     
-    
 }
+
 
 
 -(void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
     
     if (titleButton.tag == 1) {
-        [titleButton setTitle:@"代理方法" forState:UIControlStateNormal];
+        [titleButton setTitle:@"代理啦啦" forState:UIControlStateNormal];
     }else{
-        [titleButton setTitle:@"请看代码" forState:UIControlStateNormal];
+        [titleButton setTitle:@"请看" forState:UIControlStateNormal];
     }
+    
+    
+    if (titleButton.tag == 0) {
+        [_vc loadData:(int)titleButton.tag];
+    }else{
+        [_vc loadData:(int)titleButton.tag];
+    }
+    
+    
+    [self setupButton:titleButton];
 }
+
 
 -(void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-    [self setupButton:button];
+//    [self setupButton:button];
 }
 
 
@@ -134,7 +157,6 @@
     }else{
         button.backgroundColor = [[UIColor orangeColor]colorWithAlphaComponent:0.7];
     }
-    
 }
 
 

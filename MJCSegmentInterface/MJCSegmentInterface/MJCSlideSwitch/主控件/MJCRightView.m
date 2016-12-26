@@ -23,26 +23,14 @@
 {
     if (self = [super initWithFrame:frame]) {
         
+        self.hidden = YES;
     }
     
-    
     return self;
-    
-}
-
-
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    
-    
 }
 
 -(void)setRightBackgroundColor:(UIColor *)rightBackgroundColor
 {
-    
     if (rightBackgroundColor == kNilOptions) {
         self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.5];
     }else{
@@ -53,8 +41,7 @@
 
 -(void)setRightHeght:(CGFloat)rightHeght titlesButton:(UIButton *)titlesButton
 {
-    
-    self.mjc_x = titlesButton.mjc_width-0.5;
+    self.mjc_x = titlesButton.mjc_width-0.1;
     
     if (rightHeght == kNilOptions) {
         self.mjc_height = titlesButton.mjc_height;
@@ -65,75 +52,17 @@
     self.mjc_width = 0.5;
 }
 
--(void)setRightViewHidden:(BOOL)rightViewHidden setRightViewShow:(BOOL)rightViewShow inter:(NSUInteger)inter titlesArr:(NSArray *)titlesArr
-    SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
-{
-    
-    if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
-        
-        if (rightViewHidden == kNilOptions) {
-            
-            if (inter+1 == titlesArr.count) {
-                self.hidden = YES;
-            }else{
-                self.hidden = NO;
-            }
-        }else{
-            
-            self.hidden = YES;
-        }
-        
-    }else if (SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-        
-        if (rightViewHidden == kNilOptions) {
-        
-            if (inter+1 == titlesArr.count) {
-                self.hidden = YES;
-            }else{
-                self.hidden = NO;
-            }
-        }else{
-            self.hidden = YES;
-        }
-        
-        
-    }else if (SegmentInterFaceStyle == SegMentInterfaceStyleClassic){
-        
-        if (rightViewShow == kNilOptions) {
-            self.hidden = YES;
-        }else{
-            if (inter+1 == titlesArr.count) {
-                self.hidden = YES;
-            }else{
-                self.hidden = NO;
-            }
-        }
 
-    }else if (SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
-        
-        if (rightViewShow == kNilOptions) {
+-(void)setRightViewHidden:(BOOL)rightViewHidden inter:(NSUInteger)inter titlesArr:(NSArray *)titlesArr
+{
+    if (rightViewHidden == kNilOptions) {
+        if (inter+1 == titlesArr.count) {
             self.hidden = YES;
-            
         }else{
-            if (inter+1 == titlesArr.count) {
-                self.hidden = YES;
-            }else{
-                self.hidden = NO;
-            }
+            self.hidden = NO;
         }
-        
-        
     }else{
-        if (rightViewHidden == kNilOptions) {
-            if (inter+1 == titlesArr.count) {
-                self.hidden = YES;
-            }else{
-                self.hidden = NO;
-            }
-        }else{
-            self.hidden = YES;
-        }
-        
+        self.hidden = rightViewHidden;
     }
 }
 

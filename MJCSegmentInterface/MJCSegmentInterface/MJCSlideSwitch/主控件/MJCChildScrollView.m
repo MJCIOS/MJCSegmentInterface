@@ -15,8 +15,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-     
-//        scrollView.backgroundColor = [UIColor whiteColor];
+        
         self.pagingEnabled = YES;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
@@ -34,8 +33,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    
     
 }
 

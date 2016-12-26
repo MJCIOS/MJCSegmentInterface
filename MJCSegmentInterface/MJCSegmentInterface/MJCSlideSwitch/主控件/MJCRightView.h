@@ -18,8 +18,7 @@
 -(void)setRightHeght:(CGFloat)rightHeght titlesButton:(UIButton *)titlesButton;
 
 
--(void)setRightViewHidden:(BOOL)rightViewHidden setRightViewShow:(BOOL)rightViewShow inter:(NSUInteger)inter titlesArr:(NSArray *)titlesArr
- SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setRightViewHidden:(BOOL)rightViewHidden inter:(NSUInteger)inter titlesArr:(NSArray *)titlesArr;
 
 
 

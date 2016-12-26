@@ -15,6 +15,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         
+        self.hidden = YES;
         
     }
     
@@ -34,32 +35,9 @@
 
 }
 
--(void)setBottomHidden:(BOOL)bottomHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setBottomHidden:(BOOL)bottomHidden
 {
-    if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
-        
-        if (bottomHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-    }else if (SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-        
-        if (bottomHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-        
-    }else{
-        
-        if (bottomHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-    }
-
+    self.hidden = bottomHidden;
 }
 
 

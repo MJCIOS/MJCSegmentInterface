@@ -13,7 +13,7 @@
 
 @property (nonatomic,strong) UIColor *bottomBackgroundColor;
 
--(void)setBottomHidden:(BOOL)bottomHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setBottomHidden:(BOOL)bottomHidden;
 
 -(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesView:(UIView *)titlesView;
 

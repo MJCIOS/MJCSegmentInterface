@@ -20,17 +20,14 @@
     [super viewDidLoad];
     
     NSInteger style = 0;
-//    有导航栏或者tabbar时,保证标题栏不会被覆盖
-        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-            self.edgesForExtendedLayout = UIRectEdgeNone;
-        }
     
-    
+
+    [MJCSegmentFaceControl useNavOrTabbarNotBeCover:self];
     NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];//创建标题栏
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleExceedUse];
     segmentsface.scrollTitlesEnabled = NO;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStyleExceedUse;
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleExceedUse;
     segmentsface.childScollEnabled = YES;
     segmentsface.childViewScollAnimal = YES;
     segmentsface.verticalLineHidden = YES;

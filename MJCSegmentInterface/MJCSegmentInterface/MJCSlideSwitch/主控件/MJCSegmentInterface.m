@@ -167,17 +167,11 @@ static const CGFloat rightMargin = 1;
     return _rightMostButton;
 }
 
-//重写方法 通过代码自定义控件,都要重写这个方法
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
-        //如果外界没有设置frame,那我们这里面要设置下
         self.frame = [UIScreen mainScreen].bounds;
-        
-        
-        
-        
     }
     return self;
 }
@@ -255,9 +249,7 @@ static const CGFloat rightMargin = 1;
     [self setupTopView:_titlesView];
     [self setupBottomView:_titlesView];
     [self setupindicatorView:_titlesView];
-    
     [self setupRightButton];
-    
 }
 #pragma mark -- 最右边按钮
 -(void)setupRightButton
@@ -324,8 +316,14 @@ static const CGFloat rightMargin = 1;
 {
     [self setuptitleScrollViewData:self.titlesScrollView];
     
-    [self addSubview:self.titlesScrollView];
+    if (_SegmentInterFaceStyle != SegMentInterfaceStyleNavBar) {
+        
+        [self addSubview:self.titlesScrollView];
+        
+        return;
+    }
 }
+
 -(void)setuptitleScrollViewData:(MJCTitlesScollView *)titleScrollView
 {
     [self isTitlesScrollframe:_isTitleScrollframe titlesScrollframe:_titleScrollframe];
@@ -349,7 +347,14 @@ static const CGFloat rightMargin = 1;
 -(void)setupTitlesView
 {
     [self setuptitlesViewData:self.titlesView ];
-    [self addSubview:self.titlesView ];
+    
+    if (_SegmentInterFaceStyle != SegMentInterfaceStyleNavBar) {
+        
+        [self addSubview:self.titlesView];
+        
+        return;
+    }
+
 }
 
 -(void)setuptitlesViewData:(UIView *)titlesView
@@ -382,22 +387,26 @@ static const CGFloat rightMargin = 1;
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         
         MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
-        
-        [tabbutton arraycount:i buttonW:_tabItemW buttonH:_tabItemH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView titlesArr:titlesArray imageStyle:_MJCImageEffectStyle];
-        [tabbutton isTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
-        [tabbutton setTabItemTitlesfont:_tabItemTitlesfont];
-        [tabbutton setTabItemBackColor:_tabItemBackColor SegmentInterFaceStyle:_SegmentInterFaceStyle];
-        [tabbutton setTabItemTitleNormalColor:_tabItemTitleNormalColor];
-        [tabbutton setTabItemTitleSelectedColor:_tabItemTitleSelectedColor];
-        [tabbutton setTabItemImageNormal:_tabItemImageNormal];
-        [tabbutton setTabItemImageSelected:_tabItemImageSelected];
-        [tabbutton setTabItemNormalImageArray:_tabItemImageNormalArray buttonTag:i];
-        [tabbutton setTabItemImageSelectedArray:_tabItemImageSelectedArray buttonTag:i];
-        [tabbutton setTabItemBackImageNormal:_tabItemBackImageNormal];
-        [tabbutton setTabItemBackImageSelected:_tabItemBackImageSelected];
-        [tabbutton setTabItemNormalBackImageArray:_tabItemBackImageNormalArray buttonTag:i];
-        [tabbutton setTabItemBackImageSelectedArray:_tabItemBackImageSelectedArray buttonTag:i];
         self.titlesButton = tabbutton;
+        [tabbutton arraycount:i buttonW:_tabItemW buttonH:_tabItemH scrollTitlesEnabled:_scrollTitlesEnabled titlesScrollView:_titlesScrollView titlesView:_titlesView titlesArr:titlesArray imageStyle:_MJCImageEffectStyle];
+        
+        [tabbutton setupisTabItemFrame:_isTabItemFrame tabItemFrame:_tabItemFrame];
+        [tabbutton setupTabItemTitlesfont:_tabItemTitlesfont];
+        [tabbutton setupTabItemBackColor:_tabItemBackColor SegmentInterFaceStyle:_SegmentInterFaceStyle];
+        [tabbutton setupTabItemTitleNormalColor:_tabItemTitleNormalColor];
+        [tabbutton setupTabItemTitleSelectedColor:_tabItemTitleSelectedColor];
+        
+        [tabbutton setupTabItemImageNormal:_tabItemImageNormal];
+        [tabbutton setupTabItemImageSelected:_tabItemImageSelected];
+        [tabbutton setupTabItemBackImageNormal:_tabItemBackImageNormal];
+        [tabbutton setupTabItemBackImageSelected:_tabItemBackImageSelected];
+
+
+        [tabbutton setupTabItemNormalBackImageArray:_tabItemBackImageNormalArray buttonTag:i];
+        [tabbutton setupTabItemBackImageSelectedArray:_tabItemBackImageSelectedArray buttonTag:i];
+        [tabbutton setupTabItemNormalImageArray:_tabItemImageNormalArray buttonTag:i];
+        [tabbutton setupTabItemImageSelectedArray:_tabItemImageSelectedArray buttonTag:i];
+
         
         [self setupRightView:i titlesArr:titlesArray];
         [self.titlesButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -409,9 +418,8 @@ static const CGFloat rightMargin = 1;
 {
     _isTabItemFrame = isTabItemFrame;
     _tabItemFrame = tabItemFrame;
-    [self.titlesButton isTabItemFrame:isTabItemFrame tabItemFrame:tabItemFrame];
+    [self.titlesButton setupisTabItemFrame:isTabItemFrame tabItemFrame:tabItemFrame];
 }
-
 //设置tabItem的宽度
 -(void)setTabItemWidth:(CGFloat)tabItemWidth
 {
@@ -432,7 +440,8 @@ static const CGFloat rightMargin = 1;
     [self.rightView setRightBackgroundColor:_rightColor];
     [self.rightView setRightHeght:_rightViewHegiht titlesButton:self.titlesButton];
     [self.titlesButton addSubview:self.rightView];
-    [self.rightView setRightViewHidden:_rightViewHidden setRightViewShow:_rightViewShow inter:inter titlesArr:titlesArr SegmentInterFaceStyle:_SegmentInterFaceStyle];
+    
+    [self.rightView setRightViewHidden:_rightViewHidden inter:inter titlesArr:titlesArr];
 }
 
 #pragma mark -- 顶部横线的设置创建
@@ -442,18 +451,16 @@ static const CGFloat rightMargin = 1;
     [self isTopViewFrame:_isTopViewFrame setTopViewFrame:_topViewFrame];
     [self setTopViewHidden:_topViewHidden];
     if (_scrollTitlesEnabled == kNilOptions) {
-        
         [titleView addSubview:self.topView];
     }else{
         [_titlesScrollView addSubview:self.topView];
     }
-
 }
 
 -(void)setTopViewHidden:(BOOL)topViewHidden
 {
     _topViewHidden = topViewHidden;
-    [self.topView settopHidden:topViewHidden SegmentInterFaceStyle:_SegmentInterFaceStyle];
+    [self.topView settopHidden:topViewHidden];
 }
 
 -(void)setTopViewColor:(UIColor *)topViewColor
@@ -490,7 +497,7 @@ static const CGFloat rightMargin = 1;
 -(void)setBottomViewHidden:(BOOL)bottomViewHidden
 {
     _bottomViewHidden = bottomViewHidden;
-    [self.bottomView setBottomHidden:bottomViewHidden SegmentInterFaceStyle:_SegmentInterFaceStyle];
+    [self.bottomView setBottomHidden:bottomViewHidden];
     
 }
 -(void)setBottomViewColor:(UIColor *)bottomViewColor
@@ -605,7 +612,6 @@ static const CGFloat rightMargin = 1;
         return;
     }
     
-
 }
 
 //点击标题的点击事件
@@ -699,13 +705,15 @@ static const CGFloat rightMargin = 1;
 - (void)setupTitleCenter:(UIButton *)button
 {
     // 本质:修改titleScrollView偏移量
-    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
+    CGFloat offsetX = button.center.x - self.titlesScrollView.mjc_width * 0.4;
+//    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
     
     if (offsetX < 0) {
         offsetX = 0;
     }
     
-    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth + _titleCenterMargin;
+    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - self.titlesScrollView.mjc_width;
+//    CGFloat maxOffsetX = self.titlesScrollView.contentSize.width - MJCScreenWidth + _titleCenterMargin;
     
     if (offsetX > maxOffsetX) {
         offsetX = maxOffsetX;
@@ -716,6 +724,30 @@ static const CGFloat rightMargin = 1;
 
 
 #pragma mark -- 工具方法
+
+-(UIView *)intoFaceView:(NSArray *)titlesArr
+{
+    if (_SegmentInterFaceStyle == SegMentInterfaceStyleNavBar) {
+        
+        
+//        [self setupTitlesView];
+
+        [self intoTitlesArray:titlesArr];
+    }
+    
+    return _titlesView;
+}
+
+
+-(UIScrollView *)intoFaceScoll:(NSArray *)titlesArr;
+{
+    if (_SegmentInterFaceStyle == SegMentInterfaceStyleNavBar) {
+        
+        [self intoTitlesArray:titlesArr];
+    }
+    
+    return _titlesScrollView;
+}
 
 
 

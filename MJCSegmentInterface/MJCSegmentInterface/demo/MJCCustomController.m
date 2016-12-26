@@ -23,9 +23,9 @@
 //    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleClassic];
     segmentsface.slideDelegate = self;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
     segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
     segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
@@ -77,7 +77,6 @@
     
     
 #pragma mark -- 竖线属性
-    //    segmentsface.verticalLineShow = YES;
     segmentsface.verticalLineColor = [UIColor purpleColor];
     segmentsface.verticalLineHegiht = 30;
     segmentsface.verticalLineHidden = NO;

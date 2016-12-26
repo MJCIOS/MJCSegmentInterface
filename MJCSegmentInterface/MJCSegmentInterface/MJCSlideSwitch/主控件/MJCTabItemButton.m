@@ -49,12 +49,14 @@
 
     
     if (_imageEffectStyle == MJCImageUpDownStyle) {
+        
         self.imageView.mjc_y = 3;
         self.imageView.mjc_centerX = self.mjc_width / 2;
         self.titleLabel.mjc_x = 0;
         self.titleLabel.mjc_y = self.imageView.mjc_bottom;
         [self.titleLabel sizeToFit];
-        self.titleLabel.mjc_width = self.mjc_width;
+//        self.titleLabel.mjc_width = self.mjc_width;
+        self.titleLabel.mjc_centerX = self.imageView.mjc_centerX;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
     
         return;
@@ -72,6 +74,8 @@
     
     [self setTitle:titlesArr[arraycount] forState:UIControlStateNormal];
     
+    
+    
     if (scrollTitlesEnabled == kNilOptions) {
         [titlesView addSubview:self];
     }else{
@@ -79,7 +83,7 @@
     }
 }
 
--(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame
+-(void)setupisTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame
 {
     if (isTabItemFrame == kNilOptions) {
         self.frame = CGRectMake(self.btnX, 0, self.btnW, self.btnH);
@@ -88,7 +92,7 @@
     }
 }
 
--(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont
+-(void)setupTabItemTitlesfont:(UIFont *)tabItemTitlesfont
 {
     if (tabItemTitlesfont == kNilOptions) {
         self.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -98,7 +102,7 @@
     
 }
 
--(void)setTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setupTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 {
     if (tabItemBackColor == kNilOptions) {
         
@@ -107,14 +111,14 @@
         }else if (SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
             self.backgroundColor = [UIColor clearColor];
         }else{
-            self.backgroundColor = [UIColor whiteColor];
+            self.backgroundColor = [UIColor clearColor];
         }
     }else{
         self.backgroundColor = tabItemBackColor;
     }
 }
 
--(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
+-(void)setupTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
 {
     if (tabItemTitleNormalColor == kNilOptions) {
         [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -123,7 +127,7 @@
     }
 }
 
--(void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor
+-(void)setupTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor
 {
     if (tabItemTitleSelectedColor == kNilOptions) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -133,7 +137,7 @@
     
 }
 
--(void)setTabItemImageNormal:(UIImage *)tabItemImageNormal
+-(void)setupTabItemImageNormal:(UIImage *)tabItemImageNormal
 {
     if (tabItemImageNormal == kNilOptions) {
         [self setImage:nil forState:UIControlStateNormal];
@@ -142,66 +146,63 @@
     }
 }
 
--(void)setTabItemImageSelected:(UIImage *)tabItemImageSelected
+-(void)setupTabItemImageSelected:(UIImage *)tabItemImageSelected
 {
-    if (tabItemImageSelected == kNilOptions) {
-        [self setImage:nil forState:UIControlStateSelected];
-    }else{
-        [self setImage:tabItemImageSelected forState:UIControlStateSelected];
-    }
+    [self setImage:tabItemImageSelected forState:UIControlStateSelected];
 }
--(void)setTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag
+-(void)setupTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag
 {
-    if (tabItemNormalImageArray == kNilOptions) {
-        [self setImage:nil forState:UIControlStateNormal];
+    if (tabItemNormalImageArray == nil) {
+        
     }else{
+        
         [self setImage:[UIImage imageNamed:tabItemNormalImageArray[buttonTag]] forState:UIControlStateNormal];
     }
+    
 }
--(void)setTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag
+-(void)setupTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag
 {
-    if (tabItemSelectedImageArray == kNilOptions) {
-        [self setImage:nil forState:UIControlStateSelected];
+    if (tabItemSelectedImageArray == nil) {
+        
     }else{
+        
         [self setImage:[UIImage imageNamed:tabItemSelectedImageArray[buttonTag]] forState:UIControlStateSelected];
     }
+}
+
+-(void)setupTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal
+{
+    [self setBackgroundImage:tabItemBackImageNormal forState:UIControlStateNormal];
+}
+
+-(void)setupTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected
+{
+    [self setBackgroundImage:tabItemBackImageSelected forState:UIControlStateSelected];
+}
+-(void)setupTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag
+{
+    if (tabItemNormalBackImageArray == nil) {
     
-}
-
-
--(void)setTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal
-{
-    if (tabItemBackImageNormal == kNilOptions) {
-        [self setBackgroundImage:nil forState:UIControlStateNormal];
     }else{
-        [self setBackgroundImage:tabItemBackImageNormal forState:UIControlStateNormal];
-    }
-}
-
--(void)setTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected
-{
-    if (tabItemBackImageSelected == kNilOptions) {
-        [self setBackgroundImage:nil forState:UIControlStateSelected];
-    }else{
-        [self setBackgroundImage:tabItemBackImageSelected forState:UIControlStateSelected];
-    }
-}
--(void)setTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag
-{
-    if (tabItemNormalBackImageArray == kNilOptions) {
-        [self setBackgroundImage:nil forState:UIControlStateNormal];
-    }else{
+    
         [self setBackgroundImage:[UIImage imageNamed:tabItemNormalBackImageArray[buttonTag]] forState:UIControlStateNormal];
     }
+    
 }
--(void)setTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag
+
+-(void)setupTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag
 {
-    if (tabItemSelectedBackImageArray == kNilOptions) {
-        [self setBackgroundImage:nil forState:UIControlStateSelected];
+    
+    if (tabItemSelectedBackImageArray == nil) {
+        
+        
     }else{
+        
         [self setBackgroundImage:[UIImage imageNamed:tabItemSelectedBackImageArray[buttonTag]] forState:UIControlStateSelected];
     }
+
     
+
 }
 
 

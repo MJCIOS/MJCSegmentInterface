@@ -15,17 +15,11 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+
         
     }
     
     return self;
-}
-
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
 }
 
 -(void)setTopBackgroundColor:(UIColor *)topBackgroundColor
@@ -38,31 +32,9 @@
         self.backgroundColor  = topBackgroundColor;
     }
 }
--(void)settopHidden:(BOOL)topHidden SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
+-(void)settopHidden:(BOOL)topHidden
 {
-    
-    if (SegmentInterFaceStyle == SegMentInterfaceStyleLess) {
-        if (topHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-    }else if (SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-        if (topHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-        
-    }else{
-        if (topHidden == kNilOptions) {
-            self.hidden = NO;
-        }else{
-            self.hidden = YES;
-        }
-    }
-
-    
+    self.hidden = topHidden;
 }
 
 -(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView

@@ -17,6 +17,7 @@
 #import "MJCCustomController.h"
 #import "MJCSegmentFaceController.h"
 #import "MJCImageViewController.h"
+#import "MJCTESTViewController.h"
 
 @interface ViewController ()
 
@@ -86,6 +87,14 @@
     MJCImageViewController *imageVC = [MJCImageViewController new];
     
     [self.navigationController pushViewController:imageVC animated:YES];
+}
+- (IBAction)test:(id)sender {
+    
+    MJCTESTViewController *test = [MJCTESTViewController new];
+    
+    [self.navigationController pushViewController:test animated:YES];
+    
+    
 }
 
 

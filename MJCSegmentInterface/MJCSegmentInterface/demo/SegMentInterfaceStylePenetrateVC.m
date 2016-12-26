@@ -28,11 +28,12 @@
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStylePenetrate];
     segmentsface.scrollTitlesEnabled = YES;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;
     segmentsface.slideDelegate = self;
     segmentsface.childScollEnabled = YES;
+    segmentsface.verticalLineHidden = YES;
     segmentsface.rightMostBtnShow = YES;
     segmentsface.isOpenJump = YES;
     segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];

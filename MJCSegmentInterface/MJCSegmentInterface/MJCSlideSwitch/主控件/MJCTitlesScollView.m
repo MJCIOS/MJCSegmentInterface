@@ -30,10 +30,7 @@
     [super layoutSubviews];
     
     
-    
 }
-
-
 
 
 //设置标题颜色

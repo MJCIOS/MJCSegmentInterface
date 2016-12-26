@@ -29,9 +29,9 @@
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleClassic];
     segmentsface.slideDelegate = self;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
     segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
     segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
@@ -40,7 +40,6 @@
     segmentsface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
-    segmentsface.titleCenterMargin = 20;//标题居中间距
     segmentsface.titleScrollColor = [UIColor redColor];
     segmentsface.titleScrollframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
     segmentsface.titlesViewColor = [UIColor redColor];//标题栏颜色
@@ -87,7 +86,6 @@
     
     
 #pragma mark -- 竖线属性
-//    segmentsface.verticalLineShow = YES;
     segmentsface.verticalLineColor = [UIColor purpleColor];
     segmentsface.verticalLineHegiht = 30;
     segmentsface.verticalLineHidden = NO;

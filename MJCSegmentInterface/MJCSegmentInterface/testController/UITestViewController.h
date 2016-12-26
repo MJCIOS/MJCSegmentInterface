@@ -11,5 +11,6 @@
 @interface UITestViewController : UIViewController
 
 
+-(void)loadData:(int)lalla;
 
 @end

@@ -11,7 +11,8 @@
 
 @interface UITestViewController ()
 
-
+/** <#  注释  #> */
+@property (nonatomic,copy) UIButton *button1;
 
 @end
 
@@ -23,7 +24,10 @@
     self.view.backgroundColor = [UIColor purpleColor];
     self.view.frame = MJCScreenbound;
     
+    
     UIButton *butatat = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    _button1 = butatat;
     
     butatat.backgroundColor = [UIColor redColor];
     [butatat addTarget:self action:@selector(dismisadasd) forControlEvents:UIControlEventTouchUpInside];
@@ -31,8 +35,18 @@
     
     [self.view addSubview:butatat];
     
+}
+
+-(void)loadData:(int)lalla
+{
+    if (lalla == 1) {
+        _button1.backgroundColor = [UIColor orangeColor];
+    }else{
+        _button1.backgroundColor = [UIColor redColor];
+    }
     
 }
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

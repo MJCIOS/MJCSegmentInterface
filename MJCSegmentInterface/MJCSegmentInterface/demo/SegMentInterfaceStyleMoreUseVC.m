@@ -31,9 +31,9 @@
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
+    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleMoreUse];
     segmentsface.scrollTitlesEnabled = YES;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStyleMoreUse;
+//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleMoreUse;
     segmentsface.childScollEnabled = YES;
     segmentsface.childViewScollAnimal = YES;
     
