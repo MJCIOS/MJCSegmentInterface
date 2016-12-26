@@ -52,6 +52,7 @@
         
         }else if(SegmentInterFaceStyle == SegMentInterfaceStyleExceedUse){
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
+        
         }else{
             
             self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));

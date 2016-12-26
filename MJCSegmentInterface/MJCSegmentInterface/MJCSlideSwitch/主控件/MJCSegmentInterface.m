@@ -411,7 +411,9 @@ static const CGFloat rightMargin = 1;
         [self setupRightView:i titlesArr:titlesArray];
         [self.titlesButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     }
+    
     self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _tabItemW, 0);
+    
 }
 
 -(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
@@ -729,8 +731,6 @@ static const CGFloat rightMargin = 1;
 {
     if (_SegmentInterFaceStyle == SegMentInterfaceStyleNavBar) {
         
-        
-//        [self setupTitlesView];
 
         [self intoTitlesArray:titlesArr];
     }

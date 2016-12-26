@@ -38,7 +38,7 @@
 /** 标题栏图片样式 */
 @property (nonatomic,assign) MJCImageEffectStyle imageEffectStyle;
 
-/** 是否滚动标题 */
+/** 是否滚动标题(导航标题栏不适用) */
 @property(nonatomic,assign,getter = scrollTitlesEnabled) BOOL scrollTitlesEnabled;
 
 /** 子界面是否滑动 */

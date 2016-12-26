@@ -358,9 +358,6 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 -(UIScrollView *)intoFaceScoll:(NSArray *)titlesArr;
 
 
-// 图片转换颜色
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
 
 
 

@@ -24,13 +24,6 @@
     return self;
     
 }
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    
-}
 
 
 //设置标题颜色
@@ -63,7 +56,7 @@
     //如果用户没开启自己设置frame
     if (isTitlesScrollViewframe == kNilOptions) {
         //默认给它设置的高度为50
-        self.frame = CGRectMake(0, 0,MJCScreenWidth,MJCTitlesViewH);
+        self.frame = CGRectMake(0,0,MJCScreenWidth,MJCTitlesViewH);
     }else{
         //用户设置的位置
         self.frame = titlesScrollViewframe;

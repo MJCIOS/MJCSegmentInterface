@@ -75,7 +75,6 @@
     [self setTitle:titlesArr[arraycount] forState:UIControlStateNormal];
     
     
-    
     if (scrollTitlesEnabled == kNilOptions) {
         [titlesView addSubview:self];
     }else{

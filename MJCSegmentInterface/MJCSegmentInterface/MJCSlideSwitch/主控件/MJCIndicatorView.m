@@ -34,8 +34,6 @@
             }else{
                 self.mjc_width = firstTitleButton.titleLabel.mjc_width;
                 
-                NSLog(@"%f",firstTitleButton.titleLabel.mjc_width);
-                
             }
             self.mjc_centerX = firstTitleButton.mjc_centerX;
             

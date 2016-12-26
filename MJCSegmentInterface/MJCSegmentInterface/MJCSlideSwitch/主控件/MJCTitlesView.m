@@ -22,15 +22,6 @@
 }
 
 
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    
-    
-}
-
 -(void)setTitlesViewColor:(UIColor *)titlesViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
 {
     if (titlesViewColor == kNilOptions) {

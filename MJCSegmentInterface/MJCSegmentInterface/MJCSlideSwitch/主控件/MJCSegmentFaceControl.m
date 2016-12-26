@@ -15,12 +15,6 @@
 @property (nonatomic,strong) MJCSegmentInterface *segerntInterface;
 
 
-/** <#  注释  #> */
-@property (nonatomic,strong) UIView *navTitlesView;
-
-@property (nonatomic,strong) UIScrollView *navTitlesScollView;
-
-
 @end
 
 
@@ -47,6 +41,10 @@
             _segerntInterface.rightViewHidden = NO;
             
         }else if (interfacestyle == SegMentInterfaceStyleNavBar){
+            
+            [_segerntInterface isChildViewframe:YES childViewframe:CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight-64)];
+            [_segerntInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0,200,30)];
+            
             _segerntInterface.rightViewHidden = YES;
             _segerntInterface.bottomViewHidden = YES;
             _segerntInterface.topViewHidden = YES;
@@ -97,6 +95,7 @@
     
     _segerntInterface.MJCImageEffectStyle = imageEffectStyle;
 }
+
 
 -(void)setScrollTitlesEnabled:(BOOL)scrollTitlesEnabled
 {
@@ -326,7 +325,6 @@
         _segerntInterface.tabItemBackImageNormalArray = tabItemBackImageNormalArray;
     }
     
-    
 }
 -(void)setTabItemBackImageSelectedArray:(NSArray *)tabItemBackImageSelectedArray
 {
@@ -405,10 +403,8 @@
 
 -(UIView *)intoTitlesFace:(NSArray *)titlesArr;
 {
-    [_segerntInterface isChildViewframe:YES childViewframe:_childViewframe];
-    [_segerntInterface isTitlesViewframe:YES titlesViewframe:_titlesViewframe];
     
-     return [_segerntInterface intoFaceView:titlesArr];
+    return [_segerntInterface intoFaceView:titlesArr];
 }
 
 -(UIScrollView *)intoScollFace:(NSArray *)titlesArr;
