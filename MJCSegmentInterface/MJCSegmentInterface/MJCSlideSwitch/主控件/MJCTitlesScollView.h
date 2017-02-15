@@ -12,11 +12,18 @@
 @interface MJCTitlesScollView : UIScrollView
 
 
-//设置标题颜色
--(void)setTitlesScrollViewColor:(UIColor *)titlesScrollViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
-//设置frame
--(void)isTitlesScrollViewframe:(BOOL)isTitlesScrollViewframe titlesViewframe:(CGRect)titlesScrollViewframe;
+@property (nonatomic,strong) UIColor *titlesScrollColor;
+
+
+@property (nonatomic,assign) CGRect titlesScrollFrame;
+
+
+@property (nonatomic,strong) UIView *mainViews;
+
+
+//-(void)addSubviews:(UIView *)mainViews SegmentInterfaceStyle:(MJCSeMentTitleBarStyles)SegmentInterfaceStyle;
+
 
 
 

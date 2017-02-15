@@ -11,8 +11,8 @@
 
 @interface MJCChildScrollView : UIScrollView
 
-//
--(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+-(void)setupChildFrame:(CGRect)childFrame titlesViewFrame:(CGRect)titlesViewFrame titlesScrollFrame:(CGRect)titlesScrollFrame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 
+@property (nonatomic,assign) CGRect childFrame;
 
 @end

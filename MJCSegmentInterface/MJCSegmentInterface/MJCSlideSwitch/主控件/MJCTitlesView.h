@@ -11,10 +11,15 @@
 
 @interface MJCTitlesView : UIView
 
+@property (nonatomic,strong) UIColor *titlesViewColor;
 
--(void)setTitlesViewColor:(UIColor *)titlesViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
+@property (nonatomic,assign) CGRect titlesViewFrame;
 
--(void)isTitlesViewframe:(BOOL)isTitlesViewframe titlesViewframe:(CGRect)titlesViewframe;
+
+@property (nonatomic,strong) UIView *mainViews;
+
+
+//-(void)addSubviews:(UIView *)mainViews SegmentInterfaceStyle:(MJCTitlesInterfaceStyles)SegmentInterfaceStyle;
 
 
 @end

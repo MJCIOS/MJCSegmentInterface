@@ -13,12 +13,15 @@
 
 @property (nonatomic,strong) UIColor *bottomBackgroundColor;
 
--(void)setBottomHidden:(BOOL)bottomHidden;
+@property (nonatomic,assign) BOOL bottomHidden;
 
--(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesView:(UIView *)titlesView;
+@property (nonatomic,assign) CGRect bottomFrame;
 
+@property (nonatomic,assign) CGFloat bottomHeight;
 
--(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesScroll:(UIScrollView *)titlesScroll;
+@property (nonatomic,strong) UIScrollView * titlesScrollView;
+
+@property (nonatomic,strong) UIView *titlesView;
 
 
 @end

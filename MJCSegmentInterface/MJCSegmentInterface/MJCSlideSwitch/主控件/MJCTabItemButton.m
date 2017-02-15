@@ -15,11 +15,10 @@
 /** buttonW */
 @property (nonatomic,assign) CGFloat btnW;
 @property (nonatomic,assign) CGFloat btnH;
-/** <#  注释  #> */
+
 @property (nonatomic,assign) CGFloat btnX;
 
-/** <#  注释  #> */
-@property (nonatomic,assign) MJCImageEffectStyle imageEffectStyle;
+@property (nonatomic,assign) MJCImageEffectStyles imageEffectStyle;
 
 @end
 
@@ -30,7 +29,8 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-//        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.imageView.contentMode = UIViewContentModeCenter;
     }
     
     return self;
@@ -40,30 +40,83 @@
 {
     [super awakeFromNib];
     
-//    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.imageView.contentMode = UIViewContentModeCenter;
 }
 
 -(void)layoutSubviews
 {
     [super layoutSubviews];
 
-    
     if (_imageEffectStyle == MJCImageUpDownStyle) {
         
         self.imageView.mjc_y = 3;
         self.imageView.mjc_centerX = self.mjc_width / 2;
+        
         self.titleLabel.mjc_x = 0;
         self.titleLabel.mjc_y = self.imageView.mjc_bottom;
         [self.titleLabel sizeToFit];
-//        self.titleLabel.mjc_width = self.mjc_width;
         self.titleLabel.mjc_centerX = self.imageView.mjc_centerX;
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
+        
         return;
     }
 }
 
--(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyle)imageStyle;
+-(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont
+{
+    _tabItemTitlesfont = tabItemTitlesfont;
+    self.titleLabel.font = tabItemTitlesfont;
+}
+
+-(void)setTabItemBackColor:(UIColor *)tabItemBackColor
+{
+    _tabItemBackColor = tabItemBackColor;
+    
+    self.backgroundColor = tabItemBackColor;
+}
+
+-(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
+{
+    _tabItemTitleNormalColor = tabItemTitleNormalColor;
+    [self setTitleColor:tabItemTitleNormalColor forState:UIControlStateNormal];
+}
+-(void)setTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor
+{
+    _tabItemTitleSelectedColor = tabItemTitleSelectedColor;
+    [self setTitleColor:tabItemTitleSelectedColor forState:UIControlStateSelected];
+}
+
+-(void)setTabItemImageNormal:(UIImage *)tabItemImageNormal
+{
+    _tabItemImageNormal = tabItemImageNormal;
+    
+    [self setImage:tabItemImageNormal forState:UIControlStateNormal];
+}
+
+-(void)setTabItemImageSelected:(UIImage *)tabItemImageSelected
+{
+    _tabItemImageSelected = tabItemImageSelected;
+    
+    [self setImage:tabItemImageSelected forState:UIControlStateSelected];
+}
+
+-(void)setTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal
+{
+    _tabItemBackImageNormal = tabItemBackImageNormal;
+    
+    [self setBackgroundImage:tabItemBackImageNormal forState:UIControlStateNormal];
+}
+
+-(void)setTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected
+{
+    _tabItemBackImageSelected = tabItemBackImageSelected;
+    
+    [self setBackgroundImage:tabItemBackImageSelected forState:UIControlStateSelected];
+}
+
+
+
+-(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 {
     _imageEffectStyle = imageStyle;
     
@@ -72,89 +125,24 @@
     self.btnH = buttonH;
     self.tag = arraycount;
     
+    self.frame = CGRectMake(self.btnX, 0,self.btnW, self.btnH);
+
     [self setTitle:titlesArr[arraycount] forState:UIControlStateNormal];
     
-    
-    if (scrollTitlesEnabled == kNilOptions) {
+    if (MJCSeMentTitleBarStyle != MJCSegMentTitlesScrollStyle) {
         [titlesView addSubview:self];
     }else{
         [titlesScrollView addSubview:self];
     }
 }
 
--(void)setupisTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame
-{
-    if (isTabItemFrame == kNilOptions) {
-        self.frame = CGRectMake(self.btnX, 0, self.btnW, self.btnH);
-    }else{
-        self.frame = tabItemFrame;
-    }
-}
 
--(void)setupTabItemTitlesfont:(UIFont *)tabItemTitlesfont
-{
-    if (tabItemTitlesfont == kNilOptions) {
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
-    }else{
-        self.titleLabel.font = tabItemTitlesfont;
-    }
-    
-}
 
--(void)setupTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
-{
-    if (tabItemBackColor == kNilOptions) {
-        
-        if (SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse) {
-            self.backgroundColor = [UIColor clearColor];
-        }else if (SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
-            self.backgroundColor = [UIColor clearColor];
-        }else{
-            self.backgroundColor = [UIColor clearColor];
-        }
-    }else{
-        self.backgroundColor = tabItemBackColor;
-    }
-}
-
--(void)setupTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
-{
-    if (tabItemTitleNormalColor == kNilOptions) {
-        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    }else{
-        [self setTitleColor:tabItemTitleNormalColor forState:UIControlStateNormal];
-    }
-}
-
--(void)setupTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor
-{
-    if (tabItemTitleSelectedColor == kNilOptions) {
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-    }else{
-        [self setTitleColor:tabItemTitleSelectedColor forState:UIControlStateSelected];
-    }
-    
-}
-
--(void)setupTabItemImageNormal:(UIImage *)tabItemImageNormal
-{
-    if (tabItemImageNormal == kNilOptions) {
-        [self setImage:nil forState:UIControlStateNormal];
-    }else{
-        [self setImage:tabItemImageNormal forState:UIControlStateNormal];
-    }
-}
-
--(void)setupTabItemImageSelected:(UIImage *)tabItemImageSelected
-{
-    [self setImage:tabItemImageSelected forState:UIControlStateSelected];
-}
 -(void)setupTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag
 {
     if (tabItemNormalImageArray == nil) {
         
     }else{
-        
         [self setImage:[UIImage imageNamed:tabItemNormalImageArray[buttonTag]] forState:UIControlStateNormal];
     }
     
@@ -164,20 +152,10 @@
     if (tabItemSelectedImageArray == nil) {
         
     }else{
-        
         [self setImage:[UIImage imageNamed:tabItemSelectedImageArray[buttonTag]] forState:UIControlStateSelected];
     }
 }
 
--(void)setupTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal
-{
-    [self setBackgroundImage:tabItemBackImageNormal forState:UIControlStateNormal];
-}
-
--(void)setupTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected
-{
-    [self setBackgroundImage:tabItemBackImageSelected forState:UIControlStateSelected];
-}
 -(void)setupTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag
 {
     if (tabItemNormalBackImageArray == nil) {
@@ -194,16 +172,19 @@
     
     if (tabItemSelectedBackImageArray == nil) {
         
-        
     }else{
         
         [self setBackgroundImage:[UIImage imageNamed:tabItemSelectedBackImageArray[buttonTag]] forState:UIControlStateSelected];
     }
-
-    
-
 }
 
+
+
+-(void)setupTabItemlayer:(CGFloat)layerCornerRadius layerMasksToBounds:(BOOL)layerMasksToBounds
+{
+    self.layer.masksToBounds = layerMasksToBounds;
+    self.layer.cornerRadius = layerCornerRadius;
+}
 
 
 

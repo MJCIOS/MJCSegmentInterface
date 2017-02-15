@@ -8,95 +8,120 @@
 
 #import "MJCIndicatorView.h"
 
+@interface MJCIndicatorView ()
+
+/** 颜色标示符(为了让用户能自定义颜色效果) */
+@property (nonatomic,assign) NSInteger colorTag;
+
+/** 位置标示符(代表用户自定义位置大小) */
+@property (nonatomic,assign) NSInteger frameTag;
+
+/** 宽度标示符(代表用户自定义宽度) */
+@property (nonatomic,assign) NSInteger widthTag;
+
+@end
+
 @implementation MJCIndicatorView
 
 
-//重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         
+        self.mjc_height = 1;
+        
     }
-    
-    
     return self;
+}
+
+-(void)setIndicatorHidden:(BOOL)indicatorHidden
+{
+    _indicatorHidden = indicatorHidden;
+    
+    self.hidden = indicatorHidden;
+}
+
+-(void)setIndicatorHeight:(CGFloat)indicatorHeight
+{
+    _indicatorHeight = indicatorHeight;
+    
+    self.mjc_height = indicatorHeight;
+}
+
+-(void)titlesScroll:(UIScrollView *)titlesScroll firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle;
+{
+    [self setupFrameY:titlesScroll.mjc_height - self.mjc_height firstButton:firstButton SegmentIndicatorStyle:SegmentIndicatorStyle];
+}
+
+-(void)titlesView:(UIView *)titlesView firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle
+{
+    [self setupFrameY:titlesView.mjc_height - self.mjc_height firstButton:firstButton SegmentIndicatorStyle:SegmentIndicatorStyle];
+}
+
+-(void)setIndicatorFrame:(CGRect)indicatorFrame
+{
+    _indicatorFrame = indicatorFrame;
+    
+    _frameTag = 1;
+
+    self.frame = indicatorFrame;
+}
+
+-(void)setIndicatorWidth:(CGFloat)indicatorWidth
+{
+    _indicatorWidth = indicatorWidth;
+
+    _widthTag = 1;
+    
+    self.mjc_width = indicatorWidth;
+}
+
+-(void)setIndicatorBackgroundColor:(UIColor *)indicatorBackgroundColor
+{
+    _indicatorBackgroundColor = indicatorBackgroundColor;
+    
+    _colorTag = 1;
+    
+    self.backgroundColor = indicatorBackgroundColor;
+}
+
+-(void)setupFrameY:(CGFloat)frameY firstButton:(UIButton *)firstButton SegmentIndicatorStyle:(MJCIndicatorStyles)SegmentIndicatorStyle
+{
+    
+    if (_colorTag  == 1) {
+        self.backgroundColor = self.backgroundColor;
+    }else{
+        self.backgroundColor = [firstButton titleColorForState:UIControlStateSelected];
+    }
+    
+    if (_frameTag == 1) {
+        
+        self.mjc_centerX = firstButton.mjc_centerX;
+        self.mjc_y = self.frame.origin.y;
+        self.mjc_width = self.frame.size.width;
+        self.mjc_height = self.frame.size.height;
+    
+    }else{
+        
+        if (_widthTag == 1) {
+            
+            self.mjc_width = self.mjc_width;
+        
+        }else{
+            
+            if (SegmentIndicatorStyle == MJCIndicatorItemStyle) {
+                self.mjc_width = firstButton.mjc_width;
+            }else{
+                self.mjc_width = firstButton.titleLabel.mjc_width;
+            }
+        }
+        
+        self.mjc_y = frameY;
+        self.mjc_centerX = firstButton.mjc_centerX;
+    }
+
     
 }
-
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesScroll:(UIScrollView *)titlesScroll firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
-{
-    if (isindicatorFrame == kNilOptions) {
-        if (indicatorWidth == kNilOptions) {
-            self.mjc_height = 1;
-            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
-            if (SegmentIndicatorStyle == SegMentIndicatorItemStyle) {
-                self.mjc_width = firstTitleButton.mjc_width;
-            }else{
-                self.mjc_width = firstTitleButton.titleLabel.mjc_width;
-                
-            }
-            self.mjc_centerX = firstTitleButton.mjc_centerX;
-            
-        }else{
-            self.mjc_height = 1;
-            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
-            self.mjc_width = indicatorWidth;
-            self.mjc_centerX =firstTitleButton.mjc_centerX;
-        }
-        
-    }else{
-        
-        self.frame = indicatorFrame;
-    }
-
-}
-
-
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle
-{
-    if (isindicatorFrame == kNilOptions) {
-        
-        if (indicatorWidth == kNilOptions) {
-            self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            
-            if (SegmentIndicatorStyle == SegMentIndicatorItemStyle) {
-                self.mjc_width = firstTitleButton.mjc_width;
-            }else{
-                self.mjc_width = firstTitleButton.titleLabel.mjc_width;
-            }
-            
-            self.mjc_centerX = firstTitleButton.mjc_centerX;
-            
-        }else{
-            self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            self.mjc_width = indicatorWidth;
-            self.mjc_centerX = firstTitleButton.mjc_centerX;
-        }
-        
-    }else{
-        
-        self.frame = indicatorFrame;
-    }
-}
-
-
--(void)setIndicatorColor:(UIColor *)indicatorColor firstTitleButton:(UIButton*)firstTitleButton
-{
-    if (indicatorColor == kNilOptions) {
-        self.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
-    }else{
-        self.backgroundColor = indicatorColor;
-    }
-}
-
-
--(void)setIndicatorViewHidden:(BOOL)indicatorViewHidden
-{
-    self.hidden = indicatorViewHidden;
-}
-
 
 
 

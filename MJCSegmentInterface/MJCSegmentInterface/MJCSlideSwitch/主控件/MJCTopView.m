@@ -8,15 +8,24 @@
 
 #import "MJCTopView.h"
 
+@interface MJCTopView ()
+
+/** <#  注释  #> */
+@property (nonatomic,assign) NSInteger topTag;
+
+@end
+
 @implementation MJCTopView
 
 
-//重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-
-        
+        self.backgroundColor  = [[UIColor blackColor]colorWithAlphaComponent:0.1];
+        self.hidden = YES;
+        self.mjc_x = 0;
+        self.mjc_y = 0;
+        self.mjc_height = 1;
     }
     
     return self;
@@ -25,57 +34,52 @@
 -(void)setTopBackgroundColor:(UIColor *)topBackgroundColor
 {
     _topBackgroundColor = topBackgroundColor;
-    if (topBackgroundColor == kNilOptions) {
-        self.backgroundColor  = [[UIColor blackColor]colorWithAlphaComponent:0.1];
-        
-    }else{
-        self.backgroundColor  = topBackgroundColor;
-    }
+    self.backgroundColor  = topBackgroundColor;
 }
--(void)settopHidden:(BOOL)topHidden
+
+-(void)setTopHidden:(BOOL)topHidden
 {
+    _topHidden = topHidden;
     self.hidden = topHidden;
 }
 
--(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView
+-(void)setTopFrame:(CGRect)topFrame
 {
-    if (isTopFrame == kNilOptions) {
-        if (topHegiht == kNilOptions) {
-            self.mjc_x = 0;
-            self.mjc_height = 1;
-            self.mjc_y = 0;
-            self.mjc_width = titlesView.mjc_width;
-        }else{
-            self.mjc_x = 0;
-            self.mjc_height = topHegiht;
-            self.mjc_y = 0;
-            self.mjc_width = titlesView.mjc_width;
-        }
-        
+    _topFrame = topFrame;
+    
+    _topTag = 1;
+    self.frame = topFrame;
+}
+
+-(void)setTopHeight:(CGFloat)topHeight
+{
+    _topHeight = topHeight;
+    self.mjc_height = topHeight;
+}
+
+-(void)setTitlesView:(UIView *)titlesView
+{
+    _titlesView = titlesView;
+    
+    if (_topTag == 1) {
+        self.mjc_width = self.frame.size.width;
     }else{
-        self.frame = topFrame;
+        self.mjc_width = titlesView.mjc_width;
     }
 }
 
--(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesScroll:(UIScrollView *)titlesScroll;
+-(void)setTitlesScrollView:(UIScrollView *)titlesScrollView
 {
-    if (isTopFrame == kNilOptions) {
-        
-        if (topHegiht == kNilOptions) {
-            self.mjc_x = 0;
-            self.mjc_height = 1;
-            self.mjc_y = 0;
-            self.mjc_width = titlesScroll.contentSize.width;
-        }else{
-            self.mjc_x = 0;
-            self.mjc_height = topHegiht;
-            self.mjc_y = 0;
-            self.mjc_width = titlesScroll.contentSize.width;
-        }
+    _titlesScrollView = titlesScrollView;
+    
+    if (_topTag == 1) {
+        self.mjc_width = self.frame.size.width;
     }else{
-        self.frame = topFrame;
+        self.mjc_width = titlesScrollView.contentSize.width;
     }
-
 }
+
+
+
 
 @end

@@ -28,12 +28,11 @@
     }
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleClassic];
+    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    
     segmentsface.slideDelegate = self;
-//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
-    segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
-    segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
+    
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
     segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     //子界面大小
@@ -89,10 +88,10 @@
     segmentsface.verticalLineColor = [UIColor purpleColor];
     segmentsface.verticalLineHegiht = 30;
     segmentsface.verticalLineHidden = NO;
-        
     
     [segmentsface intoTitlesArray:titlesArr];
-    [self.view addSubview:view1];
+    
+    [self.view addSubview:segmentsface];
     
     
     //添加控制器

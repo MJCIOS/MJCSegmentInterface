@@ -18,24 +18,28 @@
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
-//子界面样式
+//标题样式
 typedef enum {
-    SegMentInterfaceStyleClassic,//经典样式
-    SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
-    SegMentInterfaceStyleLess,   //少用样式(格子竖线标题栏)
-    SegMentInterfaceStyleMoreUse,//更少用样式(格子穿透标题栏)
-    SegMentInterfaceStyleExceedUse, //超少用样式(适用于上面没有导航栏的情况)
-    SegMentInterfaceStyleNavBar
-} MJCSegmentInterfaceStyle;
+    MJCSegMentTitlesClassicStyle,//经典标题样式
+    MJCSegMentTitlesScrollStyle,//滚动标题样式
+    MJCSegMentTitlesNavBarStyle//导航标题栏样式
+} MJCSeMentTitleBarStyles;
+
+////标题界面样式
+//typedef enum {
+//    MJCTitlesInterfaceStyleClassic,//经典样式
+//    MJCTitlesInterfaceStyleLess,//少用样式(格子竖线标题栏)
+//} MJCTitlesInterfaceStyles;
 
 //底部指示器样式
 typedef enum {
-    SegMentIndicatorItemStyle,
-    SegMentIndicatorItemTextStyle
-} MJCSegmentIndicatorStyle;
+    MJCIndicatorItemStyle,
+    MJCIndicatorItemTextStyle
+} MJCIndicatorStyles;
 
-typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
-    MJCImageLeftRightStyle = 0,
+//按钮图片样式
+typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
+    MJCImageClassicStyle = 0,
     MJCImageUpDownStyle = 1
 };
 
@@ -64,63 +68,61 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 
 @end
 
-
 @interface MJCSegmentInterface : UIView
 
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
+#pragma mark -- 样式 
 
++ (instancetype)segmentinitWithFrame:(CGRect)frame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 
-#pragma mark -- 默认为样式 
-/** segmentInterface 样式，默认为样式 */
-@property (nonatomic, assign) MJCSegmentInterfaceStyle SegmentInterFaceStyle;
+/** 标题栏样式 */
+@property (nonatomic,assign) MJCSeMentTitleBarStyles MJCSeMentTitleBarStyle;
+
+/** 标题栏界面样式，默认为样式 */
+//@property (nonatomic, assign) MJCTitlesInterfaceStyles MJCTitlesInterfaceStyle;
 
 /** 底部指示器样式 */
-@property (nonatomic,assign) MJCSegmentIndicatorStyle SegmentIndicatorStyle;
+@property (nonatomic,assign) MJCIndicatorStyles MJCIndicatorStyle;
 
 /** 标题图片样式 */
-@property (nonatomic,assign) MJCImageEffectStyle MJCImageEffectStyle;
+@property (nonatomic,assign) MJCImageEffectStyles MJCImageEffectStyle;
+
 
 #pragma mark -- 标题栏设置创建和滚动标题栏的设置
 //***********************//
 
 /** 是否滚动标题 */
-@property (nonatomic,getter=isScrollTitles) BOOL scrollTitlesEnabled;
+//@property (nonatomic,getter=isScrollTitles) BOOL scrollTitlesEnabled;
 
 /** 标题栏Frame */
-@property(nonatomic) CGRect titlesViewframe;
-/** 是否自己设置标题栏的frame */
-@property(nonatomic,getter = isTitlesViewframe) BOOL isTitlesViewframe;
+@property(nonatomic,assign) CGRect titlesViewframe;
+
 /** 标题栏颜色 */
 @property (nonatomic,strong) UIColor *titlesViewColor;
 
-/** 一句代码设置标题栏Frame */
--(void)isTitlesViewframe:(BOOL)isTitlesViewframe titlesViewframe:(CGRect)titlesViewframe;
 
 /** 滚动标题栏Frame */
-@property(nonatomic) CGRect titleScrollframe;
-/** 是否自己设置滚动标题栏的frame */
-@property(nonatomic,getter = isTitleScrollframe) BOOL isTitleScrollframe;
+@property(nonatomic,assign) CGRect titleScrollframe;
+
 /** 滚动标题栏颜色 */
 @property (nonatomic,strong) UIColor *titleScrollColor;
-
-/** 一句代码设置滚动标题栏Frame */
--(void)isTitlesScrollframe:(BOOL)isTitlesScrollframe titlesScrollframe:(CGRect)titlesScrollframe;
-
 
 //*******************//
 
 #pragma mark -- 右部竖线的属性设置
 //***********************//
-/** 右部竖线线条高度 */
-@property (nonatomic,assign) CGFloat rightViewHegiht;
 
-/** 右部竖线线条是否显示,只用于SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse*/
-@property (nonatomic,assign,getter= isRightViewHidden) BOOL rightViewHidden;
+/** 右部竖线线条高度 */
+@property (nonatomic,assign) CGFloat verticalLineHegiht;
+
+/** 右部竖线线条是否显示 */
+@property (nonatomic,assign,getter= verticalLineHidden) BOOL verticalLineHidden;
 
 /** 右边竖线颜色 */
-@property (nonatomic,strong) UIColor *rightColor;
+@property (nonatomic,strong) UIColor *verticalLineColor;
+
 
 //*******************//
 
@@ -136,23 +138,13 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 /** 底部线条颜色 */
 @property (nonatomic,strong) UIColor *bottomViewColor;
 
-/** 是否开启用户改动底部线条Frame */
-@property (nonatomic,getter=isBottomViewFrame) BOOL isBottomViewFrame;
-
 /** 底部线条frame */
 @property (nonatomic) CGRect bottomViewFrame;
 
 /** 底部线条高度 */
 @property (nonatomic,assign) CGFloat bottomViewHegiht;
 
-/** 一句代码设置底部横条的Frame */
--(void)isBottomViewFrame:(BOOL)isBottomViewFrame setBottomViewFrame:(CGRect)bottomViewFrame;
-
-//*******************//
-
-
 #pragma mark -- 顶部横线的属性设置
-//*******************//
 
 /** 顶部横线条是否显示 */
 @property (nonatomic,assign,getter= topViewHidden) BOOL topViewHidden;
@@ -160,68 +152,46 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 /** 顶部线条颜色 */
 @property (nonatomic,strong) UIColor *topViewColor;
 
-/** 是否开启用户改动顶部线条Frame */
-@property (nonatomic,getter=isTopViewFrame) BOOL isTopViewFrame;
-
 /** 顶部线条frame */
-@property (nonatomic) CGRect topViewFrame;
+@property (nonatomic,assign) CGRect topViewFrame;
 
 /** 顶部线条高度 */
 @property (nonatomic,assign) CGFloat topViewHegiht;
 
-/** 一句代码设置底部横条的Frame */
--(void)isTopViewFrame:(BOOL)isTopViewFrame setTopViewFrame:(CGRect)topViewFrame;
-
-//*******************//
-
-
-
 #pragma mark -- 底部指示器的属性设置
-//*******************//
+
+/** 底部指示器的高度 */
+@property (nonatomic,assign) CGFloat indicatorHeight;
 /** 底部指示器的宽度 */
 @property (nonatomic,assign) CGFloat indicatorWidth;
 /** 底部指示器:颜色 */
 @property (nonatomic,strong) UIColor *indicatorColor;
 /** 是否显示底部指示器 */
 @property (nonatomic,getter=isIndicatorHidden) BOOL indicatorHidden;
-
 /** 底部指示器:frame */
 @property (nonatomic) CGRect indicatorFrame;
 
-/** 是否开启用户修改底部指示器frame */
-@property (nonatomic,getter=isindicatorFrame) BOOL isindicatorFrame;
-
-/** 一句代码设置底部指示器的frame */
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame;
-
-//*******************//
-
 
 #pragma mark -- childView子界面的属性设置
-//*******************//
-
 /** 子控制器视图界面的Frame */
-@property(nonatomic) CGRect  childViewframe;
+@property(nonatomic,assign) CGRect  childViewframe;
 
 /** 是否开启用户自己设置子控制器视图界面的frame */
-@property(nonatomic,getter = isChildViewframe) BOOL isChildViewframe;
+//@property(nonatomic,getter = isChildViewframe) BOOL isChildViewframe;
 
 /** 子界面是否滑动 */
-@property(nonatomic,assign,getter = isChildViewEnabled) BOOL childViewEnabled;
+@property(nonatomic,assign,getter = childScollEnabled) BOOL childScollEnabled;
 
 /** 子界面滚动是否有动画 */
 @property(nonatomic,assign,getter= isChildViewScollAnimal) BOOL childViewScollAnimal;
-
-/** 一句代码设置子界面的frame */
--(void)isChildViewframe:(BOOL)isChildViewframe childViewframe:(CGRect)childViewframe;
-
-//*******************//
 
 
 
 #pragma mark -- tabItem的属性设置
 
 //*******************//
+
+@property(nonatomic) NSInteger selectedSegmentIndex;
 
 /** tabItemWidth */
 @property (nonatomic,assign) CGFloat tabItemWidth;
@@ -242,8 +212,6 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 @property (nonatomic,strong) NSArray *tabItemBackImageNormalArray;
 @property (nonatomic,strong) NSArray *tabItemBackImageSelectedArray;
 
-
-
 /** tabItemtitle普通状态颜色 */
 @property (nonatomic,strong) UIColor *tabItemTitleNormalColor;
 /** tabItemtitle点击状态下文字颜色 */
@@ -254,35 +222,18 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 /** tabItem文字大小 */
 @property (nonatomic,strong) UIFont *tabItemTitlesfont;
 
-/** tabItem的位置(是否开启用户修改tabItem的位置) */
-@property (nonatomic,getter=isTabItemFrame) BOOL isTabItemFrame;
-/** tabItem的Frame */
-@property(nonatomic) CGRect  tabItemFrame;
-
-
-/** 是否同意让用户设置间距 */
-//@property (nonatomic,getter=isMargin) BOOL isMargin;
-
-/** 一句代码设置tabItem的Frame */
--(void)isTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
-
-
 //*******************//
 
 
 
 
 #pragma mark -- childView子界面的属性设置
-//**********重写set方法***********//
-
 
 /** 添加控制器(添加控制器按照控制器添加的先后顺序与按钮对应的:比如说第一个按钮对应第一个添加的控制器)*/
 //@property (nonatomic,strong) UIViewController *addChildViewController;
 
 -(void)intoChildViewController:(UIViewController *)childViewController;
 
-
-//**********重写set方法***********//
 
 
 
@@ -298,15 +249,14 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 
 
 #pragma mark -- 工具方法
+/** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
++(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
+
 /**
  *  图片转换成颜色的方法
  */
-//- (UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color;
 
-/**
- *  颜色机制转换
- */
-//+ (UIColor *)colorFromHexRGB:(NSString *)inColorString;
 
 /**
  *  添加子控制器的view
@@ -326,37 +276,30 @@ typedef NS_OPTIONS(NSUInteger, MJCImageEffectStyle) {
 /** 最右边按钮的图片 */
 @property (nonatomic,strong) UIImage *rightMostBtnImage;
 /** 最右边按钮的大小位置 */
-@property(nonatomic) CGRect  rightMostBtnFrame;
-
-/** tabItem的位置(是否开启用户修改tabItem的位置) */
-@property (nonatomic,getter=isrightMostBtnFrame) BOOL isrightMostBtnFrame;
-
-/** 一句代码设置tabItem的Frame */
--(void)isRigthMostFrame:(BOOL)isRigthMostFrame rightMostBtnFrame:(CGRect)rightMostBtnFrame;
+@property(nonatomic,assign) CGRect  rightMostBtnFrame;
 
 
 /** 最左边位置的时候最左边按钮的图片 */
-@property (nonatomic,strong) UIImage *mostLeftPosition;
+@property (nonatomic,strong) UIImage *mostLeftSide;
 /** 最右边位置的时候的最右边按钮的图片 */
-@property (nonatomic,strong) UIImage *mostRightPosition;
+@property (nonatomic,strong) UIImage *mostRightSide;
 
 /** 是否开启跳转子界面最左边位置以及最右边位置 */
 @property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
-/** 最右边按钮的顶部间距 */
-@property (nonatomic,assign) CGFloat rightBtnTopMargin;
-
-/** 最右边按钮的底部间距 */
-@property (nonatomic,assign) CGFloat rightBtnBottomMargin;
-
-/** 最右边按钮的右边间距 */
-@property (nonatomic,assign) CGFloat rightBtnRightMargin;
+///** 最右边按钮的顶部间距 */
+//@property (nonatomic,assign) CGFloat rightBtnTopMargin;
+//
+///** 最右边按钮的底部间距 */
+//@property (nonatomic,assign) CGFloat rightBtnBottomMargin;
+//
+///** 最右边按钮的右边间距 */
+//@property (nonatomic,assign) CGFloat rightBtnRightMargin;
 
 
 -(UIView *)intoFaceView:(NSArray *)titlesArr;
 
 -(UIScrollView *)intoFaceScoll:(NSArray *)titlesArr;
-
 
 
 

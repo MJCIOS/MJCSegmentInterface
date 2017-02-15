@@ -8,8 +8,15 @@
 
 #import "MJCChildScrollView.h"
 
-@implementation MJCChildScrollView
+@interface MJCChildScrollView ()
 
+/** <#  注释  #> */
+@property (nonatomic,assign) NSInteger childFrameTag;
+
+@end
+
+
+@implementation MJCChildScrollView
 
 //重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
@@ -20,6 +27,7 @@
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.bounces = YES;
+        
 //        self.directionalLockEnabled = YES;
 //        self.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     }
@@ -29,39 +37,28 @@
 }
 
 
-//获取子控件(重写方法,保证能赋值成功)
-- (void)layoutSubviews
+-(void)setupChildFrame:(CGRect)childFrame titlesViewFrame:(CGRect)titlesViewFrame titlesScrollFrame:(CGRect)titlesScrollFrame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 {
-    [super layoutSubviews];
-    
+    if (_childFrameTag == 1) {
+        self.frame = self.frame;
+    }else{
+        if (MJCSeMentTitleBarStyle == MJCSegMentTitlesClassicStyle) {
+            self.frame = CGRectMake(0,titlesViewFrame.size.height+titlesViewFrame.origin.y,MJCScreenWidth,MJCScreenHeight-(titlesViewFrame.size.height+64+titlesViewFrame.origin.y));
+        }else if (MJCSeMentTitleBarStyle == MJCSegMentTitlesScrollStyle){
+            self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,MJCScreenWidth,MJCScreenHeight-(titlesScrollFrame.size.height + 64 + titlesScrollFrame.origin.y));
+        }else{
+            self.frame = CGRectMake(0,64,MJCScreenWidth,MJCScreenHeight-64);
+        }
+    }
 }
 
--(void)isChildFrame:(BOOL)isChildFrame setChildFrame:(CGRect)childFrame SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
+-(void)setChildFrame:(CGRect)childFrame
 {
-
-    if (isChildFrame == kNilOptions) {
-        
-        if (SegmentInterFaceStyle ==  SegMentInterfaceStyleClassic) {
-            self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
-        }else if (SegmentInterFaceStyle == SegMentInterfaceStyleLess){
-            self.frame =  CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
-        }else if(SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-            self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
-        }else if(SegmentInterFaceStyle == SegMentInterfaceStylePenetrate){
-            self.frame =  CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-(MJCNavMaxY));
-        
-        }else if(SegmentInterFaceStyle == SegMentInterfaceStyleExceedUse){
-            self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight-(MJCTitlesViewH+MJCNavMaxY));
-        
-        }else{
-            
-            self.frame = CGRectMake(0,MJCTitlesViewH,MJCScreenWidth,MJCScreenHeight - (MJCTitlesViewH+MJCNavMaxY));
-        }
-        
-    }else{
-        
-        self.frame = childFrame;
-    }
+    _childFrame = childFrame;
+    
+    _childFrameTag = 1;
+    
+    self.frame = childFrame;
 }
 
 

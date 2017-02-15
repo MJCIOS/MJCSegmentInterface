@@ -12,7 +12,7 @@
 		2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */; };
 		2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */; };
 		2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */; };
-		2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1151DC4A8B300977EB8 /* MJCRightView.m */; };
+		2555F11D1DC4A8B300977EB8 /* MJCVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1151DC4A8B300977EB8 /* MJCVerticalLineView.m */; };
 		2555F11E1DC4A8B300977EB8 /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */; };
 		2555F11F1DC4A8B300977EB8 /* MJCTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F1191DC4A8B300977EB8 /* MJCTopView.m */; };
 		256BD88F1E037BA3005185C9 /* MJCCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD88D1E037BA3005185C9 /* MJCCustomController.m */; };
@@ -37,6 +37,8 @@
 		25A91C6B1DC2FFDE0009313D /* UITestViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A91C661DC2FFDE0009313D /* UITestViewController4.m */; };
 		25D54EFB1E0783D2005DC7EA /* MJCSegmentFaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D54EF91E0783D2005DC7EA /* MJCSegmentFaceController.m */; };
 		25D54EFC1E0783D2005DC7EA /* MJCSegmentFaceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D54EFA1E0783D2005DC7EA /* MJCSegmentFaceController.xib */; };
+		25D86C9B1E238624004ABA8A /* MJCTest2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D86C991E238624004ABA8A /* MJCTest2Controller.m */; };
+		25D86C9C1E238624004ABA8A /* MJCTest2Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D86C9A1E238624004ABA8A /* MJCTest2Controller.xib */; };
 		25D9DB471DC2635C00B903B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB461DC2635C00B903B1 /* main.m */; };
 		25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB491DC2635C00B903B1 /* AppDelegate.m */; };
 		25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB4C1DC2635C00B903B1 /* ViewController.m */; };
@@ -79,8 +81,8 @@
 		2555F1111DC4A8B300977EB8 /* MJCChildScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildScrollView.m; sourceTree = "<group>"; };
 		2555F1121DC4A8B300977EB8 /* MJCIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicatorView.h; sourceTree = "<group>"; };
 		2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCIndicatorView.m; sourceTree = "<group>"; };
-		2555F1141DC4A8B300977EB8 /* MJCRightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCRightView.h; sourceTree = "<group>"; };
-		2555F1151DC4A8B300977EB8 /* MJCRightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCRightView.m; sourceTree = "<group>"; };
+		2555F1141DC4A8B300977EB8 /* MJCVerticalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCVerticalLineView.h; sourceTree = "<group>"; };
+		2555F1151DC4A8B300977EB8 /* MJCVerticalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCVerticalLineView.m; sourceTree = "<group>"; };
 		2555F1161DC4A8B300977EB8 /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
 		2555F1171DC4A8B300977EB8 /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
 		2555F1181DC4A8B300977EB8 /* MJCTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTopView.h; sourceTree = "<group>"; };
@@ -125,6 +127,9 @@
 		25D54EF81E0783D2005DC7EA /* MJCSegmentFaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentFaceController.h; sourceTree = "<group>"; };
 		25D54EF91E0783D2005DC7EA /* MJCSegmentFaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentFaceController.m; sourceTree = "<group>"; };
 		25D54EFA1E0783D2005DC7EA /* MJCSegmentFaceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCSegmentFaceController.xib; sourceTree = "<group>"; };
+		25D86C981E238624004ABA8A /* MJCTest2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTest2Controller.h; sourceTree = "<group>"; };
+		25D86C991E238624004ABA8A /* MJCTest2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTest2Controller.m; sourceTree = "<group>"; };
+		25D86C9A1E238624004ABA8A /* MJCTest2Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCTest2Controller.xib; sourceTree = "<group>"; };
 		25D9DB421DC2635C00B903B1 /* MJCSegmentInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJCSegmentInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D9DB461DC2635C00B903B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25D9DB481DC2635C00B903B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -210,8 +215,8 @@
 				25A47AA81DE2EA1200AE2829 /* MJCTitlesScollView.m */,
 				2555F1121DC4A8B300977EB8 /* MJCIndicatorView.h */,
 				2555F1131DC4A8B300977EB8 /* MJCIndicatorView.m */,
-				2555F1141DC4A8B300977EB8 /* MJCRightView.h */,
-				2555F1151DC4A8B300977EB8 /* MJCRightView.m */,
+				2555F1141DC4A8B300977EB8 /* MJCVerticalLineView.h */,
+				2555F1151DC4A8B300977EB8 /* MJCVerticalLineView.m */,
 				2555F1181DC4A8B300977EB8 /* MJCTopView.h */,
 				2555F1191DC4A8B300977EB8 /* MJCTopView.m */,
 				2555F10E1DC4A8B300977EB8 /* MJCBottomView.h */,
@@ -265,6 +270,9 @@
 				25EAA76A1E0C2B7D000A0E00 /* MJCTESTViewController.h */,
 				25EAA76B1E0C2B7D000A0E00 /* MJCTESTViewController.m */,
 				25EAA76C1E0C2B7D000A0E00 /* MJCTESTViewController.xib */,
+				25D86C981E238624004ABA8A /* MJCTest2Controller.h */,
+				25D86C991E238624004ABA8A /* MJCTest2Controller.m */,
+				25D86C9A1E238624004ABA8A /* MJCTest2Controller.xib */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
 				25EAA76E1E0C2B7D000A0E00 /* MJCTESTViewController.xib in Resources */,
 				256BD8901E037BA3005185C9 /* MJCCustomController.xib in Resources */,
+				25D86C9C1E238624004ABA8A /* MJCTest2Controller.xib in Resources */,
 				259D33BC1DF519120075F7BB /* 向右箭头.png in Resources */,
 				25D54EFC1E0783D2005DC7EA /* MJCSegmentFaceController.xib in Resources */,
 			);
@@ -519,7 +528,7 @@
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				25A91C581DC2FFCB0009313D /* SegMentInterfaceStyleClassicVC.m in Sources */,
 				256BD8971E03F342005185C9 /* MJCSegmentFaceControl.m in Sources */,
-				2555F11D1DC4A8B300977EB8 /* MJCRightView.m in Sources */,
+				2555F11D1DC4A8B300977EB8 /* MJCVerticalLineView.m in Sources */,
 				25D54EFB1E0783D2005DC7EA /* MJCSegmentFaceController.m in Sources */,
 				25A91C5A1DC2FFCB0009313D /* SegMentInterfaceStyleLessVC.m in Sources */,
 				2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */,
@@ -527,6 +536,7 @@
 				25A91C5C1DC2FFCB0009313D /* SegMentInterfaceStylePenetrateVC.m in Sources */,
 				2555F11B1DC4A8B300977EB8 /* MJCChildScrollView.m in Sources */,
 				25A91C6B1DC2FFDE0009313D /* UITestViewController4.m in Sources */,
+				25D86C9B1E238624004ABA8A /* MJCTest2Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

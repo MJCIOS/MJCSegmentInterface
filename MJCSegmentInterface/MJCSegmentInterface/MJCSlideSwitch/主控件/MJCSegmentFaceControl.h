@@ -17,7 +17,7 @@
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
 /** 添加分段控件 */
--(UIView *)intoFaceView:(MJCSegmentInterfaceStyle)interfacestyle;
+//-(UIView *)intoFaceView:(MJCTitlesInterfaceStyles)interfacestyle;
 
 /** 添加标题 */
 -(void)intoTitlesArray:(NSArray *)titlesArray;
@@ -29,14 +29,14 @@
 /** 分段控件的尺寸位置 */
 @property (nonatomic,assign) CGRect faceViewFrame;
 
-/** segmentInterface 样式，默认为SegMentInterfaceStyleClassic样式 */
-@property (nonatomic, assign) MJCSegmentInterfaceStyle interFaceControlStyle;
-
-/** 底部指示器样式 */
-@property (nonatomic,assign) MJCSegmentIndicatorStyle indicatorStyle;
-
-/** 标题栏图片样式 */
-@property (nonatomic,assign) MJCImageEffectStyle imageEffectStyle;
+///** segmentInterface 样式，默认为SegMentInterfaceStyleClassic样式 */
+//@property (nonatomic, assign) MJCTitlesInterfaceStyles interFaceControlStyle;
+//
+///** 底部指示器样式 */
+//@property (nonatomic,assign) MJCTitlesInterfaceStyles indicatorStyle;
+//
+///** 标题栏图片样式 */
+//@property (nonatomic,assign) MJCTitlesInterfaceStyles imageEffectStyle;
 
 /** 是否滚动标题(导航标题栏不适用) */
 @property(nonatomic,assign,getter = scrollTitlesEnabled) BOOL scrollTitlesEnabled;
@@ -191,11 +191,6 @@
  *  图片转换成颜色的方法
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
-
-/**
- *  颜色机制转换
- */
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString;
 
 /** 最右边按钮的顶部间距 */
 @property (nonatomic,assign) CGFloat rightBtnTopMargin;

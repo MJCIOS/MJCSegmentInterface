@@ -8,6 +8,13 @@
 
 #import "MJCBottomView.h"
 
+@interface MJCBottomView ()
+
+/** <#  注释  #> */
+@property (nonatomic,assign) NSInteger bottomTag;
+
+@end
+
 @implementation MJCBottomView
 
 //重写方法 通过代码自定义控件,都要重写这个方法
@@ -15,8 +22,10 @@
 {
     if (self = [super initWithFrame:frame]) {
         
+        self.backgroundColor  = [[UIColor blackColor]colorWithAlphaComponent:0.1];
         self.hidden = YES;
-        
+        self.mjc_x = 0;
+        self.mjc_height = 1;
     }
     
     return self;
@@ -26,68 +35,60 @@
 -(void)setBottomBackgroundColor:(UIColor *)bottomBackgroundColor
 {
     _bottomBackgroundColor = bottomBackgroundColor;
-    if (bottomBackgroundColor == kNilOptions) {
-        self.backgroundColor  = [[UIColor blackColor]colorWithAlphaComponent:0.1];
-        
-    }else{
-        self.backgroundColor = bottomBackgroundColor;
-    }
+    
+    self.backgroundColor = bottomBackgroundColor;
+}
 
+-(void)setBottomFrame:(CGRect)bottomFrame
+{
+    _bottomFrame = bottomFrame;
+    
+    _bottomTag = 1;
+    
+    self.frame = bottomFrame;
+}
+
+-(void)setBottomHeight:(CGFloat)bottomHeight
+{
+    _bottomHeight = bottomHeight;
+    
+    self.mjc_height = bottomHeight;
 }
 
 -(void)setBottomHidden:(BOOL)bottomHidden
 {
+    _bottomHidden = bottomHidden;
+    
     self.hidden = bottomHidden;
 }
 
-
--(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesView:(UIView *)titlesView
+-(void)setTitlesView:(UIView *)titlesView
 {
-    //如果用户未开启自己设置frame
-    if (isBottomFrame == kNilOptions) {
-        //如果未设置了底部高度(设置为1)
-        if (bottomHegiht == kNilOptions) {
-            self.mjc_x = 0;
-            self.mjc_height = 1;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            self.mjc_width = titlesView.mjc_width;
-        }else{
-            //如果未设置了底部高度(那我们就将用户设置的传进去)
-            self.mjc_x = 0;
-            self.mjc_height = bottomHegiht;
-            self.mjc_y = titlesView.mjc_height - self.mjc_height;
-            self.mjc_width = titlesView.mjc_width;
-        }
-        
+    _titlesView =titlesView;
+    
+    
+    
+    if (_bottomTag == 1) {
+        self.mjc_width = self.frame.size.width;
     }else{
-        self.frame = setBottomFrame;
+        self.mjc_y = titlesView.mjc_height - self.mjc_height;
+        self.mjc_width = titlesView.mjc_width;
     }
-
 }
 
--(void)isBottomFrame:(BOOL)isBottomFrame setBottomFrame:(CGRect)setBottomFrame bottomHegiht:(CGFloat)bottomHegiht titlesScroll:(UIScrollView *)titlesScroll;
+-(void)setTitlesScrollView:(UIScrollView *)titlesScrollView
 {
-    //如果用户未开启自己设置frame
-    if (isBottomFrame == kNilOptions) {
-        //如果未设置了底部高度(设置为1)
-        if (bottomHegiht == kNilOptions) {
-            self.mjc_x = 0;
-            self.mjc_height = 1;
-            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
-            self.mjc_width = titlesScroll.contentSize.width;
-        }else{
-            //如果未设置了底部高度(那我们就将用户设置的传进去)
-            self.mjc_x = 0;
-            self.mjc_height = bottomHegiht;
-            self.mjc_y = titlesScroll.mjc_height - self.mjc_height;
-            self.mjc_width = titlesScroll.contentSize.width;
-        }
-        
-    }else{
-        self.frame = setBottomFrame;
-    }
+    _titlesScrollView = titlesScrollView;
 
+    if (_bottomTag == 1) {
+        self.mjc_width = self.frame.size.width;
+    }else{
+        self.mjc_y = titlesScrollView.mjc_height - self.mjc_height;
+        self.mjc_width = titlesScrollView.contentSize.width;
+    }    
 }
+
+
 
 
 @end

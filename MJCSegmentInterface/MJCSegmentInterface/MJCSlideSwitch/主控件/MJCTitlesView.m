@@ -14,44 +14,26 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-    
-        
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     return self;
 }
 
 
--(void)setTitlesViewColor:(UIColor *)titlesViewColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle
+
+-(void)setTitlesViewColor:(UIColor *)titlesViewColor
 {
-    if (titlesViewColor == kNilOptions) {
-        if (SegmentInterFaceStyle == SegMentInterfaceStylePenetrate) {
-            
-            self.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.4];
-            
-        }else if(SegmentInterFaceStyle == SegMentInterfaceStyleMoreUse){
-            
-            self.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.4];
-            
-        }else{
-            self.backgroundColor = [UIColor whiteColor];
-        };
-    }else{
-        
-        self.backgroundColor = titlesViewColor;
-    }
+    _titlesViewColor = titlesViewColor;
+    
+    self.backgroundColor = titlesViewColor;
 }
 
--(void)isTitlesViewframe:(BOOL)isTitlesViewframe titlesViewframe:(CGRect)titlesViewframe
+-(void)setTitlesViewFrame:(CGRect)titlesViewFrame
 {
-    if (isTitlesViewframe == kNilOptions) {
-
-        self.frame = CGRectMake(0, 0,MJCScreenWidth,MJCTitlesViewH);
-    }else{
+    _titlesViewFrame = titlesViewFrame;
     
-        self.frame = titlesViewframe;
-    }
-    
+    self.frame = titlesViewFrame;
 }
 
 

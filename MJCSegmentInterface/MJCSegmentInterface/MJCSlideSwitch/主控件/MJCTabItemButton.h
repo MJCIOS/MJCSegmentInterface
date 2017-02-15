@@ -11,33 +11,36 @@
 
 @interface MJCTabItemButton : UIButton
 
--(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH scrollTitlesEnabled:(BOOL)scrollTitlesEnabled titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyle)imageStyle;
+-(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 
--(void)setupTabItemTitlesfont:(UIFont *)tabItemTitlesfont;
 
--(void)setupTabItemBackColor:(UIColor *)tabItemBackColor SegmentInterFaceStyle:(MJCSegmentInterfaceStyle)SegmentInterFaceStyle;
 
--(void)setupTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor;
+@property (nonatomic,strong) UIFont *tabItemTitlesfont;
 
--(void)setupTabItemTitleSelectedColor:(UIColor *)tabItemTitleSelectedColor;
+@property (nonatomic,strong) UIColor *tabItemBackColor;
 
--(void)setupTabItemImageNormal:(UIImage *)tabItemImageNormal;
+@property (nonatomic,strong) UIColor *tabItemTitleNormalColor;
 
--(void)setupTabItemImageSelected:(UIImage *)tabItemImageSelected;
+@property (nonatomic,strong) UIColor *tabItemTitleSelectedColor;
+
+@property (nonatomic,strong) UIImage *tabItemImageNormal;
+
+@property (nonatomic,strong) UIImage *tabItemImageSelected;
+
+@property (nonatomic,strong) UIImage *tabItemBackImageNormal;
+
+@property (nonatomic,strong) UIImage *tabItemBackImageSelected;
+
 
 -(void)setupTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag;
 
 -(void)setupTabItemImageSelectedArray:(NSArray *)tabItemSelectedImageArray buttonTag:(NSUInteger)buttonTag;
 
--(void)setupisTabItemFrame:(BOOL)isTabItemFrame tabItemFrame:(CGRect)tabItemFrame;
-
--(void)setupTabItemBackImageNormal:(UIImage *)tabItemBackImageNormal;
-
--(void)setupTabItemBackImageSelected:(UIImage *)tabItemBackImageSelected;
-
 -(void)setupTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag;
 
 -(void)setupTabItemBackImageSelectedArray:(NSArray *)tabItemSelectedBackImageArray buttonTag:(NSUInteger)buttonTag;
 
+
+-(void)setupTabItemlayer:(CGFloat)layerCornerRadius layerMasksToBounds:(BOOL)layerMasksToBounds;
 
 @end

@@ -11,18 +11,20 @@
 
 @interface MJCIndicatorView : UIView
 
+@property (nonatomic,assign) BOOL indicatorHidden;
+
+@property (nonatomic,strong) UIColor *indicatorBackgroundColor;
+
+@property (nonatomic,assign) CGRect indicatorFrame;
+
+@property (nonatomic,assign) CGFloat indicatorWidth;
+
+@property (nonatomic,assign) CGFloat indicatorHeight;
 
 
 
--(void)setIndicatorViewHidden:(BOOL)indicatorViewHidden;
+-(void)titlesScroll:(UIScrollView *)titlesScroll firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle;
 
-
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesScroll:(UIScrollView *)titlesScroll firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
-
--(void)isindicatorFrame:(BOOL)isindicatorFrame indicatorFrame:(CGRect)indicatorFrame indicatorWidth:(CGFloat)indicatorWidth titlesView:(UIView *)titlesView firstTitleButton:(UIButton *)firstTitleButton SegmentInterFaceStyle:(MJCSegmentIndicatorStyle)SegmentIndicatorStyle;
-
-
--(void)setIndicatorColor:(UIColor *)indicatorColor firstTitleButton:(UIButton*)firstTitleButton;
-
+-(void)titlesView:(UIView *)titlesView firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle;
 
 @end

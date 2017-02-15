@@ -18,6 +18,7 @@
 #import "MJCSegmentFaceController.h"
 #import "MJCImageViewController.h"
 #import "MJCTESTViewController.h"
+#import "MJCTest2Controller.h"
 
 @interface ViewController ()
 
@@ -95,6 +96,13 @@
     
     [self.navigationController pushViewController:test animated:YES];
     
+}
+- (IBAction)ceshishi:(id)sender {
+    
+    MJCTest2Controller *viewVC = [MJCTest2Controller new];
+    
+    
+    [self.navigationController pushViewController:viewVC animated:YES];
     
 }
 

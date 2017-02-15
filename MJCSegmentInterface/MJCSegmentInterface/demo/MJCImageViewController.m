@@ -13,7 +13,7 @@
 
 
 /** <#  注释  #> */
-@property (nonatomic,strong) MJCSegmentFaceControl *segmentsface;
+@property (nonatomic,strong) MJCSegmentInterface *segmentsface;
 
 /** <#  注释  #> */
 @property (nonatomic,assign) NSInteger style;
@@ -33,20 +33,16 @@
     NSInteger style = 3;
     _style = style;
 
-    [MJCSegmentFaceControl useNavOrTabbarNotBeCover:self];
+    
+    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *intoView = [segmentsface intoFaceView:SegMentInterfaceStylePenetrate];
+    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
+    segmentsface.MJCImageEffectStyle = MJCImageUpDownStyle;
     _segmentsface = segmentsface;
-//    segmentsface.faceViewFrame = CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight);
     segmentsface.slideDelegate = self;
-//    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;//样式
-    segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
-    segmentsface.imageEffectStyle = MJCImageUpDownStyle;
-    segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
     segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
-//    segmentsface.childViewframe = CGRectMake(0, 64, MJCScreenWidth, MJCScreenHeight);
     
     
 #pragma mark -- 标题栏的属性
@@ -54,15 +50,12 @@
     segmentsface.titlesViewColor = [UIColor clearColor];//标题栏颜色
     
 #pragma mark -- 标签选项属性
-    segmentsface.tabItemWidth = 80;//这个是给滚动标题栏使用的
-    //    segmentsface.tabItemFrame = CGRectMake(10,10,50, 40);
+    segmentsface.tabItemWidth = 100;//这个是给滚动标题栏使用的
     segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     segmentsface.tabItemTitleNormalColor = [UIColor blackColor];
     segmentsface.tabItemTitleSelectedColor = [UIColor yellowColor];
-    //    segmentsface.tabItemImageNormal = [UIImage imageNamed:@"diamond"];
-    //    segmentsface.tabItemImageSelected = [UIImage imageNamed:@"diamond-2"];
     
-    NSArray *imageArr = @[@"bulb-2",
+    NSArray *imageArr =@[@"bulb-2",
                           @"cloud-2",
                           @"diamond-2",
                           @"food-2",
@@ -81,7 +74,7 @@
     segmentsface.verticalLineHidden = NO;
     
     [segmentsface intoTitlesArray:titlesArr];
-    [self.view addSubview:intoView];
+    [self.view addSubview:segmentsface];
     
     
     /** 添加控制器 */
@@ -121,9 +114,11 @@
 {
     
     if (titleButton.tag == 1) {
-        [titleButton setTitle:@"代理啦啦" forState:UIControlStateNormal];
+        [titleButton setTitle:@"代理" forState:UIControlStateNormal];
+        
     }else{
         [titleButton setTitle:@"请看" forState:UIControlStateNormal];
+
     }
     
     

@@ -28,87 +28,87 @@
 //}
 
 
--(UIView *)intoFaceView:(MJCSegmentInterfaceStyle)interfacestyle
-{
-    if (!_segerntInterface) {
-        
-        _segerntInterface = [[MJCSegmentInterface  alloc]init];
-        _segerntInterface.frame = MJCScreenbound;
-        
-        [_segerntInterface setSegmentInterFaceStyle:interfacestyle];
-        
-        if (interfacestyle == SegMentInterfaceStyleLess || interfacestyle == SegMentInterfaceStyleMoreUse) {
-            _segerntInterface.rightViewHidden = NO;
-            
-        }else if (interfacestyle == SegMentInterfaceStyleNavBar){
-            
-            [_segerntInterface isChildViewframe:YES childViewframe:CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight-64)];
-            [_segerntInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0,200,30)];
-            
-            _segerntInterface.rightViewHidden = YES;
-            _segerntInterface.bottomViewHidden = YES;
-            _segerntInterface.topViewHidden = YES;
-            _segerntInterface.indicatorHidden = YES;
-
-        }else{
-            _segerntInterface.rightViewHidden = YES;
-        }
-    }
-    
-    return _segerntInterface;
-}
-
--(void)intoTitlesArray:(NSArray *)titlesArray
-{
-    [_segerntInterface intoTitlesArray:titlesArray];
-}
-
--(void)intoChildViewController:(UIViewController *)childViewController;
-{
-    [_segerntInterface intoChildViewController:childViewController];
-}
-
--(void)setInterFaceControlStyle:(MJCSegmentInterfaceStyle)interFaceControlStyle
-{
-    _interFaceControlStyle = interFaceControlStyle;
-    
-    _segerntInterface.SegmentInterFaceStyle = interFaceControlStyle;
-    
-    if (interFaceControlStyle == SegMentInterfaceStyleLess || interFaceControlStyle == SegMentInterfaceStyleMoreUse  ) {
-        _segerntInterface.rightViewHidden = NO;
-    }else{
-        _segerntInterface.rightViewHidden = YES;
-    }
-}
-
--(void)setIndicatorStyle:(MJCSegmentIndicatorStyle)indicatorStyle
-{
-    _indicatorStyle = indicatorStyle;
-    
-    _segerntInterface.SegmentIndicatorStyle = indicatorStyle;
-    
-}
-
--(void)setImageEffectStyle:(MJCImageEffectStyle)imageEffectStyle
-{
-    _imageEffectStyle = imageEffectStyle;
-    
-    _segerntInterface.MJCImageEffectStyle = imageEffectStyle;
-}
+//-(UIView *)intoFaceView:(MJCSegmentInterfaceStyle)interfacestyle
+//{
+//    if (!_segerntInterface) {
+//        
+//        _segerntInterface = [[MJCSegmentInterface  alloc]init];
+//        _segerntInterface.frame = MJCScreenbound;
+//        
+//        [_segerntInterface setSegmentInterFaceStyle:interfacestyle];
+//        
+//        if (interfacestyle == SegMentInterfaceStyleLess || interfacestyle == SegMentInterfaceStyleClassic) {
+//            _segerntInterface.verticalLineHidden = NO;
+//            
+//        }else if (interfacestyle == SegMentInterfaceStyleNavBar){
+//            
+////            [_segerntInterface isChildViewframe:YES childViewframe:CGRectMake(0,64,MJCScreenWidth, MJCScreenHeight-64)];
+////            [_segerntInterface isTitlesViewframe:YES titlesViewframe:CGRectMake(0,0,200,30)];
+//            
+//            _segerntInterface.verticalLineHidden = YES;
+//            _segerntInterface.bottomViewHidden = YES;
+//            _segerntInterface.topViewHidden = YES;
+//            _segerntInterface.indicatorHidden = YES;
+//
+//        }else{
+//            _segerntInterface.verticalLineHidden = YES;
+//        }
+//    }
+//    
+//    return _segerntInterface;
+//}
+//
+//-(void)intoTitlesArray:(NSArray *)titlesArray
+//{
+//    [_segerntInterface intoTitlesArray:titlesArray];
+//}
+//
+//-(void)intoChildViewController:(UIViewController *)childViewController;
+//{
+//    [_segerntInterface intoChildViewController:childViewController];
+//}
+//
+//-(void)setInterFaceControlStyle:(MJCSegmentInterfaceStyle)interFaceControlStyle
+//{
+//    _interFaceControlStyle = interFaceControlStyle;
+//    
+//    _segerntInterface.SegmentInterFaceStyle = interFaceControlStyle;
+//    
+//    if (interFaceControlStyle == SegMentInterfaceStyleClassic || interFaceControlStyle == SegMentInterfaceStyleClassic  ) {
+//        _segerntInterface.verticalLineHidden = NO;
+//    }else{
+//        _segerntInterface.verticalLineHidden = YES;
+//    }
+//}
+//
+//-(void)setIndicatorStyle:(MJCSegmentIndicatorStyle)indicatorStyle
+//{
+//    _indicatorStyle = indicatorStyle;
+//    
+//    _segerntInterface.SegmentIndicatorStyle = indicatorStyle;
+//    
+//}
+//
+//-(void)setImageEffectStyle:(MJCImageEffectStyle)imageEffectStyle
+//{
+//    _imageEffectStyle = imageEffectStyle;
+//    
+//    _segerntInterface.MJCImageEffectStyle = imageEffectStyle;
+//}
 
 
 -(void)setScrollTitlesEnabled:(BOOL)scrollTitlesEnabled
 {
     _scrollTitlesEnabled = scrollTitlesEnabled;
     
-    _segerntInterface.scrollTitlesEnabled = scrollTitlesEnabled;
+//    _segerntInterface.scrollTitlesEnabled = scrollTitlesEnabled;
 }
 
 -(void)setChildScollEnabled:(BOOL)childScollEnabled
 {
     _childScollEnabled = childScollEnabled;
     
-    _segerntInterface.childViewEnabled = childScollEnabled;
+    _segerntInterface.childScollEnabled = childScollEnabled;
 }
 
 -(void)setFaceViewFrame:(CGRect)faceViewFrame
@@ -122,7 +122,7 @@
 {
     _titlesViewframe = titlesViewframe;
     
-    [_segerntInterface isTitlesViewframe:YES titlesViewframe:titlesViewframe];
+//    [_segerntInterface isTitlesViewframe:YES titlesViewframe:titlesViewframe];
 }
 
 -(void)setTitlesViewColor:(UIColor *)titlesViewColor
@@ -135,7 +135,7 @@
 {
     _titleScrollframe = titleScrollframe;
     
-    [_segerntInterface isTitlesScrollframe:YES titlesScrollframe:titleScrollframe];
+//    [_segerntInterface isTitlesScrollframe:YES titlesScrollframe:titleScrollframe];
 }
 
 -(void)setTitleScrollColor:(UIColor *)titleScrollColor
@@ -148,7 +148,7 @@
 {
     _childViewframe = childViewframe;
     
-    [_segerntInterface isChildViewframe:YES childViewframe:childViewframe];
+//    [_segerntInterface isChildViewframe:YES childViewframe:childViewframe];
 }
 
 -(void)setChildViewScollAnimal:(BOOL)childViewScollAnimal
@@ -180,7 +180,7 @@
 -(void)setIndicatorFrame:(CGRect)indicatorFrame
 {
     _indicatorFrame = indicatorFrame;
-    [_segerntInterface isindicatorFrame:YES indicatorFrame:indicatorFrame];
+//    [_segerntInterface isindicatorFrame:YES indicatorFrame:indicatorFrame];
 }
 
 
@@ -206,7 +206,7 @@
 -(void)setTopViewFrame:(CGRect)topViewFrame
 {
     _topViewFrame = topViewFrame;
-    [_segerntInterface isTopViewFrame:YES setTopViewFrame:topViewFrame];
+//    [_segerntInterface isTopViewFrame:YES setTopViewFrame:topViewFrame];
 }
 
 
@@ -232,7 +232,7 @@
 -(void)setBottomViewFrame:(CGRect)bottomViewFrame
 {
     _bottomViewFrame = bottomViewFrame;
-    [_segerntInterface isBottomViewFrame:YES setBottomViewFrame:bottomViewFrame];
+//    [_segerntInterface isBottomViewFrame:YES setBottomViewFrame:bottomViewFrame];
 }
 
 
@@ -260,7 +260,7 @@
 -(void)setTabItemFrame:(CGRect)tabItemFrame
 {
     _tabItemFrame = tabItemFrame;
-    [_segerntInterface isTabItemFrame:YES tabItemFrame:tabItemFrame];
+//    [_segerntInterface isTabItemFrame:YES tabItemFrame:tabItemFrame];
 }
 
 -(void)setTabItemTitleNormalColor:(UIColor *)tabItemTitleNormalColor
@@ -336,18 +336,18 @@
 -(void)setVerticalLineColor:(UIColor *)verticalLineColor
 {
     _verticalLineColor = verticalLineColor;
-    _segerntInterface.rightColor = verticalLineColor;
+    _segerntInterface.verticalLineColor = verticalLineColor;
 }
 
 -(void)setVerticalLineHegiht:(CGFloat)verticalLineHegiht
 {
     _verticalLineHegiht = verticalLineHegiht;
-    _segerntInterface.rightViewHegiht = verticalLineHegiht;
+    _segerntInterface.verticalLineHegiht = verticalLineHegiht;
 }
 -(void)setVerticalLineHidden:(BOOL)verticalLineHidden
 {
     _verticalLineHidden = verticalLineHidden;
-    _segerntInterface.rightViewHidden = verticalLineHidden;
+    _segerntInterface.verticalLineHidden = verticalLineHidden;
 }
 
 
@@ -373,19 +373,19 @@
 -(void)setRightMostBtnFrame:(CGRect)rightMostBtnFrame
 {
     _rightMostBtnFrame = rightMostBtnFrame;
-    [_segerntInterface isRigthMostFrame:YES rightMostBtnFrame:rightMostBtnFrame];
+//    [_segerntInterface isRigthMostFrame:YES rightMostBtnFrame:rightMostBtnFrame];
 }
 
 -(void)setMostLeftPosition:(UIImage *)mostLeftPosition
 {
     _mostLeftPosition = mostLeftPosition;
-    _segerntInterface.mostLeftPosition = mostLeftPosition;
+//    _segerntInterface.mostLeftPosition = mostLeftPosition;
 }
 
 -(void)setMostRightPosition:(UIImage *)mostRightPosition
 {
     _mostRightPosition = mostRightPosition;
-    _segerntInterface.mostRightPosition = mostRightPosition;
+//    _segerntInterface.mostRightPosition = mostRightPosition;
 }
 
 -(void)setIsOpenJump:(BOOL)isOpenJump
@@ -403,36 +403,35 @@
 
 -(UIView *)intoTitlesFace:(NSArray *)titlesArr;
 {
-    
     return [_segerntInterface intoFaceView:titlesArr];
 }
 
 -(UIScrollView *)intoScollFace:(NSArray *)titlesArr;
 {
-    _segerntInterface.scrollTitlesEnabled = YES;
+//    _segerntInterface.scrollTitlesEnabled = YES;
     
     return [_segerntInterface intoFaceScoll:titlesArr];
 }
 
 
 #pragma mark -- 工具方法
--(void)setRightBtnTopMargin:(CGFloat)rightBtnTopMargin
-{
-    _rightBtnTopMargin= rightBtnTopMargin;
-    _segerntInterface.rightBtnTopMargin = rightBtnTopMargin;
-}
-
--(void)setRightBtnRightMargin:(CGFloat)rightBtnRightMargin
-{
-    _rightBtnRightMargin = rightBtnRightMargin;
-    _segerntInterface.rightBtnRightMargin = rightBtnRightMargin;
-}
-
--(void)setRightBtnBottomMargin:(CGFloat)rightBtnBottomMargin
-{
-    _rightBtnBottomMargin = rightBtnBottomMargin;
-    _segerntInterface.rightBtnBottomMargin = rightBtnBottomMargin;
-}
+//-(void)setRightBtnTopMargin:(CGFloat)rightBtnTopMargin
+//{
+//    _rightBtnTopMargin= rightBtnTopMargin;
+//    _segerntInterface.rightBtnTopMargin = rightBtnTopMargin;
+//}
+//
+//-(void)setRightBtnRightMargin:(CGFloat)rightBtnRightMargin
+//{
+//    _rightBtnRightMargin = rightBtnRightMargin;
+//    _segerntInterface.rightBtnRightMargin = rightBtnRightMargin;
+//}
+//
+//-(void)setRightBtnBottomMargin:(CGFloat)rightBtnBottomMargin
+//{
+//    _rightBtnBottomMargin = rightBtnBottomMargin;
+//    _segerntInterface.rightBtnBottomMargin = rightBtnBottomMargin;
+//}
 
 // 图片转换颜色
 + (UIImage *)imageWithColor:(UIColor *)color
@@ -451,40 +450,6 @@
     return image;
 }
 
-/*!
- *  通过16进制计算颜色
- *  16机制
- *  颜色对象
- */
-+ (UIColor *)colorFromHexRGB:(NSString *)inColorString
-{
-    UIColor *result = nil;
-    unsigned int colorCode = 0;
-    unsigned char redByte, greenByte, blueByte;
-    
-    if (nil != inColorString)
-    {
-        NSScanner *scanner = [NSScanner scannerWithString:inColorString];
-        (void) [scanner scanHexInt:&colorCode]; // ignore error
-    }
-    redByte = (unsigned char) (colorCode >> 16);
-    greenByte = (unsigned char) (colorCode >> 8);
-    blueByte = (unsigned char) (colorCode); // masks off high bits
-    result = [UIColor
-              colorWithRed: (float)redByte / 0xff
-              green: (float)greenByte/ 0xff
-              blue: (float)blueByte / 0xff
-              alpha:1.0];
-    return result;
-}
-
-+(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers;
-{
-    if ([controllers respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        controllers.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-
-}
 
 
 @end

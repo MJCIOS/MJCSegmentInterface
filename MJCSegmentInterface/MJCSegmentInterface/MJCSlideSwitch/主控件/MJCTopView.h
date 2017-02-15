@@ -11,15 +11,17 @@
 
 @interface MJCTopView : UIView
 
-
 @property (nonatomic,strong) UIColor *topBackgroundColor;
 
+@property (nonatomic,assign) BOOL topHidden;
 
--(void)settopHidden:(BOOL)topHidden;
+@property (nonatomic,assign) CGRect topFrame;
 
--(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesView:(UIView *)titlesView;
+@property (nonatomic,assign) CGFloat topHeight;
 
--(void)isTopFrame:(BOOL)isTopFrame settopFrame:(CGRect)topFrame topHegiht:(CGFloat)topHegiht titlesScroll:(UIScrollView *)titlesScroll;
+@property (nonatomic,strong) UIScrollView * titlesScrollView;
+
+@property (nonatomic,strong) UIView *titlesView;
 
 
 @end

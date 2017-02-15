@@ -35,30 +35,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+//    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+//    
     NSInteger style = 4;
     _style = style;
-
-    
+//
+//    
 //    NSArray *titlesArr = @[@"啦啦",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"啪啪"];
-    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *intoView = [segmentsface intoFaceView:SegMentInterfaceStyleNavBar];
-    
-    segmentsface.slideDelegate = self;
+    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
 
-    segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
+    segmentsface.slideDelegate = self;
+    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesNavBarStyle;
+    segmentsface.MJCIndicatorStyle = MJCIndicatorItemTextStyle;
     
 //    segmentsface.childViewScollAnimal = YES;//是否有滚动动画
-//    segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
+    segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     
     //子界面大小
 //    segmentsface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
-//    segmentsface.titleScrollColor = [UIColor redColor];
-//    segmentsface.titleScrollframe = CGRectMake(0,0,MJCScreenWidth,30);//滚动标题的位置大小
-    segmentsface.titlesViewColor = [UIColor orangeColor];//标题栏颜色
+    segmentsface.titleScrollColor = [UIColor whiteColor];
+    segmentsface.titleScrollframe = CGRectMake(0,0,150,30);//滚动标题的位置大小
+    segmentsface.titlesViewColor = [UIColor whiteColor];//标题栏颜色
     segmentsface.titlesViewframe = CGRectMake(0,0,150,30);//普通标题栏的大小
     
     
@@ -100,13 +101,18 @@
     segmentsface.verticalLineHidden = NO;
     
     
-    UIView *titlesView =  [segmentsface intoTitlesFace:titlesArr];
+    UIScrollView *titlesView =  [segmentsface intoFaceScoll:nil];
     titlesView.layer.masksToBounds = YES;
-    titlesView.layer.cornerRadius = 3;
+    titlesView.layer.cornerRadius = 5;
+    titlesView.layer.borderWidth = 2;//边框线
+    CGColorRef borderColorRef = [UIColor whiteColor].CGColor;//边框线颜色
+    titlesView.layer.borderColor = borderColorRef;
     
     self.navigationItem.titleView = titlesView;
     
-    [self.view addSubview:intoView];
+    [segmentsface intoTitlesArray:titlesArr];
+    
+    [self.view addSubview:segmentsface];
 
     
     //添加控制器

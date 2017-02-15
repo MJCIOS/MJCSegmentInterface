@@ -18,84 +18,102 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [MJCSegmentFaceControl useNavOrTabbarNotBeCover:self];
+    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
 //    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = [segmentsface intoFaceView:SegMentInterfaceStyleClassic];
+    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+
     segmentsface.slideDelegate = self;
-//    segmentsface.interFaceControlStyle = SegMentInterfaceStyleClassic;//样式
-    segmentsface.indicatorStyle = SegMentIndicatorItemTextStyle;
-    segmentsface.scrollTitlesEnabled = YES;//标题栏是否滚动
+    
+    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
+    segmentsface.MJCImageEffectStyle = MJCImageClassicStyle;
+    
+    
     segmentsface.childViewScollAnimal = YES;//是否有滚动动画
     segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     
     //(自定义)子界面大小
-//    segmentsface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
+//    segmentsface.childViewframe = CGRectMake(10,60 + 10, MJCScreenWidth,MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
-//    segmentsface.titleCenterMargin = 20;//标题居中间距
     segmentsface.titleScrollColor = [UIColor redColor];
-//    segmentsface.titleScrollframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//(自定义)滚动标题的位置大小
-    segmentsface.titlesViewColor = [UIColor redColor];//标题栏颜色
-//    segmentsface.titlesViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//(自定义)普通标题栏的大小
-    
+//    segmentsface.titleScrollframe = CGRectMake(10,60,MJCScreenWidth - 20,50);//(自定义)滚动标题的位置大小
+
+    //    segmentsface.titlesViewColor = [UIColor redColor];//标题栏颜色
+//    segmentsface.titlesViewframe = CGRectMake(10,80, MJCScreenWidth - 20, 50);//(自定义)普通标题栏的大小
     
 #pragma mark -- 底部指示器属性
-    //    segmentsface.indicatorWidth = 80;
-    //    segmentsface.indicatorColor = [UIColor purpleColor];
-    //    segmentsface.indicatorFrame = CGRectMake(0,0,100, 10);
-    //    segmentsface.indicatorHidden = NO;
+//    segmentsface.MJCIndicatorStyle = MJCIndicatorItemTextStyle;
+//        segmentsface.indicatorWidth = 80;
+//    segmentsface.indicatorHeight = 10;
+//        segmentsface.indicatorColor = [UIColor whiteColor];
+//        segmentsface.indicatorFrame = CGRectMake(0,20,200,20);
+//        segmentsface.indicatorHidden = YES;
     
 #pragma mark -- 顶部横线属性
-    segmentsface.topViewColor = [UIColor purpleColor];
-    segmentsface.topViewHegiht = 5;
-    segmentsface.topViewHidden = NO;
-    //    segmentsface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
+//    segmentsface.topViewColor = [UIColor purpleColor];
+//    segmentsface.topViewHegiht = 10;
+//    segmentsface.topViewHidden = NO;
+//    segmentsface.topViewFrame = CGRectMake(0,30,MJCScreenWidth, 20);
     
 #pragma mark -- 底部横线属性
-    segmentsface.bottomViewColor = [UIColor blackColor];
-    segmentsface.bottomViewHegiht = 5;
-    segmentsface.bottomViewHidden = NO;
-    //    segmentsface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
+//    segmentsface.bottomViewColor = [UIColor blackColor];
+//    segmentsface.bottomViewHegiht = 5;
+//    segmentsface.bottomViewHidden = NO;
+//    segmentsface.bottomViewFrame = CGRectMake(0,30,MJCScreenWidth,10);
     
 #pragma mark -- 标签选项属性
-    segmentsface.tabItemBackColor = [UIColor orangeColor];
-    segmentsface.tabItemWidth = 100;//(只限于)滚动标题使用
-    //    segmentsface.tabItemFrame = CGRectMake(10,10,50, 40);
-    segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
-    segmentsface.tabItemTitleNormalColor = [UIColor purpleColor];
-    segmentsface.tabItemTitleSelectedColor = [MJCSegmentFaceControl colorFromHexRGB:@"#CC00FF"];
-    segmentsface.tabItemImageNormal = [MJCSegmentFaceControl imageWithColor:[[UIColor yellowColor] colorWithAlphaComponent:0.3]];
-    segmentsface.tabItemImageSelected = [MJCSegmentFaceControl imageWithColor:[[UIColor blueColor] colorWithAlphaComponent:0.3]];
+//    segmentsface.tabItemBackColor = [UIColor orangeColor];
+//    segmentsface.tabItemWidth = 120;//(只限于)滚动标题使用
+//    segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:20];
+//    segmentsface.tabItemTitleNormalColor = [UIColor purpleColor];
+//    segmentsface.tabItemTitleSelectedColor = [UIColor blackColor];
     
-    //    NSArray *imageArr = @[@"555",@"666",@"567",@"啪啪",@"啪啪"];
-    //    NSArray *imageArr1 = @[@"999",@"888",@"777",@"啪啪",@"啪啪"];
-    //    segmentsface.tabItemImageNormalArray = imageArr;
-    //    segmentsface.tabItemImageSelectedArray = imageArr1;
+    
+//    segmentsface.tabItemBackImageNormal = [MJCSegmentInterface imageWithColor:[[UIColor yellowColor] colorWithAlphaComponent:0.3]];
+//    
+//    segmentsface.tabItemBackImageSelected =[MJCSegmentInterface imageWithColor:[[UIColor blueColor] colorWithAlphaComponent:0.3]];
+
+    
+//        NSArray *imageArr = @[@"555",@"666",@"567",@"啪啪",@"啪啪"];
+//        NSArray *imageArr1 = @[@"999",@"888",@"777",@"啪啪",@"啪啪"];
+//        segmentsface.tabItemBackImageNormalArray = imageArr;
+//        segmentsface.tabItemBackImageSelectedArray = imageArr1;
+
+//    segmentsface.tabItemImageNormal = [UIImage imageNamed:@"bulb-2"];
+//    segmentsface.tabItemImageSelected = [UIImage imageNamed:@"bulb"];
+    
+//    NSArray *imageArr = @[@"bulb-2",
+//                          @"cloud-2",
+//                          @"diamond-2",
+//                          @"food-2",
+//                          @"heart-2"
+//                          ];
+//    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
+//    segmentsface.tabItemImageNormalArray = imageArr;
+//    segmentsface.tabItemImageSelectedArray = imageArr1;
+    
     
     
 #pragma mark -- 竖线属性
-    segmentsface.verticalLineColor = [UIColor purpleColor];
-    segmentsface.verticalLineHegiht = 30;
-    segmentsface.verticalLineHidden = NO;
+//    segmentsface.verticalLineColor = [UIColor whiteColor];
+//    segmentsface.verticalLineHegiht = 30;
+//    segmentsface.verticalLineHidden = YES;
+    
     
 #pragma mark -- 最右边滚动切换按钮属性
     segmentsface.rightMostBtnShow = YES;
     segmentsface.isOpenJump = YES;
-    //    segmentsface.rightMostBtnFrame = CGRectMake(MJCScreenWidth-50/2 - 15,15,25,50 - 10);
-    segmentsface.rightMostBtnColor = [UIColor clearColor];
-    segmentsface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];
-    segmentsface.mostLeftPosition = [UIImage imageNamed:@"向左箭头"];
-    segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];
-    
-//    segmentsface.rightBtnTopMargin = 10;
-//    segmentsface.rightBtnRightMargin = 0;
+//        segmentsface.rightMostBtnFrame = CGRectMake(MJCScreenWidth-50/2 - 15,15,25,50 - 10);
+    segmentsface.rightMostBtnColor = [UIColor redColor];
+    segmentsface.rightMostBtnImage = [UIImage imageNamed:@"567"];
+    segmentsface.mostLeftSide = [UIImage imageNamed:@"向左箭头"];
+    segmentsface.mostRightSide = [UIImage imageNamed:@"向右箭头"];
     
     
     [segmentsface intoTitlesArray:titlesArr];
-    [self.view addSubview:view1];
+    [self.view addSubview:segmentsface];
     
     
     /** 添加控制器 */
