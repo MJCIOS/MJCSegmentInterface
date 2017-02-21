@@ -46,7 +46,6 @@
     
     segmentInterface.tabItemBackColor = [UIColor purpleColor];
     
-    
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];

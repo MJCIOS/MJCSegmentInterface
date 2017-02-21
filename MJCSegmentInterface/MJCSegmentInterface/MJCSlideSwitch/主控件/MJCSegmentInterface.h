@@ -65,6 +65,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 @interface MJCSegmentInterface : UIView
 
+/** 标题按钮缩放效果 */
+@property (nonatomic,assign) BOOL zoomBigEnabled;
 
 /** 标题栏是否滚动 */
 @property (nonatomic,assign) BOOL titlesScrollEnabled;
@@ -209,6 +211,27 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,strong) UIFont *tabItemTitlesfont;
 
 
+#pragma mark -- 右边按钮
+/** 最右边按钮是否隐藏 */
+@property (nonatomic,getter=rightMostBtnHidden) BOOL rightMostBtnHidden;
+
+/** 最右边按钮的颜色 */
+@property (nonatomic,strong) UIColor *rightMostBtnColor;
+
+/** 最右边按钮的图片 */
+@property (nonatomic,strong) UIImage *rightMostBtnImage;
+/** 最右边按钮的大小位置 */
+@property(nonatomic,assign) CGRect  rightMostBtnFrame;
+
+
+/** 最左边位置的时候最左边按钮的图片 */
+@property (nonatomic,strong) UIImage *rightMostLeftSide;
+/** 最右边位置的时候的最右边按钮的图片 */
+@property (nonatomic,strong) UIImage *rightMostRightSide;
+
+/** 是否开启跳转子界面最左边位置以及最右边位置 */
+@property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
+
 
 
 
@@ -237,26 +260,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 
-#pragma mark -- 右边按钮
-/** 最右边按钮是否隐藏 */
-@property (nonatomic,getter=rightMostBtnHidden) BOOL rightMostBtnHidden;
-
-/** 最右边按钮的颜色 */
-@property (nonatomic,strong) UIColor *rightMostBtnColor;
-
-/** 最右边按钮的图片 */
-@property (nonatomic,strong) UIImage *rightMostBtnImage;
-/** 最右边按钮的大小位置 */
-@property(nonatomic,assign) CGRect  rightMostBtnFrame;
-
-
-/** 最左边位置的时候最左边按钮的图片 */
-@property (nonatomic,strong) UIImage *rightMostLeftSide;
-/** 最右边位置的时候的最右边按钮的图片 */
-@property (nonatomic,strong) UIImage *rightMostRightSide;
-
-/** 是否开启跳转子界面最左边位置以及最右边位置 */
-@property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
 
 

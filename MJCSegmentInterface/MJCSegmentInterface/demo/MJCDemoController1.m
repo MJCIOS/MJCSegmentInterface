@@ -45,6 +45,8 @@
     segmentInterface.rightMostRightSide = [UIImage imageNamed:@"向右箭头"];
     segmentInterface.rightMostLeftSide = [UIImage imageNamed:@"向左箭头"];
     
+    segmentInterface.zoomBigEnabled = YES;
+    
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];

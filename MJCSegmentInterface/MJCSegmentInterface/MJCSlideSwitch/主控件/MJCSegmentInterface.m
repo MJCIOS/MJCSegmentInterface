@@ -453,14 +453,17 @@
 - (void)titleClick:(MJCTabItemButton *)titleButton
 {
     //按钮字体恢复
-//    self.firstTitleButton.transform = CGAffineTransformIdentity;
+    self.firstTitleButton.transform = CGAffineTransformIdentity;
     
     self.firstTitleButton.selected = NO;
     titleButton.selected = YES;
     self.firstTitleButton = titleButton;
     
-    //按钮字体放大
-//    titleButton.transform = CGAffineTransformMakeScale(1.1, 1.1);
+    
+    if (_zoomBigEnabled == YES) {
+        //按钮字体放大
+        titleButton.transform = CGAffineTransformMakeScale(1.1,1.1);
+    }
     
     [self setupChildViewScollAnimal:titleButton];//设置的动画效果
     
@@ -481,10 +484,12 @@
 
 #pragma mark -- <UIScrollViewDelegate>
 
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    [self setupTransformBtn:scrollView];
-//}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (_zoomBigEnabled == YES) {
+        [self setupTransformBtn:scrollView];
+    }
+}
 
 /**
  * 在scrollView滚动动画结束时, 就会调用这个方法
