@@ -47,7 +47,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-
+    
     if (_imageEffectStyle == MJCImageUpDownStyle) {
         
         self.imageView.mjc_y = 3;
@@ -116,7 +116,7 @@
 
 
 
--(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
+-(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle
 {
     _imageEffectStyle = imageStyle;
     
@@ -126,14 +126,10 @@
     self.tag = arraycount;
     
     self.frame = CGRectMake(self.btnX, 0,self.btnW, self.btnH);
-
+    
     [self setTitle:titlesArr[arraycount] forState:UIControlStateNormal];
     
-    if (MJCSeMentTitleBarStyle != MJCSegMentTitlesScrollStyle) {
-        [titlesView addSubview:self];
-    }else{
-        [titlesScrollView addSubview:self];
-    }
+    [titlesScrollView addSubview:self];
 }
 
 
@@ -159,9 +155,9 @@
 -(void)setupTabItemNormalBackImageArray:(NSArray *)tabItemNormalBackImageArray buttonTag:(NSUInteger)buttonTag
 {
     if (tabItemNormalBackImageArray == nil) {
-    
+        
     }else{
-    
+        
         [self setBackgroundImage:[UIImage imageNamed:tabItemNormalBackImageArray[buttonTag]] forState:UIControlStateNormal];
     }
     
@@ -185,9 +181,6 @@
     self.layer.masksToBounds = layerMasksToBounds;
     self.layer.cornerRadius = layerCornerRadius;
 }
-
-
-
 
 
 @end

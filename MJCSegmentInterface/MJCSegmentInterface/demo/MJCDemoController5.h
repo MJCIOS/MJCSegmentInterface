@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJCCustomController : UIViewController
+@interface MJCDemoController5 : UIViewController
 
 @end

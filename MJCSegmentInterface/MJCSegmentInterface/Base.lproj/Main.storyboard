@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lKI-dy-38j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lKI-dy-38j">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,103 +37,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appStartBackImage" translatesAutoresizingMaskIntoConstraints="NO" id="BBd-9Q-13a"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appStartBackImage" translatesAutoresizingMaskIntoConstraints="NO" id="BBd-9Q-13a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izc-Lq-JXd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="azQ-nh-7k8"/>
                                 </constraints>
-                                <state key="normal" title="经典样式"/>
+                                <state key="normal" title="样式"/>
                                 <connections>
-                                    <action selector="button11:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxG-JW-pJ6"/>
+                                    <action selector="demo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IYj-wS-GeK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zu5-h2-dhk">
+                                <rect key="frame" x="0.0" y="164" width="375" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WwU-i0-gA9"/>
                                 </constraints>
                                 <state key="normal" title="样式2"/>
                                 <connections>
-                                    <action selector="button33:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PRI-tD-3tV"/>
+                                    <action selector="demo2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wrl-iD-j1t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdP-3c-lEu">
+                                <rect key="frame" x="0.0" y="214" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Re-Rd-L33"/>
                                 </constraints>
                                 <state key="normal" title="样式3"/>
                                 <connections>
-                                    <action selector="button44:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kPE-HR-PP1"/>
+                                    <action selector="demo3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eN4-JQ-byn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y90-V3-uo3">
+                                <rect key="frame" x="0.0" y="264" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8ft-l1-unO"/>
                                 </constraints>
                                 <state key="normal" title="样式4"/>
                                 <connections>
-                                    <action selector="button55:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhH-X0-CS9"/>
+                                    <action selector="demo4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mHz-N4-6au"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5u-St-gRP">
+                                <rect key="frame" x="0.0" y="114" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.36718569220000002" green="0.57269368009999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FuB-5p-h86"/>
                                 </constraints>
                                 <state key="normal" title="样式1"/>
                                 <connections>
-                                    <action selector="button22:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rg0-yM-WGQ"/>
+                                    <action selector="demo1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eXR-TG-xvh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.51000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cus-K1-iTe">
+                                <rect key="frame" x="0.0" y="314" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HGE-d2-B1e"/>
                                 </constraints>
-                                <state key="normal" title="自定义样式,几乎所有属性都列出来了,可以进去看代码"/>
+                                <state key="normal" title="样式5"/>
                                 <connections>
-                                    <action selector="custombutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2vQ-4B-ThT"/>
+                                    <action selector="demo5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zAJ-99-Z97"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Val-JV-osJ">
+                                <rect key="frame" x="0.0" y="364" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.36718569220000002" green="0.57269368009999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zt8-3x-yIg"/>
                                 </constraints>
-                                <state key="normal" title="样式5"/>
+                                <state key="normal" title="样式6"/>
                                 <connections>
-                                    <action selector="oterBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="usF-11-eK9"/>
+                                    <action selector="demo6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VC7-M8-kJx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfI-Ab-v9b">
+                                <rect key="frame" x="0.0" y="414" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HJ4-9s-VBM"/>
                                 </constraints>
-                                <state key="normal" title="样式6"/>
+                                <state key="normal" title="样式7"/>
                                 <connections>
-                                    <action selector="five:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNd-WB-2nD"/>
+                                    <action selector="demo7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K04-sk-FnL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUr-hu-MGo">
+                                <rect key="frame" x="0.0" y="464" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Wvr-Ty-csK"/>
                                     <constraint firstAttribute="height" constant="50" id="Xjy-5N-VgP"/>
                                 </constraints>
-                                <state key="normal" title="导航标题栏样式"/>
+                                <state key="normal" title="样式8"/>
                                 <connections>
-                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgf-w8-qbM"/>
+                                    <action selector="demo8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zCv-ey-dRp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAv-Lh-2xV">
+                                <rect key="frame" x="0.0" y="534" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="A6t-9I-Rst"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="样式9"/>
                                 <connections>
-                                    <action selector="ceshishi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3x6-G3-Ob8"/>
+                                    <action selector="demo9:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3MX-0n-5Jd"/>
                                 </connections>
                             </button>
                         </subviews>

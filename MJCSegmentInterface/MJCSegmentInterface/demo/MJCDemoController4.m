@@ -6,15 +6,15 @@
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "SegMentInterfaceStyleExceedUseVC.h"
+#import "MJCDemoController4.h"
 #import "MJCPrefixHeader.pch"
 
 
-@interface SegMentInterfaceStyleExceedUseVC ()
+@interface MJCDemoController4 ()
 
 @end
 
-@implementation SegMentInterfaceStyleExceedUseVC
+@implementation MJCDemoController4
 
 - (void)viewDidLoad {
     [super viewDidLoad];

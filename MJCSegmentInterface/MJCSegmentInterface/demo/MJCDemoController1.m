@@ -6,14 +6,14 @@
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "SegMentInterfaceStylePenetrateVC.h"
+#import "MJCDemoController1.h"
 #import "MJCPrefixHeader.pch"
 
-@interface SegMentInterfaceStylePenetrateVC ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoController1 ()<MJCSlideSwitchViewDelegate>
 
 @end
 
-@implementation SegMentInterfaceStylePenetrateVC
+@implementation MJCDemoController1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,35 +23,32 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //有导航栏或者tabbar时,保证标题栏不会被覆盖
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
     //添加标题栏
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     //创建标题栏控件
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     
-    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
-    segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.5];
-
-//        segmentInterface.titleScrollframe = CGRectMake(0,64, MJCScreenWidth,50);
-    
+    segmentInterface.titlesScrollEnabled = YES;
+    segmentInterface.titleViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.5];
     segmentInterface.childViewScollAnimal = YES;
-//    segmentInterface.tabItemWidth = 200;
+    //    segmentInterface.tabItemWidth = 200;
     segmentInterface.slideDelegate = self;
     segmentInterface.childScollEnabled = YES;
     segmentInterface.verticalLineHidden = YES;
-    segmentInterface.rightMostBtnShow = YES;
+    segmentInterface.rightMostBtnHidden = NO;
     segmentInterface.rightMostBtnColor = [UIColor purpleColor];
     segmentInterface.isOpenJump = YES;
-    segmentInterface.mostRightSide = [UIImage imageNamed:@"向右箭头"];
-    segmentInterface.mostLeftSide = [UIImage imageNamed:@"向左箭头"];
+    
+    segmentInterface.rightMostBtnImage = [UIImage imageNamed:@"向右箭头"];//默认图片
+    segmentInterface.rightMostRightSide = [UIImage imageNamed:@"向右箭头"];
+    segmentInterface.rightMostLeftSide = [UIImage imageNamed:@"向左箭头"];
     
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
-
+    
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
@@ -85,7 +82,7 @@
 
 -(void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-   
+    
     
     
 }
@@ -94,7 +91,7 @@
 {
     UITestViewController *vc = [UITestViewController new];
     [self.navigationController pushViewController:vc animated:YES];
-//    [self presentViewController:vc animated:YES completion:nil];
+    //    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

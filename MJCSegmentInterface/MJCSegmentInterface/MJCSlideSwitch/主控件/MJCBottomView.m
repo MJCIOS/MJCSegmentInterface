@@ -79,13 +79,13 @@
 -(void)setTitlesScrollView:(UIScrollView *)titlesScrollView
 {
     _titlesScrollView = titlesScrollView;
-
+    
     if (_bottomTag == 1) {
         self.mjc_width = self.frame.size.width;
     }else{
         self.mjc_y = titlesScrollView.mjc_height - self.mjc_height;
         self.mjc_width = titlesScrollView.contentSize.width;
-    }    
+    }
 }
 
 

@@ -29,15 +29,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     NSInteger style = 3;
     _style = style;
-
+    
     
     [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
+    segmentsface.titlesScrollEnabled = YES;
     segmentsface.MJCImageEffectStyle = MJCImageUpDownStyle;
     _segmentsface = segmentsface;
     segmentsface.slideDelegate = self;
@@ -46,8 +46,7 @@
     
     
 #pragma mark -- 标题栏的属性
-    segmentsface.titleScrollColor = [UIColor clearColor];
-    segmentsface.titlesViewColor = [UIColor clearColor];//标题栏颜色
+    segmentsface.titleViewColor = [UIColor clearColor];
     
 #pragma mark -- 标签选项属性
     segmentsface.tabItemWidth = 100;//这个是给滚动标题栏使用的
@@ -56,13 +55,13 @@
     segmentsface.tabItemTitleSelectedColor = [UIColor yellowColor];
     
     NSArray *imageArr =@[@"bulb-2",
-                          @"cloud-2",
-                          @"diamond-2",
-                          @"food-2",
-                          @"heart-2",
-                          @"phone-2",
-                          @"paperplane-2",
-                          @"like-2"];
+                         @"cloud-2",
+                         @"diamond-2",
+                         @"food-2",
+                         @"heart-2",
+                         @"phone-2",
+                         @"paperplane-2",
+                         @"like-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"paperplane",@"like"];
     
     segmentsface.tabItemImageNormalArray = imageArr;
@@ -118,7 +117,7 @@
         
     }else{
         [titleButton setTitle:@"请看" forState:UIControlStateNormal];
-
+        
     }
     
     
@@ -135,7 +134,7 @@
 
 -(void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-//    [self setupButton:button];
+    //    [self setupButton:button];
 }
 
 

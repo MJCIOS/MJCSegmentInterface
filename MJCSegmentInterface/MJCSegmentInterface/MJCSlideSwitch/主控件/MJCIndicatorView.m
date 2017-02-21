@@ -63,14 +63,14 @@
     _indicatorFrame = indicatorFrame;
     
     _frameTag = 1;
-
+    
     self.frame = indicatorFrame;
 }
 
 -(void)setIndicatorWidth:(CGFloat)indicatorWidth
 {
     _indicatorWidth = indicatorWidth;
-
+    
     _widthTag = 1;
     
     self.mjc_width = indicatorWidth;
@@ -100,13 +100,13 @@
         self.mjc_y = self.frame.origin.y;
         self.mjc_width = self.frame.size.width;
         self.mjc_height = self.frame.size.height;
-    
+        
     }else{
         
         if (_widthTag == 1) {
             
             self.mjc_width = self.mjc_width;
-        
+            
         }else{
             
             if (SegmentIndicatorStyle == MJCIndicatorItemStyle) {
@@ -119,7 +119,7 @@
         self.mjc_y = frameY;
         self.mjc_centerX = firstButton.mjc_centerX;
     }
-
+    
     
 }
 

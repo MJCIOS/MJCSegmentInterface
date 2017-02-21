@@ -1,5 +1,5 @@
 //
-//  SegMentInterfaceStyleClassic.h
+//  SegMentInterfaceStyleExceedUse.h
 //  MJCSlideSwitch
 //
 //  Created by mjc on 16/10/27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SegMentInterfaceStyleClassicVC : UIViewController
+@interface MJCDemoController4 : UIViewController
 
 @end

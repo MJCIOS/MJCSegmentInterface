@@ -1,45 +1,45 @@
 //
-//  SegMentInterfaceStyleMoreUse.m
+//  SegMentInterfaceStyleLess.m
 //  MJCSlideSwitch
 //
 //  Created by mjc on 16/10/27.
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "SegMentInterfaceStyleMoreUseVC.h"
+#import "MJCDemoController2.h"
 #import "MJCPrefixHeader.pch"
 
-@interface SegMentInterfaceStyleMoreUseVC ()
+
+@interface MJCDemoController2 ()<MJCSlideSwitchViewDelegate>
 
 @end
 
-@implementation SegMentInterfaceStyleMoreUseVC
+@implementation MJCDemoController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSInteger style = 1;
+    NSInteger style = 0;
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.view.backgroundColor = [UIColor redColor];
     //有导航栏或者tabbar时,保证标题栏不会被覆盖
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
+    //添加标题栏
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     
     //创建标题栏控件
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     
-    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
-
-    segmentInterface.titleScrollColor = [[UIColor blueColor]colorWithAlphaComponent:0.2];
+    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
     
     segmentInterface.verticalLineHidden = NO;
+    segmentInterface.slideDelegate = self;
     segmentInterface.childScollEnabled = YES;
-    segmentInterface.childViewScollAnimal = YES;
     
+    //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
@@ -61,17 +61,9 @@
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
     [segmentInterface intoChildViewController:vc4];
-    
-    UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc5];
-    
-    UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc6];
-    
-    UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
-    [segmentInterface intoChildViewController:vc7];
-    
 }
+
+
 
 
 @end

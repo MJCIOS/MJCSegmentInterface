@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SegMentInterfaceStyleLessVC : UIViewController
+@interface MJCDemoController2 : UIViewController
 
 @end

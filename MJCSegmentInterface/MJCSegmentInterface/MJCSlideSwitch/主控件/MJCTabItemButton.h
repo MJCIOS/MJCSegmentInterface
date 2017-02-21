@@ -11,8 +11,7 @@
 
 @interface MJCTabItemButton : UIButton
 
--(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesView:(UIView*)titlesView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
-
+-(void)arraycount:(NSUInteger)arraycount buttonW:(CGFloat)buttonW buttonH:(CGFloat)buttonH titlesScrollView:(UIScrollView*)titlesScrollView titlesArr:(NSArray *)titlesArr imageStyle:(MJCImageEffectStyles)imageStyle;
 
 
 @property (nonatomic,strong) UIFont *tabItemTitlesfont;

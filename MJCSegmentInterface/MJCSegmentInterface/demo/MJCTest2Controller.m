@@ -22,14 +22,13 @@
     [super viewDidLoad];
     
     NSInteger style = 0;
-        
-//    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
-
+    
+    //    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+    
     //添加标题栏
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     
-    _segmentFace.MJCSeMentTitleBarStyle = MJCSegMentTitlesScrollStyle;
-    
+    _segmentFace.titlesScrollEnabled = NO;
     _segmentFace.childScollEnabled = YES;
     _segmentFace.slideDelegate = self;
     _segmentFace.indicatorHidden = NO;
@@ -38,7 +37,6 @@
     _segmentFace.bottomViewColor = [UIColor blackColor];
     _segmentFace.bottomViewHidden=YES;
     _segmentFace.tabItemBackColor = [UIColor redColor];
-    _segmentFace.titlesViewColor = [[UIColor blueColor]colorWithAlphaComponent:0.3];
     
     //在添加标题栏之前做其他属性操作
     [_segmentFace intoTitlesArray:titlesArr];

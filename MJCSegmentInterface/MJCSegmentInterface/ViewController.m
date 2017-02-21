@@ -9,12 +9,12 @@
 
 #import "ViewController.h"
 
-#import "SegMentInterfaceStyleClassicVC.h"
-#import "SegMentInterfaceStyleLessVC.h"
-#import "SegMentInterfaceStylePenetrateVC.h"
-#import "SegMentInterfaceStyleMoreUseVC.h"
-#import "SegMentInterfaceStyleExceedUseVC.h"
-#import "MJCCustomController.h"
+#import "MJCDemoController.h"
+#import "MJCDemoController1.h"
+#import "MJCDemoController2.h"
+#import "MJCDemoController3.h"
+#import "MJCDemoController4.h"
+#import "MJCDemoController5.h"
 #import "MJCSegmentFaceController.h"
 #import "MJCImageViewController.h"
 #import "MJCTESTViewController.h"
@@ -33,51 +33,51 @@
 }
 
 
-- (IBAction)button11:(id)sender {
+- (IBAction)demo:(id)sender {
     
-    SegMentInterfaceStyleClassicVC *vc1 = [SegMentInterfaceStyleClassicVC new];
+    MJCDemoController *vc1 = [MJCDemoController new];
     
     [self.navigationController pushViewController:vc1 animated:YES];
     
-    
 }
-- (IBAction)button22:(id)sender {
-    SegMentInterfaceStylePenetrateVC *vc3 = [SegMentInterfaceStylePenetrateVC new];
+- (IBAction)demo1:(id)sender {
+    
+    MJCDemoController1 *vc3 = [MJCDemoController1 new];
     
     [self.navigationController pushViewController:vc3 animated:YES];
 
 }
-- (IBAction)button33:(id)sender {
+- (IBAction)demo2:(id)sender {
     
-    SegMentInterfaceStyleLessVC *vc2 = [SegMentInterfaceStyleLessVC new];
+    MJCDemoController2 *vc2 = [MJCDemoController2 new];
     
     [self.navigationController pushViewController:vc2 animated:YES];
 
     
 }
-- (IBAction)button44:(id)sender {
+- (IBAction)demo3:(id)sender {
     
-    SegMentInterfaceStyleMoreUseVC *vc4 = [SegMentInterfaceStyleMoreUseVC new];
+    MJCDemoController3 *vc4 = [MJCDemoController3 new];
     
     [self.navigationController pushViewController:vc4 animated:YES];
     
 }
-- (IBAction)button55:(id)sender {
+- (IBAction)demo4:(id)sender {
     
     
-    SegMentInterfaceStyleExceedUseVC *vc5 = [SegMentInterfaceStyleExceedUseVC new];
+    MJCDemoController4 *vc5 = [MJCDemoController4 new];
     
     [self.navigationController pushViewController:vc5 animated:YES];
     
 }
-- (IBAction)custombutton:(id)sender {
+- (IBAction)demo5:(id)sender {
     
-    MJCCustomController *custon = [MJCCustomController new];
+    MJCDemoController5 *custon = [MJCDemoController5 new];
     
     [self.navigationController pushViewController:custon animated:YES];
     
 }
-- (IBAction)oterBtn:(id)sender {
+- (IBAction)demo6:(id)sender {
     
     MJCSegmentFaceController *control = [MJCSegmentFaceController new];
     
@@ -85,22 +85,22 @@
     
 }
 
-- (IBAction)five:(id)sender {
+- (IBAction)demo7:(id)sender {
     MJCImageViewController *imageVC = [MJCImageViewController new];
     
     [self.navigationController pushViewController:imageVC animated:YES];
 }
-- (IBAction)test:(id)sender {
+
+- (IBAction)demo8:(id)sender {
     
     MJCTESTViewController *test = [MJCTESTViewController new];
     
     [self.navigationController pushViewController:test animated:YES];
     
 }
-- (IBAction)ceshishi:(id)sender {
+- (IBAction)demo9:(id)sender {
     
     MJCTest2Controller *viewVC = [MJCTest2Controller new];
-    
     
     [self.navigationController pushViewController:viewVC animated:YES];
     

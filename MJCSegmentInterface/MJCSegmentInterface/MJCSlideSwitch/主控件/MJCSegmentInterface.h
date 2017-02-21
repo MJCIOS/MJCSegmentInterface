@@ -21,15 +21,8 @@
 //标题样式
 typedef enum {
     MJCSegMentTitlesClassicStyle,//经典标题样式
-    MJCSegMentTitlesScrollStyle,//滚动标题样式
     MJCSegMentTitlesNavBarStyle//导航标题栏样式
 } MJCSeMentTitleBarStyles;
-
-////标题界面样式
-//typedef enum {
-//    MJCTitlesInterfaceStyleClassic,//经典样式
-//    MJCTitlesInterfaceStyleLess,//少用样式(格子竖线标题栏)
-//} MJCTitlesInterfaceStyles;
 
 //底部指示器样式
 typedef enum {
@@ -57,6 +50,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 //- (void)mjc_scrollViewDidEndDecelerating:(MJCSegmentInterface *)segmentInterface;
 
+-(void)mjc_DefaultClickSelectedSegmentIndex:(MJCSegmentInterface *)segmentInterface;
+
 /** 在拖拽scrollView滚动动画结束时, 就会调用这个方法  */
 - (void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface;
 
@@ -70,10 +65,14 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 @interface MJCSegmentInterface : UIView
 
+
+/** 标题栏是否滚动 */
+@property (nonatomic,assign) BOOL titlesScrollEnabled;
+
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
-#pragma mark -- 样式 
+#pragma mark -- 样式
 
 + (instancetype)segmentinitWithFrame:(CGRect)frame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 
@@ -91,25 +90,13 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 
 #pragma mark -- 标题栏设置创建和滚动标题栏的设置
-//***********************//
-
-/** 是否滚动标题 */
-//@property (nonatomic,getter=isScrollTitles) BOOL scrollTitlesEnabled;
-
-/** 标题栏Frame */
-@property(nonatomic,assign) CGRect titlesViewframe;
-
-/** 标题栏颜色 */
-@property (nonatomic,strong) UIColor *titlesViewColor;
-
 
 /** 滚动标题栏Frame */
-@property(nonatomic,assign) CGRect titleScrollframe;
+@property(nonatomic,assign) CGRect titleViewframe;
 
 /** 滚动标题栏颜色 */
-@property (nonatomic,strong) UIColor *titleScrollColor;
+@property (nonatomic,strong) UIColor *titleViewColor;
 
-//*******************//
 
 #pragma mark -- 右部竖线的属性设置
 //***********************//
@@ -189,8 +176,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 #pragma mark -- tabItem的属性设置
 
-//*******************//
-
+/** 设置默认点击的按钮,显示界面 */
 @property(nonatomic) NSInteger selectedSegmentIndex;
 
 /** tabItemWidth */
@@ -222,7 +208,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** tabItem文字大小 */
 @property (nonatomic,strong) UIFont *tabItemTitlesfont;
 
-//*******************//
 
 
 
@@ -230,20 +215,14 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 #pragma mark -- childView子界面的属性设置
 
 /** 添加控制器(添加控制器按照控制器添加的先后顺序与按钮对应的:比如说第一个按钮对应第一个添加的控制器)*/
-//@property (nonatomic,strong) UIViewController *addChildViewController;
-
 -(void)intoChildViewController:(UIViewController *)childViewController;
-
-
-
-
-
-//***************** 创建set方法 ****************//
-
 /**
  *  添加标题栏的方法
  */
 -(void)intoTitlesArray:(NSArray *)titlesArray;
+
+/** 创建标题栏的方法 */
+-(UIScrollView *)intoFaceView;
 
 
 
@@ -258,17 +237,9 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 
-/**
- *  添加子控制器的view
- */
-//-(void)addChildViewControllerView;
-
-
-//***************** 创建set方法 ****************//
-
 #pragma mark -- 右边按钮
 /** 最右边按钮是否隐藏 */
-@property (nonatomic,getter=rightMostBtnShow) BOOL rightMostBtnShow;
+@property (nonatomic,getter=rightMostBtnHidden) BOOL rightMostBtnHidden;
 
 /** 最右边按钮的颜色 */
 @property (nonatomic,strong) UIColor *rightMostBtnColor;
@@ -280,26 +251,13 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 
 /** 最左边位置的时候最左边按钮的图片 */
-@property (nonatomic,strong) UIImage *mostLeftSide;
+@property (nonatomic,strong) UIImage *rightMostLeftSide;
 /** 最右边位置的时候的最右边按钮的图片 */
-@property (nonatomic,strong) UIImage *mostRightSide;
+@property (nonatomic,strong) UIImage *rightMostRightSide;
 
 /** 是否开启跳转子界面最左边位置以及最右边位置 */
 @property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
-///** 最右边按钮的顶部间距 */
-//@property (nonatomic,assign) CGFloat rightBtnTopMargin;
-//
-///** 最右边按钮的底部间距 */
-//@property (nonatomic,assign) CGFloat rightBtnBottomMargin;
-//
-///** 最右边按钮的右边间距 */
-//@property (nonatomic,assign) CGFloat rightBtnRightMargin;
-
-
--(UIView *)intoFaceView:(NSArray *)titlesArr;
-
--(UIScrollView *)intoFaceScoll:(NSArray *)titlesArr;
 
 
 

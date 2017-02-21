@@ -8,7 +8,6 @@
 
 #import "MJCSegmentFaceController.h"
 #import "MJCPrefixHeader.pch"
-#import "MJCSegmentFaceControl.h"
 
 @interface MJCSegmentFaceController ()<MJCSlideSwitchViewDelegate>
 
@@ -21,8 +20,8 @@
     
     NSInteger style = 2;
     
-
-//    //有导航栏或者tabbar时,保证标题栏不会被覆盖
+    
+    //    //有导航栏或者tabbar时,保证标题栏不会被覆盖
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -39,34 +38,31 @@
     segmentsface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
-    segmentsface.titleScrollColor = [UIColor redColor];
-    segmentsface.titleScrollframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
-    segmentsface.titlesViewColor = [UIColor redColor];//标题栏颜色
-    segmentsface.titlesViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//普通标题栏的大小
-    
+    segmentsface.titleViewColor = [UIColor redColor];
+    segmentsface.titleViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
     
 #pragma mark -- 底部指示器属性
-//    segmentsface.indicatorWidth = 80;
-//    segmentsface.indicatorColor = [UIColor purpleColor];
-//    segmentsface.indicatorFrame = CGRectMake(0,0,100, 10);
-//    segmentsface.indicatorHidden = NO;
+    //    segmentsface.indicatorWidth = 80;
+    //    segmentsface.indicatorColor = [UIColor purpleColor];
+    //    segmentsface.indicatorFrame = CGRectMake(0,0,100, 10);
+    //    segmentsface.indicatorHidden = NO;
     
 #pragma mark -- 顶部横线属性
     segmentsface.topViewColor = [UIColor purpleColor];
     segmentsface.topViewHegiht = 5;
     segmentsface.topViewHidden = NO;
-//    segmentsface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
+    //    segmentsface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
     
 #pragma mark -- 底部横线属性
     segmentsface.bottomViewColor = [UIColor blackColor];
     segmentsface.bottomViewHegiht = 5;
     segmentsface.bottomViewHidden = NO;
-//    segmentsface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
+    //    segmentsface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
     
 #pragma mark -- 标签选项属性
     segmentsface.tabItemBackColor = [UIColor orangeColor];
     segmentsface.tabItemWidth = 80;//这个是给滚动标题栏使用的
-//    segmentsface.tabItemFrame = CGRectMake(10,10,50, 40);
+    //    segmentsface.tabItemFrame = CGRectMake(10,10,50, 40);
     segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     segmentsface.tabItemTitleNormalColor = [UIColor purpleColor];
     segmentsface.tabItemTitleSelectedColor = [UIColor redColor];
@@ -74,10 +70,10 @@
     segmentsface.tabItemBackImageSelected = [UIImage imageNamed:@"diamond-2"];
     
     NSArray *imageArr = @[@"123",
-                           @"234",
-                           @"345",
-                           @"456",
-                           @"567"];
+                          @"234",
+                          @"345",
+                          @"456",
+                          @"567"];
     NSArray *imageArr1 = @[@"666",@"777",@"888",@"999",@"1111"];
     
     segmentsface.tabItemBackImageNormalArray = imageArr;
@@ -112,7 +108,7 @@
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
     [segmentsface intoChildViewController:vc4];
     
- 
+    
 }
 
 
@@ -123,15 +119,15 @@
     }else{
         [titleButton setTitle:@"请看代码" forState:UIControlStateNormal];
     }
-
+    
 }
 
 -(void)mjc_MostClickEvent:(UIButton *)rightMostButton segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
     UITestViewController *vc = [UITestViewController new];
-//        [self.navigationController pushViewController:vc animated:YES];
+    //        [self.navigationController pushViewController:vc animated:YES];
     [self presentViewController:vc animated:YES completion:nil];
-
+    
 }
 
 -(void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface
