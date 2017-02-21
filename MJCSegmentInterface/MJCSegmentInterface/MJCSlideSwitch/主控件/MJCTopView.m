@@ -22,10 +22,8 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor  = [[UIColor blackColor]colorWithAlphaComponent:0.1];
-        self.hidden = YES;
         self.mjc_x = 0;
         self.mjc_y = 0;
-        self.mjc_height = 1;
     }
     
     return self;
@@ -57,16 +55,6 @@
     self.mjc_height = topHeight;
 }
 
--(void)setTitlesView:(UIView *)titlesView
-{
-    _titlesView = titlesView;
-    
-    if (_topTag == 1) {
-        self.mjc_width = self.frame.size.width;
-    }else{
-        self.mjc_width = titlesView.mjc_width;
-    }
-}
 
 -(void)setTitlesScrollView:(UIScrollView *)titlesScrollView
 {

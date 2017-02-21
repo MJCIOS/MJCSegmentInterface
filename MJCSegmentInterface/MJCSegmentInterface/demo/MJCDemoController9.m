@@ -6,17 +6,17 @@
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCTest2Controller.h"
+#import "MJCDemoController9.h"
 #import "MJCSegmentInterface.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCTest2Controller ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoController9 ()<MJCSlideSwitchViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MJCSegmentInterface *segmentFace;
 
 @end
 
-@implementation MJCTest2Controller
+@implementation MJCDemoController9
 
 - (void)viewDidLoad {
     [super viewDidLoad];

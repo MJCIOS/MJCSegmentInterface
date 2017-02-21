@@ -28,11 +28,12 @@
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
     
-    segmentInterface.selectedSegmentIndex = 1;
-    
+    segmentInterface.indicatorHidden = NO;
+    segmentInterface.titleViewColor = [UIColor redColor];
+//    segmentInterface.tabItemBackColor = [UIColor redColor];
     segmentInterface.childScollEnabled = YES;
     segmentInterface.childViewScollAnimal = YES;
-    segmentInterface.verticalLineHidden = YES;
+//    segmentInterface.verticalLineHidden = YES;
     segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];//添加标题栏

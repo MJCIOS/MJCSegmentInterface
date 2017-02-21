@@ -15,10 +15,11 @@
 #import "MJCDemoController3.h"
 #import "MJCDemoController4.h"
 #import "MJCDemoController5.h"
-#import "MJCSegmentFaceController.h"
-#import "MJCImageViewController.h"
-#import "MJCTESTViewController.h"
-#import "MJCTest2Controller.h"
+#import "MJCDemoController6.h"
+#import "MJCDemoController7.h"
+#import "MJCDemoController8.h"
+#import "MJCDemoController9.h"
+
 
 @interface ViewController ()
 
@@ -79,28 +80,28 @@
 }
 - (IBAction)demo6:(id)sender {
     
-    MJCSegmentFaceController *control = [MJCSegmentFaceController new];
+    MJCDemoController6 *control = [MJCDemoController6 new];
     
     [self.navigationController pushViewController:control animated:YES];
     
 }
 
 - (IBAction)demo7:(id)sender {
-    MJCImageViewController *imageVC = [MJCImageViewController new];
+    MJCDemoController7 *imageVC = [MJCDemoController7 new];
     
     [self.navigationController pushViewController:imageVC animated:YES];
 }
 
 - (IBAction)demo8:(id)sender {
     
-    MJCTESTViewController *test = [MJCTESTViewController new];
+    MJCDemoController8 *test = [MJCDemoController8 new];
     
     [self.navigationController pushViewController:test animated:YES];
     
 }
 - (IBAction)demo9:(id)sender {
     
-    MJCTest2Controller *viewVC = [MJCTest2Controller new];
+    MJCDemoController9 *viewVC = [MJCDemoController9 new];
     
     [self.navigationController pushViewController:viewVC animated:YES];
     

@@ -6,13 +6,13 @@
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "MJCTESTViewController.h"
+#import "MJCDemoController8.h"
 #import "MJCChildScrollView.h"
 #import "MJCSegmentInterface.h"
 #import "MJCPrefixHeader.pch"
 
 
-@interface MJCTESTViewController ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoController8 ()<MJCSlideSwitchViewDelegate>
 
 
 
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation MJCTESTViewController
+@implementation MJCDemoController8
 
 - (void)viewDidLoad {
     [super viewDidLoad];

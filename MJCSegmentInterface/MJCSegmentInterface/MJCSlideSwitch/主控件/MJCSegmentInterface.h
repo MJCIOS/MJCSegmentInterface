@@ -179,7 +179,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 设置默认点击的按钮,显示界面 */
 @property(nonatomic) NSInteger selectedSegmentIndex;
 
-/** tabItemWidth */
+/** tabItemWidth 只用于滚动栏 */
 @property (nonatomic,assign) CGFloat tabItemWidth;
 
 /** tabItem按钮的普通状态下背景图片 */

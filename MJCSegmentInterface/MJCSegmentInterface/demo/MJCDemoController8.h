@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJCTESTViewController : UIViewController
+@interface MJCDemoController8 : UIViewController
 
 @end

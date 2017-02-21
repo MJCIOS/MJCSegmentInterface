@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJCSegmentFaceController : UIViewController
+@interface MJCDemoController6 : UIViewController
 
 @end

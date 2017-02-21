@@ -34,6 +34,8 @@
     //创建标题栏控件
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     _segmentInterface = segmentInterface;
+
+    segmentInterface.titleViewColor = [UIColor orangeColor];
     
     segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
     segmentInterface.titleViewframe = CGRectMake(0,64,MJCScreenWidth,50);
@@ -41,13 +43,8 @@
     segmentInterface.childScollEnabled = YES;
     segmentInterface.verticalLineHidden = YES;
 //    segmentInterface.slideDelegate = self;
-    segmentInterface.indicatorHidden = NO;
-    //    segmentInterface.topViewHidden = NO;
-    //    segmentInterface.bottomViewHidden= NO;
-    segmentInterface.indicatorColor = [UIColor whiteColor];
-    segmentInterface.topViewColor = [UIColor redColor];
-    segmentInterface.bottomViewColor = [UIColor blackColor];
-    segmentInterface.tabItemBackColor = [UIColor redColor];
+    
+    segmentInterface.tabItemBackColor = [UIColor purpleColor];
     
     
     //在添加标题栏之前做其他属性操作
@@ -72,7 +69,7 @@
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
     [segmentInterface intoChildViewController:vc4];
     
-    _segmentInterface.selectedSegmentIndex = 2;
+//    _segmentInterface.selectedSegmentIndex = 2;
     
 }
 

@@ -17,7 +17,6 @@
 #import "MJCTitlesScollView.h"
 #import "MJCTabItemButton.h"
 
-
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
 @property (nonatomic,strong) UIViewController *viewController;
@@ -58,7 +57,6 @@
 /** 界面滚动动画时间 */
 @property (nonatomic,assign) NSTimeInterval scollAnimal;
 
-
 /** 数组count */
 @property (nonatomic,strong) NSArray *countArr;
 
@@ -88,6 +86,13 @@
     [self setupData];
 }
 
+- (UIViewController *)viewController:(UIView *)view{
+    UIResponder *responder = view;
+    while ((responder = [responder nextResponder]))
+        if ([responder isKindOfClass: [UIViewController class]])
+            return (UIViewController *)responder;
+    return nil;
+}
 
 
 - (NSMutableArray *)titleButtons
@@ -184,14 +189,6 @@
     return interFaceView;
 }
 
-- (UIViewController *)viewController:(UIView *)view{
-    UIResponder *responder = view;
-    while ((responder = [responder nextResponder]))
-        if ([responder isKindOfClass: [UIViewController class]])
-            return (UIViewController *)responder;
-    return nil;
-}
-
 -(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
     _selectedSegmentIndex = selectedSegmentIndex;
@@ -244,14 +241,10 @@
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
     self.scrollView.delegate = self;
+    self.scrollView.childScollEnabled = _childScollEnabled;
     [self.scrollView setupTitlesScrollFrame:_titleViewframe MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle];
     [self.scrollView setupChildContenSize:scollViewArr];
     [self addSubview:self.scrollView];
-}
--(void)setChildScollEnabled:(BOOL)childScollEnabled
-{
-    _childScollEnabled = childScollEnabled;
-    self.scrollView.childScollEnabled = childScollEnabled;
 }
 -(void)setChildViewframe:(CGRect)childViewframe
 {
@@ -271,33 +264,22 @@
     [self setupBottomView:_titlesScrollView];
     [self setupindicatorView:_titlesScrollView];
     [self setupRightButton];
-    
 }
+
 #pragma mark -- 最右边按钮
 -(void)setupRightButton
 {
+    self.rightMostButton.rightBtnHidden = _rightMostBtnHidden;
+    self.rightMostButton.rightBtnBackColor = _rightMostBtnColor;
     [self. rightMostButton setupRightFrame:self.titlesButton titlesScrollView:self.titlesScrollView];
     [self.rightMostButton addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.rightMostButton];
 }
--(void)setRightMostBtnColor:(UIColor *)rightMostBtnColor
-{
-    _rightMostBtnColor = rightMostBtnColor;
-    self.rightMostButton.rightBtnBackColor = rightMostBtnColor;
-}
-
--(void)setRightMostBtnHidden:(BOOL)rightMostBtnHidden
-{
-    _rightMostBtnHidden = rightMostBtnHidden;
-    
-    self.rightMostButton.rightBtnHidden = rightMostBtnHidden;
-}
 -(void)setRightMostBtnImage:(UIImage *)rightMostBtnImage
-{
+{   //为了修改它第0页和最后一页而重写它的set方法
     _rightMostBtnImage = rightMostBtnImage;
     self.rightMostButton.rightMostBtnImage = rightMostBtnImage;
 }
-
 -(void)setRightMostBtnFrame:(CGRect)rightMostBtnFrame
 {
     _rightMostBtnFrame = rightMostBtnFrame;
@@ -307,23 +289,12 @@
 #pragma mark --创建滚动标题栏数据
 -(void)setupScrollTitlesView
 {
+    self.titlesScrollView.titlesScrollColor = _titleViewColor;
+    self.titlesScrollView.titlesScrollFrame = _titleViewframe;
     if (_MJCSeMentTitleBarStyle != MJCSegMentTitlesNavBarStyle) {
         [self addSubview:self.titlesScrollView];
         return;
     }
-}
-
--(void)setTitleViewColor:(UIColor *)titleViewColor
-{
-    _titleViewColor = titleViewColor;
-    
-    self.titlesScrollView.titlesScrollColor = titleViewColor;
-}
--(void)setTitleViewframe:(CGRect)titleViewframe
-{
-    _titleViewframe = titleViewframe;
-    
-    self.titlesScrollView.titlesScrollFrame = titleViewframe;
 }
 
 #pragma mark -- 创建标题按钮数据
@@ -332,9 +303,11 @@
     if (_titlesScrollEnabled == NO) {
         self.tabItemW = _titlesScrollView.mjc_width / titlesArray.count;
         self.tabItemH = _titlesScrollView.mjc_height;
+        self.titlesScrollView.contentSize = self.titlesScrollView.mjc_size;
     }else{
         self.tabItemW = _tabItemWidth;
         self.tabItemH = _titlesScrollView.mjc_height;
+        self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _tabItemW, 0);
     }
     
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
@@ -364,15 +337,7 @@
         
         [self setupRightView:i titlesArr:titlesArray];
     }
-    
-    if (_titlesScrollEnabled == YES) {
-        self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _tabItemW, 0);
-    }else{
-        self.titlesScrollView.contentSize = self.titlesScrollView.mjc_size;
-    }
-    
 }
-
 #pragma mark -- 右边竖线的设置创建
 -(void)setupRightView:(NSUInteger)inter titlesArr:(NSArray *)titlesArr
 {
@@ -387,60 +352,30 @@
 #pragma mark -- 顶部横线的设置创建
 -(void)setupTopView:(MJCTitlesScollView *)titleView
 {
-    self.topView.titlesScrollView = self.titlesScrollView;
+    self.topView.topBackgroundColor = _topViewColor;
+    self.topView.titlesScrollView = titleView;
+    self.topView.topHeight = _topViewHegiht;
+    self.topView.topHidden = _topViewHidden;
     [_titlesScrollView addSubview:self.topView];
 }
--(void)setTopViewHidden:(BOOL)topViewHidden
-{
-    _topViewHidden = topViewHidden;
-    self.topView.topHidden = topViewHidden;
-}
-
--(void)setTopViewColor:(UIColor *)topViewColor
-{
-    _topViewColor = topViewColor;
-    self.topView.topBackgroundColor = topViewColor;
-}
-
--(void)setTopViewHegiht:(CGFloat)topViewHegiht
-{
-    _topViewHegiht = topViewHegiht;
-    self.topView.topHeight = topViewHegiht;
-}
-
 -(void)setTopViewFrame:(CGRect)topViewFrame
 {
     _topViewFrame = topViewFrame;
     self.topView.topFrame = topViewFrame;
 }
-
 #pragma mark -- 底部横线的设置创建
--(void)setupBottomView:(UIView *)titleView
+-(void)setupBottomView:(UIScrollView *)titleView
 {
-    self.bottomView.titlesScrollView = self.titlesScrollView;
+    self.bottomView.bottomHeight = _bottomViewHegiht;
+    self.bottomView.bottomBackgroundColor = self.bottomViewColor;
+    self.bottomView.titlesScrollView = titleView;
+    self.bottomView.bottomHidden = _bottomViewHidden;
     [self.titlesScrollView addSubview:self.bottomView];
 }
-
--(void)setBottomViewHidden:(BOOL)bottomViewHidden
-{
-    _bottomViewHidden = bottomViewHidden;
-    self.bottomView.bottomHidden = bottomViewHidden;
-}
--(void)setBottomViewColor:(UIColor *)bottomViewColor
-{
-    _bottomViewColor = bottomViewColor;
-    self.bottomView.bottomBackgroundColor = bottomViewColor;
-}
-
 -(void)setBottomViewFrame:(CGRect)bottomViewFrame
 {
     _bottomViewFrame = bottomViewFrame;
     self.bottomView.bottomFrame = bottomViewFrame;
-}
--(void)setBottomViewHegiht:(CGFloat)bottomViewHegiht
-{
-    _bottomViewHegiht = bottomViewHegiht;
-    self.bottomView.bottomHeight = bottomViewHegiht;
 }
 
 #pragma mark -- 底部指示器创建设置
@@ -449,55 +384,68 @@
     [self.firstTitleButton.titleLabel sizeToFit];
     self.firstTitleButton.selected = YES;
     
+    self.indicatorView.indicatorHidden = _indicatorHidden;
+    self.indicatorView.indicatorHeight = _indicatorHeight;
+    
     [self.indicatorView titlesScroll:self.titlesScrollView firstButton:_firstTitleButton SegmentInterFaceStyle:_MJCIndicatorStyle];
+    
     [self.titlesScrollView addSubview:self.indicatorView];
 }
-
--(void)setIndicatorHidden:(BOOL)indicatorHidden
-{
-    _indicatorHidden = indicatorHidden;
-    
-    self.indicatorView.indicatorHidden = indicatorHidden;
-}
-
 -(void)setIndicatorColor:(UIColor *)indicatorColor
 {
     _indicatorColor = indicatorColor;
-    
     self.indicatorView.indicatorBackgroundColor = indicatorColor;
 }
-
--(void)setIndicatorHeight:(CGFloat)indicatorHeight
-{
-    _indicatorHeight = indicatorHeight;
-    
-    self.indicatorView.indicatorHeight = indicatorHeight;
-}
-
 -(void)setIndicatorWidth:(CGFloat)indicatorWidth
 {
     _indicatorWidth = indicatorWidth;
-    
     self.indicatorView.indicatorWidth = indicatorWidth;
-    
 }
 -(void)setIndicatorFrame:(CGRect)indicatorFrame
 {
     _indicatorFrame= indicatorFrame;
-    
     self.indicatorView.indicatorFrame = indicatorFrame;
 }
 
 //右边按钮的点击事件
 - (void)rightClick:(UIButton *)button
 {
-    [self isOpenJump:_isOpenJump mostLeftPosition:_rightMostLeftSide mostRightPosition:_rightMostRightSide];
-    
-    if (_isOpenJump == NO) {
+    //最右边按钮切换界面的方法
+    if (_isOpenJump == YES) {
+//        // !!!:第一种算页数的方法
+//        CGFloat scrollViewWidth = _scrollView.contentSize.width;
+//        //当前页数,第一页 (这个为第一页)
+//        CGFloat scrollViewContentX = _scrollView.contentOffset.x;
+//        //最后一页
+//        CGFloat lastPage = scrollViewContentX >= scrollViewWidth - MJCScreenWidth;
+        
+        //第二种:根据内偏移量x来算页码(如果是第一页那内偏移为0,如果是第二页,那就是第二块内容)
+        NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
+        if(index != 0) {//不等于第0页
+            //这是回到第一个界面的方法
+            [UIView animateWithDuration:_scollAnimal animations:^{
+                CGPoint offset = self.scrollView.contentOffset;
+                offset.x = 0;//第0页
+                //切换到第0页
+                [self.scrollView setContentOffset:offset animated:NO];
+            }];
+        }else {
+            //这是跳到最后一个界面的方法
+            CGPoint offset = self.scrollView.contentOffset;
+            //算出最后一页
+            offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
+            [UIView animateWithDuration:_scollAnimal animations:^{
+                //切换到最后一页
+                [self.scrollView setContentOffset:offset animated:NO];
+            }];
+        }
+        //标题居中
+        [self setupScollTitlesButton:_scrollView];
+
+    }else{
         if ([self.slideDelegate respondsToSelector:@selector(mjc_MostClickEvent:segmentInterface:)]) {
             [self.slideDelegate mjc_MostClickEvent:_rightMostButton segmentInterface:self];
         }
-        return;
     }
 }
 
@@ -520,8 +468,9 @@
     
     [self setupTitleCenter:titleButton]; //按钮居中
     
-    [self setupRightMostBtn:titleButton];//右边按钮切换图片的效果
-    
+    if (_isOpenJump == YES) {
+        [self setupRightMostBtn:titleButton];//右边按钮切换图片的效果
+    }
     
     if ([self.slideDelegate respondsToSelector:@selector(mjc_ClickEvent:segmentInterface:)]) {
         [self.slideDelegate mjc_ClickEvent:titleButton segmentInterface:self];
@@ -569,12 +518,15 @@
     }else{
         _scollAnimal = 0;
     }
-    _selectedSegmentIndex = 0;
+//    _selectedSegmentIndex = 0;
+    self.topViewHegiht = 1;
+    self.indicatorHeight = 1;
+    self.bottomViewHegiht = 1;
     self.tabItemWidth = 100;
     self.verticalLineHidden = YES;
     self.topViewHidden = YES;
     self.bottomViewHidden = YES;
-    self.titleViewframe = CGRectMake(0,0,MJCScreenWidth, 50);
+    self.titleViewframe = CGRectMake(0,0,MJCScreenWidth,50);
     self.tabItemTitleNormalColor = [UIColor darkGrayColor];
     self.tabItemTitleSelectedColor = [UIColor blackColor];
     self.tabItemTitlesfont = [UIFont systemFontOfSize:14];
@@ -582,93 +534,31 @@
     
 }
 
-//最右边按钮切换界面的方法
--(void)isOpenJump:(BOOL)isOpenJump mostLeftPosition:(UIImage *)mostLeftPosition mostRightPosition:(UIImage *)mostRightPosition
-{
-    if (isOpenJump == YES) {
-        
-        CGFloat scrollViewWidth = _scrollView.contentSize.width;
-        CGFloat scrollViewContentX = _scrollView.contentOffset.x;
-        
-        /**
-         *最后一个子界面的X值的计算方法是:scrollview的宽度 - 整个屏幕的宽度,那就等于我们所想要的最后那个子界面的X值...
-         *比如说一开始初始第一个界面X等于0.那就肯定是执行else后的那方法,一旦执行了里面的方法,我们就跳到最后一个子界面,那scrollViewX值也随之等于了
-         *
-         */
-        //_scrollView的内边距X值一旦等于最后一个子界面的X值,那就会执行这个方法
-        if(scrollViewContentX >= scrollViewWidth - MJCScreenWidth) {
-            
-            [UIView animateWithDuration:_scollAnimal animations:^{
-                //这是回到第一个界面的方法
-                CGPoint offset = self.scrollView.contentOffset;
-                offset.x = 0;
-                [self.scrollView setContentOffset:offset animated:NO];
-                
-            }];
-            
-            [self setupScollTitlesButton:_scrollView];
-            
-        }else { //如果是没有等于最后一个子界面的X值,那就执行这个方法
-            
-            //这是跳到最后一个界面的方法
-            CGPoint offset = self.scrollView.contentOffset;
-            offset.x = self.titlesButton.tag * self.scrollView.mjc_width;
-            [UIView animateWithDuration:_scollAnimal animations:^{
-                [self.scrollView setContentOffset:offset animated:NO];
-            }];
-            
-            [self setupScollTitlesButton:_scrollView];
-        }
-        
-        return;
-    }
-    
-}
-
 //设置底部指示器与按钮的居中效果,以及是否有动画效果
 -(void)setupChildViewScollAnimal:(UIButton *)titleBtn
 {
     if (_childViewScollAnimal == YES) {
-        
         [UIView animateWithDuration:0.25 animations:^{
-            
             self.indicatorView.mjc_centerX = titleBtn.mjc_centerX;
-            
             CGPoint offset = self.scrollView.contentOffset;
             offset.x = titleBtn.tag * self.scrollView.mjc_width;
             [self.scrollView setContentOffset:offset animated:NO];
-            
         }];
-        
     }else{
-        
-        //        [self isindicatorFrame:_isindicatorFrame indicatorFrame:_indicatorFrame];
         self.indicatorView.mjc_centerX = titleBtn.mjc_centerX;
         CGPoint offset = self.scrollView.contentOffset;
         offset.x = titleBtn.tag * self.scrollView.mjc_width;
         [self.scrollView setContentOffset:offset animated:NO];
     }
-    
 }
 
 // !!!:最右边点击切换按钮图片效果
 -(void)setupRightMostBtn:(UIButton *)titleBtn
 {
     if (titleBtn.tag == (_countArr.count - 1)) {//最右边图片转换
-        
-        if (_rightMostLeftSide == kNilOptions) {
-            [self.rightMostButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
-        }else{
-            [self.rightMostButton setImage:_rightMostLeftSide forState:UIControlStateNormal];
-        }
-        
+        self.rightMostBtnImage = _rightMostLeftSide;
     }else{
-        
-        if (_rightMostRightSide == kNilOptions) {
-            [self.rightMostButton setImage:_rightMostBtnImage forState:UIControlStateNormal];
-        }else{
-            [self.rightMostButton setImage:_rightMostRightSide forState:UIControlStateNormal];
-        }
+        self.rightMostBtnImage = _rightMostRightSide;
     }
 }
 

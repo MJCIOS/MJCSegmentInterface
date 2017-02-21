@@ -49,7 +49,7 @@ static const CGFloat rightMargin = 1;
 {
     _rightMostBtnImage = rightMostBtnImage;
     
-    [self setImage:_rightMostBtnImage forState:UIControlStateNormal];
+    [self setImage:rightMostBtnImage forState:UIControlStateNormal];
 }
 
 -(void)setRightMostBtnFrame:(CGRect)rightMostBtnFrame

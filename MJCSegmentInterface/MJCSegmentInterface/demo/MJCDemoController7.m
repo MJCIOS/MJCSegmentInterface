@@ -6,10 +6,10 @@
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "MJCImageViewController.h"
+#import "MJCDemoController7.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCImageViewController ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoController7 ()<MJCSlideSwitchViewDelegate>
 
 
 /** <#  注释  #> */
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation MJCImageViewController
+@implementation MJCDemoController7
 
 - (void)viewDidLoad {
     [super viewDidLoad];

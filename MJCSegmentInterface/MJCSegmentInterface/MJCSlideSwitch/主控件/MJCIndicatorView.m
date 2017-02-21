@@ -28,8 +28,6 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-        self.mjc_height = 1;
-        
     }
     return self;
 }

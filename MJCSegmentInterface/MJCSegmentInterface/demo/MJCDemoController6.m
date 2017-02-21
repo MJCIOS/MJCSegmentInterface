@@ -6,14 +6,14 @@
 //  Copyright © 2016年 MJC. All rights reserved.
 //
 
-#import "MJCSegmentFaceController.h"
+#import "MJCDemoController6.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCSegmentFaceController ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoController6 ()<MJCSlideSwitchViewDelegate>
 
 @end
 
-@implementation MJCSegmentFaceController
+@implementation MJCDemoController6
 
 - (void)viewDidLoad {
     [super viewDidLoad];

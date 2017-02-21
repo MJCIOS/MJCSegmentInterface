@@ -21,7 +21,5 @@
 
 @property (nonatomic,strong) UIScrollView * titlesScrollView;
 
-@property (nonatomic,strong) UIView *titlesView;
-
 
 @end
