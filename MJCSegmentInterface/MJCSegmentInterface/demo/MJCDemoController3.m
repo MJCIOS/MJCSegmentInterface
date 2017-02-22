@@ -46,30 +46,31 @@
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc];
+    [segmentInterface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1];
+    [segmentInterface intoChildViewController:vc1 hostMainController:self];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2];
+    [segmentInterface intoChildViewController:vc2 hostMainController:self];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;
-    [segmentInterface intoChildViewController:vc3];
+    [segmentInterface intoChildViewController:vc3 hostMainController:self];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4];
+    [segmentInterface intoChildViewController:vc4 hostMainController:self];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc5];
+    [segmentInterface intoChildViewController:vc5 hostMainController:self];
     
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc6];
+    [segmentInterface intoChildViewController:vc6 hostMainController:self];
     
     UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
-    [segmentInterface intoChildViewController:vc7];
+    vc7.style = style;
+    [segmentInterface intoChildViewController:vc7 hostMainController:self];
     
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2501F69A1E5D135A00CFD3FB /* UIView+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2501F6991E5D135A00CFD3FB /* UIView+MJCExtenSion.m */; };
+		2501F69D1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2501F69C1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.m */; };
+		2501F6A01E5D1E7B00CFD3FB /* MJCToolClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 2501F69F1E5D1E7B00CFD3FB /* MJCToolClasses.m */; };
 		253A2D5F1E0A65C000E40F6B /* MJCDemoController7.m in Sources */ = {isa = PBXBuildFile; fileRef = 253A2D5D1E0A65C000E40F6B /* MJCDemoController7.m */; };
 		253A2D601E0A65C000E40F6B /* MJCDemoController7.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253A2D5E1E0A65C000E40F6B /* MJCDemoController7.xib */; };
 		2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2555F10F1DC4A8B300977EB8 /* MJCBottomView.m */; };
@@ -73,6 +75,10 @@
 /* Begin PBXFileReference section */
 		2501F6981E5D135A00CFD3FB /* UIView+MJCExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCExtenSion.h"; sourceTree = "<group>"; };
 		2501F6991E5D135A00CFD3FB /* UIView+MJCExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCExtenSion.m"; sourceTree = "<group>"; };
+		2501F69B1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJCExtenSion.h"; sourceTree = "<group>"; };
+		2501F69C1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJCExtenSion.m"; sourceTree = "<group>"; };
+		2501F69E1E5D1E7B00CFD3FB /* MJCToolClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCToolClasses.h; sourceTree = "<group>"; };
+		2501F69F1E5D1E7B00CFD3FB /* MJCToolClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCToolClasses.m; sourceTree = "<group>"; };
 		253A2D5C1E0A65C000E40F6B /* MJCDemoController7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoController7.h; sourceTree = "<group>"; };
 		253A2D5D1E0A65C000E40F6B /* MJCDemoController7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoController7.m; sourceTree = "<group>"; };
 		253A2D5E1E0A65C000E40F6B /* MJCDemoController7.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCDemoController7.xib; sourceTree = "<group>"; };
@@ -228,6 +234,10 @@
 				2501F6991E5D135A00CFD3FB /* UIView+MJCExtenSion.m */,
 				25A91C401DC2FA1F0009313D /* MJCSegmentConst.h */,
 				25A91C411DC2FA1F0009313D /* MJCSegmentConst.m */,
+				2501F69B1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.h */,
+				2501F69C1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.m */,
+				2501F69E1E5D1E7B00CFD3FB /* MJCToolClasses.h */,
+				2501F69F1E5D1E7B00CFD3FB /* MJCToolClasses.m */,
 			);
 			path = "通用属性";
 			sourceTree = "<group>";
@@ -510,9 +520,11 @@
 				25A91C421DC2FA1F0009313D /* MJCSegmentInterface.m in Sources */,
 				25A91C691DC2FFDE0009313D /* UITestViewController2.m in Sources */,
 				2555F11C1DC4A8B300977EB8 /* MJCIndicatorView.m in Sources */,
+				2501F69D1E5D1D1600CFD3FB /* UIImage+MJCExtenSion.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				25A91C581DC2FFCB0009313D /* MJCDemoController.m in Sources */,
 				2555F11D1DC4A8B300977EB8 /* MJCVerticalLineView.m in Sources */,
+				2501F6A01E5D1E7B00CFD3FB /* MJCToolClasses.m in Sources */,
 				25D54EFB1E0783D2005DC7EA /* MJCDemoController6.m in Sources */,
 				25A91C5A1DC2FFCB0009313D /* MJCDemoController2.m in Sources */,
 				2555F11A1DC4A8B300977EB8 /* MJCBottomView.m in Sources */,

@@ -27,47 +27,47 @@
     }
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
+    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
     
-    segmentsface.slideDelegate = self;
+    segmentInterface.slideDelegate = self;
     
-    segmentsface.childViewScollAnimal = YES;//是否有滚动动画
-    segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
+    segmentInterface.childViewScollAnimal = YES;//是否有滚动动画
+    segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     //子界面大小
-    segmentsface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
+    segmentInterface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
-    segmentsface.titleViewColor = [UIColor redColor];
-    segmentsface.titleViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
+    segmentInterface.titleViewColor = [UIColor redColor];
+    segmentInterface.titleViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
     
 #pragma mark -- 底部指示器属性
-    //    segmentsface.indicatorWidth = 80;
-    //    segmentsface.indicatorColor = [UIColor purpleColor];
-    //    segmentsface.indicatorFrame = CGRectMake(0,0,100, 10);
-    //    segmentsface.indicatorHidden = NO;
+    //    segmentInterface.indicatorWidth = 80;
+    //    segmentInterface.indicatorColor = [UIColor purpleColor];
+    //    segmentInterface.indicatorFrame = CGRectMake(0,0,100, 10);
+    //    segmentInterface.indicatorHidden = NO;
     
 #pragma mark -- 顶部横线属性
-    segmentsface.topViewColor = [UIColor purpleColor];
-    segmentsface.topViewHegiht = 5;
-    segmentsface.topViewHidden = NO;
-    //    segmentsface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
+    segmentInterface.topViewColor = [UIColor purpleColor];
+    segmentInterface.topViewHegiht = 5;
+    segmentInterface.topViewHidden = NO;
+    //    segmentInterface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
     
 #pragma mark -- 底部横线属性
-    segmentsface.bottomViewColor = [UIColor blackColor];
-    segmentsface.bottomViewHegiht = 5;
-    segmentsface.bottomViewHidden = NO;
-    //    segmentsface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
+    segmentInterface.bottomViewColor = [UIColor blackColor];
+    segmentInterface.bottomViewHegiht = 5;
+    segmentInterface.bottomViewHidden = NO;
+    //    segmentInterface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
     
 #pragma mark -- 标签选项属性
-    segmentsface.tabItemBackColor = [UIColor orangeColor];
-    segmentsface.tabItemWidth = 80;//这个是给滚动标题栏使用的
-    //    segmentsface.tabItemFrame = CGRectMake(10,10,50, 40);
-    segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
-    segmentsface.tabItemTitleNormalColor = [UIColor purpleColor];
-    segmentsface.tabItemTitleSelectedColor = [UIColor redColor];
-    segmentsface.tabItemBackImageNormal = [UIImage imageNamed:@"diamond"];
-    segmentsface.tabItemBackImageSelected = [UIImage imageNamed:@"diamond-2"];
+    segmentInterface.tabItemBackColor = [UIColor orangeColor];
+    segmentInterface.tabItemWidth = 80;//这个是给滚动标题栏使用的
+    //    segmentInterface.tabItemFrame = CGRectMake(10,10,50, 40);
+    segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
+    segmentInterface.tabItemTitleNormalColor = [UIColor purpleColor];
+    segmentInterface.tabItemTitleSelectedColor = [UIColor redColor];
+    segmentInterface.tabItemBackImageNormal = [UIImage imageNamed:@"diamond"];
+    segmentInterface.tabItemBackImageSelected = [UIImage imageNamed:@"diamond-2"];
     
     NSArray *imageArr = @[@"123",
                           @"234",
@@ -76,37 +76,37 @@
                           @"567"];
     NSArray *imageArr1 = @[@"666",@"777",@"888",@"999",@"1111"];
     
-    segmentsface.tabItemBackImageNormalArray = imageArr;
-    segmentsface.tabItemBackImageSelectedArray = imageArr1;
+    segmentInterface.tabItemBackImageNormalArray = imageArr;
+    segmentInterface.tabItemBackImageSelectedArray = imageArr1;
     
     
 #pragma mark -- 竖线属性
-    segmentsface.verticalLineColor = [UIColor purpleColor];
-    segmentsface.verticalLineHegiht = 30;
-    segmentsface.verticalLineHidden = NO;
+    segmentInterface.verticalLineColor = [UIColor purpleColor];
+    segmentInterface.verticalLineHegiht = 30;
+    segmentInterface.verticalLineHidden = NO;
     
-    [segmentsface intoTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr];
     
-    [self.view addSubview:segmentsface];
+    [self.view addSubview:segmentInterface];
     
     
     //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentsface intoChildViewController:vc];
+    [segmentInterface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentsface intoChildViewController:vc1];
+    [segmentInterface intoChildViewController:vc1 hostMainController:self];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentsface intoChildViewController:vc2];
+    [segmentInterface intoChildViewController:vc2 hostMainController:self];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;//传输数据
-    [segmentsface intoChildViewController:vc3];
+    [segmentInterface intoChildViewController:vc3 hostMainController:self];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc4];
+    [segmentInterface intoChildViewController:vc4 hostMainController:self];
     
     
 }

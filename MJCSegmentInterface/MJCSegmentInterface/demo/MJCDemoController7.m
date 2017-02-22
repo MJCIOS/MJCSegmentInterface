@@ -13,7 +13,7 @@
 
 
 /** <#  注释  #> */
-@property (nonatomic,strong) MJCSegmentInterface *segmentsface;
+@property (nonatomic,strong) MJCSegmentInterface *segmentInterface;
 
 /** <#  注释  #> */
 @property (nonatomic,assign) NSInteger style;
@@ -34,25 +34,26 @@
     _style = style;
     
     
-    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+    [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+    
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-    segmentsface.titlesScrollEnabled = YES;
-    segmentsface.MJCImageEffectStyle = MJCImageUpDownStyle;
-    _segmentsface = segmentsface;
-    segmentsface.slideDelegate = self;
-    segmentsface.childViewScollAnimal = YES;//是否有滚动动画
-    segmentsface.childScollEnabled = YES;//子界面是否用手拖拽滚动
+    MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
+    segmentInterface.titlesScrollEnabled = YES;
+    segmentInterface.MJCImageEffectStyle = MJCImageUpDownStyle;
+    _segmentInterface = segmentInterface;
+    segmentInterface.slideDelegate = self;
+    segmentInterface.childViewScollAnimal = YES;//是否有滚动动画
+    segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     
     
 #pragma mark -- 标题栏的属性
-    segmentsface.titleViewColor = [UIColor clearColor];
+    segmentInterface.titleViewColor = [UIColor clearColor];
     
 #pragma mark -- 标签选项属性
-    segmentsface.tabItemWidth = 100;//这个是给滚动标题栏使用的
-    segmentsface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
-    segmentsface.tabItemTitleNormalColor = [UIColor blackColor];
-    segmentsface.tabItemTitleSelectedColor = [UIColor yellowColor];
+    segmentInterface.tabItemWidth = 100;//这个是给滚动标题栏使用的
+    segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
+    segmentInterface.tabItemTitleNormalColor = [UIColor blackColor];
+    segmentInterface.tabItemTitleSelectedColor = [UIColor yellowColor];
     
     NSArray *imageArr =@[@"bulb-2",
                          @"cloud-2",
@@ -64,46 +65,45 @@
                          @"like-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"paperplane",@"like"];
     
-    segmentsface.tabItemImageNormalArray = imageArr;
-    segmentsface.tabItemImageSelectedArray = imageArr1;
+    segmentInterface.tabItemImageNormalArray = imageArr;
+    segmentInterface.tabItemImageSelectedArray = imageArr1;
     
 #pragma mark -- 竖线属性
-    segmentsface.verticalLineColor = [UIColor blackColor];
-    segmentsface.verticalLineHegiht = 30;
-    segmentsface.verticalLineHidden = NO;
+    segmentInterface.verticalLineColor = [UIColor blackColor];
+    segmentInterface.verticalLineHegiht = 30;
+    segmentInterface.verticalLineHidden = NO;
     
-    [segmentsface intoTitlesArray:titlesArr];
-    [self.view addSubview:segmentsface];
+    [segmentInterface intoTitlesArray:titlesArr];
+    [self.view addSubview:segmentInterface];
     
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    _vc = vc;
-    [segmentsface intoChildViewController:vc];
+    [segmentInterface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentsface intoChildViewController:vc1];
+    [segmentInterface intoChildViewController:vc1 hostMainController:self];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentsface intoChildViewController:vc2];
+    [segmentInterface intoChildViewController:vc2 hostMainController:self];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;
-    [segmentsface intoChildViewController:vc3];
+    [segmentInterface intoChildViewController:vc3 hostMainController:self];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc4];
+    [segmentInterface intoChildViewController:vc4 hostMainController:self];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc5];
+    [segmentInterface intoChildViewController:vc5 hostMainController:self];
     
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc6];
+    [segmentInterface intoChildViewController:vc6 hostMainController:self];
     
     UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
     vc7.style = style;
-    [segmentsface intoChildViewController:vc7];
+    [segmentInterface intoChildViewController:vc7 hostMainController:self];
     
 }
 

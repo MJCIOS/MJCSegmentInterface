@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+    [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
     //    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
@@ -119,28 +119,28 @@
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentsface intoChildViewController:vc];
+    [segmentsface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
-    [segmentsface intoChildViewController:vc1];
+    [segmentsface intoChildViewController:vc1 hostMainController:self];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentsface intoChildViewController:vc2];
+    [segmentsface intoChildViewController:vc2 hostMainController:self];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    [segmentsface intoChildViewController:vc3];
+    [segmentsface intoChildViewController:vc3 hostMainController:self];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc4];
+    [segmentsface intoChildViewController:vc4 hostMainController:self];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc5];
+    [segmentsface intoChildViewController:vc5 hostMainController:self];
     
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc6];
+    [segmentsface intoChildViewController:vc6 hostMainController:self];
     
     UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
-    [segmentsface intoChildViewController:vc7];
+    [segmentsface intoChildViewController:vc7 hostMainController:self];
     
     
 }

@@ -46,41 +46,41 @@
     
     segmentInterface.tabItemBackColor = [UIColor purpleColor];
     
+    
     //在添加标题栏之前做其他属性操作
     [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
+    
+    
+    
+    
     //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc];
+//    [segmentInterface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1];
+//    [segmentInterface intoChildViewController:vc1 hostMainController:self];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2];
+//    [segmentInterface intoChildViewController:vc2 hostMainController:self];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;//传输数据
-    [segmentInterface intoChildViewController:vc3];
+//    [segmentInterface intoChildViewController:vc3 hostMainController:self];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4];
+//    [segmentInterface intoChildViewController:vc4 hostMainController:self];
     
-//    _segmentInterface.selectedSegmentIndex = 2;
+    NSArray *vcarrr = @[vc,vc1,vc2,vc3,vc4];
+//
+    [segmentInterface intoChildControllerArray:vcarrr];;
     
-}
-
-
-#pragma mark --MJCSlideSwitchViewDelegate
--(void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface
-{
     
-    NSLog(@"%@",button);
+    //    _segmentInterface.selectedSegmentIndex = 2;
     
 }
-
 
 
 

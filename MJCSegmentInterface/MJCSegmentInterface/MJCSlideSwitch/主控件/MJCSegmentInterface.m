@@ -19,7 +19,6 @@
 
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
-@property (nonatomic,strong) UIViewController *viewController;
 
 //第一个按钮
 @property (nonatomic,strong) MJCTabItemButton *firstTitleButton;
@@ -63,6 +62,10 @@
 
 #pragma mark -- 重要属性
 
+@property (nonatomic,strong) UIViewController *viewController;
+/** 子控制器界面的数组 */
+@property (nonatomic,strong) NSArray *childControllerArray;
+
 
 @end
 
@@ -83,17 +86,9 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    
     [self setupData];
 }
-
-- (UIViewController *)viewController:(UIView *)view{
-    UIResponder *responder = view;
-    while ((responder = [responder nextResponder]))
-        if ([responder isKindOfClass: [UIViewController class]])
-            return (UIViewController *)responder;
-    return nil;
-}
-
 
 - (NSMutableArray *)titleButtons
 {
@@ -200,11 +195,20 @@
 }
 
 #pragma mark -- 添加子控制器
--(void)intoChildViewController:(UIViewController *)childViewController;
+-(void)intoChildViewController:(UIViewController *)childViewController hostMainController:(UIViewController *)hostController;
 {
-    self.viewController = [self viewController:self];
+    UIViewController *viewController = childViewController;
     
-    [self.viewController addChildViewController:childViewController];
+    [hostController addChildViewController:viewController];
+    
+    self.viewController = hostController;
+    
+    [self addChildVcView];
+}
+
+-(void)intoChildControllerArray:(NSArray *)childControllerArray;
+{
+    _childControllerArray = childControllerArray;
     
     [self addChildVcView];
 }
@@ -213,7 +217,13 @@
 {
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
     
-    UIViewController *childVc = self.viewController.childViewControllers[index];
+    UIViewController *childVc;
+    
+    if (_childControllerArray) {
+        childVc = _childControllerArray[index];
+    }else{
+        childVc = self.viewController.childViewControllers[index];
+    }
     
     if ([childVc isViewLoaded]) return;
     
@@ -291,9 +301,12 @@
 {
     self.titlesScrollView.titlesScrollColor = _titleViewColor;
     self.titlesScrollView.titlesScrollFrame = _titleViewframe;
+    
     if (_MJCSeMentTitleBarStyle != MJCSegMentTitlesNavBarStyle) {
+        
         [self addSubview:self.titlesScrollView];
     }
+
 }
 
 #pragma mark -- 创建标题按钮数据
@@ -509,7 +522,7 @@
     }
 }
 
--(UIScrollView *)intoFaceView;
+-(UIView *)intoFaceView;
 {
     [self setupScrollTitlesView];
     
@@ -635,32 +648,6 @@
     leftBtn.transform = CGAffineTransformMakeScale(scaleL * 0.1 + 1, scaleL * 0.1 + 1);
     rightBtn.transform = CGAffineTransformMakeScale(scaleR * 0.1 + 1, scaleR * 0.1 + 1);
     
-}
-
-#pragma mark -- 工具方法
-// 图片转换颜色
-+ (UIImage *)imageWithColor:(UIColor *)color
-{
-    CGRect rect1 = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    
-    UIGraphicsBeginImageContext(rect1.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect1);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-
-//防止导航栏挡住的方法
-+(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
-{
-    if ([controllers respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        controllers.edgesForExtendedLayout = rectEdge;
-    }
 }
 
 @end

@@ -24,6 +24,8 @@
     [super viewDidLoad];
     
     
+    NSLog(@"%ld",_style);
+    
     self.tableView1 = [[UITableView alloc]init];
     UIImageView *imamgview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"月光"]];
     self.tableView1.backgroundView =imamgview;

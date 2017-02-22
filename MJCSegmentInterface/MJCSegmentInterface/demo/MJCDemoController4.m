@@ -21,7 +21,7 @@
     
     NSInteger style = 0;
     
-    [MJCSegmentInterface useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+    [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
     NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];//创建标题栏
     //创建标题栏控件
@@ -39,16 +39,13 @@
     [segmentInterface intoTitlesArray:titlesArr];//添加标题栏
     [self.view addSubview:segmentInterface];
     
-    /**
-     * 添加控制器
-     */
+    //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc];
+    [segmentInterface intoChildViewController:vc hostMainController:self];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1];
-    
+    [segmentInterface intoChildViewController:vc1 hostMainController:self];
 }
 
 

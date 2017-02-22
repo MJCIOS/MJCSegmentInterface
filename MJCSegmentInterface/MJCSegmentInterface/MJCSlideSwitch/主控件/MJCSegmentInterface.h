@@ -10,13 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "MJCSegmentConst.h"
 #import "UIView+MJCExtenSion.h"
-
-//RBG颜色
-#define MJCRGBColor(r,g,b,alphas) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:alphas]
-
-#define MJCScreenbound [UIScreen mainScreen].bounds
-#define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
-#define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
+#import "UIImage+MJCExtenSion.h"
+#import "MJCToolClasses.h"
 
 //标题样式
 typedef enum {
@@ -101,7 +96,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 
 #pragma mark -- 右部竖线的属性设置
-//***********************//
 
 /** 右部竖线线条高度 */
 @property (nonatomic,assign) CGFloat verticalLineHegiht;
@@ -112,14 +106,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 右边竖线颜色 */
 @property (nonatomic,strong) UIColor *verticalLineColor;
 
-
-//*******************//
-
-
-
-
 #pragma mark -- 底部横线的属性设置
-//*******************//
 
 /** 底部横线条是否显示 */
 @property (nonatomic,assign,getter = bottomViewHidden) BOOL bottomViewHidden;
@@ -234,35 +221,21 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 
 
-
 #pragma mark -- childView子界面的属性设置
 
-/** 添加控制器(添加控制器按照控制器添加的先后顺序与按钮对应的:比如说第一个按钮对应第一个添加的控制器)*/
--(void)intoChildViewController:(UIViewController *)childViewController;
+/** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
+-(void)intoChildViewController:(UIViewController *)childViewController hostMainController:(UIViewController *)hostController;
+
+/** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
+-(void)intoChildControllerArray:(NSArray *)childControllerArray;
+
 /**
  *  添加标题栏的方法
  */
 -(void)intoTitlesArray:(NSArray *)titlesArray;
 
 /** 创建标题栏的方法 */
--(UIScrollView *)intoFaceView;
-
-
-
-
-#pragma mark -- 工具方法
-/** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
-+(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
-
-/**
- *  图片转换成颜色的方法
- */
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
-
-
-
-
+-(UIView *)intoFaceView;
 
 
 @end
