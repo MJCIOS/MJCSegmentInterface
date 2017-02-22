@@ -126,7 +126,7 @@
         cell.textLabel.text = @"MJC啦啦啦1111";
     }
     
-    cell.textColor = [UIColor grayColor];
+    cell.textLabel.textColor = [UIColor grayColor];
     
     
     cell.backgroundColor = [UIColor clearColor];

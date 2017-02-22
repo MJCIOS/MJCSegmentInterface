@@ -95,6 +95,7 @@
     segmentsface.verticalLineHidden = NO;
     
     
+    //这里导致走代理方法
     UIScrollView *titlesView =  [segmentsface intoFaceView];
     titlesView.layer.masksToBounds = YES;
     titlesView.layer.cornerRadius = 5;
@@ -153,11 +154,6 @@
     //    [self setupButton:titleButton];
 }
 
-
--(void)mjc_scrollDidEndDecelerating:(UIButton *)button segmentInterface:(MJCSegmentInterface *)segmentInterface
-{
-    //    [self setupButton:button];
-}
 
 
 -(void)setupButton:(UIButton *)button

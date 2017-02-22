@@ -115,6 +115,7 @@
 {
     if (!_scrollView) {
         _scrollView = [[MJCChildScrollView  alloc]init];
+        _scrollView.delegate = self;
     }
     return _scrollView;
 }
@@ -240,7 +241,6 @@
 #pragma mark -- 子控制器的滚动界面
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
-    self.scrollView.delegate = self;
     self.scrollView.childScollEnabled = _childScollEnabled;
     [self.scrollView setupTitlesScrollFrame:_titleViewframe MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle];
     [self.scrollView setupChildContenSize:scollViewArr];
@@ -293,7 +293,6 @@
     self.titlesScrollView.titlesScrollFrame = _titleViewframe;
     if (_MJCSeMentTitleBarStyle != MJCSegMentTitlesNavBarStyle) {
         [self addSubview:self.titlesScrollView];
-        return;
     }
 }
 
@@ -469,7 +468,7 @@
     
     [self addChildVcView];//添加子页面
     
-    [self setupTitleCenter:titleButton]; //按钮居中
+    [self setupTitleCenter:titleButton]; //按钮居中,传入当前点击的按钮
     
     if (_isOpenJump == YES) {
         [self setupRightMostBtn:titleButton];//右边按钮切换图片的效果
@@ -497,12 +496,19 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self setupScollTitlesButton:scrollView];//设置滚动栏,按钮居中的的效果
-    [self addChildVcView];//每次滚动添加子页面
-    
-    if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:segmentInterface:)]) {
-        [self.slideDelegate mjc_scrollDidEndDecelerating:self.firstTitleButton segmentInterface:self];
+    if (scrollView == self.scrollView) {
+        
+        [self setupScollTitlesButton:scrollView];//设置滚动栏,按钮居中的的效果
+        //    [self addChildVcView];//每次滚动添加子页面
+
+//        if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:segmentInterface:)])
+//        {
+//            [self.slideDelegate mjc_scrollDidEndDecelerating:self.firstTitleButton segmentInterface:self];
+//        }
+        
     }
+    
+    
 }
 
 -(UIScrollView *)intoFaceView;
@@ -572,22 +578,15 @@
 -(void)setupScollTitlesButton:(UIScrollView *)scrollView
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.mjc_width;
+    MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
+    [self titleClick:titleButton];
+//    self.firstTitleButton = titleButton;
     
     if (_titlesScrollEnabled == NO) {
-        MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
-        [self titleClick:titleButton];
-        self.firstTitleButton = titleButton;
-        //        [self setupTitleCenter:titleButton];
     }else{
-        MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
-        [self titleClick:titleButton];
         [self setupTitleCenter:titleButton];
-        self.firstTitleButton = titleButton;
     }
 }
-
-
-
 
 //选中滚动标题居中效果的方法的效果(与上面那方法有关联的)
 - (void)setupTitleCenter:(UIButton *)button
