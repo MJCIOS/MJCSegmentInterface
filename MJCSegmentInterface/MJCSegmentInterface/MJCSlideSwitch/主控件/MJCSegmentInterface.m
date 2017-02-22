@@ -507,8 +507,6 @@
 //        }
         
     }
-    
-    
 }
 
 -(UIScrollView *)intoFaceView;
