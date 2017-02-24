@@ -28,6 +28,8 @@
         self.showsVerticalScrollIndicator = NO;
         self.bounces = YES;
         
+        
+        
         //        self.directionalLockEnabled = YES;
         //        self.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
     }
@@ -77,5 +79,9 @@
     self.contentSize = CGSizeMake(titlesArr.count *self.mjc_width,0);
 }
 
+-(void)setDelegate111:(id<UIScrollViewDelegate>)delegate111
+{
+      self.delegate = delegate111;
+}
 
 @end

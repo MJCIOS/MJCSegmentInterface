@@ -17,8 +17,10 @@
 #import "MJCTitlesScollView.h"
 #import "MJCTabItemButton.h"
 
-@interface MJCSegmentInterface ()<UIScrollViewDelegate>
+#define minFont 14
+#define maxFont 18
 
+@interface MJCSegmentInterface ()<UIScrollViewDelegate>
 
 //第一个按钮
 @property (nonatomic,strong) MJCTabItemButton *firstTitleButton;
@@ -35,7 +37,6 @@
 /** 子界面UIScrollView */
 @property (nonatomic, copy) MJCChildScrollView *scrollView;
 
-
 /** 标题栏view */
 @property (nonatomic, copy) MJCTitlesScollView *titlesScrollView;
 /** 顶部横线 */
@@ -45,8 +46,6 @@
 /** 右边按钮 */
 @property (nonatomic,copy) MJCRightMostButton *rightMostButton;
 
-//数组按钮
-@property (nonatomic, strong) NSMutableArray *titleButtons;
 
 /** tabitem宽度 */
 @property (nonatomic,assign) CGFloat tabItemW;
@@ -66,6 +65,11 @@
 /** 子控制器界面的数组 */
 @property (nonatomic,strong) NSArray *childControllerArray;
 
+/** <#  注释  #> */
+@property (nonatomic,assign) NSInteger fristShowTag;
+
+//数组按钮
+@property (nonatomic, strong) NSMutableArray *titleButtons;
 
 @end
 
@@ -98,25 +102,20 @@
     return _titleButtons;
 }
 
-- (UIViewController*)viewController
-{
-    if (!_viewController) {
-        _viewController = [[UIViewController  alloc]init];
-    }
-    return _viewController;
-}
-
 - (MJCChildScrollView*)scrollView
 {
     if (!_scrollView) {
         _scrollView = [[MJCChildScrollView  alloc]init];
-        _scrollView.delegate = self;
+        _scrollView.delegate111 = self;
+        
+        _scrollView.childScollEnabled = _childScollEnabled;
     }
     return _scrollView;
 }
 
 - (MJCTitlesScollView*)titlesScrollView
 {
+    
     if (!_titlesScrollView) {
         _titlesScrollView = [[MJCTitlesScollView  alloc]init];
     }
@@ -206,19 +205,23 @@
     [self addChildVcView];
 }
 
--(void)intoChildControllerArray:(NSArray *)childControllerArray;
+-(void)intoChildControllerArray:(NSArray *)childControllerArray hostMainController:(UIViewController *)hostController;
 {
     _childControllerArray = childControllerArray;
+    
+    self.viewController = hostController;
     
     [self addChildVcView];
 }
 
 - (void)addChildVcView
 {
+    //为什么一定要不让系统自动修改布局呢,如果不设为NO,会导致外界其他子控件每次滚动会调用我们这里scrollView的一个代理方法
+    self.viewController.automaticallyAdjustsScrollViewInsets = NO;
+    
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
     
     UIViewController *childVc;
-    
     if (_childControllerArray) {
         childVc = _childControllerArray[index];
     }else{
@@ -226,24 +229,25 @@
     }
     
     if ([childVc isViewLoaded]) return;
+    childVc.view.frame = self.scrollView.bounds;
     
-    CGFloat childX = self.scrollView.bounds.origin.x;
-    CGFloat childW = self.scrollView.bounds.size.width;
-    CGFloat childH = self.scrollView.bounds.size.height;
-    
-    if (self.viewController.edgesForExtendedLayout == UIRectEdgeNone) {
-        childVc.view.frame = self.scrollView.bounds;
-    }else{
-        if (index == 0) {
-            childVc.view.frame = CGRectMake(childX,-64,childW, childH);
-        }else{
-            if (_selectedSegmentIndex != 0) {
-                childVc.view.frame = CGRectMake(childX,-64,childW,childH);
-            }else{
-                childVc.view.frame = self.scrollView.bounds;
-            }
-        }
-    }
+    //这个防止以后有布局问题,暂时不删
+//    CGFloat childX = self.scrollView.bounds.origin.x;
+//    CGFloat childW = self.scrollView.bounds.size.width;
+//    CGFloat childH = self.scrollView.bounds.size.height;
+//    if (self.viewController.edgesForExtendedLayout == UIRectEdgeNone) {
+//        childVc.view.frame = self.scrollView.bounds;
+//    }else{
+//        if (index == 0) {
+//            childVc.view.frame = CGRectMake(childX,0,childW,childH);
+//        }else{
+//            if (_selectedSegmentIndex != 0) {
+//                childVc.view.frame = CGRectMake(childX,0,childW,childH);
+//            }else{
+//                childVc.view.frame = self.scrollView.bounds;
+//            }
+//        }
+//    }
     
     [self.scrollView addSubview:childVc.view];
 }
@@ -251,7 +255,6 @@
 #pragma mark -- 子控制器的滚动界面
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
-    self.scrollView.childScollEnabled = _childScollEnabled;
     [self.scrollView setupTitlesScrollFrame:_titleViewframe MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle];
     [self.scrollView setupChildContenSize:scollViewArr];
     [self addSubview:self.scrollView];
@@ -286,7 +289,7 @@
     [self addSubview:self.rightMostButton];
 }
 -(void)setRightMostBtnImage:(UIImage *)rightMostBtnImage
-{   //为了修改它第0页和最后一页而重写它的set方法
+{   //为了修改它第0页和最后一页的图片而重写它的set方法
     _rightMostBtnImage = rightMostBtnImage;
     self.rightMostButton.rightMostBtnImage = rightMostBtnImage;
 }
@@ -306,7 +309,6 @@
         
         [self addSubview:self.titlesScrollView];
     }
-
 }
 
 #pragma mark -- 创建标题按钮数据
@@ -321,7 +323,7 @@
         self.tabItemH = _titlesScrollView.mjc_height;
         self.titlesScrollView.contentSize = CGSizeMake(titlesArray.count * _tabItemW, 0);
     }
-    
+        
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         
         MJCTabItemButton *tabbutton = [MJCTabItemButton buttonWithType:UIButtonTypeCustom];
@@ -332,7 +334,24 @@
         
         [tabbutton arraycount:i buttonW:_tabItemW buttonH:_tabItemH titlesScrollView:_titlesScrollView titlesArr:titlesArray imageStyle:_MJCImageEffectStyle];
         
-        tabbutton.tabItemTitlesfont = _tabItemTitlesfont;
+        
+        if (_zoomBigEnabled == YES) {
+            
+            if (_tabItemTitleMinfont) {
+                self.tabItemTitlesfont = [UIFont systemFontOfSize:_tabItemTitleMinfont];
+            }else{
+                self.tabItemTitlesfont = [UIFont systemFontOfSize:minFont];
+            }
+            
+            if (_tabItemTitleMaxfont) {
+                [tabbutton setuptabItemTitlesFont:_tabItemTitleMaxfont tabItemTitlesfont:_tabItemTitlesfont];
+            }else{
+                [tabbutton setuptabItemTitlesFont:maxFont tabItemTitlesfont:_tabItemTitlesfont];
+            }
+        }else{
+            tabbutton.tabItemTitlesfont = _tabItemTitlesfont;
+        }
+        
         tabbutton.tabItemBackColor = _tabItemBackColor;
         tabbutton.tabItemTitleNormalColor = _tabItemTitleNormalColor;
         tabbutton.tabItemTitleSelectedColor = _tabItemTitleSelectedColor;
@@ -400,7 +419,7 @@
     self.indicatorView.indicatorHeight = _indicatorHeight;
     
     [self.indicatorView titlesScroll:self.titlesScrollView firstButton:_firstTitleButton SegmentInterFaceStyle:_MJCIndicatorStyle];
-    
+
     [self.titlesScrollView addSubview:self.indicatorView];
 }
 -(void)setIndicatorColor:(UIColor *)indicatorColor
@@ -455,6 +474,7 @@
         [self setupScollTitlesButton:_scrollView];
 
     }else{
+        
         if ([self.slideDelegate respondsToSelector:@selector(mjc_MostClickEvent:segmentInterface:)]) {
             [self.slideDelegate mjc_MostClickEvent:_rightMostButton segmentInterface:self];
         }
@@ -464,20 +484,39 @@
 //点击标题的点击事件
 - (void)titleClick:(MJCTabItemButton *)titleButton
 {
-    //按钮字体恢复
-    self.firstTitleButton.transform = CGAffineTransformIdentity;
+    _fristShowTag = 0;
     
-    self.firstTitleButton.selected = NO;
-    titleButton.selected = YES;
-    self.firstTitleButton = titleButton;
-    
+    self.firstTitleButton.selected = NO;//之前选中的按钮
+    [self.firstTitleButton setTitleColor:_tabItemTitleNormalColor forState:UIControlStateNormal];
     
     if (_zoomBigEnabled == YES) {
-        //按钮字体放大
-        titleButton.transform = CGAffineTransformMakeScale(1.1,1.1);
+        if (_tabItemTitleMinfont) {
+            self.firstTitleButton.titleLabel.font = [UIFont systemFontOfSize:_tabItemTitleMinfont];
+        }else{
+            self.firstTitleButton.titleLabel.font = [UIFont systemFontOfSize:minFont];
+        }
+    }
+    
+    self.firstTitleButton = titleButton;//现在选中的按钮
+    titleButton.selected = YES;
+    [titleButton setTitleColor:_tabItemTitleSelectedColor forState:UIControlStateSelected];
+    
+    if (_zoomBigEnabled == YES) {
+        if (_tabItemTitleMaxfont) {
+            titleButton.titleLabel.font = [UIFont systemFontOfSize:_tabItemTitleMaxfont];
+        }else{
+            titleButton.titleLabel.font = [UIFont systemFontOfSize:maxFont];
+        }
     }
     
     [self setupChildViewScollAnimal:titleButton];//设置的动画效果
+    
+    if (_followScrollEnabled == YES) {
+        if (_MJCIndicatorStyle == MJCIndicatorItemTextStyle) {// 下划线动态跟随滚动
+            self.indicatorView.mjc_width = titleButton.titleLabel.mjc_width;
+            self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
+        }
+    }
     
     [self addChildVcView];//添加子页面
     
@@ -493,33 +532,23 @@
     
 }
 
-
 #pragma mark -- <UIScrollViewDelegate>
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (_zoomBigEnabled == YES) {
-        [self setupTransformBtn:scrollView];
+        [self setupZoomFont:scrollView];
+    }
+    
+    if (_followScrollEnabled == YES) {
+    
+        [self setupIndicatorViewScroll:scrollView];
     }
 }
 
-/**
- * 在scrollView滚动动画结束时, 就会调用这个方法
- * 拖拽scrollView产生的滚动动画
- */
+/** 在scrollView滚动动画结束时, 就会调用这个方法,拖拽scrollView产生的滚动动画 */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView == self.scrollView) {
-        
-        [self setupScollTitlesButton:scrollView];//设置滚动栏,按钮居中的的效果
-        //    [self addChildVcView];//每次滚动添加子页面
-
-//        if ([self.slideDelegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:segmentInterface:)])
-//        {
-//            [self.slideDelegate mjc_scrollDidEndDecelerating:self.firstTitleButton segmentInterface:self];
-//        }
-        
-    }
+    [self setupScollTitlesButton:scrollView];//设置滚动栏,按钮居中的的效果
 }
 
 -(UIView *)intoFaceView;
@@ -528,7 +557,6 @@
     
     return _titlesScrollView;
 }
-
 
 
 #pragma mark -- 封装方法
@@ -540,7 +568,8 @@
     }else{
         _scollAnimal = 0;
     }
-//    _selectedSegmentIndex = 0;
+    
+    self.titleViewframe = CGRectMake(0,0,MJCScreenWidth,50);
     self.topViewHegiht = 1;
     self.indicatorHeight = 1;
     self.bottomViewHegiht = 1;
@@ -548,28 +577,26 @@
     self.verticalLineHidden = YES;
     self.topViewHidden = YES;
     self.bottomViewHidden = YES;
-    self.titleViewframe = CGRectMake(0,0,MJCScreenWidth,50);
-    self.tabItemTitleNormalColor = [UIColor darkGrayColor];
-    self.tabItemTitleSelectedColor = [UIColor blackColor];
-    self.tabItemTitlesfont = [UIFont systemFontOfSize:14];
+    self.tabItemTitleNormalColor = [UIColor blackColor];
+    self.tabItemTitleSelectedColor = [UIColor redColor];
     self.rightMostBtnHidden = YES;
     
 }
 
 //设置底部指示器与按钮的居中效果,以及是否有动画效果
--(void)setupChildViewScollAnimal:(UIButton *)titleBtn
+-(void)setupChildViewScollAnimal:(MJCTabItemButton *)titleButton
 {
     if (_childViewScollAnimal == YES) {
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = titleButton.tag * self.scrollView.mjc_width;
         [UIView animateWithDuration:0.25 animations:^{
-            self.indicatorView.mjc_centerX = titleBtn.mjc_centerX;
-            CGPoint offset = self.scrollView.contentOffset;
-            offset.x = titleBtn.tag * self.scrollView.mjc_width;
+            self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
             [self.scrollView setContentOffset:offset animated:NO];
         }];
     }else{
-        self.indicatorView.mjc_centerX = titleBtn.mjc_centerX;
+        self.indicatorView.mjc_centerX = titleButton.mjc_centerX;
         CGPoint offset = self.scrollView.contentOffset;
-        offset.x = titleBtn.tag * self.scrollView.mjc_width;
+        offset.x = titleButton.tag * self.scrollView.mjc_width;
         [self.scrollView setContentOffset:offset animated:NO];
     }
 }
@@ -584,7 +611,6 @@
     }
 }
 
-
 //设置滚动的时候的点击方法以及标题居中的方法
 -(void)setupScollTitlesButton:(UIScrollView *)scrollView
 {
@@ -592,7 +618,6 @@
     MJCTabItemButton *titleButton = self.titlesScrollView.subviews[index];
     [self titleClick:titleButton];
 //    self.firstTitleButton = titleButton;
-    
     if (_titlesScrollEnabled == NO) {
     }else{
         [self setupTitleCenter:titleButton];
@@ -620,17 +645,31 @@
     [self.titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
 
-//设置文字缩放效果
--(void)setupTransformBtn:(UIScrollView *)scrollView
+//设置文字缩放效果(这个方法不太好)
+//-(void)setupTransformBtn:(UIScrollView *)scrollView
+//{
+    //颜色渐变(用这个方法不太好)
+//    UIColor *rightColor = [UIColor colorWithRed:scaleR green:0 blue:0 alpha:0.5];
+//    UIColor *leftColor = [UIColor colorWithRed:scaleL green:0 blue:0 alpha:0.5];
+//    [rightBtn setTitleColor:rightColor forState:UIControlStateNormal];
+//    [leftBtn setTitleColor:leftColor forState:UIControlStateNormal];
+
+//    缩放按钮(用这个方法不太好)
+//    leftBtn.transform = CGAffineTransformMakeScale(scaleL * 0.3 + 1, scaleL * 0.3 + 1);
+//    rightBtn.transform = CGAffineTransformMakeScale(scaleR * 0.3 + 1, scaleR * 0.3 + 1);
+//    [self setupZoomFont:scrollView];
+//    [self setupIndicatorViewScroll:scrollView];
+//}
+
+//缩放字体方法
+-(void)setupZoomFont:(UIScrollView *)scrollView
 {
     NSInteger leftI = scrollView.contentOffset.x / MJCScreenWidth;
     NSInteger rightI = leftI + 1;
     
     // 获取左边的按钮
     UIButton *leftBtn =  self.titleButtons[leftI];
-    
     NSInteger count = self.titleButtons.count;
-    
     // 获取右边的按钮
     UIButton *rightBtn;
     if (rightI < count) {
@@ -639,15 +678,61 @@
     
     // 0 ~ 1 =>  1 ~ 1.3
     CGFloat scaleR =  scrollView.contentOffset.x / MJCScreenWidth;
-    
     scaleR -= leftI;
+    //    CGFloat scaleL = 1 - scaleR;
     
-    CGFloat scaleL = 1 - scaleR;
+    //缩放字体
+    CGFloat fontSize1;
+    CGFloat fontSize2;
+    CGFloat p = fmod(scrollView.contentOffset.x,self.titlesScrollView.mjc_width) / self.titlesScrollView.mjc_width;
     
-    // 缩放按钮
-    leftBtn.transform = CGAffineTransformMakeScale(scaleL * 0.1 + 1, scaleL * 0.1 + 1);
-    rightBtn.transform = CGAffineTransformMakeScale(scaleR * 0.1 + 1, scaleR * 0.1 + 1);
+    if (_tabItemTitleMaxfont) {
+        fontSize2 = p * (_tabItemTitleMaxfont - _tabItemTitleMinfont) + _tabItemTitleMinfont;
+    }else{
+        fontSize2 = p * (maxFont - minFont) + minFont;
+    }
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize2];
+    
+    if (_tabItemTitleMinfont) {
+        fontSize1 = (1- p) * (_tabItemTitleMaxfont - _tabItemTitleMinfont) + _tabItemTitleMinfont;
+    }else{
+        fontSize1 = (1- p) * (maxFont - minFont) + minFont;
+    }
+    leftBtn.titleLabel.font = [UIFont systemFontOfSize:fontSize1];
     
 }
+
+//底部指示器随着滚动
+-(void)setupIndicatorViewScroll:(UIScrollView *)scrollView
+{
+    NSInteger leftI = scrollView.contentOffset.x / MJCScreenWidth;
+    NSInteger rightI = leftI + 1;
+    
+    // 获取左边的按钮
+    UIButton *leftBtn =  self.titleButtons[leftI];
+    NSInteger count = self.titleButtons.count;
+    // 获取右边的按钮
+    UIButton *rightBtn;
+    if (rightI < count) {
+        rightBtn = self.titleButtons[rightI];
+    }
+    
+    // 0 ~ 1 =>  1 ~ 1.3
+    CGFloat scaleR =  scrollView.contentOffset.x / MJCScreenWidth;
+    scaleR -= leftI;
+    
+    if (_fristShowTag != 0 ){
+        if (_MJCIndicatorStyle == MJCIndicatorItemStyle) {
+            self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
+            self.indicatorView.mjc_width   = leftBtn.mjc_width +(rightBtn.mjc_width - leftBtn.mjc_width) * scaleR;
+        }else{
+            self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
+            self.indicatorView.mjc_width   = leftBtn.titleLabel.mjc_width +(rightBtn.titleLabel.mjc_width - leftBtn.titleLabel.mjc_width) * scaleR;
+        }
+    }
+
+    _fristShowTag = 1;
+}
+
 
 @end

@@ -20,5 +20,8 @@
 @property (nonatomic,assign) BOOL childScollEnabled;
 
 
+@property(nonatomic,weak) id<UIScrollViewDelegate> delegate111;
+
+
 
 @end

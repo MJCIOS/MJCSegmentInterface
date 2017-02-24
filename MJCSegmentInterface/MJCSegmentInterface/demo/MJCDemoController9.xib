@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MJCDemoController9">
             <connections>
-                <outlet property="segmentFace" destination="ZBW-VT-59D" id="XdT-Gs-DPw"/>
+                <outlet property="segmentInterface" destination="ZBW-VT-59D" id="BjJ-M3-Ogr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

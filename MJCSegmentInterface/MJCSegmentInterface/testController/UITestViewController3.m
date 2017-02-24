@@ -149,4 +149,13 @@
     [self.navigationController pushViewController:textVC animated:YES];
 }
 
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+
+    NSLog(@"sadasdsa");
+    
+}
+
+
 @end

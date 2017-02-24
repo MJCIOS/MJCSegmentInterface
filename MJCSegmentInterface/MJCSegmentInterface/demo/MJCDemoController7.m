@@ -45,6 +45,7 @@
     segmentInterface.childViewScollAnimal = YES;//是否有滚动动画
     segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     
+    segmentInterface.zoomBigEnabled = YES;
     
 #pragma mark -- 标题栏的属性
     segmentInterface.titleViewColor = [UIColor clearColor];

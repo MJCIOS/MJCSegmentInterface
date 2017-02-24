@@ -105,8 +105,7 @@
             
             self.mjc_width = self.mjc_width;
             
-        }else{
-            
+        }else{            
             if (SegmentIndicatorStyle == MJCIndicatorItemStyle) {
                 self.mjc_width = firstButton.mjc_width;
             }else{

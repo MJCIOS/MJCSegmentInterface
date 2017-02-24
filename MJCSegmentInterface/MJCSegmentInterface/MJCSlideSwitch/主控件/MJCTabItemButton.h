@@ -30,6 +30,7 @@
 
 @property (nonatomic,strong) UIImage *tabItemBackImageSelected;
 
+-(void)setuptabItemTitlesFont:(CGFloat)titlesMaxFont tabItemTitlesfont:(UIFont *)tabItemTitlesfont;
 
 -(void)setupTabItemNormalImageArray:(NSArray *)tabItemNormalImageArray buttonTag:(NSUInteger)buttonTag;
 

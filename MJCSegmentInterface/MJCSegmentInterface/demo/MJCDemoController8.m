@@ -39,7 +39,7 @@
 
     //    NSArray *titlesArr = @[@"啦啦",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     
-    [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
+//    [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
     NSArray *titlesArr = @[@"啦啦",@"啪啪"];
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
@@ -64,31 +64,35 @@
     
     [self.view addSubview:segmentInterface];
     
-    
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc hostMainController:self];
-    
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
+    
+    
+    
+    [segmentInterface intoChildViewController:vc hostMainController:self];
     [segmentInterface intoChildViewController:vc1 hostMainController:self];
     
-    UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2 hostMainController:self];
-    
-    UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    vc3.style = style;
-    [segmentInterface intoChildViewController:vc3 hostMainController:self];
-    
-    UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4 hostMainController:self];
-    
-    UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc5 hostMainController:self];
-        
-    
-    
     segmentInterface.selectedSegmentIndex = 1;
+
+    
+    
+//    UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
+//    [segmentInterface intoChildViewController:vc2 hostMainController:self];
+//    
+//    UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
+//    vc3.style = style;
+//    [segmentInterface intoChildViewController:vc3 hostMainController:self];
+//    
+//    UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
+//    [segmentInterface intoChildViewController:vc4 hostMainController:self];
+//    
+//    UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
+//    [segmentInterface intoChildViewController:vc5 hostMainController:self];
+    
+    
+    
     
 }
 

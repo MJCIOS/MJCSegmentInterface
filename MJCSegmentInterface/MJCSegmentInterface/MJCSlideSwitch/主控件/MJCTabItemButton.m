@@ -62,9 +62,19 @@
     }
 }
 
+-(void)setuptabItemTitlesFont:(CGFloat)titlesMaxFont tabItemTitlesfont:(UIFont *)tabItemTitlesfont
+{
+    if (self.tag == 0) {
+        self.titleLabel.font = [UIFont systemFontOfSize:titlesMaxFont];
+    }else{
+        self.titleLabel.font = tabItemTitlesfont;
+    }
+}
+
 -(void)setTabItemTitlesfont:(UIFont *)tabItemTitlesfont
 {
     _tabItemTitlesfont = tabItemTitlesfont;
+    
     self.titleLabel.font = tabItemTitlesfont;
 }
 

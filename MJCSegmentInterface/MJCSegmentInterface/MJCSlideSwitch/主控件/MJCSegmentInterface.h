@@ -60,6 +60,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 @interface MJCSegmentInterface : UIView
 
+@property (nonatomic,assign) BOOL followScrollEnabled;
+
 /** 标题按钮缩放效果 */
 @property (nonatomic,assign) BOOL zoomBigEnabled;
 
@@ -69,15 +71,14 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** slideDelegate代理方法 */
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> slideDelegate;
 
-#pragma mark -- 样式
 
 + (instancetype)segmentinitWithFrame:(CGRect)frame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
 
+
+#pragma mark -- 样式
+
 /** 标题栏样式 */
 @property (nonatomic,assign) MJCSeMentTitleBarStyles MJCSeMentTitleBarStyle;
-
-/** 标题栏界面样式，默认为样式 */
-//@property (nonatomic, assign) MJCTitlesInterfaceStyles MJCTitlesInterfaceStyle;
 
 /** 底部指示器样式 */
 @property (nonatomic,assign) MJCIndicatorStyles MJCIndicatorStyle;
@@ -88,15 +89,14 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 #pragma mark -- 标题栏设置创建和滚动标题栏的设置
 
-/** 滚动标题栏Frame */
+/** 标题栏Frame */
 @property(nonatomic,assign) CGRect titleViewframe;
 
-/** 滚动标题栏颜色 */
+/** 标题栏颜色 */
 @property (nonatomic,strong) UIColor *titleViewColor;
 
 
 #pragma mark -- 右部竖线的属性设置
-
 /** 右部竖线线条高度 */
 @property (nonatomic,assign) CGFloat verticalLineHegiht;
 
@@ -106,8 +106,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 右边竖线颜色 */
 @property (nonatomic,strong) UIColor *verticalLineColor;
 
-#pragma mark -- 底部横线的属性设置
 
+#pragma mark -- 底部横线的属性设置
 /** 底部横线条是否显示 */
 @property (nonatomic,assign,getter = bottomViewHidden) BOOL bottomViewHidden;
 
@@ -120,8 +120,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 底部线条高度 */
 @property (nonatomic,assign) CGFloat bottomViewHegiht;
 
-#pragma mark -- 顶部横线的属性设置
 
+#pragma mark -- 顶部横线的属性设置
 /** 顶部横线条是否显示 */
 @property (nonatomic,assign,getter= topViewHidden) BOOL topViewHidden;
 
@@ -133,6 +133,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 /** 顶部线条高度 */
 @property (nonatomic,assign) CGFloat topViewHegiht;
+
 
 #pragma mark -- 底部指示器的属性设置
 
@@ -152,9 +153,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 子控制器视图界面的Frame */
 @property(nonatomic,assign) CGRect  childViewframe;
 
-/** 是否开启用户自己设置子控制器视图界面的frame */
-//@property(nonatomic,getter = isChildViewframe) BOOL isChildViewframe;
-
 /** 子界面是否滑动 */
 @property(nonatomic,assign,getter = childScollEnabled) BOOL childScollEnabled;
 
@@ -162,9 +160,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property(nonatomic,assign,getter= isChildViewScollAnimal) BOOL childViewScollAnimal;
 
 
-
 #pragma mark -- tabItem的属性设置
-
 /** 设置默认点击的按钮,显示界面 */
 @property(nonatomic) NSInteger selectedSegmentIndex;
 
@@ -175,6 +171,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,strong) UIImage *tabItemImageNormal;
 /** tabItem按钮的点击状态下背景图片 */
 @property (nonatomic,strong) UIImage *tabItemImageSelected;
+
 /** tabItem图片数组----tabItem数量一致,要不然图片数组会越界,会崩溃(此问题有人能解决的,可以给我点建议) */
 @property (nonatomic,strong) NSArray *tabItemImageNormalArray;
 @property (nonatomic,strong) NSArray *tabItemImageSelectedArray;
@@ -197,6 +194,14 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** tabItem文字大小 */
 @property (nonatomic,strong) UIFont *tabItemTitlesfont;
 
+/**
+ * 用于缩放功能的修改字体的属性
+ */
+/** 最大字体 */
+@property (nonatomic,assign) CGFloat tabItemTitleMaxfont;
+/** 最小字体 */
+@property (nonatomic,assign) CGFloat tabItemTitleMinfont;
+
 
 #pragma mark -- 右边按钮
 /** 最右边按钮是否隐藏 */
@@ -210,7 +215,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** 最右边按钮的大小位置 */
 @property(nonatomic,assign) CGRect  rightMostBtnFrame;
 
-
 /** 最左边位置的时候最左边按钮的图片 */
 @property (nonatomic,strong) UIImage *rightMostLeftSide;
 /** 最右边位置的时候的最右边按钮的图片 */
@@ -220,22 +224,21 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,getter=isOpenJump) BOOL isOpenJump;
 
 
-
-#pragma mark -- childView子界面的属性设置
+#pragma mark -- 添加方法
 
 /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoChildViewController:(UIViewController *)childViewController hostMainController:(UIViewController *)hostController;
 
 /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
--(void)intoChildControllerArray:(NSArray *)childControllerArray;
+-(void)intoChildControllerArray:(NSArray *)childControllerArray hostMainController:(UIViewController *)hostController;
 
-/**
- *  添加标题栏的方法
- */
+/** 添加标题栏的方法 */
 -(void)intoTitlesArray:(NSArray *)titlesArray;
 
 /** 创建标题栏的方法 */
 -(UIView *)intoFaceView;
+
+
 
 
 @end
