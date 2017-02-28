@@ -30,9 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
 }
-
 
 - (IBAction)demo:(id)sender {
     
