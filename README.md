@@ -26,6 +26,8 @@
 
         //实例化控件
         MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
+        //添加控制器
+        UITestViewController *vc = [[UITestViewController alloc]init];
         UITestViewController *vc = [[UITestViewController alloc]init];
         UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
         UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
