@@ -110,8 +110,6 @@
     if (!_scrollView) {
         _scrollView = [[MJCChildScrollView  alloc]init];
         _scrollView.scollDelegate = self;
-        
-        _scrollView.childScollEnabled = _childScollEnabled;
     }
     return _scrollView;
 }
@@ -181,9 +179,9 @@
 
 + (instancetype)segmentinitWithFrame:(CGRect)frame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle
 {
-    MJCSegmentInterface *interFaceView = [[self alloc] initWithFrame:frame];
+    MJCSegmentInterface *interFaceView = [[self alloc] init];
+    interFaceView.frame = frame;
     interFaceView.MJCSeMentTitleBarStyle = MJCSeMentTitleBarStyle;
-    
     return interFaceView;
 }
 
@@ -275,7 +273,9 @@
 #pragma mark -- 子控制器的滚动界面
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
-    [self.scrollView setupTitlesScrollFrame:_titleViewframe mainView:self MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle xibCreateTag:_xibCreateTag];
+//    [self.scrollView setupTitlesScrollFrame:self.titlesScrollView mainView:self MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle xibCreateTag:_xibCreateTag];
+    
+    self.scrollView.childScollEnabled = _childScollEnabled;
     [self.scrollView setupChildContenSize:scollViewArr];
     [self addSubview:self.scrollView];
 }
@@ -319,8 +319,6 @@
 {   //为了修改它第0页和最后一页的图片而重写它的set方法
     _rightMostBtnImage = rightMostBtnImage;
     
-    
-    
     self.rightMostButton.rightMostBtnImage = rightMostBtnImage;
 }
 -(void)setRightMostBtnFrame:(CGRect)rightMostBtnFrame
@@ -339,6 +337,8 @@
         
         [self addSubview:self.titlesScrollView];
     }
+    
+    [self.scrollView setupTitlesScrollFrame:self.titlesScrollView mainView:self MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle xibCreateTag:_xibCreateTag];
 }
 
 #pragma mark -- 创建标题按钮数据

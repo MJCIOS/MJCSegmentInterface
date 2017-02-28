@@ -32,14 +32,16 @@
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     
     //创建标题栏控件
-    MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
-    _segmentInterface = segmentInterface;
-
-    segmentInterface.titleViewColor = [UIColor orangeColor];
+//    MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     
+  MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
+    
+    _segmentInterface = segmentInterface;
+    segmentInterface.titleViewColor = [UIColor clearColor];
     segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
-    segmentInterface.titleViewframe = CGRectMake(0,64,MJCScreenWidth,50);
-    //    segmentInterface.childViewframe = CGRectMake(0,100,MJCScreenWidth, MJCScreenHeight-64);
+//    segmentInterface.titleViewframe = CGRectMake(0,64,MJCScreenWidth,50);
+//    segmentInterface.childViewframe = CGRectMake(0,0,MJCScreenWidth, MJCScreenHeight);
+    
     segmentInterface.childScollEnabled = YES;
     segmentInterface.verticalLineHidden = YES;
 //    segmentInterface.slideDelegate = self;

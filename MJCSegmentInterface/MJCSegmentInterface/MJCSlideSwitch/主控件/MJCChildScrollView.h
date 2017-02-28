@@ -11,7 +11,7 @@
 
 @interface MJCChildScrollView : UIScrollView
 
--(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
+-(void)setupTitlesScrollFrame:(UIView *)titilesView mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
 
 
 -(void)setupChildContenSize:(NSArray *)titlesArr;

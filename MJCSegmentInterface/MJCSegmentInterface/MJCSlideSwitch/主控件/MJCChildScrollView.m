@@ -39,7 +39,7 @@
 }
 
 
--(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
+-(void)setupTitlesScrollFrame:(UIView *)titilesView mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
 {
     
     if (_childFrameTag == 1) {
@@ -51,13 +51,14 @@
         if (MJCSeMentTitleBarStyle == MJCSegMentTitlesClassicStyle) {
             
             if (xibCreateTag == 1) {
-                self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height));
+                self.frame = CGRectMake(0,titilesView.frame.size.height+titilesView.frame.origin.y,mainView.mjc_width,mainView.mjc_height-(titilesView.frame.size.height+titilesView.frame.origin.y));
+                
             }else{
-                if (titlesScrollFrame.origin.y == 0) {
-                    self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height+64));
-                }else{
-                    self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height+titlesScrollFrame.origin.y));
-                }
+//                if (titilesView.frame.origin.y == 0) {
+//                    self.frame = CGRectMake(0,titilesView.frame.size.height+titilesView.frame.origin.y,mainView.mjc_width,mainView.mjc_height-(titilesView.frame.size.height+64));
+//                }else{
+                self.frame = CGRectMake(0,titilesView.frame.size.height+titilesView.frame.origin.y,mainView.mjc_width,mainView.mjc_height-(titilesView.frame.origin.y+titilesView.frame.size.height));
+//                }
             }
             
         }else{

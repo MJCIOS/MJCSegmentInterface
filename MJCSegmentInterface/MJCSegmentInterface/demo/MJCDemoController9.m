@@ -28,6 +28,8 @@
     //添加标题栏
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪啪啪",@"啪啪",@"啪啪"];
     
+    
+    _segmentInterface.titleViewframe = CGRectMake(0,100,MJCScreenWidth,50);
     _segmentInterface.MJCIndicatorStyle = MJCIndicatorItemStyle;
     _segmentInterface.childViewScollAnimal = YES;
     _segmentInterface.titlesScrollEnabled = NO;
