@@ -8,7 +8,6 @@
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
 
 ### MJCSegmentInterface分段控制器创建(几行代码设置即可使用)
-
     //实例化控件
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
