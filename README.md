@@ -9,9 +9,9 @@
 
 
 
-### 无限循环自动图片轮播器(一步设置即可使用)
+### MJCSegmentInterface分段控制器创建(几行代码设置即可使用)
 
-     //实例化控件
+    //实例化控件
      MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
      segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
      segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
