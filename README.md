@@ -9,7 +9,7 @@
 
 ###分段控制器创建(几行代码即可使用)
 
-    NSArray *titlesArr = @[@"德玛",@"诺克",@"卡特",@"皮城",@"亚索"];
+    NSArray *titlesArr = @[@"德玛",@"诺克",@"卡特",@"皮城",@"亚索"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     UIView *view1 = segmentsface.intoFaceView;
     (所有属性的修改要将在这中间部分里面修改....)
@@ -17,6 +17,18 @@
     [self.view addSubview:view1];
     UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
     [segmentsface intoChildViewController:vc];
-
+    
+    //另种控件创建方法
+      MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
+      
+###第二种控制器添加的方法
+  
+    UITestViewController *vc = [[UITestViewController alloc]init];
+    UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
+    UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
+    UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
+    UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
+    NSArray *childArr = @[vc,vc1,vc2,vc3,vc4];
+    [_segmentInterface intoChildControllerArray:childArr hostMainController:self];
 
 ## 可自行修改各个属性,具体属性内容可进去查看..
