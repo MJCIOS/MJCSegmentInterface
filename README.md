@@ -10,19 +10,19 @@
 ### MJCSegmentInterface分段控制器创建(几行代码设置即可使用)
 
     //实例化控件
-     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-     segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
-     segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
-     segmentsface.childScollEnabled = YES;
+    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+    segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
+    segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    segmentsface.childScollEnabled = YES;
      
-     (所有属性的修改要将在这中间部分里面修改....)
-     [segmentsface intoTitlesArray:titlesArr];
-     [self.view addSubview:view1];
-     UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
-     [segmentsface intoChildViewController:vc];
+    (所有属性的修改要将在这中间部分里面修改....)
+    [segmentsface intoTitlesArray:titlesArr];
+    [self.view addSubview:view1];
+    UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
+    [segmentsface intoChildViewController:vc];
     
-     //实例化控件
-     MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
+    //实例化控件
+    MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
 
 
 ---------------------------------------------------------------------------------------------------------------
