@@ -1,6 +1,7 @@
 # MJC
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 ## 新增了标题栏滑动功能   新增了一个最右侧的按钮,可以滚动到第一页和最后一页,也可自己跳转所需要的界面
+#### 支持字体缩放,支持默认选中显示的子控制器界面
 ###有啥问题联系我QQ292251588,希望大神们和我多多交流,和大神们一起学习.....
 ####用在我仿做的很喜欢的项目中,请看以下示例图
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
@@ -8,7 +9,7 @@
 
 ###分段控制器创建(几行代码即可使用)
 
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"德玛",@"诺克",@"卡特",@"皮城",@"亚索"];
     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
     UIView *view1 = segmentsface.intoFaceView;
     (所有属性的修改要将在这中间部分里面修改....)
@@ -18,95 +19,4 @@
     [segmentsface intoChildViewController:vc];
 
 
-    
-###分段控制器属性用法:(添加标题栏之前可自定义修改属性)
-
-    segmentsface.scrollTitlesEnabled = YES;
-    segmentsface.interFaceControlStyle = SegMentInterfaceStylePenetrate;
-    segmentsface.slideDelegate = self;
-    segmentsface.childScollEnabled = YES;
-    segmentsface.rightMostBtnShow = YES;
-    segmentsface.isOpenJump = YES;
-    segmentsface.mostRightPosition = [UIImage imageNamed:@"向右箭头"];
-    segmentsface.mostLeftPosition = [UIImage imageNamed:@"向左箭头"];
-
-###分段控制器属性列表:(所有的属性展示)
-
-####类型:
-    
-    //子界面样式
-    typedef enum {
-        SegMentInterfaceStyleClassic,//经典样式
-        SegMentInterfaceStylePenetrate,//穿透样式(普通穿透标题栏)
-        SegMentInterfaceStyleLess,   //(格子竖线标题栏)
-        SegMentInterfaceStyleMoreUse,//(格子穿透标题栏)
-        SegMentInterfaceStyleExceedUse //(适用于上面没有导航栏的情况)
-    } MJCSegmentInterfaceStyle;
-
-    //底部指示器样式
-    typedef enum {
-        SegMentIndicatorItemStyle,
-        SegMentIndicatorItemTextStyle
-    } MJCSegmentIndicatorStyle;
-    
-####右边竖线属性:
-    
-    rightViewShow(只用于这两种SegMentInterfaceStyleClassic,SegMentInterfaceStylePenetrate)
-    rightColor
-    rightViewHegiht
-    rightViewHidden(只用于这两种SegMentInterfaceStyleLess,SegMentInterfaceStyleMoreUse)
-    
-#####标题栏属性:
-    
-    isTitlesViewframe(是否开启设置frame)
-    titlesViewframe(设置frame)
-    isTitlesViewframe:BOOL titlesViewframe:CGRect (等于上面两句)
-    titlesViewColor
-    
-#####底部横线设置:
-     
-    bottomViewHidden
-    bottomViewHegiht
-    bottomViewColor
-    isBottomViewFrame(是否开启设置frame)
-    bottomViewFrame(设置frame)
-    isBottomViewFrame:BOOL setBottomViewFrame:CGRect
-    
-#####头部横线设置
-    
-    topViewHidden
-    topViewHegiht
-    topViewColor
-    isTopViewFrame(是否开启设置frame)
-    topViewFrame(设置frame)
-    isTopViewFrame:BOOL setTopViewFrame:CGRect
-    
-#####底部指示器设置
-    
-    indicatorHidden
-    indicatorColor
-    indicatorWidth
-    isindicatorFrame(是否开启设置frame)
-    indicatorFrame(设置frame)
-    isindicatorFrame:BOOL indicatorFrame:CGRect
-    
-#####childView子界面
-    
-    childViewEnabled
-    isChildViewframe(是否开启设置frame)
-    childViewframe(设置frame)
-    isChildViewframe:BOOL childViewframe:CGRect
-    
-#####tabitem的设置
-    
-    tabItemImageNormal
-    tabItemImageSelected
-    tabItemBackColor
-    tabItemImageArray
-    tabItemBackColor
-    tabItemTitleNormalColor
-    tabItemTitleSelectedColor
-    tabItemTitlesfont
-    isTabItemFrame(是否开启设置frame)
-    tabItemFrame(设置frame)
-    isTabItemFrame:BOOL tabItemFrame:CGRect
+## 可自行修改各个属性,具体属性内容可进去查看..
