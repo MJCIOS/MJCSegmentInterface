@@ -24,46 +24,18 @@
     [super viewDidLoad];
     
     
-    NSLog(@"%ld",_style);
-    
     self.tableView1 = [[UITableView alloc]init];
     UIImageView *imamgview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"月光"]];
     self.tableView1.backgroundView =imamgview;
-    self.tableView1.frame = CGRectMake(0,0, MJCScreenWidth, MJCScreenHeight - 64);
+    self.tableView1.frame = CGRectMake(0,0, MJCScreenWidth, MJCScreenHeight - 64 - 50);
     self.tableView1.delegate = self;
     self.tableView1.dataSource = self;
     [self.view addSubview:self.tableView1];
 
-    
-    if (_style == 0) {
-        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64-50);
-        return;
+    if (_style == 4) {
+        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64);
     }
     
-    if (_style == 1) {
-        self.tableView1.contentInset = UIEdgeInsetsMake(50,0,0,0);
-        return;
-    }
-    
-
-    if (_style == 2) {
-        
-        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
-        self.tableView1.contentInset = UIEdgeInsetsMake(0,0,0,0);
-        
-        return;
-    }
-    
-    if (self.style == 4) {
-        self.tableView1.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight);
-        return;
-    }
-
-    
-    
-    
-
-
 }
 
 

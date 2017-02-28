@@ -43,13 +43,16 @@
     _segmentInterface.indicatorColor = [UIColor redColor];
     _segmentInterface.titleViewColor = [[UIColor redColor]colorWithAlphaComponent:0.3];
     
+    _segmentInterface.rightMostBtnHidden = NO;
+    _segmentInterface.isOpenJump = YES;
+    _segmentInterface.rightMostLeftSide = [UIImage imageNamed:@"向左箭头"];
+    _segmentInterface.rightMostRightSide = [UIImage imageNamed:@"向右箭头"];
+    
     _segmentInterface.zoomBigEnabled = YES;
-    _segmentInterface.followScrollEnabled = NO;
+    _segmentInterface.followScrollEnabled = YES;
     
-
-    
-    _segmentInterface.tabItemTitleMaxfont = 30;
-    _segmentInterface.tabItemTitleMinfont = 20;
+//    _segmentInterface.tabItemTitleMaxfont = 30;
+//    _segmentInterface.tabItemTitleMinfont = 20;
     
     //在添加标题栏之前做其他属性操作
     [_segmentInterface intoTitlesArray:titlesArr];
@@ -68,9 +71,39 @@
     
     [_segmentInterface intoChildControllerArray:childArr hostMainController:self];
     
-//    _segmentInterface.selectedSegmentIndex = 3;
+    _segmentInterface.selectedSegmentIndex = 3;
     
 }
+
+-(void)mjc_ClickEvent:(UIButton *)titleButton segmentInterface:(MJCSegmentInterface *)segmentInterface
+{
+    if (titleButton.tag == 1) {
+        [titleButton setTitle:@"消息" forState:UIControlStateNormal];
+    }else{
+        [titleButton setTitle:@"电话" forState:UIControlStateNormal];
+    }
+    
+    
+    //    [self setupButton:titleButton];
+}
+
+
+
+-(void)setupButton:(UIButton *)button
+{
+    if (button.tag == 0) {
+        button.backgroundColor = [[UIColor purpleColor]colorWithAlphaComponent:0.7];
+    }else if (button.tag == 1){
+        button.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:1.0];
+    }else if (button.tag == 2){
+        button.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.7];
+    }else if (button.tag == 3){
+        button.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.7];
+    }else{
+        button.backgroundColor = [[UIColor orangeColor]colorWithAlphaComponent:0.7];
+    }
+}
+
 
 
 @end

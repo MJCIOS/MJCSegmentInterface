@@ -48,9 +48,13 @@
     //    segmentsface.MJCIndicatorStyle = MJCIndicatorItemTextStyle;
     //    segmentsface.titlesScrollEnabled = YES;
     //    segmentsface.childViewScollAnimal = YES;//是否有滚动动画
+    segmentInterface.slideDelegate = self;
     
     segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
-    
+
+    segmentInterface.titleViewframe = CGRectMake(0,0,180,30);
+    segmentInterface.titleViewColor = [UIColor redColor];
+    segmentInterface.zoomBigEnabled = YES;
     
     UIView *titlesView =  [segmentInterface intoFaceView];
     titlesView.layer.masksToBounds = YES;
@@ -60,8 +64,10 @@
     titlesView.layer.borderColor = borderColorRef;
     self.navigationItem.titleView = titlesView;
     
-    [segmentInterface intoTitlesArray:titlesArr];
     
+    
+    
+    [segmentInterface intoTitlesArray:titlesArr];
     [self.view addSubview:segmentInterface];
     
     /** 添加控制器 */
@@ -90,7 +96,6 @@
 //    
 //    UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
 //    [segmentInterface intoChildViewController:vc5 hostMainController:self];
-    
     
     
     

@@ -242,7 +242,7 @@
 			path = "通用属性";
 			sourceTree = "<group>";
 		};
-		25A91C4C1DC2FF9F0009313D /* demo */ = {
+		25A91C4C1DC2FF9F0009313D /* styleDemo */ = {
 			isa = PBXGroup;
 			children = (
 				25A91C4E1DC2FFCB0009313D /* MJCDemoController.h */,
@@ -271,6 +271,7 @@
 				25D86C991E238624004ABA8A /* MJCDemoController9.m */,
 				25D86C9A1E238624004ABA8A /* MJCDemoController9.xib */,
 			);
+			name = styleDemo;
 			path = demo;
 			sourceTree = "<group>";
 		};
@@ -315,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				25A91C291DC2FA1F0009313D /* MJCSlideSwitch */,
-				25A91C4C1DC2FF9F0009313D /* demo */,
+				25A91C4C1DC2FF9F0009313D /* styleDemo */,
 				25A91C4D1DC2FF9F0009313D /* testController */,
 				25D9DB4B1DC2635C00B903B1 /* ViewController.h */,
 				25D9DB4C1DC2635C00B903B1 /* ViewController.m */,

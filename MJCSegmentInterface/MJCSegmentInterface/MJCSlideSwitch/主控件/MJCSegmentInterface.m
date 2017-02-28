@@ -65,11 +65,11 @@
 /** 子控制器界面的数组 */
 @property (nonatomic,strong) NSArray *childControllerArray;
 
-/** <#  注释  #> */
-@property (nonatomic,assign) NSInteger fristShowTag;
-
 //数组按钮
 @property (nonatomic, strong) NSMutableArray *titleButtons;
+
+/** xib创建tag */
+@property (nonatomic,assign) NSInteger xibCreateTag;
 
 @end
 
@@ -79,6 +79,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        
         self.frame = [UIScreen mainScreen].bounds;
         
         [self setupData];
@@ -90,6 +91,8 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    _xibCreateTag = 1;
     
     [self setupData];
 }
@@ -106,7 +109,7 @@
 {
     if (!_scrollView) {
         _scrollView = [[MJCChildScrollView  alloc]init];
-        _scrollView.delegate111 = self;
+        _scrollView.scollDelegate = self;
         
         _scrollView.childScollEnabled = _childScollEnabled;
     }
@@ -188,9 +191,21 @@
 {
     _selectedSegmentIndex = selectedSegmentIndex;
     
-    MJCTabItemButton *button = self.titlesScrollView.subviews[selectedSegmentIndex];
+    self.firstTitleButton.selected = NO;
     
-    [self titleClick:button];
+    if (_tabItemTitleMinfont) {
+        self.firstTitleButton.titleLabel.font = [UIFont systemFontOfSize:_tabItemTitleMinfont];
+    }else{
+        self.firstTitleButton.titleLabel.font = _tabItemTitlesfont;
+    }
+    
+    
+    self.firstTitleButton = self.titlesScrollView.subviews[selectedSegmentIndex];
+    self.firstTitleButton.selected = YES;
+    [self setupChildViewScollAnimal:self.firstTitleButton];
+    [self addChildVcView];
+    
+//    [self titleClick:button];
 }
 
 #pragma mark -- 添加子控制器
@@ -221,6 +236,11 @@
     
     NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
     
+    if (_selectedSegmentIndex != 0) {
+        index = _selectedSegmentIndex;
+        _selectedSegmentIndex = 0;
+    }
+    
     UIViewController *childVc;
     if (_childControllerArray) {
         childVc = _childControllerArray[index];
@@ -229,9 +249,10 @@
     }
     
     if ([childVc isViewLoaded]) return;
+    
     childVc.view.frame = self.scrollView.bounds;
     
-    //这个防止以后有布局问题,暂时不删
+//    这个防止以后有布局问题,暂时不删
 //    CGFloat childX = self.scrollView.bounds.origin.x;
 //    CGFloat childW = self.scrollView.bounds.size.width;
 //    CGFloat childH = self.scrollView.bounds.size.height;
@@ -248,17 +269,17 @@
 //            }
 //        }
 //    }
-    
     [self.scrollView addSubview:childVc.view];
 }
 
 #pragma mark -- 子控制器的滚动界面
 -(void)setScollViewArr:(NSArray *)scollViewArr
 {
-    [self.scrollView setupTitlesScrollFrame:_titleViewframe MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle];
+    [self.scrollView setupTitlesScrollFrame:_titleViewframe mainView:self MJCSeMentTitleBarStyle:_MJCSeMentTitleBarStyle xibCreateTag:_xibCreateTag];
     [self.scrollView setupChildContenSize:scollViewArr];
     [self addSubview:self.scrollView];
 }
+
 -(void)setChildViewframe:(CGRect)childViewframe
 {
     _childViewframe = childViewframe;
@@ -282,6 +303,12 @@
 #pragma mark -- 最右边按钮
 -(void)setupRightButton
 {
+    if (self.rightMostBtnImage) {
+        self.rightMostButton.rightMostBtnImage = _rightMostBtnImage;
+    }else{
+        self.rightMostButton.rightMostBtnImage = _rightMostLeftSide;
+    }
+    
     self.rightMostButton.rightBtnHidden = _rightMostBtnHidden;
     self.rightMostButton.rightBtnBackColor = _rightMostBtnColor;
     [self. rightMostButton setupRightFrame:self.titlesButton titlesScrollView:self.titlesScrollView];
@@ -291,6 +318,9 @@
 -(void)setRightMostBtnImage:(UIImage *)rightMostBtnImage
 {   //为了修改它第0页和最后一页的图片而重写它的set方法
     _rightMostBtnImage = rightMostBtnImage;
+    
+    
+    
     self.rightMostButton.rightMostBtnImage = rightMostBtnImage;
 }
 -(void)setRightMostBtnFrame:(CGRect)rightMostBtnFrame
@@ -443,12 +473,6 @@
 {
     //最右边按钮切换界面的方法
     if (_isOpenJump == YES) {
-//        // !!!:第一种算页数的方法
-//        CGFloat scrollViewWidth = _scrollView.contentSize.width;
-//        //当前页数,第一页 (这个为第一页)
-//        CGFloat scrollViewContentX = _scrollView.contentOffset.x;
-//        //最后一页
-//        CGFloat lastPage = scrollViewContentX >= scrollViewWidth - MJCScreenWidth;
         
         //第二种:根据内偏移量x来算页码(如果是第一页那内偏移为0,如果是第二页,那就是第二块内容)
         NSUInteger index = self.scrollView.contentOffset.x / self.scrollView.mjc_width;
@@ -484,8 +508,6 @@
 //点击标题的点击事件
 - (void)titleClick:(MJCTabItemButton *)titleButton
 {
-    _fristShowTag = 0;
-    
     self.firstTitleButton.selected = NO;//之前选中的按钮
     [self.firstTitleButton setTitleColor:_tabItemTitleNormalColor forState:UIControlStateNormal];
     
@@ -578,7 +600,7 @@
     self.topViewHidden = YES;
     self.bottomViewHidden = YES;
     self.tabItemTitleNormalColor = [UIColor blackColor];
-    self.tabItemTitleSelectedColor = [UIColor redColor];
+    self.tabItemTitleSelectedColor = [UIColor grayColor];
     self.rightMostBtnHidden = YES;
     
 }
@@ -721,17 +743,13 @@
     CGFloat scaleR =  scrollView.contentOffset.x / MJCScreenWidth;
     scaleR -= leftI;
     
-    if (_fristShowTag != 0 ){
-        if (_MJCIndicatorStyle == MJCIndicatorItemStyle) {
-            self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
-            self.indicatorView.mjc_width   = leftBtn.mjc_width +(rightBtn.mjc_width - leftBtn.mjc_width) * scaleR;
-        }else{
-            self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
-            self.indicatorView.mjc_width   = leftBtn.titleLabel.mjc_width +(rightBtn.titleLabel.mjc_width - leftBtn.titleLabel.mjc_width) * scaleR;
-        }
+    if (_MJCIndicatorStyle == MJCIndicatorItemStyle) {
+        self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
+        self.indicatorView.mjc_width   = leftBtn.mjc_width +(rightBtn.mjc_width - leftBtn.mjc_width) * scaleR;
+    }else{
+        self.indicatorView.mjc_centerX = leftBtn.mjc_centerX + (rightBtn.mjc_centerX - leftBtn.mjc_centerX) * scaleR;
+        self.indicatorView.mjc_width   = leftBtn.titleLabel.mjc_width +(rightBtn.titleLabel.mjc_width - leftBtn.titleLabel.mjc_width) * scaleR;
     }
-
-    _fristShowTag = 1;
 }
 
 

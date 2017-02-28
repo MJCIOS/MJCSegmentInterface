@@ -39,21 +39,30 @@
 }
 
 
--(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
+-(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
 {
+    
     if (_childFrameTag == 1) {
+      
         self.frame = self.frame;
+    
     }else{
+        
         if (MJCSeMentTitleBarStyle == MJCSegMentTitlesClassicStyle) {
             
-            if (titlesScrollFrame.origin.y == 0) {
-                self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,MJCScreenWidth,MJCScreenHeight-(titlesScrollFrame.size.height+64));
+            if (xibCreateTag == 1) {
+                self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height));
             }else{
-                self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,MJCScreenWidth,MJCScreenHeight-(titlesScrollFrame.size.height+titlesScrollFrame.origin.y));
+                if (titlesScrollFrame.origin.y == 0) {
+                    self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height+64));
+                }else{
+                    self.frame = CGRectMake(0,titlesScrollFrame.size.height+titlesScrollFrame.origin.y,mainView.mjc_width,mainView.mjc_height-(titlesScrollFrame.size.height+titlesScrollFrame.origin.y));
+                }
             }
             
         }else{
-            self.frame = CGRectMake(0,64,MJCScreenWidth,MJCScreenHeight-64);
+            
+            self.frame = CGRectMake(0,64,mainView.mjc_width,mainView.mjc_height-64);
         }
     }
 }
@@ -79,9 +88,9 @@
     self.contentSize = CGSizeMake(titlesArr.count *self.mjc_width,0);
 }
 
--(void)setDelegate111:(id<UIScrollViewDelegate>)delegate111
+-(void)setScollDelegate:(id<UIScrollViewDelegate>)scollDelegate
 {
-      self.delegate = delegate111;
+      self.delegate = scollDelegate;
 }
 
 @end

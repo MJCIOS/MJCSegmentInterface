@@ -11,7 +11,8 @@
 
 @interface MJCChildScrollView : UIScrollView
 
--(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle;
+-(void)setupTitlesScrollFrame:(CGRect)titlesScrollFrame mainView:(UIView *)mainView  MJCSeMentTitleBarStyle:(MJCSeMentTitleBarStyles)MJCSeMentTitleBarStyle xibCreateTag:(NSInteger)xibCreateTag;
+
 
 -(void)setupChildContenSize:(NSArray *)titlesArr;
 
@@ -20,7 +21,7 @@
 @property (nonatomic,assign) BOOL childScollEnabled;
 
 
-@property(nonatomic,weak) id<UIScrollViewDelegate> delegate111;
+@property(nonatomic,weak) id<UIScrollViewDelegate> scollDelegate;
 
 
 

@@ -22,11 +22,12 @@
     NSInteger style = 0;
     
     self.view.backgroundColor = [UIColor redColor];
-    //有导航栏或者tabbar时,保证标题栏不会被覆盖
+    
+//    //有导航栏或者tabbar时,保证标题栏不会被覆盖
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    
+
     //添加标题栏
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     

@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSInteger style = 3;
+    NSInteger style = 0;
     _style = style;
     
     
