@@ -7,19 +7,27 @@
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
 
-###分段控制器创建(几行代码即可使用)
 
-    NSArray *titlesArr = @[@"德玛",@"诺克",@"卡特",@"皮城",@"亚索"];
-    MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
-    UIView *view1 = segmentsface.intoFaceView;
-    (所有属性的修改要将在这中间部分里面修改....)
-    [segmentsface intoTitlesArray:titlesArr];
-    [self.view addSubview:view1];
-    UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
-    [segmentsface intoChildViewController:vc];
-    //另种控件创建方法
-      MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
-      
+
+### 无限循环自动图片轮播器(一步设置即可使用)
+
+     //实例化控件
+     MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+     segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
+     segmentsface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+     segmentsface.childScollEnabled = YES;
+     
+     (所有属性的修改要将在这中间部分里面修改....)
+     [segmentsface intoTitlesArray:titlesArr];
+     [self.view addSubview:view1];
+     UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
+     [segmentsface intoChildViewController:vc];
+    
+     //实例化控件
+     MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
+    
+ ---------------------------------------------------------------------------------------------------------------
+
 ###第二种控制器添加的方法
   
     UITestViewController *vc = [[UITestViewController alloc]init];
