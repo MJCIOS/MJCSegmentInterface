@@ -17,7 +17,6 @@
     [self.view addSubview:view1];
     UITestViewController *vc = [[UITestViewController alloc]init]; //添加控制器
     [segmentsface intoChildViewController:vc];
-    
     //另种控件创建方法
       MJCSegmentInterface  *segmentInterface = [MJCSegmentInterface segmentinitWithFrame:CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight) MJCSeMentTitleBarStyle:MJCSegMentTitlesClassicStyle];
       
