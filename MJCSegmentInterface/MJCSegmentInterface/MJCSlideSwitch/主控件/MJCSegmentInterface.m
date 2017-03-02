@@ -222,6 +222,10 @@
 {
     _childControllerArray = childControllerArray;
     
+    for (int i = 0; i < childControllerArray.count; i++) {
+        [hostController addChildViewController:childControllerArray[i]];
+    }
+    
     self.viewController = hostController;
     
     [self addChildVcView];
@@ -240,11 +244,7 @@
     }
     
     UIViewController *childVc;
-    if (_childControllerArray) {
-        childVc = _childControllerArray[index];
-    }else{
-        childVc = self.viewController.childViewControllers[index];
-    }
+    childVc = self.viewController.childViewControllers[index];
     
     if ([childVc isViewLoaded]) return;
     
