@@ -60,7 +60,6 @@
                 self.frame = CGRectMake(0,titilesView.frame.size.height+titilesView.frame.origin.y,mainView.mjc_width,mainView.mjc_height-(titilesView.frame.origin.y+titilesView.frame.size.height));
 //                }
             }
-            
         }else{
             
             self.frame = CGRectMake(0,64,mainView.mjc_width,mainView.mjc_height-64);
