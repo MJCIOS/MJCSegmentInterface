@@ -21,43 +21,31 @@
     NSInteger style = 2;
     
     
-    //    //有导航栏或者tabbar时,保证标题栏不会被覆盖
+    //有导航栏或者tabbar时,保证标题栏不会被覆盖
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
-    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    segmentInterface.MJCTitleBarStyles = MJCTitlesClassicStyle;
     
     segmentInterface.slideDelegate = self;
     
     segmentInterface.childViewScollAnimal = YES;//是否有滚动动画
     segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     //子界面大小
-    segmentInterface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
+//    segmentInterface.childViewframe = CGRectMake(10,MJCTitlesViewH + 10, MJCScreenWidth - 20, MJCScreenHeight);
     
 #pragma mark -- 标题栏的属性
     segmentInterface.titleViewColor = [UIColor redColor];
-    segmentInterface.titleViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
+//    segmentInterface.titleViewframe = CGRectMake(10, 10, MJCScreenWidth - 20, 50);//滚动标题的位置大小
     
 #pragma mark -- 底部指示器属性
     //    segmentInterface.indicatorWidth = 80;
     //    segmentInterface.indicatorColor = [UIColor purpleColor];
     //    segmentInterface.indicatorFrame = CGRectMake(0,0,100, 10);
     //    segmentInterface.indicatorHidden = NO;
-    
-#pragma mark -- 顶部横线属性
-    segmentInterface.topViewColor = [UIColor purpleColor];
-    segmentInterface.topViewHegiht = 5;
-    segmentInterface.topViewHidden = NO;
-    //    segmentInterface.topViewFrame = CGRectMake(0,30, MJCScreenWidth, 20);
-    
-#pragma mark -- 底部横线属性
-    segmentInterface.bottomViewColor = [UIColor blackColor];
-    segmentInterface.bottomViewHegiht = 5;
-    segmentInterface.bottomViewHidden = NO;
-    //    segmentInterface.bottomViewFrame = CGRectMake(0, 30, MJCScreenWidth, 10);
     
 #pragma mark -- 标签选项属性
     segmentInterface.tabItemBackColor = [UIColor orangeColor];
@@ -80,33 +68,28 @@
     segmentInterface.tabItemBackImageSelectedArray = imageArr1;
     
     
-#pragma mark -- 竖线属性
-    segmentInterface.verticalLineColor = [UIColor purpleColor];
-    segmentInterface.verticalLineHegiht = 30;
-    segmentInterface.verticalLineHidden = NO;
-    
-    [segmentInterface intoTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr hostController:self];
     
     [self.view addSubview:segmentInterface];
     
     
     //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc hostMainController:self];
+    [segmentInterface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1 hostMainController:self];
+    [segmentInterface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2 hostMainController:self];
+    [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;//传输数据
-    [segmentInterface intoChildViewController:vc3 hostMainController:self];
+    [segmentInterface intoChildViewController:vc3];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4 hostMainController:self];
+    [segmentInterface intoChildViewController:vc4];
     
     
 }

@@ -15,16 +15,17 @@
 
 @property (nonatomic,strong) UIColor *indicatorBackgroundColor;
 
-@property (nonatomic,assign) CGRect indicatorFrame;
-
 @property (nonatomic,assign) CGFloat indicatorWidth;
 
 @property (nonatomic,assign) CGFloat indicatorHeight;
 
+@property (nonatomic,strong) UIScrollView *titlesScrollView;
+
+@property (nonatomic,strong) UIButton *selectedTitleButton;
+
+@property (nonatomic,assign) MJCIndicatorStyles MJCIndicatorStyle;
 
 
--(void)titlesScroll:(UIScrollView *)titlesScroll firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle;
-
--(void)titlesView:(UIView *)titlesView firstButton:(UIButton *)firstButton SegmentInterFaceStyle:(MJCIndicatorStyles)SegmentIndicatorStyle;
+//@property (nonatomic,assign) CGRect indicatorFrame;
 
 @end

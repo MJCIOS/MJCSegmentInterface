@@ -34,34 +34,33 @@
     //创建标题栏控件
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
     
-    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    segmentInterface.MJCTitleBarStyles = MJCTitlesClassicStyle;
     
-    segmentInterface.verticalLineHidden = NO;
     segmentInterface.slideDelegate = self;
     segmentInterface.childScollEnabled = YES;
     
     //在添加标题栏之前做其他属性操作
-    [segmentInterface intoTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:segmentInterface];
     
     
     //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc hostMainController:self];
+    [segmentInterface intoChildViewController:vc ];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1 hostMainController:self];
+    [segmentInterface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2 hostMainController:self];
+    [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;//传输数据
-    [segmentInterface intoChildViewController:vc3 hostMainController:self];
+    [segmentInterface intoChildViewController:vc3];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4 hostMainController:self];
+    [segmentInterface intoChildViewController:vc4];
 }
 
 

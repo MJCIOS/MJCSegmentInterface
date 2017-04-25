@@ -36,16 +36,16 @@
     
     [MJCToolClasses useNavOrTabbarNotBeCover:self rectEdge:UIRectEdgeNone];
     
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentInterface *segmentInterface = [[MJCSegmentInterface alloc]init];
-    segmentInterface.titlesScrollEnabled = YES;
+    segmentInterface.MJCTitleBarStyles = MJCTitlesScrollStyle;
     segmentInterface.MJCImageEffectStyle = MJCImageUpDownStyle;
     _segmentInterface = segmentInterface;
     segmentInterface.slideDelegate = self;
     segmentInterface.childViewScollAnimal = YES;//是否有滚动动画
     segmentInterface.childScollEnabled = YES;//子界面是否用手拖拽滚动
     
-    segmentInterface.zoomBigEnabled = YES;
+//    segmentInterface.zoomBigEnabled = YES;
     
 #pragma mark -- 标题栏的属性
     segmentInterface.titleViewColor = [UIColor clearColor];
@@ -64,47 +64,45 @@
                          @"phone-2",
                          @"paperplane-2",
                          @"like-2"];
+    
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"paperplane",@"like"];
     
     segmentInterface.tabItemImageNormalArray = imageArr;
     segmentInterface.tabItemImageSelectedArray = imageArr1;
     
-#pragma mark -- 竖线属性
-    segmentInterface.verticalLineColor = [UIColor blackColor];
-    segmentInterface.verticalLineHegiht = 30;
-    segmentInterface.verticalLineHidden = NO;
+
     
-    [segmentInterface intoTitlesArray:titlesArr];
+    [segmentInterface intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:segmentInterface];
     
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc hostMainController:self];
+    [segmentInterface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1 hostMainController:self];
+    [segmentInterface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentInterface intoChildViewController:vc2 hostMainController:self];
+    [segmentInterface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
     vc3.style = style;
-    [segmentInterface intoChildViewController:vc3 hostMainController:self];
+    [segmentInterface intoChildViewController:vc3];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc4 hostMainController:self];
+    [segmentInterface intoChildViewController:vc4];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc5 hostMainController:self];
+    [segmentInterface intoChildViewController:vc5];
     
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentInterface intoChildViewController:vc6 hostMainController:self];
+    [segmentInterface intoChildViewController:vc6];
     
     UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
     vc7.style = style;
-    [segmentInterface intoChildViewController:vc7 hostMainController:self];
+    [segmentInterface intoChildViewController:vc7];
     
 }
 

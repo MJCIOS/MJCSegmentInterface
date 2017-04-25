@@ -11,20 +11,10 @@
 
 @interface MJCTitlesScollView : UIScrollView
 
-
-
 @property (nonatomic,strong) UIColor *titlesScrollColor;
-
 
 @property (nonatomic,assign) CGRect titlesScrollFrame;
 
-
 @property (nonatomic,strong) UIView *mainViews;
-
-
-//-(void)addSubviews:(UIView *)mainViews SegmentInterfaceStyle:(MJCSeMentTitleBarStyles)SegmentInterfaceStyle;
-
-
-
 
 @end

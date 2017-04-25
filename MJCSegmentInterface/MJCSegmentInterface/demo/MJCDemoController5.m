@@ -26,7 +26,7 @@
     
     segmentsface.slideDelegate = self;
     
-    segmentsface.titlesScrollEnabled  = YES;
+    segmentsface.MJCTitleBarStyles = MJCTitlesScrollStyle;
     
     segmentsface.MJCImageEffectStyle = MJCImageClassicStyle;
     
@@ -109,38 +109,38 @@
     //        segmentsface.rightMostBtnFrame = CGRectMake(MJCScreenWidth-50/2 - 15,15,25,50 - 10);
     //    segmentsface.rightMostBtnColor = [UIColor redColor];
     segmentsface.rightMostBtnImage = [UIImage imageNamed:@"567"];
-    segmentsface.rightMostLeftSide = [UIImage imageNamed:@"向左箭头"];
-    segmentsface.rightMostRightSide = [UIImage imageNamed:@"向右箭头"];
+    segmentsface.pointedLeftImage = [UIImage imageNamed:@"向左箭头"];
+    segmentsface.pointedRightImage = [UIImage imageNamed:@"向右箭头"];
     
     
-    [segmentsface intoTitlesArray:titlesArr];
+    [segmentsface intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:segmentsface];
     
     
     /** 添加控制器 */
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentsface intoChildViewController:vc hostMainController:self];
+    [segmentsface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
-    [segmentsface intoChildViewController:vc1 hostMainController:self];
+    [segmentsface intoChildViewController:vc1];
     
     UITestViewController2 *vc2 = [[UITestViewController2 alloc]init];
-    [segmentsface intoChildViewController:vc2 hostMainController:self];
+    [segmentsface intoChildViewController:vc2];
     
     UITestViewController3 *vc3 = [[UITestViewController3 alloc]init];
-    [segmentsface intoChildViewController:vc3 hostMainController:self];
+    [segmentsface intoChildViewController:vc3];
     
     UITestViewController4 *vc4 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc4 hostMainController:self];
+    [segmentsface intoChildViewController:vc4];
     
     UITestViewController4 *vc5 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc5 hostMainController:self];
+    [segmentsface intoChildViewController:vc5];
     
     UITestViewController4 *vc6 = [[UITestViewController4 alloc]init];
-    [segmentsface intoChildViewController:vc6 hostMainController:self];
+    [segmentsface intoChildViewController:vc6];
     
     UITestViewController1 *vc7 = [[UITestViewController1 alloc]init];
-    [segmentsface intoChildViewController:vc7 hostMainController:self];
+    [segmentsface intoChildViewController:vc7];
     
     
 }

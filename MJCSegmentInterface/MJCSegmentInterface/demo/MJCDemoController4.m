@@ -26,7 +26,7 @@
     NSArray *titlesArr = @[@"我爱你一辈子",@"你爱我怕啪啪"];//创建标题栏
     //创建标题栏控件
     MJCSegmentInterface  *segmentInterface = [[MJCSegmentInterface alloc]init];
-    segmentInterface.MJCSeMentTitleBarStyle = MJCSegMentTitlesClassicStyle;
+    segmentInterface.MJCTitleBarStyles = MJCTitlesClassicStyle;
     
     segmentInterface.indicatorHidden = NO;
     segmentInterface.titleViewColor = [UIColor redColor];
@@ -36,16 +36,16 @@
 //    segmentInterface.verticalLineHidden = YES;
     segmentInterface.tabItemTitlesfont = [UIFont systemFontOfSize:14];
     //在添加标题栏之前做其他属性操作
-    [segmentInterface intoTitlesArray:titlesArr];//添加标题栏
+    [segmentInterface intoTitlesArray:titlesArr hostController:self];//添加标题栏
     [self.view addSubview:segmentInterface];
     
     //添加控制器
     UITestViewController *vc = [[UITestViewController alloc]init];
-    [segmentInterface intoChildViewController:vc hostMainController:self];
+    [segmentInterface intoChildViewController:vc];
     
     UITestViewController1 *vc1 = [[UITestViewController1 alloc]init];
     vc1.style = style;
-    [segmentInterface intoChildViewController:vc1 hostMainController:self];
+    [segmentInterface intoChildViewController:vc1];
 }
 
 

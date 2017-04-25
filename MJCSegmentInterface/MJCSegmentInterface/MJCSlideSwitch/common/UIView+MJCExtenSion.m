@@ -69,7 +69,6 @@
     frame.origin.y = mjc_y;
     self.frame = frame;
 }
-
 - (CGFloat)mjc_centerX
 {
     return self.center.x;
@@ -81,7 +80,6 @@
     center.x = mjc_centerX;
     self.center = center;
 }
-
 - (CGFloat)mjc_centerY
 {
     return self.center.y;
@@ -96,13 +94,11 @@
 
 - (CGFloat)mjc_right
 {
-//    return self.xmg_x + self.xmg_width;
     return CGRectGetMaxX(self.frame);
 }
 
 - (CGFloat)mjc_bottom
 {
-//    return self.xmg_y + self.xmg_height;
     return CGRectGetMaxY(self.frame);
 }
 

@@ -61,7 +61,7 @@
      */
     if (self.style == 0) {
         self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth,MJCScreenHeight-64-50);
-        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-2,self.view.mjc_width,view1.mjc_height);
+        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+50+64)-2,self.view.mjc_width,view1.mjc_height);
         lablew1.frame = CGRectMake((view1.mjc_width - lablew1.mjc_width) * 0.5,0,lablew1.mjc_width,50);
         return;
     }
@@ -69,7 +69,7 @@
     
     if (self.style == 2) {
         self.tableView2.frame = CGRectMake(0,0,MJCScreenWidth-20,MJCScreenHeight-64-50-10);
-        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+MJCTitlesViewH+MJCNavMaxY)-12,self.view.mjc_width-20,view1.mjc_height);
+        view1.frame = CGRectMake(0,self.view.mjc_height-(view1.mjc_height+50+64)-12,self.view.mjc_width-20,view1.mjc_height);
         lablew1.mjc_width = 100;
         lablew1.mjc_centerX = view1.mjc_width / 2;
         lablew1.mjc_height = view1.mjc_height / 2;

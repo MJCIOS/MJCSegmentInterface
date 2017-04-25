@@ -10,7 +10,6 @@
 
 @implementation MJCTitlesScollView
 
-//重写方法 通过代码自定义控件,都要重写这个方法
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -21,25 +20,10 @@
     return self;
 }
 
--(void)setMainViews:(UIView *)mainViews
-{
-    _mainViews = mainViews;
-    
-    [mainViews addSubview:self];
-}
-
-//-(void)addSubviews:(UIView *)mainViews SegmentInterfaceStyle:(MJCSeMentTitleBarStyles)SegmentInterfaceStyle;
-//{
-////    if (SegmentInterfaceStyle != SegMentInterfaceStyleNavBar) {
-////        [mainViews addSubview:self];
-////        return;
-////    }
-//}
 
 -(void)setTitlesScrollColor:(UIColor *)titlesScrollColor
 {
     _titlesScrollColor = titlesScrollColor;
-    
     self.backgroundColor = titlesScrollColor;
 }
 
@@ -47,7 +31,12 @@
 {
     _titlesScrollFrame = titlesScrollFrame;
     
-    self.frame = titlesScrollFrame;
+    if (self.mainViews.mjc_width != MJCScreenWidth) {
+        self.frame = CGRectMake(0,0, self.mainViews.mjc_width,titlesScrollFrame.size.height);
+    }else{
+        self.frame = titlesScrollFrame;
+    }
+    
 }
 
 @end
