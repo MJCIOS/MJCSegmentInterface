@@ -69,7 +69,6 @@
 
 @end
 
-
 @implementation MJCSegmentInterface
 
 -(instancetype)initWithFrame:(CGRect)frame
