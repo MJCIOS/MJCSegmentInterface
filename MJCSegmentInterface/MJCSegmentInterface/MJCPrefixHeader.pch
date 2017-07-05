@@ -9,14 +9,13 @@
 #ifndef MJCPrefixHeader_pch
 #define MJCPrefixHeader_pch
 
-#import "UITestViewController.h"
-#import "UITestViewController1.h"
-#import "UITestViewController2.h"
-#import "UITestViewController3.h"
-#import "UITestViewController4.h"
 
-
+#import "MJCTestTableViewController.h"
+#import "MJCTestViewController.h"
+#import "MJCTestViewController1.h"
+#import "MJCInterfaceTools.h"
 #import "MJCSegmentInterface.h"
+
 
 
 

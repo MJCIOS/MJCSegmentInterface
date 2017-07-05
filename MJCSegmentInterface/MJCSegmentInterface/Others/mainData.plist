@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>titles</key>
+		<string>样式1</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC1</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式2</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC2</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式3</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC3</string>
+	</dict>
+</array>
+</plist>

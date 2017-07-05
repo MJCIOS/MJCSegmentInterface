@@ -8,19 +8,14 @@
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import "ViewController.h"
+#import "MJCPrefixHeader.pch"
 
-#import "MJCDemoController.h"
-#import "MJCDemoController1.h"
-#import "MJCDemoController2.h"
-#import "MJCDemoController3.h"
-#import "MJCDemoController4.h"
-#import "MJCDemoController5.h"
-#import "MJCDemoController6.h"
-#import "MJCDemoController7.h"
-#import "MJCDemoController8.h"
-#import "MJCDemoController9.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+
+@property (nonatomic,strong) NSArray *mainArr;
 
 @end
 
@@ -28,80 +23,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"appStartBackImage"]];
+    self.mainTableView.delegate = self;
+    self.mainTableView.dataSource = self;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mainData" ofType:@"plist"];
+    _mainArr = [NSArray arrayWithContentsOfFile:path];
     
 }
 
-- (IBAction)demo:(id)sender {
+#pragma mark - UITableviewdatasource,UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    MJCDemoController *vc1 = [MJCDemoController new];
-    
-    [self.navigationController pushViewController:vc1 animated:YES];
-    
+    return _mainArr.count;
 }
-- (IBAction)demo1:(id)sender {
-    
-    MJCDemoController1 *vc3 = [MJCDemoController1 new];
-    
-    [self.navigationController pushViewController:vc3 animated:YES];
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    cell.textLabel.text = _mainArr[indexPath.row][@"titles"];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
 }
-- (IBAction)demo2:(id)sender {
-    
-    MJCDemoController2 *vc2 = [MJCDemoController2 new];
-    
-    [self.navigationController pushViewController:vc2 animated:YES];
-
-    
-}
-- (IBAction)demo3:(id)sender {
-    
-    MJCDemoController3 *vc4 = [MJCDemoController3 new];
-    
-    [self.navigationController pushViewController:vc4 animated:YES];
-    
-}
-- (IBAction)demo4:(id)sender {
-    
-    
-    MJCDemoController4 *vc5 = [MJCDemoController4 new];
-    
-    [self.navigationController pushViewController:vc5 animated:YES];
-    
-}
-- (IBAction)demo5:(id)sender {
-    
-    MJCDemoController5 *custon = [MJCDemoController5 new];
-    
-    [self.navigationController pushViewController:custon animated:YES];
-    
-}
-- (IBAction)demo6:(id)sender {
-    
-    MJCDemoController6 *control = [MJCDemoController6 new];
-    
-    [self.navigationController pushViewController:control animated:YES];
-    
-}
-
-- (IBAction)demo7:(id)sender {
-    MJCDemoController7 *imageVC = [MJCDemoController7 new];
-    
-    [self.navigationController pushViewController:imageVC animated:YES];
-}
-
-- (IBAction)demo8:(id)sender {
-    
-    MJCDemoController8 *test = [MJCDemoController8 new];
-    
-    [self.navigationController pushViewController:test animated:YES];
-    
-}
-- (IBAction)demo9:(id)sender {
-    
-    MJCDemoController9 *viewVC = [MJCDemoController9 new];
-    
-    [self.navigationController pushViewController:viewVC animated:YES];
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIViewController *vc = [MJCInterfaceTools setupViewControllersStr:_mainArr[indexPath.row][@"viewControllers"]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
