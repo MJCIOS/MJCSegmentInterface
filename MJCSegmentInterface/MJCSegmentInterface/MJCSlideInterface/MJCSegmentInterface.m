@@ -15,7 +15,6 @@
 
 static NSString *const MJCItemCellID = @"itemCell";
 static CGFloat const animalTime = 0.25;
-static CGFloat const navH = 64;
 static CGFloat const defaultTitlesViewH = 50;
 static CGFloat const defaultIndicatorH = 1.5;
 static CGFloat const defaultShowCountItem = 4;
@@ -32,7 +31,7 @@ static CGFloat const defaultShowCountItem = 4;
 @property (nonatomic,assign) BOOL isScrollMax;
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
-@property (nonatomic,assign) BOOL isLoadTitlesFrame;
+@property (nonatomic,assign) BOOL isLoadIndicatorFrame;
 @end
 @implementation MJCSegmentInterface
 -(instancetype)initWithFrame:(CGRect)frame
@@ -46,7 +45,6 @@ static CGFloat const defaultShowCountItem = 4;
 }
 -(void)setupOtherUI
 {
-    _titlesViews.frame = CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH);
     _childScrollView = [[MJCChildsView  alloc]init];
     _childScrollView.delegate = self;
     _childScrollView.backgroundColor = [UIColor whiteColor];
@@ -63,13 +61,14 @@ static CGFloat const defaultShowCountItem = 4;
         layout.hlitemMaxLeftMargin = 0;
         layout.hlitemMaxRightMargin = 0;
         layout.hlitemLineMargin = 0;
-        MJCTitlesView *titlesViews = [[MJCTitlesView alloc]initWithFrame:CGRectMake(0,0,0,0) collectionViewLayout:layout];
+        MJCTitlesView *titlesViews = [[MJCTitlesView alloc]initWithFrame:CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH) collectionViewLayout:layout];
         titlesViews.delegate = self;
         titlesViews.dataSource = self;
         [self addSubview:titlesViews];
         [titlesViews registerClass:[MJCTabItem class] forCellWithReuseIdentifier:MJCItemCellID];
         _titlesViews = titlesViews;
         _indicator = [UIButton buttonWithType:UIButtonTypeCustom];
+        _indicator.frame = CGRectMake(0,0,0,defaultIndicatorH);
         _indicator.backgroundColor = [UIColor blackColor];
         _indicator.userInteractionEnabled = NO;
         _indicator.enabled = NO;
@@ -84,6 +83,14 @@ static CGFloat const defaultShowCountItem = 4;
 }
 -(void)setupUIFrame
 {
+    _titlesViews.mjc_width = self.mjc_width;
+    if (_isLoadIndicatorFrame) {
+        _indicator.mjc_y = _indicatorFrame.origin.y;
+        _indicator.mjc_height = _indicatorFrame.size.height;
+    }else{
+        _indicator.mjc_y = CGRectGetMaxY(_titlesViews.frame) - _indicator.mjc_height;
+    }
+    
     CGFloat colletionMaxY = CGRectGetMaxY(_titlesViews.frame);
     _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY);
     if (_isLoadDefaultChildVC == YES) {
@@ -93,14 +100,6 @@ static CGFloat const defaultShowCountItem = 4;
             _childVC.view.mjc_height = _childScrollView.bounds.size.height;
 //        });
     }
-}
--(void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    
-    if (_isLoadTitlesFrame == YES)return;
-    _titlesViews.frame  = CGRectMake(0,0,frame.size.width,defaultTitlesViewH);
-    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-defaultIndicatorH,0,defaultIndicatorH);
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -282,7 +281,6 @@ static CGFloat const defaultShowCountItem = 4;
 -(void)setTitlesViewFrame:(CGRect)titlesViewFrame
 {
     _titlesViewFrame = titlesViewFrame;
-    _isLoadTitlesFrame = YES;
     _titlesViews.frame = titlesViewFrame;
 //    dispatch_async(dispatch_get_main_queue(), ^{
     _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-defaultIndicatorH,0,defaultIndicatorH);
@@ -302,6 +300,7 @@ static CGFloat const defaultShowCountItem = 4;
 {
     _indicatorFrame = indicatorFrame;
     _indicator.frame = indicatorFrame;
+    _isLoadIndicatorFrame = YES;
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        [self setupTiTlesViewDefaultItem:[NSIndexPath indexPathForItem:_defaultItemNumber inSection:0]];
 //    });
@@ -321,7 +320,6 @@ static CGFloat const defaultShowCountItem = 4;
     _indicatorImage = indicatorImage;
     [_indicator setImage:indicatorImage forState:UIControlStateNormal];
     [_indicator sizeToFit];
-    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-_indicator.mjc_height,0,_indicator.mjc_height);
 }
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont
 {

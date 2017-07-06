@@ -25,7 +25,7 @@
     lala.itemTextFontSize = 13;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.titlesViewFrame = CGRectMake(0, 0, self.view.mjc_width,50);
+    lala.titlesViewFrame = CGRectMake(0, 0, self.view.mjc_width,100);
     lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];
     lala.defaultItemNumber = 3;
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
