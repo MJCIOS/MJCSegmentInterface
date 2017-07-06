@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJCPlainFlowLayout : UICollectionViewFlowLayout
+@interface MJCOrdinaryLayout : UICollectionViewFlowLayout
 
 /** 滚动方向 */
 @property (nonatomic) UICollectionViewScrollDirection srollingDirection;

@@ -6,10 +6,9 @@
 //
 //
 
-#import "MJCPlainFlowLayout.h"
+#import "MJCOrdinaryLayout.h"
 
-
-@interface MJCPlainFlowLayout()<UICollectionViewDelegateFlowLayout>
+@interface MJCOrdinaryLayout()<UICollectionViewDelegateFlowLayout>
 
 /** w */
 @property (nonatomic,assign) CGFloat itemW;
@@ -30,7 +29,7 @@
 @end
 
 
-@implementation MJCPlainFlowLayout
+@implementation MJCOrdinaryLayout
 
 - (instancetype)init
 {

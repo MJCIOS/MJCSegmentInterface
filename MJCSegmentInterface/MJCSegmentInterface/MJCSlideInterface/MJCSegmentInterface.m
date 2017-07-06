@@ -7,7 +7,7 @@
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import "MJCSegmentInterface.h"
-#import "MJCPlainFlowLayout.h"
+#import "MJCOrdinaryLayout.h"
 #import "MJCChildsView.h"
 #import "MJCTabItem.h"
 #import "MJCInterfaceTools.h"
@@ -50,7 +50,7 @@ static CGFloat const animalTime = 0.25;
 -(MJCTitlesView *)titlesViews
 {
     if (!_titlesViews) {
-        MJCPlainFlowLayout *layout = [[MJCPlainFlowLayout alloc]init];
+        MJCOrdinaryLayout *layout = [[MJCOrdinaryLayout alloc]init];
         layout.srollingDirection = UICollectionViewScrollDirectionHorizontal;
         layout.hlitemShowMaxCount = 4;
         layout.hlitemMaxTopMargin = 0;
@@ -272,7 +272,7 @@ static CGFloat const animalTime = 0.25;
         if (defaultShowItemCount > _titlesItemArr.count) {
             _defaultShowItemCount = _titlesItemArr.count;
         }
-        MJCPlainFlowLayout *layout = [[MJCPlainFlowLayout alloc]init];
+        MJCOrdinaryLayout *layout = [[MJCOrdinaryLayout alloc]init];
         layout.srollingDirection = UICollectionViewScrollDirectionHorizontal;
         layout.hlitemShowMaxCount = _defaultShowItemCount;
         layout.hlitemMaxTopMargin = 0;

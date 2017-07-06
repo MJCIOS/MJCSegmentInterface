@@ -29,7 +29,7 @@
 		25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E822E31F0CE38200FB305F /* MJCTestViewController1.xib */; };
 		25E822FD1F0CE39700FB305F /* MJCChildsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F01F0CE39700FB305F /* MJCChildsView.m */; };
 		25E822FE1F0CE39700FB305F /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */; };
-		25E822FF1F0CE39700FB305F /* MJCPlainFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F41F0CE39700FB305F /* MJCPlainFlowLayout.m */; };
+		25E822FF1F0CE39700FB305F /* MJCOrdinaryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */; };
 		25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */; };
 		25E823011F0CE39700FB305F /* MJCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F81F0CE39700FB305F /* MJCTabItem.m */; };
 		25E823021F0CE39700FB305F /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822FA1F0CE39700FB305F /* MJCTitlesView.m */; };
@@ -93,8 +93,8 @@
 		25E822F01F0CE39700FB305F /* MJCChildsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildsView.m; sourceTree = "<group>"; };
 		25E822F11F0CE39700FB305F /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
-		25E822F31F0CE39700FB305F /* MJCPlainFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCPlainFlowLayout.h; sourceTree = "<group>"; };
-		25E822F41F0CE39700FB305F /* MJCPlainFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCPlainFlowLayout.m; sourceTree = "<group>"; };
+		25E822F31F0CE39700FB305F /* MJCOrdinaryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCOrdinaryLayout.h; sourceTree = "<group>"; };
+		25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCOrdinaryLayout.m; sourceTree = "<group>"; };
 		25E822F51F0CE39700FB305F /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
 		25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
 		25E822F71F0CE39700FB305F /* MJCTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItem.h; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 				25E822F01F0CE39700FB305F /* MJCChildsView.m */,
 				25E822F11F0CE39700FB305F /* MJCInterfaceTools.h */,
 				25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */,
-				25E822F31F0CE39700FB305F /* MJCPlainFlowLayout.h */,
-				25E822F41F0CE39700FB305F /* MJCPlainFlowLayout.m */,
+				25E822F31F0CE39700FB305F /* MJCOrdinaryLayout.h */,
+				25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */,
 				25E822F51F0CE39700FB305F /* MJCSegmentInterface.h */,
 				25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */,
 				25E822F71F0CE39700FB305F /* MJCTabItem.h */,
@@ -407,7 +407,7 @@
 				25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */,
 				25E822FE1F0CE39700FB305F /* MJCInterfaceTools.m in Sources */,
 				25E822E51F0CE38200FB305F /* MJCDemoVC2.m in Sources */,
-				25E822FF1F0CE39700FB305F /* MJCPlainFlowLayout.m in Sources */,
+				25E822FF1F0CE39700FB305F /* MJCOrdinaryLayout.m in Sources */,
 				25E822EC1F0CE38200FB305F /* MJCTestViewController1.m in Sources */,
 				25E822EA1F0CE38200FB305F /* MJCTestViewController.m in Sources */,
 				25E822E91F0CE38200FB305F /* MJCTestTableViewController.m in Sources */,
