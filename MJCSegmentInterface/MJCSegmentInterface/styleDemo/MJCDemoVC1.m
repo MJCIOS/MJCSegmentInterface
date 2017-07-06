@@ -21,7 +21,7 @@
     NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
-    lala.titlesViewFrame = CGRectMake(0,0,self.view.mjc_width,50);
+//    lala.titlesViewFrame = CGRectMake(0,0,self.view.mjc_width,100);
     lala.defaultItemNumber = 0;
     lala.defaultShowItemCount = 3;
     lala.delegate = self;
@@ -50,7 +50,7 @@
     lala.imageEffectStyles = MJCImageClassicStyle;
     lala.imagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);
     lala.textsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);
-    lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);
+//    lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];

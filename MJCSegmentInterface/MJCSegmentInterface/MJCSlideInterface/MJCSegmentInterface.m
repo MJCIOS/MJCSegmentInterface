@@ -1,4 +1,4 @@
-//
+//  代码地址:https://github.com/MJCIOS/MJCSegmentInterface
 //  MJCSegmentInterface.m
 //  MJCSegmentInterface
 //
@@ -15,6 +15,10 @@
 
 static NSString *const MJCItemCellID = @"itemCell";
 static CGFloat const animalTime = 0.25;
+static CGFloat const navH = 64;
+static CGFloat const defaultTitlesViewH = 50;
+static CGFloat const defaultIndicatorH = 1.5;
+static CGFloat const defaultShowCountItem = 4;
 @interface MJCSegmentInterface ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 @property (nonatomic,weak) MJCTitlesView *titlesViews;
 @property (nonatomic,strong) MJCChildsView *childScrollView;
@@ -28,6 +32,7 @@ static CGFloat const animalTime = 0.25;
 @property (nonatomic,assign) BOOL isScrollMax;
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
+@property (nonatomic,assign) BOOL isLoadTitlesFrame;
 @end
 @implementation MJCSegmentInterface
 -(instancetype)initWithFrame:(CGRect)frame
@@ -41,7 +46,7 @@ static CGFloat const animalTime = 0.25;
 }
 -(void)setupOtherUI
 {
-    _titlesViews.frame = CGRectMake(0,0,self.frame.size.width,50);
+    _titlesViews.frame = CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH);
     _childScrollView = [[MJCChildsView  alloc]init];
     _childScrollView.delegate = self;
     _childScrollView.backgroundColor = [UIColor whiteColor];
@@ -52,7 +57,7 @@ static CGFloat const animalTime = 0.25;
     if (!_titlesViews) {
         MJCOrdinaryLayout *layout = [[MJCOrdinaryLayout alloc]init];
         layout.srollingDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.hlitemShowMaxCount = 4;
+        layout.hlitemShowMaxCount = defaultShowCountItem;
         layout.hlitemMaxTopMargin = 0;
         layout.hlitemMaxBottomMargin = 0;
         layout.hlitemMaxLeftMargin = 0;
@@ -80,31 +85,22 @@ static CGFloat const animalTime = 0.25;
 -(void)setupUIFrame
 {
     CGFloat colletionMaxY = CGRectGetMaxY(_titlesViews.frame);
-    if (_mainViewController.tabBarController && _mainViewController.navigationController) {
-        if (_mainViewController.navigationController.childViewControllers.count > 1) {
-            _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY);
-        }else{
-            _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY-49);
-        }
-    }else{
-        _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY);
-    }
+    _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY);
     if (_isLoadDefaultChildVC == YES) {
-        //        dispatch_async(dispatch_get_main_queue(), ^{
-        NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.mjc_width;
-        _childVC = _mainViewController.childViewControllers[index];
-        _childVC.view.mjc_height = _childScrollView.bounds.size.height;
-        //        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+            NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.mjc_width;
+            _childVC = _mainViewController.childViewControllers[index];
+            _childVC.view.mjc_height = _childScrollView.bounds.size.height;
+//        });
     }
 }
 -(void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    _titlesViews.frame  = CGRectMake(0,0,frame.size.width,50);
-    if (_titlesViewFrame.size.width != _titlesViews.frame.size.width || _titlesViewFrame.size.height != _titlesViews.frame.size.height || _titlesViewFrame.size.width != 0 || _titlesViewFrame.size.height != 0) {
-        _titlesViews.frame  = _titlesViewFrame;
-    }
-    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-1.5,0,1.5);
+    
+    if (_isLoadTitlesFrame == YES)return;
+    _titlesViews.frame  = CGRectMake(0,0,frame.size.width,defaultTitlesViewH);
+    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-defaultIndicatorH,0,defaultIndicatorH);
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -286,9 +282,10 @@ static CGFloat const animalTime = 0.25;
 -(void)setTitlesViewFrame:(CGRect)titlesViewFrame
 {
     _titlesViewFrame = titlesViewFrame;
+    _isLoadTitlesFrame = YES;
     _titlesViews.frame = titlesViewFrame;
 //    dispatch_async(dispatch_get_main_queue(), ^{
-    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-1.5,0,1.5);
+    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-defaultIndicatorH,0,defaultIndicatorH);
 //    });
 }
 -(void)setTitlesViewBackColor:(UIColor *)titlesViewBackColor
