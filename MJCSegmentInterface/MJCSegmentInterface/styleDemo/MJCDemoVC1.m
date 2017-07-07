@@ -76,7 +76,7 @@
 
 - (void)mjc_ClickEvent:(MJCTabItem *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
 {
-    NSLog(@"%@",tabItem);
+    NSLog(@"%ld",tabItem.tag);
     NSLog(@"%@",childViewController);
     NSLog(@"%@",segmentInterface);
 }

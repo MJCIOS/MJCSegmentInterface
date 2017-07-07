@@ -7,6 +7,7 @@
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import <UIKit/UIKit.h>
+#import "MJCTabItem.h"
 #import "UIView+interFaceExtenSion.h"
 
 //标题样式
@@ -28,7 +29,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 };
 
 @class MJCSegmentInterface;
-@class MJCTabItem;
 
 @protocol MJCSlideSwitchViewDelegate <NSObject>
 @required

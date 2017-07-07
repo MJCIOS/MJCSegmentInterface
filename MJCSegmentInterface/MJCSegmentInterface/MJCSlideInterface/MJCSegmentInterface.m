@@ -9,7 +9,6 @@
 #import "MJCSegmentInterface.h"
 #import "MJCOrdinaryLayout.h"
 #import "MJCChildsView.h"
-#import "MJCTabItem.h"
 #import "MJCInterfaceTools.h"
 #import "MJCTitlesView.h"
 
