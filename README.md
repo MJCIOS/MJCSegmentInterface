@@ -2,7 +2,7 @@
 * 一款简单的类似百思不得姐主页导航栏下方的那个分段界面的控件,类似王者荣耀助手的聊天模块的导航栏下方的分段界面控件等等,简单的说,这是一款分段界面选择器
 
 ## 如何导入使用框架方法
-* 可以打开https://github.com/MJCIOS/MJCSegmentInterface下载下来,将文件夹放入自己的项目
+* 可以打开https://github.com/MJCIOS/MJCSegmentInterface 下载下来,将MJCSlideInterface文件夹放入自己的项目
 * 项目已支持pod导入,pod 'MJCSegmentInterface',也可使用pod
 
 ---------------------------------------------------------------------------------------------------------------
