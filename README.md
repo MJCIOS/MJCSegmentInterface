@@ -1,4 +1,5 @@
 # MJC
+
 ##☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 
 ###项目已支持pod导入,pod 'MJCSegmentInterface'
@@ -7,7 +8,8 @@
 
 #####用在我仿做的很喜欢的项目中,请看以下示例图
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
 
 ### MJCSegmentInterface分段控制器创建(几行代码设置即可使用)
     
