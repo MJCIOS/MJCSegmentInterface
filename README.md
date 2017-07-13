@@ -11,7 +11,8 @@
 
 ---------------------------------------------------------------------------------------------------------------
 
-## ☆☆ 用在我仿做的项目中(真的很喜欢玩这个游戏,所以忍不住仿做了他们的项目),请看以下示例图 ☆☆
+## ☆☆ 用在我仿做的项目中请看以下示例图 ☆☆
+* (真的很喜欢玩他们的游戏,感觉他们的项目很不错,所以忍不住仿做了他们的项目)
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   
