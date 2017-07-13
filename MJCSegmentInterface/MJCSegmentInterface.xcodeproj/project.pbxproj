@@ -16,9 +16,6 @@
 		25D9DB601DC2635C00B903B1 /* MJCSegmentInterfaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB5F1DC2635C00B903B1 /* MJCSegmentInterfaceTests.m */; };
 		25D9DB6B1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */; };
 		25E822CD1F0CE35F00FB305F /* mainData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25E822C91F0CE35F00FB305F /* mainData.plist */; };
-		25E822CE1F0CE35F00FB305F /* xiangmu2.1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E822CA1F0CE35F00FB305F /* xiangmu2.1.gif */; };
-		25E822CF1F0CE35F00FB305F /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E822CB1F0CE35F00FB305F /* xiangmu2.gif */; };
-		25E822D01F0CE35F00FB305F /* xiangmu3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25E822CC1F0CE35F00FB305F /* xiangmu3.gif */; };
 		25E822E41F0CE38200FB305F /* MJCDemoVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822D31F0CE38200FB305F /* MJCDemoVC1.m */; };
 		25E822E51F0CE38200FB305F /* MJCDemoVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822D51F0CE38200FB305F /* MJCDemoVC2.m */; };
 		25E822E61F0CE38200FB305F /* MJCDemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822D71F0CE38200FB305F /* MJCDemoVC3.m */; };
@@ -72,9 +69,6 @@
 		25D9DB6A1DC2635C00B903B1 /* MJCSegmentInterfaceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterfaceUITests.m; sourceTree = "<group>"; };
 		25D9DB6C1DC2635C00B903B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E822C91F0CE35F00FB305F /* mainData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mainData.plist; sourceTree = "<group>"; };
-		25E822CA1F0CE35F00FB305F /* xiangmu2.1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.1.gif; sourceTree = "<group>"; };
-		25E822CB1F0CE35F00FB305F /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
-		25E822CC1F0CE35F00FB305F /* xiangmu3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu3.gif; sourceTree = "<group>"; };
 		25E822D21F0CE38200FB305F /* MJCDemoVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC1.h; sourceTree = "<group>"; };
 		25E822D31F0CE38200FB305F /* MJCDemoVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC1.m; sourceTree = "<group>"; };
 		25E822D41F0CE38200FB305F /* MJCDemoVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC2.h; sourceTree = "<group>"; };
@@ -201,9 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				25E822C91F0CE35F00FB305F /* mainData.plist */,
-				25E822CA1F0CE35F00FB305F /* xiangmu2.1.gif */,
-				25E822CB1F0CE35F00FB305F /* xiangmu2.gif */,
-				25E822CC1F0CE35F00FB305F /* xiangmu3.gif */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -364,12 +355,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25E822CF1F0CE35F00FB305F /* xiangmu2.gif in Resources */,
 				25E822CD1F0CE35F00FB305F /* mainData.plist in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
-				25E822D01F0CE35F00FB305F /* xiangmu3.gif in Resources */,
-				25E822CE1F0CE35F00FB305F /* xiangmu2.1.gif in Resources */,
 				25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
