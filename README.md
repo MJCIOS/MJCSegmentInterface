@@ -1,7 +1,7 @@
 ## ☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 * 一款简单的类似百思不得姐主页导航栏下方的那个分段界面的控件,类似王者荣耀助手的聊天模块的导航栏下方的分段界面控件等等,简单的说,这是一款分段界面选择器
 
-## 如何导入使用框架方法
+## ☆☆ 如何导入使用框架方法 ☆☆
 * 可以打开https://github.com/MJCIOS/MJCSegmentInterface 下载下来,将MJCSlideInterface文件夹放入自己的项目
 * 项目已支持pod导入,pod 'MJCSegmentInterface',也可使用pod
 
@@ -11,13 +11,13 @@
 
 ---------------------------------------------------------------------------------------------------------------
 
-## 用在我仿做的很喜欢的项目中,请看以下示例图
+## ☆☆ 用在我仿做的项目中(真的很喜欢玩这个游戏,所以忍不住仿做了他们的项目),请看以下示例图 ☆☆
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.1.gif)   
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu3.gif)
 
-### MJCSegmentInterface分段控制器创建(几行代码设置即可使用)
+### ☆☆ MJCSegmentInterface分段控制器创建(几行代码设置即可使用) ☆☆
     
         NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
         MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
