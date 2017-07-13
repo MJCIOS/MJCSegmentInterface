@@ -1,22 +1,23 @@
 //
-//  MJCDemoVC4.m
+//  MJCDemoVC8.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/7/2.
+//  Created by mjc on 17/7/13.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCDemoVC3.h"
+#import "MJCDemoVC8.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC3 ()
+@interface MJCDemoVC8 ()
 
 @end
 
-@implementation MJCDemoVC3
+@implementation MJCDemoVC8
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     vc1.titlesCount = 1;
@@ -38,17 +39,21 @@
     
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.imageEffectStyles  = MJCImageUpDownStyle;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.defaultItemNumber = 3;
+    lala.defaultShowItemCount = 5;
+    lala.itemBackColor = [UIColor whiteColor];
+    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"paperplane-2"];
+    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"paperplane"];
+    lala.itemImageNormalArray  = imageArr ;
+    lala.itemImageSelectedArray  = imageArr1;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
     
 }
-
-
-
 
 @end

@@ -1,34 +1,23 @@
 //
-//  MJCDemoVC3.m
+//  MJCDemoVC5.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/7/2.
+//  Created by mjc on 17/7/13.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCDemoVC2.h"
+#import "MJCDemoVC5.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC2 ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoVC5 ()
 
 @end
 
-@implementation MJCDemoVC2
+@implementation MJCDemoVC5
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    //标题数据数组
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];
-    [lala intoTitlesArray:titlesArr hostController:self];
-    [self.view addSubview:lala];
+
     
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     vc1.titlesCount = 1;
@@ -45,16 +34,26 @@
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    [lala intoChildControllerArray:vcarrr];;
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     
-        
-}
+    
+    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.itemTextNormalColor = [UIColor redColor];
+    lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.isIndicatorFollow = YES;
+    lala.defaultItemNumber = 3;
+    lala.defaultShowItemCount = 5;
+    lala.itemBackColor = [UIColor whiteColor];
+    lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
+    lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
+    [lala intoTitlesArray:titlesArr hostController:self];
+    [self.view addSubview:lala];
+    [lala intoChildControllerArray:vcarrr];;
 
--(void)dealloc
-{
-    NSLog(@"我爱你");
-}
 
+    
+}
 
 
 

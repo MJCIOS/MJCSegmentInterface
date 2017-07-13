@@ -1,19 +1,20 @@
 //
-//  MJCDemoVC4.m
+//  MJCDemoVC9.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/7/2.
+//  Created by mjc on 17/7/13.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCDemoVC3.h"
+#import "MJCDemoVC9.h"
 #import "MJCPrefixHeader.pch"
+#import "MJCInterfaceTools.h"
 
-@interface MJCDemoVC3 ()
+@interface MJCDemoVC9 ()
 
 @end
 
-@implementation MJCDemoVC3
+@implementation MJCDemoVC9
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,13 +43,17 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.defaultItemNumber = 3;
+    lala.defaultShowItemCount = 5;
+    lala.itemBackColor = [UIColor whiteColor];
+    lala.itemTextFontSize  = 13;
+    lala.itemBackNormalImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor yellowColor]];
+    lala.itemBackSelectedImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor blueColor]];
+    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
     
 }
-
-
 
 
 @end

@@ -22,6 +22,7 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.indicatorHidden = YES;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     

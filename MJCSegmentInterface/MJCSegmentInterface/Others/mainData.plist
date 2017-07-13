@@ -20,5 +20,53 @@
 		<key>viewControllers</key>
 		<string>MJCDemoVC3</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式4</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC4</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式5</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC5</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式6</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC6</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式7</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC7</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式8</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC8</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式9</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC9</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式10</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC10</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式11</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVC11</string>
+	</dict>
 </array>
 </plist>
