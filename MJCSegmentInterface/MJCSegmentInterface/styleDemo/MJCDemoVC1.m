@@ -52,7 +52,7 @@
     lala.imagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
     lala.textsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
     lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];//是否同意字体放大
+    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     
