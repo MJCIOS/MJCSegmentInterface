@@ -14,8 +14,8 @@
 ## ☆☆ 用在我仿做的项目中请看以下示例图 ☆☆
 * (真的很喜欢玩他们的游戏,感觉他们的项目很不错,所以忍不住仿做了他们的项目)
 
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu1.gif)
-![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/xiangmu2.gif)
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/xiangmu1.gif)
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/xiangmu2.gif)
 
 ### ☆☆ MJCSegmentInterface分段控制器创建(几行代码设置即可使用) ☆☆
     
