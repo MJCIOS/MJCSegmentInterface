@@ -62,6 +62,7 @@
     -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
 
 * 底部指示器属性修改
+
     /** 可设置指示器的Y值和高度,其余不允许自己设置 */
     @property (nonatomic,assign) CGRect indicatorFrame;
     /** 底部指示器背景色 */
@@ -72,6 +73,7 @@
     @property (nonatomic,assign) BOOL indicatorHidden;
 
 * 标题栏属性修改
+
     /** 标题栏frame */
     @property (nonatomic,assign) CGRect titlesViewFrame;
     /** 标题栏背景色 */
@@ -80,6 +82,7 @@
     @property (nonatomic,strong) UIImage *titlesViewBackImage;
 
 * item属性修改
+
     /** item背景颜色 */
     @property (nonatomic,strong) UIColor *itemBackColor;
     /** item普通状态下的图片 */
@@ -105,7 +108,8 @@
     /** item文字大小 */
     @property (nonatomic,assign) CGFloat itemTextFontSize;
 
-* item属性修改
+* 添加方法
+
     /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
     -(void)intoChildControllerArray:(NSArray *)childControllerArray;
     /** 添加标题栏的方法 */
