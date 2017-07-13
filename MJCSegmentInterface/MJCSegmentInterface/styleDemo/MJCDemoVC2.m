@@ -9,7 +9,7 @@
 #import "MJCDemoVC2.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC2 ()
+@interface MJCDemoVC2 ()<MJCSlideSwitchViewDelegate>
 
 @end
 
@@ -18,33 +18,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
-    lala.defaultShowItemCount = 3;
-    lala.itemTextFontSize = 13;
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.titlesViewFrame = CGRectMake(0, 0, self.view.mjc_width,100);
-    lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];
-    lala.defaultItemNumber = 3;
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
-    lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
-    lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
-    lala.itemNormalBackImageArray = imageArr;
-    lala.itemSelectedBackImageArray = imageArr1;
-    lala.itemImageSelected = [UIImage imageNamed:@"food-2"];
-    lala.itemImageNormal = [UIImage imageNamed:@"food"];
-    lala.itemImageNormalArray = imageArr;
-    lala.itemImageSelectedArray = imageArr1;
-    lala.indicatorColor = [UIColor redColor];
-    lala.indicatorImage =[UIImage imageNamed:@"箭头"];
-    lala.indicatorFrame = CGRectMake(0,0,50,30);
-    lala.indicatorHidden = YES;
-    lala.isChildScollEnabled = YES;
-    lala.isChildScollAnimal = YES;
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
+    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.titlesViewFrame = CGRectMake(0,0,self.view.mjc_width,100);//顶部标题栏frame
+    lala.defaultItemNumber = 3;//默认选中第几个
+    lala.defaultShowItemCount = 3;//首页,第一页展示多少个
+    lala.delegate = self;
+    lala.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
+    lala.itemTextFontSize = 13;//item文字大小
+    lala.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
+    lala.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
+    lala.itemBackColor = [UIColor whiteColor];//item背景颜色
+    lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];//标题栏背景图片
+    lala.itemBackNormalImage = [UIImage imageNamed:@"222"];//item普通状态下的背景图片
+    lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];//item点击状态下的背景图片
+    lala.itemNormalBackImageArray = imageArr;//item普通状态下背景图片数组,(为了让item显示不同的图片)
+    lala.itemSelectedBackImageArray = imageArr1;//item点击状态下背景图片数组,(为了让item显示不同的图片)
+    lala.itemImageSelected = [UIImage imageNamed:@"food-2"];//item普通状态下图片
+    lala.itemImageNormal = [UIImage imageNamed:@"food"];//item点击状态下图片
+    lala.itemImageNormalArray = imageArr;//item普通状态下图片数组,(为了让item显示不同的图片)
+    lala.itemImageSelectedArray = imageArr1;//item点击状态下图片数组,(为了让item显示不同的图片)
+    lala.indicatorColor = [UIColor redColor];//底部指示器颜色
+    lala.indicatorImage =[UIImage imageNamed:@"箭头"];//底部指示器图片
+    lala.indicatorHidden = NO;//底部指示器是否隐藏
+    lala.isChildScollEnabled = YES;//是否手拽滚动子界面
+    lala.isChildScollAnimal = YES;//子界面切换是否有动画效果
+    lala.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
+    lala.imageEffectStyles = MJCImageClassicStyle;//item图片类型
+    lala.imagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
+    lala.textsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
+    lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
+    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     

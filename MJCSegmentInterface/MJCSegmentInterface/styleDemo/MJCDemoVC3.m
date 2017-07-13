@@ -23,7 +23,7 @@
     view.backgroundColor = [UIColor redColor];
     [self.view addSubview:view];
     
-    NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.mjc_width, self.view.mjc_height-CGRectGetMaxY(view.frame));
     lala.defaultShowItemCount = 3;
