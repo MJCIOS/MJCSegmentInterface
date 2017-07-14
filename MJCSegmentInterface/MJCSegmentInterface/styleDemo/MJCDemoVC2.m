@@ -26,7 +26,7 @@
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
-    lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];
+    lala.titlesViewBackImage = [UIImage imageNamed:@"back"];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     

@@ -129,4 +129,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController;
 
 
+
+
 @end

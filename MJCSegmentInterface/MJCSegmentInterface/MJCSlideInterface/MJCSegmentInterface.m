@@ -31,6 +31,15 @@ static CGFloat const defaultShowCountItem = 4;
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
+
+
+
+/** <#  注释  #> */
+@property (nonatomic,strong) NSArray *testNormalColorARR;
+@property (nonatomic,strong) NSArray *testSelectedColorARR;
+
+@property (nonatomic,strong) NSArray *deltaRGBA;
+
 @end
 @implementation MJCSegmentInterface
 -(instancetype)initWithFrame:(CGRect)frame
@@ -350,5 +359,4 @@ static CGFloat const defaultShowCountItem = 4;
         [self addChildVcView];
     }
 }
-
 @end
