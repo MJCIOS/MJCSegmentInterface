@@ -103,39 +103,31 @@
     CGFloat tabItemW = self.contentView.frame.size.width;
     CGFloat tabItemCenterX = tabItemW/2;
     CGFloat tabItemCenterY = tabItemH/2;
-    
-    if (_imageViews.image != nil) {//有图片的情况下
-        if (_imageEffectStyles == 1) {//图片与文字类型是上下位置的情况
-            [_titlesLable sizeToFit];//文字自适应内容宽度高度
-            _titlesLable.mjc_y = (CGRectGetMaxY(self.contentView.frame)-_titlesLable.mjc_height)+_topTextMargin-_bottomTextMargin;//文字的Y值,外加上间距和底部间距
-            //文字它的centerX ,外加左间距和右间距
+    if (_imageViews.image != nil) {
+        if (_imageEffectStyles == 1) {
+            [_titlesLable sizeToFit];
+            _titlesLable.mjc_y = (CGRectGetMaxY(self.contentView.frame)-_titlesLable.mjc_height)+_topTextMargin-_bottomTextMargin;
             _titlesLable.mjc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
             _imageViews.frame = CGRectMake(0,0,0,0);
             [_imageViews sizeToFit];//自适应内容大小
-            if (_imageViews.mjc_height >= tabItemH) {//防止图片太大,限制它的宽度大小
+            if (_imageViews.mjc_height >= tabItemH) {
                 _imageViews.mjc_size = CGSizeMake(tabItemH/2.5,tabItemH/2.5);
             }
-            //设置图片的Y值,外加顶部间距和底部间距
             _imageViews.mjc_y = CGRectGetMinY(_titlesLable.frame)-_imageViews.mjc_height+_topImageMargin-_bottomImageMargin;
-            //设置图片的centerX与左间距和右间距
             _imageViews.mjc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
-        
-        }else{//图片与文字类型是左右位置的情况
+        }else{
             _imageViews.frame = CGRectMake(0,0,0,0);
             [_imageViews sizeToFit];//图片自适应大小
             if (_imageViews.mjc_height >= tabItemH) {
                 _imageViews.mjc_size = CGSizeMake(tabItemH/2.5,tabItemH/2.5);
             }
-            //图片的centerY与图片上间距与底部间距
             _imageViews.mjc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
-            //图片的centerX与图片左间距与右间距
             _imageViews.mjc_centerX = tabItemCenterX+_leftImageMargin-_rightImageMargin;
-            //titlesLable的x,如果不加上,减去图片的左右间距的话,会导致titlesLable一直随着image移动,导致图片没间距了
             _titlesLable.mjc_x = CGRectGetMaxX(_imageViews.frame)+_leftTextMargin-_rightTextMargin + _rightImageMargin - _leftImageMargin;
             [_titlesLable sizeToFit];
             _titlesLable.mjc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
         }
-    }else{//没图片的情况下
+    }else{
         [_titlesLable sizeToFit];
         _titlesLable.mjc_centerX = tabItemCenterX;
         _titlesLable.mjc_centerY = tabItemCenterY;
