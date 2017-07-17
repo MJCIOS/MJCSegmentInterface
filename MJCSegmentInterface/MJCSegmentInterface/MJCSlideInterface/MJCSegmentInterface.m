@@ -202,7 +202,7 @@ static CGFloat const defaultShowCountItem = 4;
     }
 }
 -(void)setupTiTlesViewDefaultItem:(NSIndexPath *)indexPath
-{
+{    
     MJCTabItem *cell = [self collectionView:_titlesViews cellForItemAtIndexPath:indexPath];
     _indicator.mjc_centerX = cell.mjc_centerX;
 }
