@@ -16,11 +16,12 @@
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
 @interface MJCInterfaceTools : NSObject
-
 +(NSString *)setupNSStringWithNumberCount:(NSInteger)count;
-
 +(UIViewController *)setupViewControllersStr:(NSString *)vcStr;
 
+/** 图片转颜色 */
 +(UIImage *)mjc_imageWithColor:(UIColor *)color;
+/** 通过16进制计算颜色 */
++ (UIColor *)mjc_colorFromHexRGB:(NSString *)inColorString;
 
 @end
