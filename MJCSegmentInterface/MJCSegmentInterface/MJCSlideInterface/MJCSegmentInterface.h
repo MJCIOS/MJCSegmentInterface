@@ -16,11 +16,11 @@ typedef enum {
     MJCTitlesScrollStyle//滚动标题栏样式
 } MJCTitleBarStyles;
 
-////底部指示器样式
-//typedef enum {
-//    MJCIndicatorItemStyle,
-//    MJCIndicatorItemTextStyle
-//} MJCIndicatorStyles;
+//底部指示器样式
+typedef enum {
+    MJCIndicatorItemStyle,
+    MJCIndicatorItemTextStyle
+} MJCIndicatorStyles;
 
 //按钮图片样式
 typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
@@ -50,7 +50,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,assign) MJCTitleBarStyles titleBarStyles;
 
 /** 底部指示器大小样式 */
-//@property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
+@property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
 
 /** 标题图片效果样式 */
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;

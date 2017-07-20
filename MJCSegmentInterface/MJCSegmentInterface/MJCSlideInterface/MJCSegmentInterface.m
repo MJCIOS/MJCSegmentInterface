@@ -33,11 +33,9 @@ static CGFloat const defaultShowCountItem = 4;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
 
 
-
 /** <#  注释  #> */
 @property (nonatomic,strong) NSArray *testNormalColorARR;
 @property (nonatomic,strong) NSArray *testSelectedColorARR;
-
 @property (nonatomic,strong) NSArray *deltaRGBA;
 
 @end
@@ -120,27 +118,28 @@ static CGFloat const defaultShowCountItem = 4;
     cell.backgroundColor = _itemBackColor;
     if (indexPath.row < _titlesItemArr.count){
         cell.itemText = _titlesItemArr[indexPath.row];
-        cell.itemTextFontSize = _itemTextFontSize;
-        cell.itemTitleNormalColor = _itemTextNormalColor;
-        cell.itemTitleSelectedColor = _itemTextSelectedColor;
-        cell.itemBackNormalImage = _itemBackNormalImage;
-        cell.itemBackSelectedImage = _itemBackSelectedImage;
-        cell.itemNormalBackImageArray = _itemNormalBackImageArray;
-        cell.itemSelectedBackImageArray = _itemSelectedBackImageArray;
-        cell.itemImageNormal = _itemImageNormal;
-        cell.tabItemImageSelected = _itemImageSelected;
-        cell.tabItemNormalImageArray = _itemImageNormalArray;
-        cell.tabItemSelectedImageArray = _itemImageSelectedArray;
-        cell.imageEffectStyles = _imageEffectStyles;
-        cell.textsEdgeInsets = _textsEdgeInsets;
-        cell.imagesEdgeInsets = _imagesEdgeInsets;
     }
-    if (_indicatorFrame.size.width == 0) {
-        _indicator.mjc_width = cell.mjc_width;
-    }else{
-        _indicator.mjc_width = _indicatorFrame.size.width;
+    cell.itemTextFontSize = _itemTextFontSize;
+    cell.itemTitleNormalColor = _itemTextNormalColor;
+    cell.itemTitleSelectedColor = _itemTextSelectedColor;
+    cell.itemBackNormalImage = _itemBackNormalImage;
+    cell.itemBackSelectedImage = _itemBackSelectedImage;
+    cell.itemNormalBackImageArray = _itemNormalBackImageArray;
+    cell.itemSelectedBackImageArray = _itemSelectedBackImageArray;
+    cell.itemImageNormal = _itemImageNormal;
+    cell.tabItemImageSelected = _itemImageSelected;
+    cell.tabItemNormalImageArray = _itemImageNormalArray;
+    cell.tabItemSelectedImageArray = _itemImageSelectedArray;
+    cell.imageEffectStyles = _imageEffectStyles;
+    cell.textsEdgeInsets = _textsEdgeInsets;
+    cell.imagesEdgeInsets = _imagesEdgeInsets;
+    if (_indicatorStyles == MJCIndicatorItemStyle) {
+        if (_indicatorFrame.size.width == 0) {
+            _indicator.mjc_width = cell.mjc_width;
+        }else{
+            _indicator.mjc_width = _indicatorFrame.size.width;
+        }
     }
-    
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -150,6 +149,13 @@ static CGFloat const defaultShowCountItem = 4;
     _selectedItem = cell;
     if (_zoomBigEnabled) {
         cell.itemTextFontSize = _tabItemTitleMaxfont;
+        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
+            [cell.titlesLable sizeToFit];
+            [UIView animateWithDuration:animalTime animations:^{
+                _indicator.mjc_width = cell.titlesLable.mjc_width;
+                _indicator.mjc_centerX = cell.mjc_centerX;
+            }];
+        }
     }
     [self collectV:_titlesViews cellForItemAtIndexPath:indexPath itemBtn:cell];
     if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
@@ -192,7 +198,9 @@ static CGFloat const defaultShowCountItem = 4;
         _selectedItem.itemTextFontSize = _itemTextFontSize;
         [_titlesViews selectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] animated:YES scrollPosition:(UICollectionViewScrollPositionNone)];
         MJCTabItem *cell = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0]];
-        cell.itemTextFontSize = _tabItemTitleMaxfont;
+        if (_zoomBigEnabled) {
+            cell.itemTextFontSize = _tabItemTitleMaxfont;
+        }
         _selectedItem = cell;
         [self collectV:_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] itemBtn:_selectedItem];
         //下面的方法,遇到s b用户,稍微有点问题,暂时不用
@@ -202,9 +210,24 @@ static CGFloat const defaultShowCountItem = 4;
     }
 }
 -(void)setupTiTlesViewDefaultItem:(NSIndexPath *)indexPath
-{    
-    MJCTabItem *cell = [self collectionView:_titlesViews cellForItemAtIndexPath:indexPath];
-    _indicator.mjc_centerX = cell.mjc_centerX;
+{
+    if (_isChildScollAnimal) {
+        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
+            [_selectedItem.titlesLable sizeToFit];
+            [UIView animateWithDuration:0.08 animations:^{
+                _indicator.mjc_width = _selectedItem.titlesLable.mjc_width;
+                _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+            }];
+        }else{
+            [UIView animateWithDuration:animalTime animations:^{
+                _indicator.mjc_width = _selectedItem.mjc_width;
+                _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+            }];
+        }
+    }else{
+        _indicator.mjc_width = _selectedItem.mjc_width;
+        _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+    }
 }
 - (void)selectedTitleCenter:(MJCTabItem *)cell titlesScrollView:(UICollectionView *)collectionViews
 {

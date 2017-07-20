@@ -36,9 +36,9 @@
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     
-    
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.indicatorStyles = MJCIndicatorItemStyle;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
@@ -46,6 +46,7 @@
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor whiteColor];
     lala.itemTextFontSize  = 13;
+    lala.isChildScollAnimal = YES;
     lala.itemBackNormalImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor yellowColor]];
     lala.itemBackSelectedImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor blueColor]];
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
