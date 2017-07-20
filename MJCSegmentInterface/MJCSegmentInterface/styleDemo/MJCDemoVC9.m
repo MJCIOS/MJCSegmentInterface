@@ -8,7 +8,6 @@
 
 #import "MJCDemoVC9.h"
 #import "MJCPrefixHeader.pch"
-#import "MJCInterfaceTools.h"
 
 @interface MJCDemoVC9 ()
 
@@ -37,7 +36,7 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.indicatorStyles = MJCIndicatorItemStyle;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
@@ -45,10 +44,11 @@
     lala.defaultItemNumber = 3;
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor whiteColor];
+    lala.indicatorColor = [UIColor redColor];
     lala.itemTextFontSize  = 13;
     lala.isChildScollAnimal = YES;
-    lala.itemBackNormalImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor yellowColor]];
-    lala.itemBackSelectedImage = [MJCInterfaceTools mjc_imageWithColor:[UIColor blueColor]];
+    lala.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
+    lala.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];

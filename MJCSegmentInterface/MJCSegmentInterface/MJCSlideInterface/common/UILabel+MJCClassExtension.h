@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UILabel (interfaceExtention)
+@interface UILabel (MJCClassExtension)
 
 /**
  快速创建lable对象
@@ -18,6 +18,6 @@
  @param textColor <#textColor description#>
  @return <#return value description#>
  */
-+(instancetype)mjc_lableWithText:(NSString *)text fontSize:(CGFloat)fontSize textColor:(UIColor *)textColor;
++(instancetype)jc_lableWithText:(NSString *)text fontSize:(CGFloat)fontSize textColor:(UIColor *)textColor;
 
 @end

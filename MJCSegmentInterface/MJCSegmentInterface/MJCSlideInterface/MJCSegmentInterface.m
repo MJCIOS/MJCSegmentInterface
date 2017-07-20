@@ -9,7 +9,6 @@
 #import "MJCSegmentInterface.h"
 #import "MJCOrdinaryLayout.h"
 #import "MJCChildsView.h"
-#import "MJCInterfaceTools.h"
 #import "MJCTitlesView.h"
 
 static NSString *const MJCItemCellID = @"itemCell";
@@ -89,21 +88,21 @@ static CGFloat const defaultShowCountItem = 4;
 }
 -(void)setupUIFrame
 {
-    _titlesViews.mjc_width = self.mjc_width;
+    _titlesViews.jc_width = self.jc_width;
     if (_isLoadIndicatorFrame) {
-        _indicator.mjc_y = _indicatorFrame.origin.y;
-        _indicator.mjc_height = _indicatorFrame.size.height;
+        _indicator.jc_y = _indicatorFrame.origin.y;
+        _indicator.jc_height = _indicatorFrame.size.height;
     }else{
-        _indicator.mjc_y = CGRectGetMaxY(_titlesViews.frame) - _indicator.mjc_height;
+        _indicator.jc_y = CGRectGetMaxY(_titlesViews.frame) - _indicator.jc_height;
     }
     
     CGFloat colletionMaxY = CGRectGetMaxY(_titlesViews.frame);
-    _childScrollView.frame =CGRectMake(0,colletionMaxY,self.mjc_width,self.mjc_height-colletionMaxY);
+    _childScrollView.frame =CGRectMake(0,colletionMaxY,self.jc_width,self.jc_height-colletionMaxY);
     if (_isLoadDefaultChildVC == YES) {
 //        dispatch_async(dispatch_get_main_queue(), ^{
-            NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.mjc_width;
+            NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.jc_width;
             _childVC = _mainViewController.childViewControllers[index];
-            _childVC.view.mjc_height = _childScrollView.bounds.size.height;
+            _childVC.view.jc_height = _childScrollView.bounds.size.height;
 //        });
     }
 }
@@ -135,9 +134,9 @@ static CGFloat const defaultShowCountItem = 4;
     cell.imagesEdgeInsets = _imagesEdgeInsets;
     if (_indicatorStyles == MJCIndicatorItemStyle) {
         if (_indicatorFrame.size.width == 0) {
-            _indicator.mjc_width = cell.mjc_width;
+            _indicator.jc_width = cell.jc_width;
         }else{
-            _indicator.mjc_width = _indicatorFrame.size.width;
+            _indicator.jc_width = _indicatorFrame.size.width;
         }
     }
     return cell;
@@ -152,8 +151,8 @@ static CGFloat const defaultShowCountItem = 4;
         if (_indicatorStyles == MJCIndicatorItemTextStyle) {
             [cell.titlesLable sizeToFit];
             [UIView animateWithDuration:animalTime animations:^{
-                _indicator.mjc_width = cell.titlesLable.mjc_width;
-                _indicator.mjc_centerX = cell.mjc_centerX;
+                _indicator.jc_width = cell.titlesLable.jc_width;
+                _indicator.jc_centerX = cell.jc_centerX;
             }];
         }
     }
@@ -191,7 +190,7 @@ static CGFloat const defaultShowCountItem = 4;
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if (scrollView == _childScrollView) {
-        NSInteger itemIndex = scrollView.contentOffset.x / scrollView.mjc_width;
+        NSInteger itemIndex = scrollView.contentOffset.x / scrollView.jc_width;
         if (itemIndex != _titlesItemArr.count-1)_isScrollMax = NO;
         if (_isScrollMax == YES) return;
         if (itemIndex == _titlesItemArr.count-1)_isScrollMax = YES;
@@ -215,27 +214,37 @@ static CGFloat const defaultShowCountItem = 4;
         if (_indicatorStyles == MJCIndicatorItemTextStyle) {
             [_selectedItem.titlesLable sizeToFit];
             [UIView animateWithDuration:0.08 animations:^{
-                _indicator.mjc_width = _selectedItem.titlesLable.mjc_width;
-                _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+                _indicator.jc_width = _selectedItem.titlesLable.jc_width;
+                _indicator.jc_centerX = _selectedItem.jc_centerX;
             }];
         }else{
+            CGFloat indiCatorNewW;
+            if (_indicatorFrame.size.width == 0) {
+                indiCatorNewW = _selectedItem.jc_width;
+            }else{
+                indiCatorNewW = _indicatorFrame.size.width;
+            }
             [UIView animateWithDuration:animalTime animations:^{
-                _indicator.mjc_width = _selectedItem.mjc_width;
-                _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+                _indicator.jc_width = indiCatorNewW;
+                _indicator.jc_centerX = _selectedItem.jc_centerX;
             }];
         }
     }else{
-        _indicator.mjc_width = _selectedItem.mjc_width;
-        _indicator.mjc_centerX = _selectedItem.mjc_centerX;
+        if (_indicatorFrame.size.width == 0) {
+            _indicator.jc_width = _selectedItem.jc_width;
+        }else{
+            _indicator.jc_width = _indicatorFrame.size.width;
+        }
+        _indicator.jc_centerX = _selectedItem.jc_centerX;
     }
 }
 - (void)selectedTitleCenter:(MJCTabItem *)cell titlesScrollView:(UICollectionView *)collectionViews
 {
-    CGFloat offsetX = cell.center.x - collectionViews.mjc_width * 0.7;
+    CGFloat offsetX = cell.center.x - collectionViews.jc_width * 0.7;
     if (offsetX < 0) {
         offsetX = 0;
     }
-    CGFloat maxOffsetX = collectionViews.contentSize.width - collectionViews.mjc_width;
+    CGFloat maxOffsetX = collectionViews.contentSize.width - collectionViews.jc_width;
     if (offsetX > maxOffsetX) {
         offsetX = maxOffsetX;
     }
@@ -245,7 +254,7 @@ static CGFloat const defaultShowCountItem = 4;
 {
     //为什么一定要不让系统自动修改布局呢,如果不设为NO,会导致外界其他子控件每次滚动会调用我们这里scrollView的一个代理方法
     _mainViewController.automaticallyAdjustsScrollViewInsets = NO;
-    NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.mjc_width;
+    NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.jc_width;
     UIViewController *childVc;
     if (index >= _mainViewController.childViewControllers.count) {
 //        NSLog(@"您的控制器数量不够:控制器数量:%ld个 tabItem数量:%ld个",_mainViewController.childViewControllers.count,_titlesItemArr.count);
@@ -261,18 +270,18 @@ static CGFloat const defaultShowCountItem = 4;
     if (_isChildScollAnimal) {
         [UIView animateWithDuration:animalTime animations:^{
             CGPoint offset = _childScrollView.contentOffset;
-            offset.x = itemTag * _childScrollView.mjc_width;
+            offset.x = itemTag * _childScrollView.jc_width;
             [self.childScrollView setContentOffset:offset animated:NO];
         }];
     }else{
         CGPoint offset = _childScrollView.contentOffset;
-        offset.x = itemTag * _childScrollView.mjc_width;
+        offset.x = itemTag * _childScrollView.jc_width;
         [self.childScrollView setContentOffset:offset animated:NO];
     }
 }
 -(void)setupIndicatorViewScroll:(UIScrollView *)scrollView leftItem:(MJCTabItem *)leftItem rightItem:(MJCTabItem *)rightItem scaleR:(CGFloat)scaleR
 {
-    _indicator.mjc_centerX = leftItem.mjc_centerX + (rightItem.mjc_centerX - leftItem.mjc_centerX) * scaleR;
+    _indicator.jc_centerX = leftItem.jc_centerX + (rightItem.jc_centerX - leftItem.jc_centerX) * scaleR;
 }
 - (void)collectV:(UICollectionView *)collectV cellForItemAtIndexPath:(NSIndexPath *)indexPath itemBtn:(MJCTabItem *)itemBtn
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJCTabItem.h"
-#import "UIView+interFaceExtenSion.h"
+#import "MJCCommonTools.h"
 
 //标题样式
 typedef enum {

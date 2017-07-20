@@ -27,8 +27,15 @@
 		2556BE511F186AA800E903F5 /* demo5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4D1F186AA800E903F5 /* demo5.gif */; };
 		2556BE521F186AA800E903F5 /* demo6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4E1F186AA800E903F5 /* demo6.gif */; };
 		2556BE531F186AA800E903F5 /* demo7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4F1F186AA800E903F5 /* demo7.gif */; };
-		25779BFC1F1CDC3A003847C6 /* UILabel+InterfaceExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25779BFB1F1CDC3A003847C6 /* UILabel+InterfaceExtention.m */; };
-		25779BFF1F1CDCD1003847C6 /* UIButton+InterfaceExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 25779BFE1F1CDCD1003847C6 /* UIButton+InterfaceExtention.m */; };
+		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
+		2583E5811F20D184003E740D /* MJCCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E57A1F20D184003E740D /* MJCCommonTools.m */; };
+		2583E5821F20D184003E740D /* UIButton+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E57C1F20D184003E740D /* UIButton+MJCClassExtension.m */; };
+		2583E5831F20D184003E740D /* UILabel+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E57E1F20D184003E740D /* UILabel+MJCClassExtension.m */; };
+		2583E5841F20D184003E740D /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5801F20D184003E740D /* UIView+MJCClassExtension.m */; };
+		2583E5871F20D1A9003E740D /* MJCOrdinaryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5861F20D1A9003E740D /* MJCOrdinaryLayout.m */; };
+		2583E58F1F20D1FF003E740D /* MJCChildsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E58A1F20D1FF003E740D /* MJCChildsView.m */; };
+		2583E5901F20D1FF003E740D /* MJCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E58C1F20D1FF003E740D /* MJCTabItem.m */; };
+		2583E5911F20D1FF003E740D /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E58E1F20D1FF003E740D /* MJCTitlesView.m */; };
 		25D9DB471DC2635C00B903B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB461DC2635C00B903B1 /* main.m */; };
 		25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB491DC2635C00B903B1 /* AppDelegate.m */; };
 		25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB4C1DC2635C00B903B1 /* ViewController.m */; };
@@ -46,13 +53,7 @@
 		25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E822E01F0CE38200FB305F /* MJCTestViewController.xib */; };
 		25E822EC1F0CE38200FB305F /* MJCTestViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822E21F0CE38200FB305F /* MJCTestViewController1.m */; };
 		25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E822E31F0CE38200FB305F /* MJCTestViewController1.xib */; };
-		25E822FD1F0CE39700FB305F /* MJCChildsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F01F0CE39700FB305F /* MJCChildsView.m */; };
-		25E822FE1F0CE39700FB305F /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */; };
-		25E822FF1F0CE39700FB305F /* MJCOrdinaryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */; };
 		25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */; };
-		25E823011F0CE39700FB305F /* MJCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822F81F0CE39700FB305F /* MJCTabItem.m */; };
-		25E823021F0CE39700FB305F /* MJCTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822FA1F0CE39700FB305F /* MJCTitlesView.m */; };
-		25E823031F0CE39700FB305F /* UIView+interFaceExtenSion.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E822FC1F0CE39700FB305F /* UIView+interFaceExtenSion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,10 +103,24 @@
 		2556BE4E1F186AA800E903F5 /* demo6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo6.gif; sourceTree = "<group>"; };
 		2556BE4F1F186AA800E903F5 /* demo7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo7.gif; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
-		25779BFA1F1CDC3A003847C6 /* UILabel+InterfaceExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+InterfaceExtention.h"; sourceTree = "<group>"; };
-		25779BFB1F1CDC3A003847C6 /* UILabel+InterfaceExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+InterfaceExtention.m"; sourceTree = "<group>"; };
-		25779BFD1F1CDCD1003847C6 /* UIButton+InterfaceExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+InterfaceExtention.h"; sourceTree = "<group>"; };
-		25779BFE1F1CDCD1003847C6 /* UIButton+InterfaceExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+InterfaceExtention.m"; sourceTree = "<group>"; };
+		2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
+		2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
+		2583E5791F20D184003E740D /* MJCCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCCommonTools.h; sourceTree = "<group>"; };
+		2583E57A1F20D184003E740D /* MJCCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCCommonTools.m; sourceTree = "<group>"; };
+		2583E57B1F20D184003E740D /* UIButton+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MJCClassExtension.h"; sourceTree = "<group>"; };
+		2583E57C1F20D184003E740D /* UIButton+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MJCClassExtension.m"; sourceTree = "<group>"; };
+		2583E57D1F20D184003E740D /* UILabel+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+MJCClassExtension.h"; sourceTree = "<group>"; };
+		2583E57E1F20D184003E740D /* UILabel+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MJCClassExtension.m"; sourceTree = "<group>"; };
+		2583E57F1F20D184003E740D /* UIView+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCClassExtension.h"; sourceTree = "<group>"; };
+		2583E5801F20D184003E740D /* UIView+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCClassExtension.m"; sourceTree = "<group>"; };
+		2583E5851F20D1A9003E740D /* MJCOrdinaryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCOrdinaryLayout.h; sourceTree = "<group>"; };
+		2583E5861F20D1A9003E740D /* MJCOrdinaryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCOrdinaryLayout.m; sourceTree = "<group>"; };
+		2583E5891F20D1FF003E740D /* MJCChildsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildsView.h; sourceTree = "<group>"; };
+		2583E58A1F20D1FF003E740D /* MJCChildsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildsView.m; sourceTree = "<group>"; };
+		2583E58B1F20D1FF003E740D /* MJCTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItem.h; sourceTree = "<group>"; };
+		2583E58C1F20D1FF003E740D /* MJCTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTabItem.m; sourceTree = "<group>"; };
+		2583E58D1F20D1FF003E740D /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
+		2583E58E1F20D1FF003E740D /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
 		25D9DB421DC2635C00B903B1 /* MJCSegmentInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJCSegmentInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D9DB461DC2635C00B903B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25D9DB481DC2635C00B903B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,20 +152,8 @@
 		25E822E11F0CE38200FB305F /* MJCTestViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestViewController1.h; sourceTree = "<group>"; };
 		25E822E21F0CE38200FB305F /* MJCTestViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestViewController1.m; sourceTree = "<group>"; };
 		25E822E31F0CE38200FB305F /* MJCTestViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCTestViewController1.xib; sourceTree = "<group>"; };
-		25E822EF1F0CE39700FB305F /* MJCChildsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildsView.h; sourceTree = "<group>"; };
-		25E822F01F0CE39700FB305F /* MJCChildsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildsView.m; sourceTree = "<group>"; };
-		25E822F11F0CE39700FB305F /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
-		25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
-		25E822F31F0CE39700FB305F /* MJCOrdinaryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCOrdinaryLayout.h; sourceTree = "<group>"; };
-		25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCOrdinaryLayout.m; sourceTree = "<group>"; };
 		25E822F51F0CE39700FB305F /* MJCSegmentInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSegmentInterface.h; sourceTree = "<group>"; };
 		25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentInterface.m; sourceTree = "<group>"; };
-		25E822F71F0CE39700FB305F /* MJCTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTabItem.h; sourceTree = "<group>"; };
-		25E822F81F0CE39700FB305F /* MJCTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTabItem.m; sourceTree = "<group>"; };
-		25E822F91F0CE39700FB305F /* MJCTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTitlesView.h; sourceTree = "<group>"; };
-		25E822FA1F0CE39700FB305F /* MJCTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTitlesView.m; sourceTree = "<group>"; };
-		25E822FB1F0CE39700FB305F /* UIView+interFaceExtenSion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+interFaceExtenSion.h"; sourceTree = "<group>"; };
-		25E822FC1F0CE39700FB305F /* UIView+interFaceExtenSion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+interFaceExtenSion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2583E5781F20D184003E740D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				2583E5851F20D1A9003E740D /* MJCOrdinaryLayout.h */,
+				2583E5861F20D1A9003E740D /* MJCOrdinaryLayout.m */,
+				2583E5791F20D184003E740D /* MJCCommonTools.h */,
+				2583E57A1F20D184003E740D /* MJCCommonTools.m */,
+				2583E57B1F20D184003E740D /* UIButton+MJCClassExtension.h */,
+				2583E57C1F20D184003E740D /* UIButton+MJCClassExtension.m */,
+				2583E57D1F20D184003E740D /* UILabel+MJCClassExtension.h */,
+				2583E57E1F20D184003E740D /* UILabel+MJCClassExtension.m */,
+				2583E57F1F20D184003E740D /* UIView+MJCClassExtension.h */,
+				2583E5801F20D184003E740D /* UIView+MJCClassExtension.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		2583E5881F20D1FF003E740D /* child */ = {
+			isa = PBXGroup;
+			children = (
+				2583E5891F20D1FF003E740D /* MJCChildsView.h */,
+				2583E58A1F20D1FF003E740D /* MJCChildsView.m */,
+				2583E58B1F20D1FF003E740D /* MJCTabItem.h */,
+				2583E58C1F20D1FF003E740D /* MJCTabItem.m */,
+				2583E58D1F20D1FF003E740D /* MJCTitlesView.h */,
+				2583E58E1F20D1FF003E740D /* MJCTitlesView.m */,
+			);
+			path = child;
+			sourceTree = "<group>";
+		};
 		25D9DB391DC2635C00B903B1 = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +237,8 @@
 				25E822EE1F0CE39700FB305F /* MJCSlideInterface */,
 				25D9DB4B1DC2635C00B903B1 /* ViewController.h */,
 				25D9DB4C1DC2635C00B903B1 /* ViewController.m */,
-				25D9DB4E1DC2635C00B903B1 /* Main.storyboard */,
+				2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */,
+				2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */,
 				25E822D11F0CE38200FB305F /* styleDemo */,
 				25E822DB1F0CE38200FB305F /* testController */,
 				25D9DB451DC2635C00B903B1 /* Supporting Files */,
@@ -219,6 +253,7 @@
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
 				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
 				25D9DB511DC2635C00B903B1 /* Assets.xcassets */,
+				25D9DB4E1DC2635C00B903B1 /* Main.storyboard */,
 				25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */,
 				25D9DB561DC2635C00B903B1 /* Info.plist */,
 				25D9DB461DC2635C00B903B1 /* main.m */,
@@ -312,24 +347,10 @@
 		25E822EE1F0CE39700FB305F /* MJCSlideInterface */ = {
 			isa = PBXGroup;
 			children = (
-				25E822EF1F0CE39700FB305F /* MJCChildsView.h */,
-				25E822F01F0CE39700FB305F /* MJCChildsView.m */,
-				25E822F11F0CE39700FB305F /* MJCInterfaceTools.h */,
-				25E822F21F0CE39700FB305F /* MJCInterfaceTools.m */,
-				25E822F31F0CE39700FB305F /* MJCOrdinaryLayout.h */,
-				25E822F41F0CE39700FB305F /* MJCOrdinaryLayout.m */,
 				25E822F51F0CE39700FB305F /* MJCSegmentInterface.h */,
 				25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */,
-				25E822F71F0CE39700FB305F /* MJCTabItem.h */,
-				25E822F81F0CE39700FB305F /* MJCTabItem.m */,
-				25E822F91F0CE39700FB305F /* MJCTitlesView.h */,
-				25E822FA1F0CE39700FB305F /* MJCTitlesView.m */,
-				25E822FB1F0CE39700FB305F /* UIView+interFaceExtenSion.h */,
-				25E822FC1F0CE39700FB305F /* UIView+interFaceExtenSion.m */,
-				25779BFA1F1CDC3A003847C6 /* UILabel+InterfaceExtention.h */,
-				25779BFB1F1CDC3A003847C6 /* UILabel+InterfaceExtention.m */,
-				25779BFD1F1CDCD1003847C6 /* UIButton+InterfaceExtention.h */,
-				25779BFE1F1CDCD1003847C6 /* UIButton+InterfaceExtention.m */,
+				2583E5881F20D1FF003E740D /* child */,
+				2583E5781F20D184003E740D /* common */,
 			);
 			path = MJCSlideInterface;
 			sourceTree = "<group>";
@@ -483,32 +504,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2583E5831F20D184003E740D /* UILabel+MJCClassExtension.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
 				2556BE2E1F17964600E903F5 /* MJCDemoVC6.m in Sources */,
 				2556BE3D1F179C1300E903F5 /* MJCDemoVC11.m in Sources */,
-				25E823011F0CE39700FB305F /* MJCTabItem.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
 				2556BE281F1792F300E903F5 /* MJCDemoVC4.m in Sources */,
-				25E823021F0CE39700FB305F /* MJCTitlesView.m in Sources */,
 				2556BE311F17977700E903F5 /* MJCDemoVC7.m in Sources */,
-				25779BFC1F1CDC3A003847C6 /* UILabel+InterfaceExtention.m in Sources */,
+				2583E5821F20D184003E740D /* UIButton+MJCClassExtension.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				2556BE3A1F17984900E903F5 /* MJCDemoVC10.m in Sources */,
-				25E822FD1F0CE39700FB305F /* MJCChildsView.m in Sources */,
 				25E822E41F0CE38200FB305F /* MJCDemoVC1.m in Sources */,
+				2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */,
 				25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */,
-				25E822FE1F0CE39700FB305F /* MJCInterfaceTools.m in Sources */,
 				2556BE341F17982F00E903F5 /* MJCDemoVC8.m in Sources */,
+				2583E5911F20D1FF003E740D /* MJCTitlesView.m in Sources */,
+				2583E5871F20D1A9003E740D /* MJCOrdinaryLayout.m in Sources */,
 				25E822E51F0CE38200FB305F /* MJCDemoVC2.m in Sources */,
-				25E822FF1F0CE39700FB305F /* MJCOrdinaryLayout.m in Sources */,
+				2583E58F1F20D1FF003E740D /* MJCChildsView.m in Sources */,
 				2556BE2B1F17957A00E903F5 /* MJCDemoVC5.m in Sources */,
 				25E822EC1F0CE38200FB305F /* MJCTestViewController1.m in Sources */,
 				25E822EA1F0CE38200FB305F /* MJCTestViewController.m in Sources */,
+				2583E5841F20D184003E740D /* UIView+MJCClassExtension.m in Sources */,
 				25E822E91F0CE38200FB305F /* MJCTestTableViewController.m in Sources */,
-				25779BFF1F1CDCD1003847C6 /* UIButton+InterfaceExtention.m in Sources */,
-				25E823031F0CE39700FB305F /* UIView+interFaceExtenSion.m in Sources */,
 				2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */,
 				25E822E61F0CE38200FB305F /* MJCDemoVC3.m in Sources */,
+				2583E5811F20D184003E740D /* MJCCommonTools.m in Sources */,
+				2583E5901F20D1FF003E740D /* MJCTabItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

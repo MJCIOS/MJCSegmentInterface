@@ -20,18 +20,18 @@
     
 
     UIView *view = [[UIView alloc]init];
-    view.frame = CGRectMake(0, 64, self.view.mjc_width,200);
+    view.frame = CGRectMake(0, 64, self.view.jc_width,200);
     view.backgroundColor = [UIColor redColor];
     [self.view addSubview:view];
     
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.mjc_width, self.view.mjc_height-CGRectGetMaxY(view.frame));
+    lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
     lala.defaultShowItemCount = 3;
     lala.itemTextFontSize = 13;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.titlesViewFrame = CGRectMake(0, 0, self.view.mjc_width,50);
+    lala.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
     lala.defaultItemNumber = 0;
     NSArray *imageBackArr =@[@"111",@"222",@"567",@"1111",@"567"];
     NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];

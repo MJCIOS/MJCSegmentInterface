@@ -38,12 +38,13 @@
     
     
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.defaultItemNumber = 3;
     lala.defaultShowItemCount = 5;
+    lala.indicatorColor = [UIColor purpleColor];
     lala.itemBackColor = [UIColor whiteColor];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
     lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];

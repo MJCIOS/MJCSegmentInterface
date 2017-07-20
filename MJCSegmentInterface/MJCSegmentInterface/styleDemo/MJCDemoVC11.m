@@ -23,8 +23,8 @@
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
-    lala.titlesViewFrame = CGRectMake(0,0,self.view.mjc_width,100);//顶部标题栏frame
+    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    lala.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,100);//顶部标题栏frame
     lala.defaultItemNumber = 3;//默认选中第几个
     lala.defaultShowItemCount = 3;//首页,第一页展示多少个
     lala.delegate = self;

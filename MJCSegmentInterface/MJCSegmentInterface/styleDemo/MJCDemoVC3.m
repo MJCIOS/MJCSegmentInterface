@@ -37,7 +37,7 @@
     
     
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.mjc_width, self.view.mjc_height-64);
+    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
