@@ -3,7 +3,10 @@
 
 ## ☆☆ 如何导入使用框架方法 ☆☆
 * 可以打开https://github.com/MJCIOS/MJCSegmentInterface 将项目下载下来,将MJCSlideInterface文件夹放入自己的项目中
-* 项目已支持pod导入,pod 'MJCSegmentInterface',也可使用pod
+* 项目已支持pod导入,pod 'MJCSegmentInterface',如果没法导入,可以先[pod repo update]更新整个.cocoapods下的所有库...
+
+## ☆☆ 版本更新简介 ☆☆
+* 修改了按钮分类导致崩溃的bug
 
 ---------------------------------------------------------------------------------------------------------------
 * 有啥问题联系我QQ292251588,希望大神们和我多多交流,和大神们一起学习.....
