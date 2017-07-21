@@ -37,27 +37,27 @@
 }
 
 
--(void)setJc_TextColors:(UIColor *)jc_textColors
+-(void)setJc_textColors:(UIColor *)jc_textColors
 {
     [self setTitleColor:jc_textColors forState:UIControlStateNormal];
 }
 
--(void)setJc_TextFontSizes:(CGFloat)jc_textFontSizes
+-(void)setJc_textFontSizes:(CGFloat)jc_textFontSizes
 {
     self.titleLabel.font = [UIFont systemFontOfSize:jc_textFontSizes];
 }
 
--(void)setJc_TitleTexts:(NSString *)jc_titleTexts
+-(void)setJc_titleTexts:(NSString *)jc_titleTexts
 {
     [self setTitle:jc_titleTexts forState:UIControlStateNormal];
 }
 
--(void)setJc_ImagesNormal:(UIImage *)jc_imagesNormal
+-(void)setJc_imagesNormal:(UIImage *)jc_imagesNormal
 {
     [self setImage:jc_imagesNormal forState:UIControlStateNormal];
 }
 
--(void)setJc_BackImageNormal:(UIImage *)jc_backImageNormal
+-(void)setJc_backImageNormal:(UIImage *)jc_backImageNormal
 {
     [self setBackgroundImage:jc_backImageNormal forState:UIControlStateNormal];
 }

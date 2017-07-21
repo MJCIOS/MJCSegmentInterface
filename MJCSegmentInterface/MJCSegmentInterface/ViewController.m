@@ -29,7 +29,6 @@
     self.mainTableView.dataSource = self;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"mainData" ofType:@"plist"];
     _mainArr = [NSArray arrayWithContentsOfFile:path];
-    
 }
 
 #pragma mark - UITableviewdatasource,UITableViewDelegate
