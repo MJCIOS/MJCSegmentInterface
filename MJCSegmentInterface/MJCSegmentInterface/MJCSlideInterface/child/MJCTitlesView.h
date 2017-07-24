@@ -10,4 +10,6 @@
 
 @interface MJCTitlesView : UICollectionView
 
++(instancetype)showTitlesViewFrame:(CGRect)frame viewLayout:(UICollectionViewLayout*)viewLayout;
+
 @end

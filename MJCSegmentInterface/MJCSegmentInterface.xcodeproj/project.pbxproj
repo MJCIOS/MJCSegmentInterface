@@ -27,6 +27,8 @@
 		2556BE511F186AA800E903F5 /* demo5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4D1F186AA800E903F5 /* demo5.gif */; };
 		2556BE521F186AA800E903F5 /* demo6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4E1F186AA800E903F5 /* demo6.gif */; };
 		2556BE531F186AA800E903F5 /* demo7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4F1F186AA800E903F5 /* demo7.gif */; };
+		2571ACE31F24A11C0053DE12 /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571ACE21F24A11C0053DE12 /* UIColor+MJCClassExtension.m */; };
+		2571ACE91F257AAD0053DE12 /* MJCIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571ACE81F257AAD0053DE12 /* MJCIndicator.m */; };
 		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
 		2583E5811F20D184003E740D /* MJCCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E57A1F20D184003E740D /* MJCCommonTools.m */; };
 		2583E5821F20D184003E740D /* UIButton+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E57C1F20D184003E740D /* UIButton+MJCClassExtension.m */; };
@@ -103,6 +105,10 @@
 		2556BE4E1F186AA800E903F5 /* demo6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo6.gif; sourceTree = "<group>"; };
 		2556BE4F1F186AA800E903F5 /* demo7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo7.gif; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
+		2571ACE11F24A11C0053DE12 /* UIColor+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MJCClassExtension.h"; sourceTree = "<group>"; };
+		2571ACE21F24A11C0053DE12 /* UIColor+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MJCClassExtension.m"; sourceTree = "<group>"; };
+		2571ACE71F257AAD0053DE12 /* MJCIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicator.h; sourceTree = "<group>"; };
+		2571ACE81F257AAD0053DE12 /* MJCIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCIndicator.m; sourceTree = "<group>"; };
 		2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
 		2583E5791F20D184003E740D /* MJCCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCCommonTools.h; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 				2583E57E1F20D184003E740D /* UILabel+MJCClassExtension.m */,
 				2583E57F1F20D184003E740D /* UIView+MJCClassExtension.h */,
 				2583E5801F20D184003E740D /* UIView+MJCClassExtension.m */,
+				2571ACE11F24A11C0053DE12 /* UIColor+MJCClassExtension.h */,
+				2571ACE21F24A11C0053DE12 /* UIColor+MJCClassExtension.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -207,6 +215,8 @@
 				2583E58C1F20D1FF003E740D /* MJCTabItem.m */,
 				2583E58D1F20D1FF003E740D /* MJCTitlesView.h */,
 				2583E58E1F20D1FF003E740D /* MJCTitlesView.m */,
+				2571ACE71F257AAD0053DE12 /* MJCIndicator.h */,
+				2571ACE81F257AAD0053DE12 /* MJCIndicator.m */,
 			);
 			path = child;
 			sourceTree = "<group>";
@@ -527,6 +537,8 @@
 				25E822EA1F0CE38200FB305F /* MJCTestViewController.m in Sources */,
 				2583E5841F20D184003E740D /* UIView+MJCClassExtension.m in Sources */,
 				25E822E91F0CE38200FB305F /* MJCTestTableViewController.m in Sources */,
+				2571ACE31F24A11C0053DE12 /* UIColor+MJCClassExtension.m in Sources */,
+				2571ACE91F257AAD0053DE12 /* MJCIndicator.m in Sources */,
 				2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */,
 				25E822E61F0CE38200FB305F /* MJCDemoVC3.m in Sources */,
 				2583E5811F20D184003E740D /* MJCCommonTools.m in Sources */,

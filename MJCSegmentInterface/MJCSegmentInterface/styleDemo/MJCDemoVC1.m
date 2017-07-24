@@ -22,7 +22,10 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.indicatorHidden = YES;
+    lala.itemTextNormalColor = [UIColor redColor];
+    lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.isIndicatorFollow = YES;
+    lala.itemTextFontSize = 13;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     
@@ -50,12 +53,6 @@
     NSLog(@"%ld",tabItem.tag);
     NSLog(@"%@",childViewController);
     NSLog(@"%@",segmentInterface);
-}
-
-
--(void)dealloc
-{
-    NSLog(@"我爱你");
 }
 
 

@@ -45,7 +45,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> delegate;
 
 #pragma mark -- 样式
-
 /** 标题栏样式 */
 @property (nonatomic,assign) MJCTitleBarStyles titleBarStyles;
 
@@ -56,16 +55,18 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;
 
 #pragma mark -- 通用设置
-//标题文字的内边距
-@property(nonatomic)   UIEdgeInsets textsEdgeInsets;
-//标题图片的内边距
-@property(nonatomic)   UIEdgeInsets imagesEdgeInsets;
-/** 默认显示多少个item */
-@property (nonatomic,assign) NSInteger defaultShowItemCount;
-/** 底部指示器是否随着滚动 */
-@property (nonatomic,assign) BOOL isIndicatorFollow;
 /** 默认选中的item */
 @property (nonatomic,assign) NSInteger defaultItemNumber;
+/** 默认显示多少个item */
+@property (nonatomic,assign) NSInteger defaultShowItemCount;
+/** 标题文字的内边距 */
+@property(nonatomic)   UIEdgeInsets textsEdgeInsets;
+/** 标题图片的内边距 */
+@property(nonatomic)   UIEdgeInsets imagesEdgeInsets;
+/** 是否字体渐变 */
+@property (nonatomic,assign) BOOL isFontGradient;
+/** 底部指示器是否随着滚动 */
+@property (nonatomic,assign) BOOL isIndicatorFollow;
 /** 子界面是否允许滑动 */
 @property (nonatomic,assign) BOOL isChildScollEnabled;
 /** 子界面滚动是否有动画 */

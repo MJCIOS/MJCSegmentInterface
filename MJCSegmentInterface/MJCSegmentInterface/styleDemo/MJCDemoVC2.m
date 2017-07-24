@@ -50,12 +50,4 @@
         
 }
 
--(void)dealloc
-{
-    NSLog(@"我爱你");
-}
-
-
-
-
 @end

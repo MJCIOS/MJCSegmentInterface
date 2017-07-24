@@ -24,6 +24,8 @@
 /** 图片转颜色 */
 +(UIImage *)jc_imageWithColor:(UIColor *)color;
 /** 通过16进制计算颜色 */
-+ (UIColor *)jc_colorFromHexRGB:(NSString *)inColorString;
++(UIColor *)jc_colorFromHexRGB:(NSString *)inColorString;
+
+
 
 @end

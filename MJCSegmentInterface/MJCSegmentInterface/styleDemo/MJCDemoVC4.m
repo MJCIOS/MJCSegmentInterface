@@ -42,14 +42,17 @@
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
+    lala.indicatorHidden = NO;
+    lala.indicatorStyles = MJCIndicatorItemTextStyle;
     lala.defaultItemNumber = 3;
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor orangeColor];
+    lala.isFontGradient = YES;
+//    lala.itemTextFontSize = 17;
+    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
-
-
     
 }
 

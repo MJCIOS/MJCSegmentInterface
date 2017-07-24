@@ -10,16 +10,20 @@
 #import "MJCOrdinaryLayout.h"
 #import "MJCChildsView.h"
 #import "MJCTitlesView.h"
+#import "UIColor+MJCClassExtension.h"
+#import "MJCIndicator.h"
 
 static NSString *const MJCItemCellID = @"itemCell";
 static CGFloat const animalTime = 0.25;
 static CGFloat const defaultTitlesViewH = 50;
 static CGFloat const defaultIndicatorH = 1.5;
 static CGFloat const defaultShowCountItem = 4;
+static CGFloat const defaultItemFontSize = 14;
 @interface MJCSegmentInterface ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
+
 @property (nonatomic,weak) MJCTitlesView *titlesViews;
-@property (nonatomic,strong) MJCChildsView *childScrollView;
-@property (nonatomic,strong) UIButton *indicator;
+@property (nonatomic,weak) MJCChildsView *childScrollView;
+@property (nonatomic,weak) MJCIndicator *indicator;
 @property (nonatomic,strong) NSArray *titlesItemArr;
 @property (nonatomic,weak) UIViewController *mainViewController;
 @property (nonatomic,weak) NSArray *childControllerArray;
@@ -31,18 +35,18 @@ static CGFloat const defaultShowCountItem = 4;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
 
-
-/** <#  注释  #> */
-@property (nonatomic,strong) NSArray *testNormalColorARR;
-@property (nonatomic,strong) NSArray *testSelectedColorARR;
-@property (nonatomic,strong) NSArray *deltaRGBA;
+@property (nonatomic,weak) MJCTabItem *oldsSelectedItem;
+@property (nonatomic,weak) MJCTabItem *newsSelectedItem;
+@property (nonatomic,weak) NSArray *normalColorRgbaArr;
+@property (nonatomic,weak) NSArray *selectedColorRgbaArr;
+@property (nonatomic,weak) NSArray *gradientRgbaArr;
+@property (nonatomic,assign) NSInteger selectedTag;
 
 @end
 @implementation MJCSegmentInterface
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        
         [self titlesViews];
         [self setupOtherUI];
     }
@@ -50,10 +54,10 @@ static CGFloat const defaultShowCountItem = 4;
 }
 -(void)setupOtherUI
 {
-    _childScrollView = [[MJCChildsView  alloc]init];
-    _childScrollView.delegate = self;
-    _childScrollView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:_childScrollView];
+    MJCChildsView *childScrollView = [[MJCChildsView  alloc]init];
+    childScrollView.delegate = self;
+    [self addSubview:childScrollView];
+    _childScrollView = childScrollView;
 }
 -(MJCTitlesView *)titlesViews
 {
@@ -65,19 +69,18 @@ static CGFloat const defaultShowCountItem = 4;
         layout.hlitemMaxBottomMargin = 0;
         layout.hlitemMaxLeftMargin = 0;
         layout.hlitemMaxRightMargin = 0;
-        layout.hlitemLineMargin = 0;
-        MJCTitlesView *titlesViews = [[MJCTitlesView alloc]initWithFrame:CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH) collectionViewLayout:layout];
+        layout.hlitemLineMargin = 0;        
+        MJCTitlesView *titlesViews = [MJCTitlesView showTitlesViewFrame:CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH) viewLayout:layout];
         titlesViews.delegate = self;
         titlesViews.dataSource = self;
         [self addSubview:titlesViews];
         [titlesViews registerClass:[MJCTabItem class] forCellWithReuseIdentifier:MJCItemCellID];
         _titlesViews = titlesViews;
-        _indicator = [UIButton buttonWithType:UIButtonTypeCustom];
-        _indicator.frame = CGRectMake(0,0,0,defaultIndicatorH);
-        _indicator.backgroundColor = [UIColor blackColor];
-        _indicator.userInteractionEnabled = NO;
-        _indicator.enabled = NO;
-        [titlesViews addSubview:_indicator];
+        
+        MJCIndicator *indicator = [MJCIndicator showIndicator];
+        indicator.frame = CGRectMake(0,0,0,defaultIndicatorH);
+        [titlesViews addSubview:indicator];
+        _indicator = indicator;
     }
     return _titlesViews;
 }
@@ -143,9 +146,11 @@ static CGFloat const defaultShowCountItem = 4;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    _selectedTag = indexPath.row;
     MJCTabItem *cell = (MJCTabItem *)[collectionView cellForItemAtIndexPath:indexPath];
     if (_selectedItem == cell) return;
     _selectedItem = cell;
+    _selectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
     if (_zoomBigEnabled) {
         cell.itemTextFontSize = _tabItemTitleMaxfont;
         if (_indicatorStyles == MJCIndicatorItemTextStyle) {
@@ -156,6 +161,7 @@ static CGFloat const defaultShowCountItem = 4;
             }];
         }
     }
+    
     [self collectV:_titlesViews cellForItemAtIndexPath:indexPath itemBtn:cell];
     if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
         [self.delegate mjc_ClickEvent:cell childViewController:_childVC segmentInterface:self];
@@ -164,37 +170,95 @@ static CGFloat const defaultShowCountItem = 4;
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     MJCTabItem *cell = (MJCTabItem *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.itemTextFontSize = _itemTextFontSize;
+    
+    if (_itemTextFontSize) {
+        cell.itemTextFontSize = _itemTextFontSize;
+    }else{
+        cell.itemTextFontSize = defaultItemFontSize;
+    }
+    cell.itemTitleNormalColor = _itemTextNormalColor;
+    cell.itemTitleSelectedColor = _itemTextSelectedColor;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView == _childScrollView && _isIndicatorFollow == YES) {
-        CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
-        if (value >= _titlesItemArr.count - 1) return;
-        if (value <= 0) return;
-        CGFloat scaleRight = 0;
-        CGFloat scaleLeft = 0;
-        NSUInteger leftIndex = (int)value;
-        NSUInteger rightIndex = leftIndex + 1;
-        scaleRight = value - leftIndex;
-        scaleLeft  = 1 - scaleRight;
-        MJCTabItem *leftItem;
-        MJCTabItem *rightItem;
-        leftItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
-        if (rightIndex < _titlesItemArr.count) {
-            rightItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:rightIndex inSection:0]];
+    if (scrollView == _childScrollView) {
+        if (_isIndicatorFollow) {
+            CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
+            if (value >= _titlesItemArr.count - 1) return;
+            if (value <= 0) return;
+            CGFloat scaleRight = 0;
+            CGFloat scaleLeft = 0;
+            NSUInteger leftIndex = (int)value;
+            NSUInteger rightIndex = leftIndex + 1;
+            scaleRight = value - leftIndex;
+            scaleLeft  = 1 - scaleRight;
+            MJCTabItem *leftItem;
+            MJCTabItem *rightItem;
+            leftItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
+            if (rightIndex < _titlesItemArr.count) {
+                rightItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:rightIndex inSection:0]];
+            }
+            [self setupIndicatorViewScroll:scrollView leftItem:leftItem rightItem:rightItem scaleR:scaleRight];
         }
-        [self setupIndicatorViewScroll:scrollView leftItem:leftItem rightItem:rightItem scaleR:scaleRight];
+        if (_isFontGradient) {
+            CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
+            if (value >= _titlesItemArr.count - 1) return;
+            if (value <= 0) return;
+            CGFloat scaleRight = 0;
+            CGFloat scaleLeft = 0;
+            NSUInteger leftIndex = (int)value;
+            NSUInteger rightIndex = leftIndex + 1;
+            scaleRight = value - leftIndex;
+            scaleLeft  = 1 - scaleRight;
+            MJCTabItem *leftItem= (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
+            MJCTabItem *rightItem;
+            if (rightIndex < _titlesItemArr.count) {
+                rightItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:rightIndex inSection:0]];
+            }
+            [self setupGramientWithValueTag:value leftItem:leftItem rightItem:rightItem scaleRight:scaleRight];
+        }
+    }
+}
+
+-(void)setupGramientWithValueTag:(NSInteger)value leftItem:(MJCTabItem*)leftItem rightItem:(MJCTabItem*)rightItem scaleRight:(CGFloat)scaleRight
+{
+    if (value > _selectedTag || value == _selectedTag) {
+        leftItem.itemTitleSelectedColor = [UIColor oldColorWithSelectedColorRGBA:self.selectedColorRgbaArr deltaRGBA:self.gradientRgbaArr scale:scaleRight];
+        _oldsSelectedItem =  leftItem;
+        rightItem.itemTitleNormalColor = [UIColor newColorWithNormalColorRGBARGBA:self.normalColorRgbaArr deltaRGBA:self.gradientRgbaArr scale:scaleRight];
+        _newsSelectedItem = rightItem;
+    }else{
+        leftItem.itemTitleNormalColor = [UIColor oldColorWithSelectedColorRGBA:self.selectedColorRgbaArr deltaRGBA:self.gradientRgbaArr scale:scaleRight];
+        _newsSelectedItem = leftItem;
+        rightItem.itemTitleSelectedColor = [UIColor newColorWithNormalColorRGBARGBA:self.normalColorRgbaArr deltaRGBA:self.gradientRgbaArr scale:scaleRight];
+        _oldsSelectedItem =  rightItem;
+    }
+}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if (_isFontGradient) {
+        _selectedItem.itemTitleNormalColor = _itemTextNormalColor;
+        _selectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
+        _oldsSelectedItem.itemTitleNormalColor = _itemTextNormalColor;
+        _newsSelectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
+        _selectedItem = _oldsSelectedItem;
     }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if (scrollView == _childScrollView) {
         NSInteger itemIndex = scrollView.contentOffset.x / scrollView.jc_width;
+        _selectedTag = itemIndex;
         if (itemIndex != _titlesItemArr.count-1)_isScrollMax = NO;
         if (_isScrollMax == YES) return;
         if (itemIndex == _titlesItemArr.count-1)_isScrollMax = YES;
-        _selectedItem.itemTextFontSize = _itemTextFontSize;
+        
+        if (_itemTextFontSize) {
+            _selectedItem.itemTextFontSize = _itemTextFontSize;
+        }else{
+            _selectedItem.itemTextFontSize = defaultItemFontSize;
+        }
+        
         [_titlesViews selectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] animated:YES scrollPosition:(UICollectionViewScrollPositionNone)];
         MJCTabItem *cell = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0]];
         if (_zoomBigEnabled) {
@@ -202,11 +266,7 @@ static CGFloat const defaultShowCountItem = 4;
         }
         _selectedItem = cell;
         [self collectV:_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] itemBtn:_selectedItem];
-        //下面的方法,遇到s b用户,稍微有点问题,暂时不用
-//        [self collectionView:_titlesViews didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0]];
-//        [self collectionView:_titlesViews didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex-1 inSection:0]];
-//        [self collectionView:_titlesViews didDeselectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex+1 inSection:0]];
-    }
+    }    
 }
 -(void)setupTiTlesViewDefaultItem:(NSIndexPath *)indexPath
 {
@@ -230,12 +290,20 @@ static CGFloat const defaultShowCountItem = 4;
             }];
         }
     }else{
-        if (_indicatorFrame.size.width == 0) {
-            _indicator.jc_width = _selectedItem.jc_width;
+        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
+            [_selectedItem.titlesLable sizeToFit];
+            _indicator.jc_width = _selectedItem.titlesLable.jc_width;
+            _indicator.jc_centerX = _selectedItem.jc_centerX;
         }else{
-            _indicator.jc_width = _indicatorFrame.size.width;
+            CGFloat indiCatorNewW;
+            if (_indicatorFrame.size.width == 0) {
+                indiCatorNewW = _selectedItem.jc_width;
+            }else{
+                indiCatorNewW = _indicatorFrame.size.width;
+            }
+            _indicator.jc_width = indiCatorNewW;
+            _indicator.jc_centerX = _selectedItem.jc_centerX;
         }
-        _indicator.jc_centerX = _selectedItem.jc_centerX;
     }
 }
 - (void)selectedTitleCenter:(MJCTabItem *)cell titlesScrollView:(UICollectionView *)collectionViews
@@ -359,7 +427,9 @@ static CGFloat const defaultShowCountItem = 4;
 {
     _indicatorImage = indicatorImage;
     [_indicator setImage:indicatorImage forState:UIControlStateNormal];
+//    if (_indicatorStyles != MJCIndicatorItemTextStyle) {
     [_indicator sizeToFit];
+//    }
 }
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont
 {
@@ -391,4 +461,32 @@ static CGFloat const defaultShowCountItem = 4;
         [self addChildVcView];
     }
 }
+
+- (NSArray *)gradientRgbaArr
+{
+    if (!_gradientRgbaArr) {
+        NSArray *gradientRgbaArr = [UIColor jc_gradientRGBAWith:self.normalColorRgbaArr selectedColorRGBA:self.selectedColorRgbaArr];
+        _gradientRgbaArr = gradientRgbaArr;
+    }
+    return _gradientRgbaArr;
+}
+
+- (NSArray *)normalColorRgbaArr
+{
+    if (!_normalColorRgbaArr) {
+        NSArray *normalColorRgbaArr = [UIColor jc_getNeedColorRgbaArr:_itemTextNormalColor];
+        _normalColorRgbaArr = normalColorRgbaArr;
+    }
+    return  _normalColorRgbaArr;
+}
+- (NSArray *)selectedColorRgbaArr
+{
+    if (!_selectedColorRgbaArr) {
+        NSArray *selectedColorRgbaArr = [UIColor jc_getNeedColorRgbaArr:_itemTextSelectedColor];
+        _selectedColorRgbaArr = selectedColorRgbaArr;
+    }
+    return  _selectedColorRgbaArr;
+}
+
+
 @end

@@ -15,6 +15,10 @@
 
 @implementation MJCTitlesView
 
++(instancetype)showTitlesViewFrame:(CGRect)frame viewLayout:(UICollectionViewLayout*)viewLayout
+{
+    return [[self alloc]initWithFrame:frame collectionViewLayout:viewLayout];
+}
 
 -(instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
 {

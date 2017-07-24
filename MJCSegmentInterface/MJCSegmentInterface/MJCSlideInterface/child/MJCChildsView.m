@@ -13,6 +13,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.pagingEnabled = YES;
+        self.backgroundColor = [UIColor whiteColor];
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
     }

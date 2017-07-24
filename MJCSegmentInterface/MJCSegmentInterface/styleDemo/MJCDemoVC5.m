@@ -50,10 +50,7 @@
     lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
-
-
-    
+    [lala intoChildControllerArray:vcarrr];
 }
 
 

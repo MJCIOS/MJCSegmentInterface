@@ -25,6 +25,7 @@
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,100);//顶部标题栏frame
+    lala.indicatorStyles = MJCIndicatorItemTextStyle;
     lala.defaultItemNumber = 3;//默认选中第几个
     lala.defaultShowItemCount = 3;//首页,第一页展示多少个
     lala.delegate = self;
@@ -51,6 +52,7 @@
     lala.imageEffectStyles = MJCImageClassicStyle;//item图片类型
     lala.imagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
     lala.textsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
+    lala.isFontGradient = YES;//是否渐变
     lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [lala intoTitlesArray:titlesArr hostController:self];
@@ -80,7 +82,5 @@
     NSLog(@"%@",childViewController);
     NSLog(@"%@",segmentInterface);
 }
-
-
 
 @end
