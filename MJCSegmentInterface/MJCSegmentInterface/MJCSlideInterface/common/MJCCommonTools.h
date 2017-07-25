@@ -19,6 +19,8 @@
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define MJCWeakSelf __weak typeof(self) weakSelf = self
+
 @interface MJCCommonTools : NSObject
 
 /** 图片转颜色 */
