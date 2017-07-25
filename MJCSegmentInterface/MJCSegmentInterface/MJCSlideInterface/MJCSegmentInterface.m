@@ -441,6 +441,9 @@ static CGFloat const defaultItemFontSize = 14;
     _titlesItemArr = titlesArray;
     _mainViewController = hostController;
     _childScrollView.contentSize = CGSizeMake(titlesArray.count * self.frame.size.width,0);
+    if (titlesArray.count <=defaultShowCountItem && !_defaultShowItemCount) {
+        self .defaultShowItemCount = titlesArray.count;
+    }
     [self layoutIfNeeded];
     [self setNeedsLayout];
     [_titlesViews reloadData];
