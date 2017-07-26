@@ -38,20 +38,15 @@
 ### ☆☆ MJCSegmentInterface分段控制器创建(几行代码设置即可使用) ☆☆
     
         NSArray *titlesArr = @[@"啦啦",@"么么",@"啪啪",@"啪啪",@"啪啪",@"啪啪",@"啪啪"];
-        MJCSegmentFaceControl *segmentsface = [[MJCSegmentFaceControl alloc]init];
+        MJCSegmentFace *segmentsface = [[MJCSegmentFace alloc]init];
         segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
         [lala intoTitlesArray:titlesArr hostController:self];
         [self.view addSubview:segmentsface];
         MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
-        vc1.titlesCount = 1;
         MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
-        vc2.titlesCount = 2;
         MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
-        vc3.titlesCount = 3;
         MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
-        vc4.titlesCount = 4;
         MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
-        vc5.titlesCount = 5;
         NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5];
         [lala intoChildControllerArray:vcarrr];
 
