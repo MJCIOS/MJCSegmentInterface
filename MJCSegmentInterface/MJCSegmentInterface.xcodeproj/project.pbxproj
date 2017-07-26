@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		254A54671F286A2200220479 /* MJCAlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 254A54661F286A2200220479 /* MJCAlertMessage.m */; };
 		2556BE251F1721A100E903F5 /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE231F1721A100E903F5 /* xiangmu2.gif */; };
 		2556BE281F1792F300E903F5 /* MJCDemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE271F1792F300E903F5 /* MJCDemoVC4.m */; };
 		2556BE2B1F17957A00E903F5 /* MJCDemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2A1F17957A00E903F5 /* MJCDemoVC5.m */; };
@@ -76,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		254A54651F286A2200220479 /* MJCAlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCAlertMessage.h; sourceTree = "<group>"; };
+		254A54661F286A2200220479 /* MJCAlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCAlertMessage.m; sourceTree = "<group>"; };
 		2556BE231F1721A100E903F5 /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
 		2556BE261F1792F300E903F5 /* MJCDemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC4.h; sourceTree = "<group>"; };
 		2556BE271F1792F300E903F5 /* MJCDemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC4.m; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				2583E5801F20D184003E740D /* UIView+MJCClassExtension.m */,
 				2571ACE11F24A11C0053DE12 /* UIColor+MJCClassExtension.h */,
 				2571ACE21F24A11C0053DE12 /* UIColor+MJCClassExtension.m */,
+				254A54651F286A2200220479 /* MJCAlertMessage.h */,
+				254A54661F286A2200220479 /* MJCAlertMessage.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				2571ACE91F257AAD0053DE12 /* MJCIndicator.m in Sources */,
 				2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */,
 				25E822E61F0CE38200FB305F /* MJCDemoVC3.m in Sources */,
+				254A54671F286A2200220479 /* MJCAlertMessage.m in Sources */,
 				2583E5811F20D184003E740D /* MJCCommonTools.m in Sources */,
 				2583E5901F20D1FF003E740D /* MJCTabItem.m in Sources */,
 			);

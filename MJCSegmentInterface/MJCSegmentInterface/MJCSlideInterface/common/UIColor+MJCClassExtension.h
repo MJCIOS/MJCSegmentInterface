@@ -10,11 +10,8 @@
 
 @interface UIColor (MJCClassExtension)
 
-/** 获取到颜色转rgba的值 */
 +(NSArray *)jc_getNeedColorRgbaArr:(UIColor *)needColor;
-/** 获取到颜色渐变的rgba值 */
 +(NSArray *)jc_gradientRGBAWith:(NSArray *)normalColorRgbaArr selectedColorRGBA:(NSArray*)selectedColorRgbaArr;
-
 +(UIColor *)oldColorWithSelectedColorRGBA:(NSArray*)selectedColorRGBA deltaRGBA:(NSArray*)deltaRGBA scale:(CGFloat)scale;
 +(UIColor *)newColorWithNormalColorRGBARGBA:(NSArray*)normalColorRGBA deltaRGBA:(NSArray*)deltaRGBA scale:(CGFloat)scale;
 

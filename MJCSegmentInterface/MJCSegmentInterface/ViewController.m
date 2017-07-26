@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "MJCPrefixHeader.pch"
 
+#import "MJCAlertMessage.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,6 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
+    [MJCAlertMessage showMessageViewTitle:@"提示" message:@"爱你" cancelButtonTitle:@"取消"];
+    
     self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"appStartBackImage"]];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;

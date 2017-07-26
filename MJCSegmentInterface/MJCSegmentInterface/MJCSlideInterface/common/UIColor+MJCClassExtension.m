@@ -18,27 +18,21 @@
         const CGFloat *components = CGColorGetComponents(needColor.CGColor);
         rgbaComponentsArr = [NSArray arrayWithObjects:@(components[0]), @(components[1]), @(components[2]), @(components[3]), nil];
     }else if (numberOfComponents == 2){
-        //比较颜色(透明)
         if (CGColorEqualToColor(needColor.CGColor, [UIColor clearColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(0.0),@(0.0),@(0.0),@(0),nil];
         }
-        //比较颜色(黑色)
         if (CGColorEqualToColor(needColor.CGColor, [UIColor blackColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(0),@(0), @(0), @(1),nil];
         }
-        //比较颜色(白色)
         if (CGColorEqualToColor(needColor.CGColor, [UIColor whiteColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(1),@(1),@(1),@(1),nil];
         }
-        //比较颜色(灰色)
         if (CGColorEqualToColor(needColor.CGColor, [UIColor grayColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(0.5),@(0.5),@(0.5),@(1),nil];
         }
-        //比较颜色(lightGrayColor),
         if (CGColorEqualToColor(needColor.CGColor, [UIColor lightGrayColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(0.667),@(0.667),@(0.667),@(1),nil];
         }
-        //比较颜色(darkGrayColor)
         if (CGColorEqualToColor(needColor.CGColor, [UIColor darkGrayColor].CGColor)) {
             rgbaComponentsArr = [NSArray arrayWithObjects:@(0.333),@(0.333),@(0.333),@(1),nil];
         }
