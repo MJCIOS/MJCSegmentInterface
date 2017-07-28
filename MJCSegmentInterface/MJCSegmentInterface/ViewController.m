@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    [MJCAlertMessage showMessageViewTitle:@"提示" message:@"爱你" cancelButtonTitle:@"取消"];
+    [MJCAlertMessage showMessageViewTitle:@"提示" message:@"谢谢大家" cancelButtonTitle:@"确定"];
     
     self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"appStartBackImage"]];
     self.mainTableView.delegate = self;

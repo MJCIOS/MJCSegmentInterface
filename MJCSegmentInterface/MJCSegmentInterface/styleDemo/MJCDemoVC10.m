@@ -32,7 +32,7 @@
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
-    lala.defaultItemNumber = 0;
+    lala.selectedSegmentIndex = 0;
     NSArray *imageBackArr =@[@"111",@"222",@"567",@"1111",@"567"];
     NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];

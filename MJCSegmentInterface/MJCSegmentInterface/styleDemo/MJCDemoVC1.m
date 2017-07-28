@@ -9,7 +9,7 @@
 #import "MJCDemoVC1.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC1 ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoVC1 ()<MJCSegmentDelegate>
 
 @end
 
@@ -24,8 +24,8 @@
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.itemTextFontSize = 13;
+//    lala.isIndicatorFollow = YES;
+    lala.itemTextFontSize = 11;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     
@@ -48,7 +48,7 @@
 
 }
 
-- (void)mjc_ClickEvent:(MJCTabItem *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+- (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
 {
     NSLog(@"%ld",tabItem.tag);
     NSLog(@"%@",childViewController);

@@ -9,7 +9,7 @@
 #import "MJCDemoVC4.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC4 ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoVC4 ()<MJCSegmentDelegate>
 
 @end
 
@@ -44,7 +44,7 @@
     lala.isIndicatorFollow = YES;
     lala.indicatorHidden = NO;
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    lala.defaultItemNumber = 3;
+    lala.selectedSegmentIndex = 3;
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor orangeColor];
     lala.isFontGradient = YES;

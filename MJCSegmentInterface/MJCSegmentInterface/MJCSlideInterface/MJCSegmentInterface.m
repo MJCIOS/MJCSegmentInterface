@@ -1,40 +1,44 @@
-//  代码地址:https://github.com/MJCIOS/MJCSegmentInterface
+//
 //  MJCSegmentInterface.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/6/29.
-//  Copyright © 2017年 MJC. All rights reserved.
+//  Created by mjc on 16/10/7.
+//  Copyright © 2016年 MJC. All rights reserved.
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
+//  新增了标题栏滑动功能
 
 #import "MJCSegmentInterface.h"
-#import "MJCOrdinaryLayout.h"
-#import "MJCChildsView.h"
+#import "MJCChildMainView.h"
 #import "MJCTitlesView.h"
+#import "MJCTabItem.h"
+#import "MJCIndicatorView.h"
+#import "sys/utsname.h"
+#import "UIView+MJCClassExtension.h"
 #import "UIColor+MJCClassExtension.h"
-#import "MJCIndicator.h"
+#import "MJCToolClasses.h"
 
-static NSString *const MJCItemCellID = @"itemCell";
-static CGFloat const animalTime = 0.25;
-static CGFloat const defaultTitlesViewH = 50;
-static CGFloat const defaultIndicatorH = 1.5;
-static CGFloat const defaultShowCountItem = 4;
-static CGFloat const defaultItemFontSize = 14;
-@interface MJCSegmentInterface ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
+static CGFloat const animalTime= 0.25;//动画时间
+static CGFloat const defaultTitlesViewH = 50;//默认标题栏的高度
+static CGFloat const defaultIndicatorH = 1.5;//默认指示器的高度
+static CGFloat const defaultShowCountItem = 4;//默认显示多少个
+static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 
-@property (nonatomic,weak) MJCTitlesView *titlesViews;
-@property (nonatomic,weak) MJCChildsView *childScrollView;
-@property (nonatomic,weak) MJCIndicator *indicator;
-@property (nonatomic,strong) NSArray *titlesItemArr;
-@property (nonatomic,weak) UIViewController *mainViewController;
+@interface MJCSegmentInterface ()<UIScrollViewDelegate>
+@property (nonatomic,weak) MJCTabItem *selectedTitleButton;
+@property (nonatomic,weak) MJCTabItem *tabItem;
+@property (nonatomic,strong) MJCIndicatorView *indicatorView;
+@property (nonatomic, weak) MJCChildMainView *childMainView;
+@property (nonatomic, weak) MJCTitlesView *titlesView;
+@property (nonatomic,strong) NSArray *titlesArray;
+@property (nonatomic,weak) UIViewController *hostController;
 @property (nonatomic,weak) NSArray *childControllerArray;
+@property (nonatomic, strong) NSMutableArray *titleButtonsArr;
 @property (nonatomic,assign) BOOL zoomBigEnabled;
 @property (nonatomic,assign) CGFloat tabItemTitleMaxfont;
-@property (nonatomic,weak) MJCTabItem *selectedItem;
-@property (nonatomic,assign) BOOL isScrollMax;
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
-
+@property (nonatomic,assign) BOOL isSetDefaultSelectedItem;
 @property (nonatomic,weak) MJCTabItem *oldsSelectedItem;
 @property (nonatomic,weak) MJCTabItem *newsSelectedItem;
 @property (nonatomic,weak) NSArray *normalColorRgbaArr;
@@ -47,144 +51,192 @@ static CGFloat const defaultItemFontSize = 14;
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self titlesViews];
-        [self setupOtherUI];
+        [self setupBasicUI];
     }
     return self;
 }
--(void)setupOtherUI
-{
-    MJCChildsView *childScrollView = [[MJCChildsView  alloc]init];
-    childScrollView.delegate = self;
-    [self addSubview:childScrollView];
-    _childScrollView = childScrollView;
-}
--(MJCTitlesView *)titlesViews
-{
-    if (!_titlesViews) {
-        MJCOrdinaryLayout *layout = [[MJCOrdinaryLayout alloc]init];
-        layout.srollingDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.hlitemShowMaxCount = defaultShowCountItem;
-        layout.hlitemMaxTopMargin = 0;
-        layout.hlitemMaxBottomMargin = 0;
-        layout.hlitemMaxLeftMargin = 0;
-        layout.hlitemMaxRightMargin = 0;
-        layout.hlitemLineMargin = 0;        
-        MJCTitlesView *titlesViews = [MJCTitlesView showTitlesViewFrame:CGRectMake(0,0,self.frame.size.width,defaultTitlesViewH) viewLayout:layout];
-        titlesViews.delegate = self;
-        titlesViews.dataSource = self;
-        [self addSubview:titlesViews];
-        [titlesViews registerClass:[MJCTabItem class] forCellWithReuseIdentifier:MJCItemCellID];
-        _titlesViews = titlesViews;
-        
-        MJCIndicator *indicator = [MJCIndicator showIndicator];
-        indicator.frame = CGRectMake(0,0,0,defaultIndicatorH);
-        [titlesViews addSubview:indicator];
-        _indicator = indicator;
-    }
-    return _titlesViews;
-}
-- (void)layoutSubviews
+-(void)layoutSubviews
 {
     [super layoutSubviews];
     [self setupUIFrame];
 }
+
+- (NSMutableArray *)titleButtonsArr
+{
+    if (!_titleButtonsArr) {
+        _titleButtonsArr = [NSMutableArray array];
+    }
+    return _titleButtonsArr;
+}
+-(void)setupBasicUI
+{
+    MJCTitlesView *titlesView = [[MJCTitlesView alloc]init];
+    titlesView.frame = CGRectMake(0,0,0, defaultTitlesViewH);
+    [self addSubview:titlesView];
+    _titlesView = titlesView;
+    MJCChildMainView *childMainView = [[MJCChildMainView alloc]init];
+    childMainView.delegate = self;
+    [self addSubview:childMainView];
+    _childMainView = childMainView;
+    _indicatorView = [MJCIndicatorView buttonWithType:UIButtonTypeCustom];
+    _indicatorView.frame = CGRectMake(0,0,0,defaultIndicatorH);
+
+}
 -(void)setupUIFrame
 {
-    _titlesViews.jc_width = self.jc_width;
+    if (_titlesViewFrame.size.width == 0) {
+        _titlesView.jc_width = self.jc_width;
+    }else{
+        _titlesView.jc_width = _titlesViewFrame.size.width;
+    }
+    
     if (_isLoadIndicatorFrame) {
-        _indicator.jc_y = _indicatorFrame.origin.y;
-        _indicator.jc_height = _indicatorFrame.size.height;
+        _indicatorView.jc_y = _indicatorFrame.origin.y;
+        _indicatorView.jc_height = _indicatorFrame.size.height;
     }else{
-        _indicator.jc_y = CGRectGetMaxY(_titlesViews.frame) - _indicator.jc_height;
+        _indicatorView.jc_y = _titlesView.frame.size.height - _indicatorView.jc_height;
     }
     
-    CGFloat colletionMaxY = CGRectGetMaxY(_titlesViews.frame);
-    _childScrollView.frame =CGRectMake(0,colletionMaxY,self.jc_width,self.jc_height-colletionMaxY);
+    CGFloat titlesViewMaxY = CGRectGetMaxY(_titlesView.frame);
+    _childMainView.frame =CGRectMake(0,titlesViewMaxY,self.jc_width,self.jc_height-titlesViewMaxY);
     if (_isLoadDefaultChildVC == YES) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-            NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.jc_width;
-            _childVC = _mainViewController.childViewControllers[index];
-            _childVC.view.jc_height = _childScrollView.bounds.size.height;
-//        });
+        NSUInteger index = _childMainView.contentOffset.x/_childMainView.jc_width;
+        _childVC = _hostController.childViewControllers[index];
+        _childVC.view.jc_height = _childMainView.bounds.size.height;
     }
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+
+-(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
-    return _titlesItemArr.count;
-}
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    MJCTabItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MJCItemCellID forIndexPath:indexPath];
-    cell.tag = indexPath.row;
-    cell.backgroundColor = _itemBackColor;
-    if (indexPath.row < _titlesItemArr.count){
-        cell.itemText = _titlesItemArr[indexPath.row];
-    }
-    cell.itemTextFontSize = _itemTextFontSize;
-    cell.itemTitleNormalColor = _itemTextNormalColor;
-    cell.itemTitleSelectedColor = _itemTextSelectedColor;
-    cell.itemBackNormalImage = _itemBackNormalImage;
-    cell.itemBackSelectedImage = _itemBackSelectedImage;
-    cell.itemNormalBackImageArray = _itemNormalBackImageArray;
-    cell.itemSelectedBackImageArray = _itemSelectedBackImageArray;
-    cell.itemImageNormal = _itemImageNormal;
-    cell.tabItemImageSelected = _itemImageSelected;
-    cell.tabItemNormalImageArray = _itemImageNormalArray;
-    cell.tabItemSelectedImageArray = _itemImageSelectedArray;
-    cell.imageEffectStyles = _imageEffectStyles;
-    cell.textsEdgeInsets = _textsEdgeInsets;
-    cell.imagesEdgeInsets = _imagesEdgeInsets;
-    if (_indicatorStyles == MJCIndicatorItemStyle) {
-        if (_indicatorFrame.size.width == 0) {
-            _indicator.jc_width = cell.jc_width;
+    _selectedSegmentIndex = selectedSegmentIndex;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (selectedSegmentIndex >= _titlesArray.count) {
+            return;
+        }
+        _isSetDefaultSelectedItem = YES;
+        _selectedTitleButton.itemTitleNormalColor = _itemTextNormalColor;
+        if (_itemTextFontSize) {
+            _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
         }else{
-            _indicator.jc_width = _indicatorFrame.size.width;
+            _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
         }
-    }
-    return cell;
+        _selectedTitleButton.selected = NO;
+        _selectedTitleButton =_titleButtonsArr[selectedSegmentIndex];
+        [self titleClick:_selectedTitleButton];
+        
+    });
 }
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    _selectedTag = indexPath.row;
-    MJCTabItem *cell = (MJCTabItem *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (_selectedItem == cell) return;
-    _selectedItem = cell;
-    _selectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
-    if (_zoomBigEnabled) {
-        cell.itemTextFontSize = _tabItemTitleMaxfont;
-        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
-            [cell.titlesLable sizeToFit];
-            [UIView animateWithDuration:animalTime animations:^{
-                _indicator.jc_width = cell.titlesLable.jc_width;
-                _indicator.jc_centerX = cell.jc_centerX;
-            }];
+-(void)intoChildControllerArray:(NSArray *)childControllerArray
+{   _childControllerArray = childControllerArray;
+    if (self.hostController.childViewControllers.count == 0) {
+        for (int i = 0; i < childControllerArray.count; i++) {
+            [self.hostController addChildViewController:childControllerArray[i]];
         }
-    }
-    
-    [self collectV:_titlesViews cellForItemAtIndexPath:indexPath itemBtn:cell];
-    if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
-        [self.delegate mjc_ClickEvent:cell childViewController:_childVC segmentInterface:self];
+        [self addChildVcView];
     }
 }
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)addChildVcView
 {
-    MJCTabItem *cell = (MJCTabItem *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    if (_itemTextFontSize) {
-        cell.itemTextFontSize = _itemTextFontSize;
+    _hostController.automaticallyAdjustsScrollViewInsets = NO;
+    NSUInteger index = _childMainView.contentOffset.x / _childMainView.jc_width;
+    UIViewController *childVc;
+    if (index >= _hostController.childViewControllers.count) {
+        return;
+    }
+    childVc = self.hostController.childViewControllers[index];
+    if ([childVc isViewLoaded]) return;
+    childVc.view.frame = _childMainView.bounds;
+    [_childMainView addSubview:childVc.view];
+}
+-(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
+{   _titlesArray = titlesArray;
+    _hostController = hostController;
+    _childMainView.contentSize = CGSizeMake(titlesArray.count * self.frame.size.width,0);
+    [self layoutIfNeeded];
+    [self setNeedsLayout];
+    [self setupTitlesButton:titlesArray];
+    [_titlesView addSubview:_indicatorView];
+}
+
+-(void)setupTitlesButton:(NSArray *)titlesArray
+{
+    _titlesArray = titlesArray;
+    CGFloat maxTopMargin = 0;
+    CGFloat maxBottomMargin = 0;
+    CGFloat maxleftMargin = 0;
+    CGFloat maxRightMargin = 0;
+    CGFloat lineMargin = 0;
+    CGFloat tabItemW;
+    if (_defaultShowItemCount) {
+        if (titlesArray.count <=defaultShowCountItem) {
+            _defaultShowItemCount = titlesArray.count;
+        }else{
+            if ( _defaultShowItemCount > titlesArray.count) {
+                _defaultShowItemCount =defaultShowCountItem;
+            }else{
+                _defaultShowItemCount = self.defaultShowItemCount;
+            }
+        }
+        tabItemW = _titlesView.jc_width/_defaultShowItemCount;
     }else{
-        cell.itemTextFontSize = defaultItemFontSize;
+        tabItemW = _titlesView.jc_width/defaultShowCountItem;
     }
-    cell.itemTitleNormalColor = _itemTextNormalColor;
-    cell.itemTitleSelectedColor = _itemTextSelectedColor;
+    CGFloat tabItemH = _titlesView.jc_height;
+    for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
+        MJCTabItem *tabbutton = [MJCTabItem buttonWithType:UIButtonTypeCustom];
+        tabbutton.tag = i;
+        CGFloat tabX = tabItemW*i+maxleftMargin;
+        CGFloat tabY = maxTopMargin;
+        CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+        tabbutton.frame = CGRectMake(tabX,tabY,tabItemW-lineMargin,tabH);
+        [self setupButton:tabbutton];
+        [_titlesView addSubview:tabbutton];
+        [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        if (i == 0) {
+            tabbutton.selected = YES;
+            if (_zoomBigEnabled) {
+                tabbutton.itemTextFontSize = _tabItemTitleMaxfont;
+            }
+            _selectedTitleButton = tabbutton;
+            [self setupIndicatorViewCenterAndWidth];
+        }
+        [self.titleButtonsArr addObject:tabbutton];
+    }
+    _titlesView.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
 }
+- (void)titleClick:(MJCTabItem *)titleButton
+{
+    _selectedTag = titleButton.tag;
+    [self setupTitleCenter:titleButton];
+    if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem) { _selectedTitleButton.selected = YES; return;};
+    _isSetDefaultSelectedItem = NO;
+    if (_itemTextFontSize) {
+        _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
+    }else{
+        _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
+    }
+    _selectedTitleButton.selected = NO;
+    titleButton.selected = YES;
+    titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
+    _selectedTitleButton = titleButton;
+    if (_zoomBigEnabled) {
+        titleButton.itemTextFontSize = _tabItemTitleMaxfont;
+    }
+    [self setupChildViewScollAnimal:titleButton];
+    [self addChildVcView];
+    [self setupIndicatorViewCenterAndWidth];
+    if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
+        [self.delegate mjc_ClickEvent:titleButton childViewController:_hostController.childViewControllers[titleButton.tag] segmentInterface:self];
+    }
+}
+
+#pragma mark -- <UIScrollViewDelegate>
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView == _childScrollView) {
-        if (_isIndicatorFollow) {
+    if (scrollView == _childMainView  ) {
+        if (_isIndicatorFollow == YES) {
             CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
-            if (value >= _titlesItemArr.count - 1) return;
+            if (value >= _titlesArray.count - 1) return;
             if (value <= 0) return;
             CGFloat scaleRight = 0;
             CGFloat scaleLeft = 0;
@@ -192,17 +244,17 @@ static CGFloat const defaultItemFontSize = 14;
             NSUInteger rightIndex = leftIndex + 1;
             scaleRight = value - leftIndex;
             scaleLeft  = 1 - scaleRight;
-            MJCTabItem *leftItem;
+            if (scaleLeft == 1 && scaleRight == 0)return;
             MJCTabItem *rightItem;
-            leftItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
-            if (rightIndex < _titlesItemArr.count) {
-                rightItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:rightIndex inSection:0]];
+            MJCTabItem *leftItem = _titleButtonsArr[leftIndex];
+            if (rightIndex < _titlesArray.count) {
+                rightItem = _titleButtonsArr[rightIndex];
             }
-            [self setupIndicatorViewScroll:scrollView leftItem:leftItem rightItem:rightItem scaleR:scaleRight];
+            _indicatorView.jc_centerX = leftItem.jc_centerX + (rightItem.jc_centerX - leftItem.jc_centerX) * scaleRight;
         }
         if (_isFontGradient) {
             CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
-            if (value >= _titlesItemArr.count - 1) return;
+            if (value >= _titlesArray.count - 1) return;
             if (value <= 0) return;
             CGFloat scaleRight = 0;
             CGFloat scaleLeft = 0;
@@ -210,10 +262,10 @@ static CGFloat const defaultItemFontSize = 14;
             NSUInteger rightIndex = leftIndex + 1;
             scaleRight = value - leftIndex;
             scaleLeft  = 1 - scaleRight;
-            MJCTabItem *leftItem= (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:leftIndex inSection:0]];
             MJCTabItem *rightItem;
-            if (rightIndex < _titlesItemArr.count) {
-                rightItem = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:rightIndex inSection:0]];
+            MJCTabItem *leftItem = _titleButtonsArr[leftIndex];
+            if (rightIndex < _titlesArray.count) {
+                rightItem = _titleButtonsArr[rightIndex];
             }
             [self setupGramientWithValueTag:value leftItem:leftItem rightItem:rightItem scaleRight:scaleRight];
         }
@@ -234,235 +286,188 @@ static CGFloat const defaultItemFontSize = 14;
         _oldsSelectedItem =  rightItem;
     }
 }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+{
+    _oldsSelectedItem.itemTitleNormalColor = _itemTextNormalColor;
+}
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    if (_isFontGradient) {
-        _selectedItem.itemTitleNormalColor = _itemTextNormalColor;
-        _selectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
-        _oldsSelectedItem.itemTitleNormalColor = _itemTextNormalColor;
-        _newsSelectedItem.itemTitleSelectedColor = _itemTextSelectedColor;
-        _selectedItem = _oldsSelectedItem;
-    }
+    _oldsSelectedItem.itemTitleNormalColor = _itemTextNormalColor;
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (scrollView == _childScrollView) {
-        NSInteger itemIndex = scrollView.contentOffset.x / scrollView.jc_width;
-        _selectedTag = itemIndex;
-        if (itemIndex != _titlesItemArr.count-1)_isScrollMax = NO;
-        if (_isScrollMax == YES) return;
-        if (itemIndex == _titlesItemArr.count-1)_isScrollMax = YES;
-        
-        if (_itemTextFontSize) {
-            _selectedItem.itemTextFontSize = _itemTextFontSize;
-        }else{
-            _selectedItem.itemTextFontSize = defaultItemFontSize;
-        }
-        
-        [_titlesViews selectItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] animated:YES scrollPosition:(UICollectionViewScrollPositionNone)];
-        MJCTabItem *cell = (MJCTabItem *)[_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0]];
-        if (_zoomBigEnabled) {
-            cell.itemTextFontSize = _tabItemTitleMaxfont;
-        }
-        _selectedItem = cell;
-        [self collectV:_titlesViews cellForItemAtIndexPath:[NSIndexPath indexPathForItem:itemIndex inSection:0] itemBtn:_selectedItem];
-    }    
+    NSUInteger index = scrollView.contentOffset.x / scrollView.jc_width;
+    MJCTabItem *titleButton = _titleButtonsArr[index];
+    [self titleClick:titleButton];
+    [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.itemTitleNormalColor = _itemTextNormalColor;
+    }];
 }
--(void)setupTiTlesViewDefaultItem:(NSIndexPath *)indexPath
+-(void)setupChildViewScollAnimal:(MJCTabItem *)titleButton
 {
-    if (_isChildScollAnimal) {
-        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
-            [_selectedItem.titlesLable sizeToFit];
-            [UIView animateWithDuration:0.08 animations:^{
-                _indicator.jc_width = _selectedItem.titlesLable.jc_width;
-                _indicator.jc_centerX = _selectedItem.jc_centerX;
-            }];
-        }else{
-            CGFloat indiCatorNewW;
-            if (_indicatorFrame.size.width == 0) {
-                indiCatorNewW = _selectedItem.jc_width;
-            }else{
-                indiCatorNewW = _indicatorFrame.size.width;
-            }
-            [UIView animateWithDuration:animalTime animations:^{
-                _indicator.jc_width = indiCatorNewW;
-                _indicator.jc_centerX = _selectedItem.jc_centerX;
-            }];
-        }
-    }else{
-        if (_indicatorStyles == MJCIndicatorItemTextStyle) {
-            [_selectedItem.titlesLable sizeToFit];
-            _indicator.jc_width = _selectedItem.titlesLable.jc_width;
-            _indicator.jc_centerX = _selectedItem.jc_centerX;
-        }else{
-            CGFloat indiCatorNewW;
-            if (_indicatorFrame.size.width == 0) {
-                indiCatorNewW = _selectedItem.jc_width;
-            }else{
-                indiCatorNewW = _indicatorFrame.size.width;
-            }
-            _indicator.jc_width = indiCatorNewW;
-            _indicator.jc_centerX = _selectedItem.jc_centerX;
-        }
-    }
-}
-- (void)selectedTitleCenter:(MJCTabItem *)cell titlesScrollView:(UICollectionView *)collectionViews
-{
-    CGFloat offsetX = cell.center.x - collectionViews.jc_width * 0.7;
-    if (offsetX < 0) {
-        offsetX = 0;
-    }
-    CGFloat maxOffsetX = collectionViews.contentSize.width - collectionViews.jc_width;
-    if (offsetX > maxOffsetX) {
-        offsetX = maxOffsetX;
-    }
-    [collectionViews setContentOffset: CGPointMake(offsetX,0) animated:YES];   
-}
-- (void)addChildVcView
-{
-    //为什么一定要不让系统自动修改布局呢,如果不设为NO,会导致外界其他子控件每次滚动会调用我们这里scrollView的一个代理方法
-    _mainViewController.automaticallyAdjustsScrollViewInsets = NO;
-    NSUInteger index = _childScrollView.contentOffset.x/_childScrollView.jc_width;
-    UIViewController *childVc;
-    if (index >= _mainViewController.childViewControllers.count) {
-//        NSLog(@"您的控制器数量不够:控制器数量:%ld个 tabItem数量:%ld个",_mainViewController.childViewControllers.count,_titlesItemArr.count);
-        return;
-    }
-    childVc = _mainViewController.childViewControllers[index];
-    if ([childVc isViewLoaded]) return;
-    childVc.view.frame = _childScrollView.bounds;
-    [_childScrollView addSubview:childVc.view];
-}
--(void)setupChildViewScollAnimal:(NSInteger)itemTag
-{
-    if (_isChildScollAnimal) {
+    if (_isChildScollAnimal == YES) {
         [UIView animateWithDuration:animalTime animations:^{
-            CGPoint offset = _childScrollView.contentOffset;
-            offset.x = itemTag * _childScrollView.jc_width;
-            [self.childScrollView setContentOffset:offset animated:NO];
+            CGPoint offset = _childMainView.contentOffset;
+            offset.x = titleButton.tag * _childMainView.jc_width;
+            [_childMainView setContentOffset:offset animated:NO];
         }];
     }else{
-        CGPoint offset = _childScrollView.contentOffset;
-        offset.x = itemTag * _childScrollView.jc_width;
-        [self.childScrollView setContentOffset:offset animated:NO];
+        CGPoint offset = _childMainView.contentOffset;
+        offset.x = titleButton.tag * _childMainView.jc_width;
+        [_childMainView setContentOffset:offset animated:NO];
     }
 }
--(void)setupIndicatorViewScroll:(UIScrollView *)scrollView leftItem:(MJCTabItem *)leftItem rightItem:(MJCTabItem *)rightItem scaleR:(CGFloat)scaleR
+-(void)setupIndicatorViewCenterAndWidth
 {
-    _indicator.jc_centerX = leftItem.jc_centerX + (rightItem.jc_centerX - leftItem.jc_centerX) * scaleR;
+    [[MJCToolClasses toolClasses] setupIndicatorViewCenterAndWidthIsAnimal:_isChildScollAnimal indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame indicatorView:_indicatorView];
 }
-- (void)collectV:(UICollectionView *)collectV cellForItemAtIndexPath:(NSIndexPath *)indexPath itemBtn:(MJCTabItem *)itemBtn
+- (void)setupTitleCenter:(UIButton *)titleButton
 {
-    [self setupTiTlesViewDefaultItem:indexPath];
-    [self selectedTitleCenter:itemBtn titlesScrollView:collectV];
-    [self setupChildViewScollAnimal:indexPath.row];
-    [self addChildVcView];
+    [[MJCToolClasses  toolClasses] selectedTitleCenter:titleButton titlesScrollView:_titlesView];
 }
-
--(void)setIsChildScollEnabled:(BOOL)isChildScollEnabled
+-(void)setupButton:(MJCTabItem *)tabbutton
 {
-    _isChildScollEnabled = isChildScollEnabled;
-    _childScrollView.scrollEnabled = isChildScollEnabled;
-}
--(void)setIsChildScollAnimal:(BOOL)isChildScollAnimal
-{
-    _isChildScollAnimal = isChildScollAnimal;
-}
--(void)setDefaultShowItemCount:(NSInteger)defaultShowItemCount
-{
-    _defaultShowItemCount = defaultShowItemCount;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (defaultShowItemCount > _titlesItemArr.count) {
-            _defaultShowItemCount = _titlesItemArr.count;
-        }
-        MJCOrdinaryLayout *layout = [[MJCOrdinaryLayout alloc]init];
-        layout.srollingDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.hlitemShowMaxCount = _defaultShowItemCount;
-        layout.hlitemMaxTopMargin = 0;
-        layout.hlitemMaxBottomMargin = 0;
-        layout.hlitemMaxLeftMargin = 0;
-        layout.hlitemMaxRightMargin = 0;
-        layout.hlitemLineMargin = 0;
-        [_titlesViews setCollectionViewLayout:layout];
-    });
-}
--(void)setTitlesViewFrame:(CGRect)titlesViewFrame
-{
-    _titlesViewFrame = titlesViewFrame;
-    _titlesViews.frame = titlesViewFrame;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    _indicator.frame = CGRectMake(0,CGRectGetMaxY(_titlesViews.frame)-defaultIndicatorH,0,defaultIndicatorH);
-//    });
-}
--(void)setTitlesViewBackColor:(UIColor *)titlesViewBackColor
-{
-    _titlesViewBackColor = titlesViewBackColor;
-    _titlesViews.backgroundColor = titlesViewBackColor;
-}
--(void)setTitlesViewBackImage:(UIImage *)titlesViewBackImage
-{
-    _titlesViewBackImage = titlesViewBackImage;
-    _titlesViews.backgroundView = [[UIImageView alloc]initWithImage:titlesViewBackImage];
-}
--(void)setIndicatorFrame:(CGRect)indicatorFrame
-{
-    _indicatorFrame = indicatorFrame;
-    _indicator.frame = indicatorFrame;
-    _isLoadIndicatorFrame = YES;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self setupTiTlesViewDefaultItem:[NSIndexPath indexPathForItem:_defaultItemNumber inSection:0]];
-//    });
-}
--(void)setIndicatorHidden:(BOOL)indicatorHidden
-{
-    _indicatorHidden = indicatorHidden;
-    _indicator.hidden = indicatorHidden;
-}
--(void)setIndicatorColor:(UIColor *)indicatorColor
-{
-    _indicatorColor = indicatorColor;
-    _indicator.backgroundColor = indicatorColor;
-}
--(void)setIndicatorImage:(UIImage *)indicatorImage
-{
-    _indicatorImage = indicatorImage;
-    [_indicator setImage:indicatorImage forState:UIControlStateNormal];
-//    if (_indicatorStyles != MJCIndicatorItemTextStyle) {
-    [_indicator sizeToFit];
-//    }
+    if (!_isItemTitleTextHidden) {
+            tabbutton.itemText = _titlesArray[tabbutton.tag];
+    }
+    tabbutton.backgroundColor = _itemBackColor;
+    tabbutton.itemImageSize = _itemImageSize;
+    tabbutton.itemTextFontSize = _itemTextFontSize;
+    tabbutton.itemTitleNormalColor = _itemTextNormalColor;
+    tabbutton.itemTitleSelectedColor = _itemTextSelectedColor;
+    tabbutton.itemBackNormalImage = _itemBackNormalImage;
+    tabbutton.itemBackSelectedImage = _itemBackSelectedImage;
+    tabbutton.itemNormalBackImageArray = _itemNormalBackImageArray;
+    tabbutton.itemSelectedBackImageArray = _itemSelectedBackImageArray;
+    tabbutton.itemImageNormal = _itemImageNormal;
+    tabbutton.tabItemImageSelected = _itemImageSelected;
+    tabbutton.tabItemNormalImageArray = _itemImageNormalArray;
+    tabbutton.tabItemSelectedImageArray = _itemImageSelectedArray;
+    tabbutton.imageEffectStyles = _imageEffectStyles;
+    tabbutton.itemTextsEdgeInsets = _itemTextsEdgeInsets;
+    tabbutton.itemImagesEdgeInsets = _itemImagesEdgeInsets;
 }
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont
 {
     _zoomBigEnabled = zoomBigEnabled;
     _tabItemTitleMaxfont = tabItemTitleMaxfont;
 }
--(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
+-(void)setIndicatorFrame:(CGRect)indicatorFrame
 {
-    _titlesItemArr = titlesArray;
-    _mainViewController = hostController;
-    _childScrollView.contentSize = CGSizeMake(titlesArray.count * self.frame.size.width,0);
-    if (titlesArray.count <=defaultShowCountItem && !_defaultShowItemCount) {
-        self .defaultShowItemCount = titlesArray.count;
-    }
-    [self layoutIfNeeded];
-    [self setNeedsLayout];
-    [_titlesViews reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        _isLoadDefaultChildVC = YES;
-        [_titlesViews selectItemAtIndexPath:[NSIndexPath indexPathForItem:_defaultItemNumber inSection:0] animated:YES scrollPosition:(UICollectionViewScrollPositionNone)];
-        [self collectionView:_titlesViews didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:_defaultItemNumber inSection:0]];
-    });
+    _indicatorFrame = indicatorFrame;
+    _indicatorView.frame = indicatorFrame;
+    _isLoadIndicatorFrame = YES;
 }
--(void)intoChildControllerArray:(NSArray *)childControllerArray
+-(void)setIndicatorHidden:(BOOL)indicatorHidden
 {
-    _childControllerArray = childControllerArray;
-    if (childControllerArray.count == 0) return;
-    if (_mainViewController.childViewControllers.count == 0) {
-        for (int i = 0; i < childControllerArray.count; i++) {
-            [_mainViewController addChildViewController:childControllerArray[i]];
-        }
-        [self addChildVcView];
-    }
+    _indicatorHidden = indicatorHidden;
+    _indicatorView.hidden = indicatorHidden;
+}
+-(void)setIndicatorColor:(UIColor *)indicatorColor
+{
+    _indicatorColor = indicatorColor;
+    _indicatorView.backgroundColor = indicatorColor;
+}
+-(void)setIndicatorImage:(UIImage *)indicatorImage
+{
+    _indicatorImage = indicatorImage;
+    _indicatorView.indicatorImage = indicatorImage;
+    _indicatorView.frame = CGRectMake(0,CGRectGetMaxY(_titlesView.frame)-_indicatorView.jc_height,_indicatorView.jc_width,_indicatorView.jc_height);
+}
+-(void)setDefaultShowItemCount:(NSInteger)defaultShowItemCount
+{
+    _defaultShowItemCount = defaultShowItemCount;
+}
+-(void)setTitlesViewFrame:(CGRect)titlesViewFrame
+{
+    _titlesViewFrame = titlesViewFrame;
+    _titlesView.frame = titlesViewFrame;
+    CGFloat indicatorY = titlesViewFrame.size.height;
+    _indicatorView.frame = CGRectMake(0,indicatorY-_indicatorView.jc_height,_indicatorView.jc_width,_indicatorView.jc_height);
+}
+-(void)setTitlesViewBackColor:(UIColor *)titlesViewBackColor
+{
+    _titlesViewBackColor = titlesViewBackColor;
+    _titlesView.backgroundColor = titlesViewBackColor;
+}
+-(void)setTitlesViewBackImage:(UIImage *)titlesViewBackImage
+{
+    _titlesViewBackImage = titlesViewBackImage;
+    _titlesView.backgroudImage = titlesViewBackImage;
+}
+
+-(void)setIsChildScollEnabled:(BOOL)isChildScollEnabled
+{
+    _isChildScollEnabled = isChildScollEnabled;
+    _childMainView.scrollEnabled = isChildScollEnabled;
+}
+-(void)setIsChildScollAnimal:(BOOL)isChildScollAnimal
+{
+    _isChildScollAnimal = isChildScollAnimal;
+}
+-(void)setItemBackColor:(UIColor *)itemBackColor
+{
+    _itemBackColor = itemBackColor;
+}
+-(void)setItemTextFontSize:(CGFloat)itemTextFontSize
+{
+    _itemTextFontSize = itemTextFontSize;
+}
+-(void)setItemTextNormalColor:(UIColor *)itemTextNormalColor
+{
+    _itemTextNormalColor = itemTextNormalColor;
+}
+-(void)setItemTextSelectedColor:(UIColor *)itemTextSelectedColor
+{
+    _itemTextSelectedColor = itemTextSelectedColor;
+}
+-(void)setItemImageNormal:(UIImage *)itemImageNormal
+{
+    _itemImageNormal = itemImageNormal;
+}
+-(void)setItemImageSelected:(UIImage *)itemImageSelected
+{
+    _itemImageSelected = itemImageSelected;
+}
+-(void)setItemImageNormalArray:(NSArray *)itemImageNormalArray
+{
+    _itemImageNormalArray = itemImageNormalArray;
+}
+-(void)setItemImageSelectedArray:(NSArray *)itemImageSelectedArray
+{
+    _itemImageNormalArray = itemImageSelectedArray;
+}
+-(void)setItemBackNormalImage:(UIImage *)itemBackNormalImage
+{
+    _itemBackNormalImage = itemBackNormalImage;
+}
+-(void)setItemBackSelectedImage:(UIImage *)itemBackSelectedImage
+{
+    _itemBackSelectedImage = itemBackSelectedImage;
+}
+-(void)setItemNormalBackImageArray:(NSArray *)itemNormalBackImageArray
+{
+    _itemNormalBackImageArray = itemNormalBackImageArray;
+}
+-(void)setItemSelectedBackImageArray:(NSArray *)itemSelectedBackImageArray
+{
+    _itemSelectedBackImageArray = itemSelectedBackImageArray;
+}
+-(void)setIsItemTitleTextHidden:(BOOL)isItemTitleTextHidden
+{
+    _isItemTitleTextHidden = isItemTitleTextHidden;
+}
+-(void)setItemImageSize:(CGSize)itemImageSize
+{
+    _itemImageSize = itemImageSize;
+}
+-(void)setItemTextsEdgeInsets:(UIEdgeInsets)itemTextsEdgeInsets
+{
+    _itemTextsEdgeInsets = itemTextsEdgeInsets;
+}
+-(void)setItemImagesEdgeInsets:(UIEdgeInsets)itemImagesEdgeInsets
+{
+    _itemImagesEdgeInsets = itemImagesEdgeInsets;
 }
 
 - (NSArray *)gradientRgbaArr
@@ -473,7 +478,6 @@ static CGFloat const defaultItemFontSize = 14;
     }
     return _gradientRgbaArr;
 }
-
 - (NSArray *)normalColorRgbaArr
 {
     if (!_normalColorRgbaArr) {
@@ -490,6 +494,7 @@ static CGFloat const defaultItemFontSize = 14;
     }
     return  _selectedColorRgbaArr;
 }
+
 
 
 @end

@@ -41,7 +41,7 @@
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
-    lala.defaultItemNumber = 3;
+    lala.selectedSegmentIndex = 3;
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor whiteColor];
     lala.indicatorColor = [UIColor redColor];

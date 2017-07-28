@@ -1,6 +1,6 @@
 //
-//  MJCshishiLaout.h
-//  MJC项目大杂烩
+//  MJCOrdinaryLayout.h
+//  MJC
 //
 //  Created by mjc on 16/12/2.
 //

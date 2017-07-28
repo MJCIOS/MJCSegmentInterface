@@ -1,6 +1,6 @@
 //
-//  MJCshishiLaout.m
-//  MJC项目大杂烩
+//  MJCOrdinaryLayout.m
+//  MJC
 //
 //  Created by mjc on 16/12/2.
 //
@@ -61,11 +61,11 @@
     CGFloat collectionViewW = self.collectionView.frame.size.width;
     CGFloat collectionViewH = self.collectionView.frame.size.height;
     
-    self.minimumInteritemSpacing = 0;//最小间距值
+    self.minimumInteritemSpacing = 0;
     
     if (_srollingDirection == UICollectionViewScrollDirectionVertical) {
         
-        self.scrollDirection = UICollectionViewScrollDirectionVertical;//默认垂直滚动
+        self.scrollDirection = UICollectionViewScrollDirectionVertical;
         [self setupScrollDirectionVertical:collectionViewW];
     
     }else{
@@ -84,14 +84,10 @@
 //    格子离顶部左边底部右边
 //    layout.sectionInset = UIEdgeInsetsMake(40,10,20,10);
 
-    //设置顶间距,左间距,底部间距,右间距
     self.sectionInset = UIEdgeInsetsMake(_topSpacing,_leftSpacing,_bottomSpacing,_rightSpacing);
     
-    //计算item宽度 (collectionViewW - 最左边间距 - 最右边间距 - (每列之间的列间距)) / 列数
     _itemW = (collectionViewW - _leftSpacing - _rightSpacing - (_count - 1) * _lineSpacing) / _count;
-    //计算item高度 
     _itemH = (collectionViewH - _topSpacing - _bottomSpacing);
-    //设置item大小
     self.itemSize = CGSizeMake(_itemW,_itemH);
 }
 
@@ -99,18 +95,14 @@
 // !!!:垂直滚动
 -(void)setupScrollDirectionVertical:(CGFloat)collectionViewW
 {
-    //设置上下两个item中间的行间距
-    self.minimumLineSpacing = _rowSpacing;
-    
-    //设置顶间距,左间距,底部间距,右间距
-    self.sectionInset = UIEdgeInsetsMake(_topSpacing,_leftSpacing,_bottomSpacing,_rightSpacing);
-    
-    //计算item宽度 (collectionViewW - 最左边间距 - 最右边间距 - (每列之间的列间距)) / 列数
-    _itemW = (collectionViewW - _leftSpacing - _rightSpacing - (_count - 1) * _lineSpacing) / _count;
-    
-    //设置item大小
-    self.itemSize = CGSizeMake(_itemW,_itemH);
 
+    self.minimumLineSpacing = _rowSpacing;
+
+    self.sectionInset = UIEdgeInsetsMake(_topSpacing,_leftSpacing,_bottomSpacing,_rightSpacing);
+
+    _itemW = (collectionViewW - _leftSpacing - _rightSpacing - (_count - 1) * _lineSpacing) / _count;
+
+    self.itemSize = CGSizeMake(_itemW,_itemH);
 }
 
 

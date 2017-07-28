@@ -41,7 +41,7 @@
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
-    lala.defaultItemNumber = 3;
+    lala.selectedSegmentIndex = 3;
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor whiteColor];
     NSArray *imageArr =@[@"111",@"222",@"1111",@"234",@"567",@"666",@"888"];

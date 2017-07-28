@@ -1,26 +1,26 @@
-//  代码地址:https://github.com/MJCIOS/MJCSegmentInterface
+//
 //  MJCSegmentInterface.h
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/6/29.
-//  Copyright © 2017年 MJC. All rights reserved.
+//  Created by mjc on 16/10/7.
+//  Copyright © 2016年 MJC. All rights reserved.
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
 #import <UIKit/UIKit.h>
-#import "MJCTabItem.h"
+#import "UIView+MJCClassExtension.h"
 #import "MJCCommonTools.h"
 
-//标题样式
-typedef enum {
-    MJCTitlesClassicStyle,//经典标题样式
-    MJCTitlesScrollStyle//滚动标题栏样式
-} MJCTitleBarStyles;
+////标题样式
+//typedef enum {
+//    MJCTitlesClassicStyle1,//经典标题样式
+//    MJCTitlesScrollStyle1//滚动标题栏样式
+//} MJCTitleBarStyles1;
 
 //底部指示器样式
-typedef enum {
-    MJCIndicatorItemStyle,
-    MJCIndicatorItemTextStyle
-} MJCIndicatorStyles;
+typedef NS_OPTIONS(NSUInteger,MJCIndicatorStyles) {
+    MJCIndicatorItemStyle = 0,
+    MJCIndicatorItemTextStyle = 1
+};
 
 //按钮图片样式
 typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
@@ -28,49 +28,55 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
     MJCImageUpDownStyle = 1
 };
 
+
 @class MJCSegmentInterface;
 
-@protocol MJCSlideSwitchViewDelegate <NSObject>
+@protocol MJCSegmentDelegate <NSObject>
 @required
+
 @optional
 
 /** 点击标题栏按钮的点击事件 */
-- (void)mjc_ClickEvent:(MJCTabItem *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 点击标题栏按钮的点击事件 */
+- (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+
+
 
 @end
 
 @interface MJCSegmentInterface : UIView
 
-/** slideDelegate代理方法 */
-@property (nonatomic,weak)id<MJCSlideSwitchViewDelegate> delegate;
+/** 代理方法 */
+@property (nonatomic,weak)id<MJCSegmentDelegate> delegate;
 
-#pragma mark -- 样式
 /** 标题栏样式 */
-@property (nonatomic,assign) MJCTitleBarStyles titleBarStyles;
-
+//@property (nonatomic,assign) MJCTitleBarStyles1 titleBarStyles;
 /** 底部指示器大小样式 */
 @property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
-
 /** 标题图片效果样式 */
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;
 
+
 #pragma mark -- 通用设置
-/** 默认选中的item */
-@property (nonatomic,assign) NSInteger defaultItemNumber;
-/** 默认显示多少个item */
+
+//标题文字的内边距
+@property(nonatomic)   UIEdgeInsets itemTextsEdgeInsets;
+//标题图片的内边距
+@property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
+/** 默认显示多少个item (初始显示4个) */
 @property (nonatomic,assign) NSInteger defaultShowItemCount;
-/** 标题文字的内边距 */
-@property(nonatomic)   UIEdgeInsets textsEdgeInsets;
-/** 标题图片的内边距 */
-@property(nonatomic)   UIEdgeInsets imagesEdgeInsets;
-/** 是否字体渐变 */
-@property (nonatomic,assign) BOOL isFontGradient;
 /** 底部指示器是否随着滚动 */
 @property (nonatomic,assign) BOOL isIndicatorFollow;
+/** 默认选中的item */
+@property (nonatomic,assign) NSInteger selectedSegmentIndex;
 /** 子界面是否允许滑动 */
 @property (nonatomic,assign) BOOL isChildScollEnabled;
 /** 子界面滚动是否有动画 */
 @property(nonatomic,assign) BOOL isChildScollAnimal;
+/** 是否显示标题文字 */
+@property(nonatomic,assign) BOOL isItemTitleTextHidden;
+/** 颜色是否渐变 */
+@property (nonatomic,assign) BOOL isFontGradient;
 /** 用于缩放功能的修改字体的属性 */
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
 
@@ -97,7 +103,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 #pragma mark -- item设置
 /** item背景颜色 */
 @property (nonatomic,strong) UIColor *itemBackColor;
-
 /** item普通状态下的图片 */
 @property (nonatomic,strong) UIImage *itemImageNormal;
 /** item点击状态下的图片 */
@@ -106,7 +111,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,strong) NSArray *itemImageNormalArray;
 /** item点击状态下图片数组 */
 @property (nonatomic,strong) NSArray *itemImageSelectedArray;
-
 /** item普通状态下背景图片 */
 @property (nonatomic,strong) UIImage *itemBackNormalImage;
 /** item点击状态下背景图片 */
@@ -121,6 +125,9 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,strong) UIColor *itemTextSelectedColor;
 /** item文字大小 */
 @property (nonatomic,assign) CGFloat itemTextFontSize;
+/** item的图片大小(不能设置背景图片) */
+@property (nonatomic,assign) CGSize itemImageSize;
+
 
 #pragma mark -- 添加方法
 
@@ -128,8 +135,6 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 -(void)intoChildControllerArray:(NSArray *)childControllerArray;
 /** 添加标题栏的方法 */
 -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController;
-
-
 
 
 @end

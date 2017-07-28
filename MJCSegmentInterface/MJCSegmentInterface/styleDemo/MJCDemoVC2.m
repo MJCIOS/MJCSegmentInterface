@@ -9,7 +9,7 @@
 #import "MJCDemoVC2.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC2 ()<MJCSlideSwitchViewDelegate>
+@interface MJCDemoVC2 ()<MJCSegmentDelegate>
 
 @end
 
