@@ -68,5 +68,11 @@
 		<key>viewControllers</key>
 		<string>MJCDemoVC11</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式12</string>
+		<key>viewControllers</key>
+		<string>MJCDemoVCXib</string>
+	</dict>
 </array>
 </plist>

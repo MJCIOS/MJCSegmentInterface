@@ -19,6 +19,8 @@
 		250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */; };
 		250F5E611F2B2D8400B8014A /* UILabel+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E581F2B2D8400B8014A /* UILabel+MJCClassExtension.m */; };
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
+		250F5E6F1F2C7DEC00B8014A /* MJCDemoVCXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */; };
+		250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */; };
 		2556BE251F1721A100E903F5 /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE231F1721A100E903F5 /* xiangmu2.gif */; };
 		2556BE281F1792F300E903F5 /* MJCDemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE271F1792F300E903F5 /* MJCDemoVC4.m */; };
 		2556BE2B1F17957A00E903F5 /* MJCDemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2A1F17957A00E903F5 /* MJCDemoVC5.m */; };
@@ -102,6 +104,9 @@
 		250F5E581F2B2D8400B8014A /* UILabel+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MJCClassExtension.m"; sourceTree = "<group>"; };
 		250F5E591F2B2D8400B8014A /* UIView+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCClassExtension.h"; sourceTree = "<group>"; };
 		250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCClassExtension.m"; sourceTree = "<group>"; };
+		250F5E6C1F2C7DEC00B8014A /* MJCDemoVCXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVCXib.h; sourceTree = "<group>"; };
+		250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVCXib.m; sourceTree = "<group>"; };
+		250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCDemoVCXib.xib; sourceTree = "<group>"; };
 		2556BE231F1721A100E903F5 /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
 		2556BE261F1792F300E903F5 /* MJCDemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC4.h; sourceTree = "<group>"; };
 		2556BE271F1792F300E903F5 /* MJCDemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC4.m; sourceTree = "<group>"; };
@@ -345,6 +350,9 @@
 				2556BE391F17984900E903F5 /* MJCDemoVC10.m */,
 				2556BE3B1F179C1300E903F5 /* MJCDemoVC11.h */,
 				2556BE3C1F179C1300E903F5 /* MJCDemoVC11.m */,
+				250F5E6C1F2C7DEC00B8014A /* MJCDemoVCXib.h */,
+				250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */,
+				250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */,
 			);
 			path = styleDemo;
 			sourceTree = "<group>";
@@ -500,6 +508,7 @@
 				2556BE481F186A9D00E903F5 /* demo8.gif in Resources */,
 				2556BE521F186AA800E903F5 /* demo6.gif in Resources */,
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
+				250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +537,7 @@
 				250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */,
 				25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */,
 				2556BE2E1F17964600E903F5 /* MJCDemoVC6.m in Sources */,
+				250F5E6F1F2C7DEC00B8014A /* MJCDemoVCXib.m in Sources */,
 				250F5E5B1F2B2D8400B8014A /* MJCAlertMessage.m in Sources */,
 				250F5E5D1F2B2D8400B8014A /* MJCOrdinaryLayout.m in Sources */,
 				250F5E5F1F2B2D8400B8014A /* UIButton+MJCClassExtension.m in Sources */,

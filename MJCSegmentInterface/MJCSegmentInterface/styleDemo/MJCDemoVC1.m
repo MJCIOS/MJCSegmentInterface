@@ -43,7 +43,7 @@
     vc6.titlesCount = 6;
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     vc7.titlesCount = 7;
-    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
+    NSArray *vcarrr = @[vc1,vc1,vc1,vc1,vc1,vc1,vc1];
     [lala intoChildControllerArray:vcarrr];;
 
 }

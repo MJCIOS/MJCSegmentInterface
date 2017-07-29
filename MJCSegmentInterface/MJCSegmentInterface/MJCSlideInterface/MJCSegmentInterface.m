@@ -39,6 +39,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
 @property (nonatomic,assign) BOOL isSetDefaultSelectedItem;
+@property (nonatomic,assign) BOOL isXibLayoutSetup;
 @property (nonatomic,weak) MJCTabItem *oldsSelectedItem;
 @property (nonatomic,weak) MJCTabItem *newsSelectedItem;
 @property (nonatomic,weak) NSArray *normalColorRgbaArr;
@@ -55,6 +56,15 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     }
     return self;
 }
+
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    _isXibLayoutSetup = YES;
+    [self setupBasicUI];
+    _titlesView.jc_width = self.jc_width;
+}
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -152,6 +162,10 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 {   _titlesArray = titlesArray;
     _hostController = hostController;
     _childMainView.contentSize = CGSizeMake(titlesArray.count * self.frame.size.width,0);
+    if (!_isXibLayoutSetup) {
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
+    }
     [self layoutIfNeeded];
     [self setNeedsLayout];
     [self setupTitlesButton:titlesArray];
