@@ -71,6 +71,13 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     [self setupUIFrame];
 }
 
++(MJCSegmentInterface*)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame
+{
+    MJCSegmentInterface *interface = [[self alloc]initWithFrame:frame];
+    interface.titleBarStyles = titleBarStyles;
+    return interface;
+}
+
 - (NSMutableArray *)titleButtonsArr
 {
     if (!_titleButtonsArr) {
@@ -82,15 +89,16 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 {
     MJCTitlesView *titlesView = [[MJCTitlesView alloc]init];
     titlesView.frame = CGRectMake(0,0,0, defaultTitlesViewH);
-    [self addSubview:titlesView];
     _titlesView = titlesView;
     MJCChildMainView *childMainView = [[MJCChildMainView alloc]init];
     childMainView.delegate = self;
-    [self addSubview:childMainView];
     _childMainView = childMainView;
+    
     _indicatorView = [MJCIndicatorView buttonWithType:UIButtonTypeCustom];
     _indicatorView.frame = CGRectMake(0,0,0,defaultIndicatorH);
 
+    [self addSubview:childMainView];
+    [self addSubview:titlesView];
 }
 -(void)setupUIFrame
 {
@@ -107,8 +115,12 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
         _indicatorView.jc_y = _titlesView.frame.size.height - _indicatorView.jc_height;
     }
     
-    CGFloat titlesViewMaxY = CGRectGetMaxY(_titlesView.frame);
-    _childMainView.frame =CGRectMake(0,titlesViewMaxY,self.jc_width,self.jc_height-titlesViewMaxY);
+    if (_isPenetrationEffect) {
+        _childMainView.frame =CGRectMake(0,0,self.jc_width,self.jc_height);
+    }else{
+        CGFloat titlesViewMaxY = CGRectGetMaxY(_titlesView.frame);
+        _childMainView.frame =CGRectMake(0,titlesViewMaxY,self.jc_width,self.jc_height-titlesViewMaxY);
+    }
     if (_isLoadDefaultChildVC == YES) {
         NSUInteger index = _childMainView.contentOffset.x/_childMainView.jc_width;
         _childVC = _hostController.childViewControllers[index];
@@ -181,20 +193,26 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     CGFloat maxRightMargin = 0;
     CGFloat lineMargin = 0;
     CGFloat tabItemW;
-    if (_defaultShowItemCount) {
-        if (titlesArray.count <=defaultShowCountItem) {
-            _defaultShowItemCount = titlesArray.count;
-        }else{
-            if ( _defaultShowItemCount > titlesArray.count) {
-                _defaultShowItemCount =defaultShowCountItem;
+    
+    if (_titleBarStyles == MJCTitlesScrollStyle ) {
+        if (_defaultShowItemCount) {//外界是否设置了值
+            if (titlesArray.count <=defaultShowCountItem) {
+                _defaultShowItemCount = titlesArray.count;
             }else{
-                _defaultShowItemCount = self.defaultShowItemCount;
+                if ( _defaultShowItemCount > titlesArray.count) {
+                    _defaultShowItemCount =defaultShowCountItem;
+                }else{
+                    _defaultShowItemCount = self.defaultShowItemCount;
+                }
             }
+            tabItemW = _titlesView.jc_width/_defaultShowItemCount;
+        }else{
+            tabItemW = _titlesView.jc_width/defaultShowCountItem;
         }
-        tabItemW = _titlesView.jc_width/_defaultShowItemCount;
     }else{
-        tabItemW = _titlesView.jc_width/defaultShowCountItem;
+        tabItemW = _titlesView.jc_width/titlesArray.count;
     }
+    
     CGFloat tabItemH = _titlesView.jc_height;
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         MJCTabItem *tabbutton = [MJCTabItem buttonWithType:UIButtonTypeCustom];

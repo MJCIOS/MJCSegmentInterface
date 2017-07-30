@@ -74,5 +74,17 @@
 		<key>viewControllers</key>
 		<string>MJCDemoVCXib</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式13</string>
+		<key>viewControllers</key>
+		<string>MJCDemoClassicVC</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>样式14</string>
+		<key>viewControllers</key>
+		<string>MJCDemoPenetrationVC</string>
+	</dict>
 </array>
 </plist>

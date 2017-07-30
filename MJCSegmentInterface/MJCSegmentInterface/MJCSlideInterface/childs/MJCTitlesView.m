@@ -23,25 +23,35 @@
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
         self.backgroundColor = [UIColor whiteColor];
-        
         UIImageView *backgroudView = [[UIImageView alloc]init];
+        backgroudView.hidden = YES;
         [self addSubview:backgroudView];
         _backgroudView = backgroudView;
     }
     return self;
 }
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.showsVerticalScrollIndicator = NO;
+    self.showsHorizontalScrollIndicator = NO;
+    self.backgroundColor = [UIColor whiteColor];
+    UIImageView *backgroudView = [[UIImageView alloc]init];
+    backgroudView.hidden = YES;
+    [self addSubview:backgroudView];
+    _backgroudView = backgroudView;
+}
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
     _backgroudView.frame = self.bounds;
 }
 
 -(void)setBackgroudImage:(UIImage *)backgroudImage
 {
+    _backgroudView.hidden  = NO;
     _backgroudImage = backgroudImage;
-    
     _backgroudView.image = backgroudImage;
 }
 

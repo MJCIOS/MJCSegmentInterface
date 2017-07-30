@@ -34,8 +34,7 @@
     vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-    
-    
+
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTextNormalColor = [UIColor redColor];
@@ -44,8 +43,7 @@
     lala.selectedSegmentIndex = 3;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
-    
+    [lala intoChildControllerArray:vcarrr];
 }
 
 @end

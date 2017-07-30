@@ -10,38 +10,30 @@
 #import "UIView+MJCClassExtension.h"
 #import "MJCCommonTools.h"
 
-////标题样式
-//typedef enum {
-//    MJCTitlesClassicStyle1,//经典标题样式
-//    MJCTitlesScrollStyle1//滚动标题栏样式
-//} MJCTitleBarStyles1;
+//标题样式
+typedef NS_OPTIONS(NSUInteger,MJCTitleBarStyles) {
+    MJCTitlesScrollStyle = 0,       //滚动标题栏样式
+    MJCTitlesClassicStyle = 1      //经典标题样式
+} ;
 
 //底部指示器样式
 typedef NS_OPTIONS(NSUInteger,MJCIndicatorStyles) {
-    MJCIndicatorItemStyle = 0,
-    MJCIndicatorItemTextStyle = 1
+    MJCIndicatorItemStyle = 0,  //普通的指示器样式(与item宽度一样)
+    MJCIndicatorItemTextStyle = 1  //指示器与文字宽度一样的样式
 };
 
 //按钮图片样式
 typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
-    MJCImageClassicStyle = 0,
-    MJCImageUpDownStyle = 1
+    MJCImageClassicStyle = 0,  //普通的图片文字样式,左右样式
+    MJCImageUpDownStyle = 1  //图片和文字上下的样式
 };
 
-
 @class MJCSegmentInterface;
-
 @protocol MJCSegmentDelegate <NSObject>
 @required
-
 @optional
-
-/** 点击标题栏按钮的点击事件 */
 /** 点击标题栏按钮的点击事件 */
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
-
-
-
 @end
 
 @interface MJCSegmentInterface : UIView
@@ -50,7 +42,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,weak)id<MJCSegmentDelegate> delegate;
 
 /** 标题栏样式 */
-//@property (nonatomic,assign) MJCTitleBarStyles1 titleBarStyles;
+@property (nonatomic,assign) MJCTitleBarStyles titleBarStyles;
 /** 底部指示器大小样式 */
 @property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
 /** 标题图片效果样式 */
@@ -77,6 +69,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property(nonatomic,assign) BOOL isItemTitleTextHidden;
 /** 颜色是否渐变 */
 @property (nonatomic,assign) BOOL isFontGradient;
+/** 是否有穿透效果 */
+@property (nonatomic,assign) BOOL isPenetrationEffect;
 /** 用于缩放功能的修改字体的属性 */
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
 
@@ -128,9 +122,10 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 /** item的图片大小(不能设置背景图片) */
 @property (nonatomic,assign) CGSize itemImageSize;
 
+#pragma mark -- 添加方法和创建方法
 
-#pragma mark -- 添加方法
-
+/** 实例化此控件的方法 */
++(MJCSegmentInterface*)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame;
 /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoChildControllerArray:(NSArray *)childControllerArray;
 /** 添加标题栏的方法 */

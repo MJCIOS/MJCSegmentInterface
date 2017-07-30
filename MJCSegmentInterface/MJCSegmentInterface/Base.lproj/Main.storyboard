@@ -38,16 +38,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vuE-NU-8P7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vuE-NU-8P7" secondAttribute="trailing" id="8f1-zy-zAw"/>
-                            <constraint firstItem="vuE-NU-8P7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lWU-h5-i1E"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vuE-NU-8P7" secondAttribute="bottom" id="mp2-2o-qsI"/>
-                            <constraint firstItem="vuE-NU-8P7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pt8-aU-7fO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vuE-NU-8P7" secondAttribute="bottom" id="9aL-Dd-4SL"/>
+                            <constraint firstItem="vuE-NU-8P7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VUM-uq-cin"/>
+                            <constraint firstItem="vuE-NU-8P7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ehv-W4-4Xi"/>
+                            <constraint firstAttribute="trailing" secondItem="vuE-NU-8P7" secondAttribute="trailing" id="sy0-MA-6Io"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="81M-CB-Jbf"/>

@@ -22,8 +22,9 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    MJCSegmentInterface *lala = [MJCSegmentInterface showInterfaceWithTitleBarStyles:MJCTitlesScrollStyle frame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64)];
+//    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+//    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,100);//顶部标题栏frame
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
     lala.selectedSegmentIndex = 3;//默认选中第几个
