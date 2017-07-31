@@ -52,4 +52,13 @@
 }
 
 
+//防止导航栏挡住的方法
+-(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
+{
+    if ([controllers respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        controllers.edgesForExtendedLayout = rectEdge;
+    }
+}
+
+
 @end

@@ -36,6 +36,7 @@
     NSArray *vcarrr = @[vc2,vc1,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"天涯明月刀",@"联盟",@"我的运单",@"CF",@"飞车"];
     
+    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala =  [MJCSegmentInterface showInterfaceWithTitleBarStyles:MJCTitlesScrollStyle frame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64)];
     lala.titleBarStyles = MJCTitlesClassicStyle;

@@ -19,9 +19,6 @@
 
 + (MJCToolClasses *)toolClasses;
 
-/** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
--(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
-
 /** 选中滚动标题居中效果的方法的效果 */
 - (void)selectedTitleCenter:(UIButton *)button titlesScrollView:(UIScrollView *)titlesScrollView;
 

@@ -130,6 +130,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 
 -(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
+    if (selectedSegmentIndex == 0)return;
     _selectedSegmentIndex = selectedSegmentIndex;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (selectedSegmentIndex >= _titlesArray.count) {

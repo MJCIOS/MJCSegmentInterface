@@ -19,9 +19,26 @@
     [super viewDidLoad];
     
     
+    MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
+    vc1.titlesCount = 1;
+    MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
+    vc2.titlesCount = 2;
+    MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
+    vc3.titlesCount = 3;
+    MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
+    vc4.titlesCount = 4;
+    MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
+    vc5.titlesCount = 5;
+    MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
+    vc6.titlesCount = 6;
+    MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
+    vc7.titlesCount = 7;
+    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
+    
+    //以下是我的控件中的代码
     MJCSegmentInterface *lala = [MJCSegmentInterface showInterfaceWithTitleBarStyles:MJCTitlesScrollStyle frame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64)];
 //    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
 //    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
@@ -59,23 +76,8 @@
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
+    [lala intoChildControllerArray:vcarrr];
     
-    MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
-    vc1.titlesCount = 1;
-    MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
-    vc2.titlesCount = 2;
-    MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
-    vc3.titlesCount = 3;
-    MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
-    vc4.titlesCount = 4;
-    MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
-    vc5.titlesCount = 5;
-    MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
-    vc6.titlesCount = 6;
-    MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
-    vc7.titlesCount = 7;
-    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    [lala intoChildControllerArray:vcarrr];;    
 }
 
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;

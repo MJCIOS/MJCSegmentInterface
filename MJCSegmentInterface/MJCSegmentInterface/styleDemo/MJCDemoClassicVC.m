@@ -19,21 +19,6 @@
     [super viewDidLoad];
     
     
-    //标题数据数组
-    NSArray *titlesArr = @[@"天涯明月刀",@"联盟",@"我的运单",@"CF",@"飞车"];
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesClassicStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.5];
-    lala.itemBackColor =  [UIColor clearColor];
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    //    lala.isIndicatorFollow = YES;
-    lala.itemTextFontSize = 11;
-    lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    [lala intoTitlesArray:titlesArr hostController:self];
-    [self.view addSubview:lala];
-    
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     vc1.titlesCount = 1;
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
@@ -49,6 +34,22 @@
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
+
+    
+    //以下是我的控件中的代码
+    NSArray *titlesArr = @[@"天涯明月刀",@"联盟",@"我的运单",@"CF",@"飞车"];
+    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.titleBarStyles = MJCTitlesClassicStyle;
+    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    lala.itemBackColor =  [UIColor clearColor];
+    lala.itemTextNormalColor = [UIColor redColor];
+    lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.selectedSegmentIndex = 0;
+    //    lala.isIndicatorFollow = YES;
+    lala.itemTextFontSize = 11;
+    lala.indicatorStyles = MJCIndicatorItemTextStyle;
+    [lala intoTitlesArray:titlesArr hostController:self];
+    [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
     
 }

@@ -27,16 +27,6 @@ static MJCToolClasses *toolClasses = nil;
 }
 
 
-//防止导航栏挡住的方法
--(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
-{
-    if ([controllers respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        controllers.edgesForExtendedLayout = rectEdge;
-    }
-}
-
-
-//选中滚动标题居中效果的方法的效果
 - (void)selectedTitleCenter:(UIButton *)button titlesScrollView:(UIScrollView *)titlesScrollView;
 {
     // 本质:修改titleScrollView偏移量
@@ -57,39 +47,37 @@ static MJCToolClasses *toolClasses = nil;
     [titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
 
-
-//设置点击的item下方指示器的位置
 -(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isChildScollAnimal indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame indicatorView:(UIButton*)indicatorView
 {
-    if (isChildScollAnimal) {//是否有动画
-        if (indicatorStyles == MJCIndicatorItemTextStyle) {//指示器类型
+    if (isChildScollAnimal) {
+        if (indicatorStyles == MJCIndicatorItemTextStyle) {
             [selectedTitleButton.titleLabel sizeToFit];
             [UIView animateWithDuration:animalTime animations:^{
-                indicatorView.jc_width = selectedTitleButton.titleLabel.jc_width;//修改指示器宽度
+                indicatorView.jc_width = selectedTitleButton.titleLabel.jc_width;
                 indicatorView.jc_centerX = selectedTitleButton.jc_centerX;
             }];
         }else{
-            CGFloat indiCatorNewW;//指示器新的宽度
+            CGFloat indiCatorNewW;
             if (indicatorFrame.size.width == 0) {
-                indiCatorNewW = selectedTitleButton.jc_width;//获取到按钮的宽度
+                indiCatorNewW = selectedTitleButton.jc_width;
             }else{
-                indiCatorNewW = indicatorFrame.size.width;//获取到外界设置的宽度
+                indiCatorNewW = indicatorFrame.size.width;
             }
-            [UIView animateWithDuration:animalTime animations:^{//实行动画
+            [UIView animateWithDuration:animalTime animations:^{
                 indicatorView.jc_width = indiCatorNewW;
                 indicatorView.jc_centerX = selectedTitleButton.jc_centerX;
             }];;
         }
-    }else{//没有动画
-        if (indicatorStyles == MJCIndicatorItemTextStyle) {//指示器类型
+    }else{
+        if (indicatorStyles == MJCIndicatorItemTextStyle) {
             [selectedTitleButton.titleLabel sizeToFit];
-            indicatorView.jc_width = selectedTitleButton.titleLabel.jc_width;//修改指示器宽度
+            indicatorView.jc_width = selectedTitleButton.titleLabel.jc_width;
             indicatorView.jc_centerX = selectedTitleButton.jc_centerX;
         }else{
             if (indicatorFrame.size.width == 0) {
-                indicatorView.jc_width = selectedTitleButton.jc_width;//获取到按钮的宽度
+                indicatorView.jc_width = selectedTitleButton.jc_width;
             }else{
-                indicatorView.jc_width = indicatorFrame.size.width;//获取到外界设置的宽度
+                indicatorView.jc_width = indicatorFrame.size.width;
             }
             indicatorView.jc_centerX = selectedTitleButton.jc_centerX;
         }

@@ -21,10 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
+    vc1.titlesCount = 1;
+    MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
+    vc2.titlesCount = 2;
+    MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
+    vc3.titlesCount = 3;
+    MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
+    vc4.titlesCount = 4;
+    MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
+    vc5.titlesCount = 5;
+    MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
+    vc6.titlesCount = 6;
+    MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
+    vc7.titlesCount = 7;
+    MJCTestViewController *vc8 = [[MJCTestViewController alloc]init];
+    vc7.titlesCount = 8;
+    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"诛仙世界",@"飞车",@"炫舞",@"天涯"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
     
+    
+    //以下是我的控件中的代码
     _lala.titlesViewFrame = CGRectMake(0,0,_lala.jc_width,100);//顶部标题栏frame
     _lala.selectedSegmentIndex = 3;//默认选中第几个
     _lala.defaultShowItemCount = 3;//首页,第一页展示多少个
@@ -57,25 +77,6 @@
     _lala.indicatorFrame = CGRectMake(0,_lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
     [_lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [_lala intoTitlesArray:titlesArr hostController:self];
-    
-    MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
-    vc1.titlesCount = 1;
-    MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
-    vc2.titlesCount = 2;
-    MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
-    vc3.titlesCount = 3;
-    MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
-    vc4.titlesCount = 4;
-    MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
-    vc5.titlesCount = 5;
-    MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
-    vc6.titlesCount = 6;
-    MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
-    vc7.titlesCount = 7;
-    MJCTestViewController *vc8 = [[MJCTestViewController alloc]init];
-    vc7.titlesCount = 8;
-    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8];
-    
     [_lala intoChildControllerArray:vcarrr];
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
