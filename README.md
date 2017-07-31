@@ -62,5 +62,25 @@
     -(void)intoChildControllerArray:(NSArray *)childControllerArray;
     /** 添加标题栏的方法 */
     -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController;
+    //标题文字的内边距
+    @property(nonatomic)   UIEdgeInsets itemTextsEdgeInsets;
+    //标题图片的内边距
+    @property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
+    /** 底部指示器是否随着滚动 */
+    @property (nonatomic,assign) BOOL isIndicatorFollow;
+    /** 默认选中的item */
+    @property (nonatomic,assign) NSInteger selectedSegmentIndex;
+    /** 子界面是否允许滑动 */
+    @property (nonatomic,assign) BOOL isChildScollEnabled;
+    /** 子界面滚动是否有动画 */
+    @property(nonatomic,assign) BOOL isChildScollAnimal;
+    /** 是否显示标题文字 */
+    @property(nonatomic,assign) BOOL isItemTitleTextHidden;
+    /** 颜色是否渐变 */
+    @property (nonatomic,assign) BOOL isFontGradient;
+    /** 是否有穿透效果 */
+    @property (nonatomic,assign) BOOL isPenetrationEffect;
+    /** 用于缩放功能的修改字体的属性 */
+    -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
 
 ---------------------------------------------------------------------------------------------------------------
