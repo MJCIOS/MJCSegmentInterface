@@ -1,4 +1,8 @@
 platform :ios, "8.0"
 target "MJCSegmentInterface" do
+    
     pod 'SDWebImage'
+    pod 'MJRefresh'
+    
+    
 end

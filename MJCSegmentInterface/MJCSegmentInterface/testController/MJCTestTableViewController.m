@@ -18,7 +18,29 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor purpleColor];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData) ];
+    self.tableView.mj_footer = [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData) ];
 }
+
+-(void)beginLoadNewData
+{
+    [self.tableView.mj_header beginRefreshing];
+}
+
+-(void)loadNewData
+{
+    [self.tableView.mj_header endRefreshing];
+    NSLog(@"heihei");
+}
+
+-(void)loadMoreData
+{
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_footer endRefreshing];
+    });
+}
+
 #pragma mark - UITableviewdatasource,UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

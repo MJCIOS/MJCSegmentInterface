@@ -11,6 +11,8 @@
 
 @interface MJCDemoVC1 ()<MJCSegmentDelegate>
 
+@property (nonatomic,weak) MJCTestTableViewController *testTableViewVC;
+
 @end
 
 @implementation MJCDemoVC1
@@ -22,6 +24,7 @@
     vc1.titlesCount = 1;
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     vc2.titlesCount = 2;
+    _testTableViewVC = vc2;
     MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
     vc3.titlesCount = 3;
     MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
@@ -39,6 +42,7 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    lala.delegate= self;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
 //    lala.isIndicatorFollow = YES;
@@ -52,6 +56,13 @@
 
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
 {
+    if ([childViewController isKindOfClass:[MJCTestTableViewController class]]) {
+            NSLog(@"%@",childViewController);
+        [_testTableViewVC beginLoadNewData];
+    }else{
+        NSLog(@"%@",childViewController);
+    }
+    
     NSLog(@"%ld",tabItem.tag);
     NSLog(@"%@",childViewController);
     NSLog(@"%@",segmentInterface);
