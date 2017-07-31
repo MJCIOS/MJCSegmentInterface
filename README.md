@@ -58,6 +58,8 @@
         
 ## 可自行修改各个属性,具体属性接口可进入项目查看..
 
+    /** 实例化此控件的方法 */
+    +(MJCSegmentInterface*)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame;
     /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
     -(void)intoChildControllerArray:(NSArray *)childControllerArray;
     /** 添加标题栏的方法 */
