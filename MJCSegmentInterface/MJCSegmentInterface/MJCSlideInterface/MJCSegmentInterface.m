@@ -179,10 +179,11 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
         [self layoutIfNeeded];
         [self setNeedsLayout];
     }
-    [self layoutIfNeeded];
-    [self setNeedsLayout];
     [self setupTitlesButton:titlesArray];
     [_titlesView addSubview:_indicatorView];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _isLoadDefaultChildVC = YES;
+    });
 }
 
 -(void)setupTitlesButton:(NSArray *)titlesArray
