@@ -15,7 +15,7 @@
 #import "sys/utsname.h"
 #import "UIView+MJCClassExtension.h"
 #import "UIColor+MJCClassExtension.h"
-#import "MJCToolClasses.h"
+#import "MJCInterfaceTools.h"
 
 static CGFloat const animalTime= 0.25;//动画时间
 static CGFloat const defaultTitlesViewH = 50;//默认标题栏的高度
@@ -354,11 +354,11 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 }
 -(void)setupIndicatorViewCenterAndWidth
 {
-    [[MJCToolClasses toolClasses] setupIndicatorViewCenterAndWidthIsAnimal:_isChildScollAnimal indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame indicatorView:_indicatorView];
+    [[MJCInterfaceTools toolClasses] setupIndicatorViewCenterAndWidthIsAnimal:_isChildScollAnimal indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame indicatorView:_indicatorView];
 }
 - (void)setupTitleCenter:(UIButton *)titleButton
 {
-    [[MJCToolClasses  toolClasses] selectedTitleCenter:titleButton titlesScrollView:_titlesView];
+    [[MJCInterfaceTools  toolClasses] selectedTitleCenter:titleButton titlesScrollView:_titlesView];
 }
 -(void)setupButton:(MJCTabItem *)tabbutton
 {

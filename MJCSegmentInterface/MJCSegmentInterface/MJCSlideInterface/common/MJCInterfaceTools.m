@@ -6,16 +6,16 @@
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCToolClasses.h"
+#import "MJCInterfaceTools.h"
 #import "UIView+MJCClassExtension.h"
 #import "MJCSegmentInterface.h"
 
 static CGFloat const animalTime= 0.25;//动画时间
 
-@implementation MJCToolClasses
+@implementation MJCInterfaceTools
 
-static MJCToolClasses *toolClasses = nil;
-+ (MJCToolClasses *)toolClasses
+static MJCInterfaceTools *toolClasses = nil;
++ (MJCInterfaceTools *)toolClasses
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

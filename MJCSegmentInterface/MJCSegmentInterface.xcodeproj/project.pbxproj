@@ -14,7 +14,7 @@
 		250F5E5B1F2B2D8400B8014A /* MJCAlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E4C1F2B2D8300B8014A /* MJCAlertMessage.m */; };
 		250F5E5C1F2B2D8400B8014A /* MJCCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E4E1F2B2D8300B8014A /* MJCCommonTools.m */; };
 		250F5E5D1F2B2D8400B8014A /* MJCOrdinaryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E501F2B2D8400B8014A /* MJCOrdinaryLayout.m */; };
-		250F5E5E1F2B2D8400B8014A /* MJCToolClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E521F2B2D8400B8014A /* MJCToolClasses.m */; };
+		250F5E5E1F2B2D8400B8014A /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E521F2B2D8400B8014A /* MJCInterfaceTools.m */; };
 		250F5E5F1F2B2D8400B8014A /* UIButton+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E541F2B2D8400B8014A /* UIButton+MJCClassExtension.m */; };
 		250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */; };
 		250F5E611F2B2D8400B8014A /* UILabel+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E581F2B2D8400B8014A /* UILabel+MJCClassExtension.m */; };
@@ -99,8 +99,8 @@
 		250F5E4E1F2B2D8300B8014A /* MJCCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCCommonTools.m; sourceTree = "<group>"; };
 		250F5E4F1F2B2D8400B8014A /* MJCOrdinaryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCOrdinaryLayout.h; sourceTree = "<group>"; };
 		250F5E501F2B2D8400B8014A /* MJCOrdinaryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCOrdinaryLayout.m; sourceTree = "<group>"; };
-		250F5E511F2B2D8400B8014A /* MJCToolClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCToolClasses.h; sourceTree = "<group>"; };
-		250F5E521F2B2D8400B8014A /* MJCToolClasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCToolClasses.m; sourceTree = "<group>"; };
+		250F5E511F2B2D8400B8014A /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
+		250F5E521F2B2D8400B8014A /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
 		250F5E531F2B2D8400B8014A /* UIButton+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MJCClassExtension.h"; sourceTree = "<group>"; };
 		250F5E541F2B2D8400B8014A /* UIButton+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MJCClassExtension.m"; sourceTree = "<group>"; };
 		250F5E551F2B2D8400B8014A /* UIColor+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MJCClassExtension.h"; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 				250F5E4E1F2B2D8300B8014A /* MJCCommonTools.m */,
 				250F5E4F1F2B2D8400B8014A /* MJCOrdinaryLayout.h */,
 				250F5E501F2B2D8400B8014A /* MJCOrdinaryLayout.m */,
-				250F5E511F2B2D8400B8014A /* MJCToolClasses.h */,
-				250F5E521F2B2D8400B8014A /* MJCToolClasses.m */,
+				250F5E511F2B2D8400B8014A /* MJCInterfaceTools.h */,
+				250F5E521F2B2D8400B8014A /* MJCInterfaceTools.m */,
 				250F5E531F2B2D8400B8014A /* UIButton+MJCClassExtension.h */,
 				250F5E541F2B2D8400B8014A /* UIButton+MJCClassExtension.m */,
 				250F5E551F2B2D8400B8014A /* UIColor+MJCClassExtension.h */,
@@ -656,7 +656,7 @@
 				25C009DE1F2DC74700F65864 /* MJCDemoClassicVC.m in Sources */,
 				25E822E91F0CE38200FB305F /* MJCTestTableViewController.m in Sources */,
 				2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */,
-				250F5E5E1F2B2D8400B8014A /* MJCToolClasses.m in Sources */,
+				250F5E5E1F2B2D8400B8014A /* MJCInterfaceTools.m in Sources */,
 				25E822E61F0CE38200FB305F /* MJCDemoVC3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
