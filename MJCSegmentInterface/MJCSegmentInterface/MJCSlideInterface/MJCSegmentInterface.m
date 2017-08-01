@@ -46,7 +46,6 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 @property (nonatomic,weak) NSArray *selectedColorRgbaArr;
 @property (nonatomic,weak) NSArray *gradientRgbaArr;
 @property (nonatomic,assign) NSInteger selectedTag;
-
 @end
 @implementation MJCSegmentInterface
 -(instancetype)initWithFrame:(CGRect)frame
@@ -92,10 +91,8 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     MJCChildMainView *childMainView = [[MJCChildMainView alloc]init];
     childMainView.delegate = self;
     _childMainView = childMainView;
-    
     _indicatorView = [MJCIndicatorView buttonWithType:UIButtonTypeCustom];
     _indicatorView.frame = CGRectMake(0,0,0,defaultIndicatorH);
-
     [self addSubview:childMainView];
     [self addSubview:titlesView];
 }
