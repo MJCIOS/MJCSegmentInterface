@@ -247,7 +247,12 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     [self addChildVcView];
     [self setupIndicatorViewCenterAndWidth];
     if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
-        [self.delegate mjc_ClickEvent:titleButton childViewController:_hostController.childViewControllers[titleButton.tag] segmentInterface:self];
+        if ( titleButton.tag >=_hostController.childViewControllers.count) {
+            [self.delegate mjc_ClickEvent:titleButton childViewController:nil segmentInterface:self];
+        }else{
+            [self.delegate mjc_ClickEvent:titleButton childViewController:_hostController.childViewControllers[titleButton.tag] segmentInterface:self];
+        }
+        
     }
 }
 

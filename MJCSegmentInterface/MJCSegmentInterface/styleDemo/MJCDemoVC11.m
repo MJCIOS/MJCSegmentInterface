@@ -11,6 +11,8 @@
 
 @interface MJCDemoVC11 ()<MJCSegmentDelegate>
 
+@property (nonatomic,weak) MJCSegmentInterface *lala;
+
 @end
 
 @implementation MJCDemoVC11
@@ -34,17 +36,18 @@
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯",@"诛仙世界"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [MJCSegmentInterface showInterfaceWithTitleBarStyles:MJCTitlesScrollStyle frame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64)];
+    _lala = lala;
 //    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
 //    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,100);//顶部标题栏frame
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    lala.selectedSegmentIndex = 3;//默认选中第几个
+    lala.selectedSegmentIndex = 4;//默认选中第几个
     lala.defaultShowItemCount = 3;//首页,第一页展示多少个
     lala.delegate = self;
     lala.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
@@ -78,6 +81,14 @@
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];
     
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.tag = 7;
+    button.frame = CGRectMake(0, 200, 100, 100);
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(__lalal:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
 }
 
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
@@ -86,5 +97,17 @@
     NSLog(@"%@",childViewController);
     NSLog(@"%@",segmentInterface);
 }
+
+-(void)__lalal:(UIButton *)button
+{
+    if (button.tag ==0) {
+        _lala.selectedSegmentIndex = button.tag;
+        button.tag = 7; 
+    }else{
+        _lala.selectedSegmentIndex = button.tag;
+        button.tag = 0;
+    }
+}
+
 
 @end
