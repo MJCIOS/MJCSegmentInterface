@@ -47,6 +47,10 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
 //    lala.isIndicatorFollow = YES;
     lala.itemTextFontSize = 11;
+    
+    
+    lala.isIndicatorFollow = YES;
+    
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;

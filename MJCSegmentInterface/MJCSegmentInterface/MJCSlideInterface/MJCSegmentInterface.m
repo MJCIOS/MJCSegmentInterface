@@ -130,23 +130,23 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 
 -(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
-    if (selectedSegmentIndex == 0)return;
+    if (selectedSegmentIndex == _selectedTag)return;
     _selectedSegmentIndex = selectedSegmentIndex;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (selectedSegmentIndex >= _titlesArray.count) {
             return;
         }
         _isSetDefaultSelectedItem = YES;
-        _selectedTitleButton.itemTitleNormalColor = _itemTextNormalColor;
-        if (_itemTextFontSize) {
-            _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
-        }else{
-            _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
-        }
-        _selectedTitleButton.selected = NO;
-        _selectedTitleButton =_titleButtonsArr[selectedSegmentIndex];
-        [self titleClick:_selectedTitleButton];
-        
+//        _selectedTitleButton.itemTitleNormalColor = _itemTextNormalColor;
+//        if (_itemTextFontSize) {
+//            _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
+//        }else{
+//            _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
+//        }
+//        _selectedTitleButton.selected = NO;
+//        _selectedTitleButton = _titleButtonsArr[selectedSegmentIndex];
+        MJCTabItem *titlesButton =_titleButtonsArr[selectedSegmentIndex];
+        [self titleClick:titlesButton];
     });
 }
 -(void)intoChildControllerArray:(NSArray *)childControllerArray
@@ -322,6 +322,15 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 {
+//    if (scrollView == _childMainView) {
+//        NSUInteger index = scrollView.contentOffset.x / scrollView.jc_width;
+//        MJCTabItem *titleButton;
+//        if (index == 6)return;
+//        if (index < _titlesArray.count) {
+//            titleButton = _titleButtonsArr[index+1];
+//        }
+//        [self setupTitleCenter:titleButton];
+//    }
     _oldsSelectedItem.itemTitleNormalColor = _itemTextNormalColor;
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset

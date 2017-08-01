@@ -85,6 +85,4 @@ static MJCToolClasses *toolClasses = nil;
 }
 
 
-
-
 @end

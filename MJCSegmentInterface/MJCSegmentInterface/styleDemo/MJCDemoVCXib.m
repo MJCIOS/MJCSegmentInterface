@@ -46,7 +46,7 @@
     
     //以下是我的控件中的代码
     _lala.titlesViewFrame = CGRectMake(0,0,_lala.jc_width,100);//顶部标题栏frame
-    _lala.selectedSegmentIndex = 3;//默认选中第几个
+    _lala.selectedSegmentIndex = 0;//默认选中第几个
     _lala.defaultShowItemCount = 3;//首页,第一页展示多少个
     _lala.delegate = self;
     _lala.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
@@ -80,6 +80,7 @@
     [_lala intoChildControllerArray:vcarrr];
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.tag = 7;
     button.frame = CGRectMake(0, 200, 100, 100);
     button.backgroundColor = [UIColor redColor];
     [button addTarget:self action:@selector(__lalal:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,7 +90,13 @@
 
 -(void)__lalal:(UIButton *)button
 {
-    
+    if (button.tag ==0) {
+        _lala.selectedSegmentIndex = button.tag;
+        button.tag = 7;
+    }else{
+        _lala.selectedSegmentIndex = button.tag;
+        button.tag = 0;
+    }
 }
 
 
