@@ -77,7 +77,6 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     interface.titleBarStyles = titleBarStyles;
     return interface;
 }
-
 - (NSMutableArray *)titleButtonsArr
 {
     if (!_titleButtonsArr) {
@@ -127,7 +126,6 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
         _childVC.view.jc_height = _childMainView.bounds.size.height;
     }
 }
-
 -(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
     if (selectedSegmentIndex == _selectedTag)return;
@@ -137,14 +135,6 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
             return;
         }
         _isSetDefaultSelectedItem = YES;
-//        _selectedTitleButton.itemTitleNormalColor = _itemTextNormalColor;
-//        if (_itemTextFontSize) {
-//            _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
-//        }else{
-//            _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
-//        }
-//        _selectedTitleButton.selected = NO;
-//        _selectedTitleButton = _titleButtonsArr[selectedSegmentIndex];
         MJCTabItem *titlesButton =_titleButtonsArr[selectedSegmentIndex];
         [self titleClick:titlesButton];
     });
