@@ -24,6 +24,10 @@
     view.backgroundColor = [UIColor redColor];
     [self.view addSubview:view];
     
+    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
+    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
+    NSArray *imageBackArr =@[@"111",@"222",@"567",@"1111",@"567"];
+    NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     vc1.titlesCount = 1;
@@ -51,16 +55,12 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
     lala.selectedSegmentIndex = 0;
-    NSArray *imageBackArr =@[@"111",@"222",@"567",@"1111",@"567"];
-    NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
     lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
     lala.itemNormalBackImageArray = imageBackArr;
     lala.itemSelectedBackImageArray = imageBackArr1;
     lala.itemImageSelected = [UIImage imageNamed:@"food-2"];
     lala.itemImageNormal = [UIImage imageNamed:@"food"];
-    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
-    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
     lala.itemImageNormalArray = imageArr;
     lala.itemImageSelectedArray = imageArr1;
     lala.indicatorColor = [UIColor redColor];

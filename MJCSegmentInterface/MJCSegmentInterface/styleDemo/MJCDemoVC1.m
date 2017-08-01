@@ -36,21 +36,16 @@
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-
-    
-    //以下是我的控件中的代码
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+
+
+    //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.delegate= self;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
-//    lala.isIndicatorFollow = YES;
     lala.itemTextFontSize = 11;
-    
-    
-    lala.isIndicatorFollow = YES;
-    
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;

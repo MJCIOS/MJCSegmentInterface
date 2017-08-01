@@ -25,7 +25,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 @property (nonatomic,weak) MJCTabItem *selectedTitleButton;
-@property (nonatomic,weak) MJCTabItem *tabItem;
+//@property (nonatomic,weak) MJCTabItem *tabItem;
 @property (nonatomic,strong) MJCIndicatorView *indicatorView;
 @property (nonatomic, weak) MJCChildMainView *childMainView;
 @property (nonatomic, weak) MJCTitlesView *titlesView;
@@ -70,7 +70,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     [self setupUIFrame];
 }
 
-+(MJCSegmentInterface*)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame
++(instancetype)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame
 {
     MJCSegmentInterface *interface = [[self alloc]initWithFrame:frame];
     interface.titleBarStyles = titleBarStyles;
@@ -430,7 +430,6 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     _titlesViewBackImage = titlesViewBackImage;
     _titlesView.backgroudImage = titlesViewBackImage;
 }
-
 -(void)setIsChildScollEnabled:(BOOL)isChildScollEnabled
 {
     _isChildScollEnabled = isChildScollEnabled;
