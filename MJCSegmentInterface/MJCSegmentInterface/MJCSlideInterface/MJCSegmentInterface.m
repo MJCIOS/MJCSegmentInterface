@@ -17,7 +17,6 @@
 #import "UIColor+MJCClassExtension.h"
 #import "MJCInterfaceTools.h"
 
-static CGFloat const animalTime= 0.25;//动画时间
 static CGFloat const defaultTitlesViewH = 50;//默认标题栏的高度
 static CGFloat const defaultIndicatorH = 1.5;//默认指示器的高度
 static CGFloat const defaultShowCountItem = 4;//默认显示多少个
@@ -70,7 +69,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     [self setupUIFrame];
 }
 
-+(instancetype)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame
++(instancetype)showInterfaceWithTitleBarFrame:(CGRect)frame Styles:(MJCTitleBarStyles)titleBarStyles 
 {
     MJCSegmentInterface *interface = [[self alloc]initWithFrame:frame];
     interface.titleBarStyles = titleBarStyles;
@@ -144,7 +143,9 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
         }
         [self addChildVcView];
     }
+    
 }
+
 - (void)addChildVcView
 {
     _hostController.automaticallyAdjustsScrollViewInsets = NO;
@@ -158,9 +159,12 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     childVc.view.frame = _childMainView.bounds;
     [_childMainView addSubview:childVc.view];
 }
+
+
 -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
 {   _titlesArray = titlesArray;
     _hostController = hostController;
+    hostController.automaticallyAdjustsScrollViewInsets = NO;
     _childMainView.contentSize = CGSizeMake(titlesArray.count * self.frame.size.width,0);
     if (!_isXibLayoutSetup) {
         [self layoutIfNeeded];
@@ -246,6 +250,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
     [self setupChildViewScollAnimal:titleButton];
     [self addChildVcView];
     [self setupIndicatorViewCenterAndWidth];
+    
     if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
         if ( titleButton.tag >=_hostController.childViewControllers.count) {
             [self.delegate mjc_ClickEvent:titleButton childViewController:nil segmentInterface:self];
@@ -330,17 +335,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 }
 -(void)setupChildViewScollAnimal:(MJCTabItem *)titleButton
 {
-    if (_isChildScollAnimal == YES) {
-        [UIView animateWithDuration:animalTime animations:^{
-            CGPoint offset = _childMainView.contentOffset;
-            offset.x = titleButton.tag * _childMainView.jc_width;
-            [_childMainView setContentOffset:offset animated:NO];
-        }];
-    }else{
-        CGPoint offset = _childMainView.contentOffset;
-        offset.x = titleButton.tag * _childMainView.jc_width;
-        [_childMainView setContentOffset:offset animated:NO];
-    }
+    [_childMainView setupChildViewScollAnimal:titleButton isChildScollAnimal:_isChildScollAnimal];
 }
 -(void)setupIndicatorViewCenterAndWidth
 {

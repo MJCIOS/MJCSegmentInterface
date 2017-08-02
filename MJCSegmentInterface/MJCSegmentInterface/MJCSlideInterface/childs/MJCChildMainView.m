@@ -7,8 +7,11 @@
 //
 
 #import "MJCChildMainView.h"
+#import "UIView+MJCClassExtension.h"
 
+static CGFloat const animalTime= 0.25;//动画时间
 @interface MJCChildMainView ()
+
 
 @end
 
@@ -38,5 +41,21 @@
     self.showsVerticalScrollIndicator = NO;
     self.bounces = YES;
 }
+
+-(void)setupChildViewScollAnimal:(UIButton *)titleButton isChildScollAnimal:(BOOL)isChildScollAnimal
+{
+    if (isChildScollAnimal == YES) {
+        [UIView animateWithDuration:animalTime animations:^{
+            CGPoint offset = self.contentOffset;
+            offset.x = titleButton.tag * self.jc_width;
+            [self setContentOffset:offset animated:NO];
+        }];
+    }else{
+        CGPoint offset = self.contentOffset;
+        offset.x = titleButton.tag * self.jc_width;
+        [self setContentOffset:offset animated:NO];
+    }
+}
+
 
 @end

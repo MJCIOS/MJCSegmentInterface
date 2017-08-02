@@ -127,7 +127,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 #pragma mark -- 添加方法和创建方法
 
 /** 实例化此控件的方法 */
-+(instancetype)showInterfaceWithTitleBarStyles:(MJCTitleBarStyles)titleBarStyles frame:(CGRect)frame;
++(instancetype)showInterfaceWithTitleBarFrame:(CGRect)frame Styles:(MJCTitleBarStyles)titleBarStyles;
 /** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoChildControllerArray:(NSArray *)childControllerArray;
 /** 添加标题栏的方法 */

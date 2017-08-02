@@ -10,6 +10,6 @@
 
 @interface MJCChildMainView : UIScrollView
 
-
+-(void)setupChildViewScollAnimal:(UIButton *)titleButton isChildScollAnimal:(BOOL)isChildScollAnimal;
 
 @end

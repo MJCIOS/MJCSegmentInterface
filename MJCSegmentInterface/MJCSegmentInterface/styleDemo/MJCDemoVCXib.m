@@ -74,7 +74,7 @@
     _lala.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
     _lala.isFontGradient = YES;
     _lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    _lala.indicatorFrame = CGRectMake(0,_lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
+    _lala.indicatorFrame = CGRectMake(0,20,30,10);//指示器位置
     [_lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [_lala intoTitlesArray:titlesArr hostController:self];
     [_lala intoChildControllerArray:vcarrr];
