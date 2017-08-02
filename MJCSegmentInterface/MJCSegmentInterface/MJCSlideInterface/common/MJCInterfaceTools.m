@@ -47,9 +47,9 @@ static MJCInterfaceTools *toolClasses = nil;
     [titlesScrollView setContentOffset: CGPointMake(offsetX, 0) animated:YES];
 }
 
--(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isChildScollAnimal indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame indicatorView:(UIButton*)indicatorView
+-(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isIndicatorFollowAnimal indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame indicatorView:(UIButton*)indicatorView
 {
-    if (isChildScollAnimal) {
+    if (isIndicatorFollowAnimal) {
         if (indicatorStyles == MJCIndicatorItemTextStyle) {
             [selectedTitleButton.titleLabel sizeToFit];
             [UIView animateWithDuration:animalTime animations:^{

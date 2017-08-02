@@ -354,7 +354,7 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 }
 -(void)setupIndicatorViewCenterAndWidth
 {
-    [[MJCInterfaceTools toolClasses] setupIndicatorViewCenterAndWidthIsAnimal:_isChildScollAnimal indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame indicatorView:_indicatorView];
+    [[MJCInterfaceTools toolClasses] setupIndicatorViewCenterAndWidthIsAnimal:_isIndicatorFollowAnimal indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame indicatorView:_indicatorView];
 }
 - (void)setupTitleCenter:(UIButton *)titleButton
 {
@@ -434,6 +434,10 @@ static CGFloat const defaultItemFontSize = 14;//默认字体的大小
 {
     _isChildScollEnabled = isChildScollEnabled;
     _childMainView.scrollEnabled = isChildScollEnabled;
+}
+-(void)setIsIndicatorFollowAnimal:(BOOL)isIndicatorFollowAnimal
+{
+    _isIndicatorFollowAnimal = isIndicatorFollowAnimal;
 }
 -(void)setIsChildScollAnimal:(BOOL)isChildScollAnimal
 {

@@ -65,6 +65,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,assign) BOOL isChildScollEnabled;
 /** 子界面滚动是否有动画 */
 @property(nonatomic,assign) BOOL isChildScollAnimal;
+/** 底部指示器是否有动画 */
+@property(nonatomic,assign) BOOL isIndicatorFollowAnimal;
 /** 是否显示标题文字 */
 @property(nonatomic,assign) BOOL isItemTitleTextHidden;
 /** 颜色是否渐变 */

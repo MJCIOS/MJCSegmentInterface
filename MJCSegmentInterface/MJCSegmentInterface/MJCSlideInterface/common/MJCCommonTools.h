@@ -23,10 +23,8 @@
 +(UIImage *)jc_imageWithColor:(UIColor *)color;
 /** 通过16进制计算颜色 */
 +(UIColor *)jc_colorFromHexRGB:(NSString *)inColorString;
-
-
 /** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
--(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
++(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
 
 
 @end
