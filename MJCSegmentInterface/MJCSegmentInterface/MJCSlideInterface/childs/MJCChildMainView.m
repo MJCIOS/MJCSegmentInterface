@@ -29,5 +29,14 @@
     return self;
 }
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor whiteColor];
+    self.pagingEnabled = YES;
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    self.bounces = YES;
+}
 
 @end

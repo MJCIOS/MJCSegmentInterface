@@ -38,6 +38,14 @@
     }
     return self;
 }
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+}
 
 -(void)layoutSubviews
 {
@@ -195,7 +203,6 @@
         [self setBackgroundImage:[UIImage imageNamed:itemSelectedBackImageArray[self.tag]] forState:UIControlStateSelected];
     }
 }
-
 
 -(void)setHighlighted:(BOOL)highlighted
 {

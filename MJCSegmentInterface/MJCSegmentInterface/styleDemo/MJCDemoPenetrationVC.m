@@ -40,6 +40,9 @@
     MJCSegmentInterface *lala =  [MJCSegmentInterface showInterfaceWithTitleBarStyles:MJCTitlesScrollStyle frame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64)];
     lala.titleBarStyles = MJCTitlesClassicStyle;
     lala.isPenetrationEffect = YES;
+    lala.isIndicatorsAnimals = YES;
+    lala.isIndicatorFollow = YES;
+    lala.isChildScollAnimal = YES;
     lala.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.3];
     lala.itemBackColor =  [UIColor clearColor];
     lala.itemTextNormalColor = [UIColor redColor];

@@ -3,6 +3,6 @@ target "MJCSegmentInterface" do
     
     pod 'SDWebImage'
     pod 'MJRefresh'
-    
+
     
 end

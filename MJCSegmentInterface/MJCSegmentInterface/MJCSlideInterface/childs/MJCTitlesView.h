@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong)  UIImage*backgroudImage;
 
+@property (nonatomic,strong) UIButton *selectedTitletabitem;
+
 @end

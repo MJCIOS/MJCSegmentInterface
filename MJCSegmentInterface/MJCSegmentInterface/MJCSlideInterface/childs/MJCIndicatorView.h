@@ -12,6 +12,8 @@
 
 @property (nonatomic,strong) UIImage *indicatorImage;
 
--(void)setupDefaultFrame:(CGRect)indicatorFrame tabItemBtn:(UIButton*)tabItemBtn;
+//-(void)setupDefaultFrame:(CGRect)indicatorFrame tabItemBtn:(UIButton*)tabItemBtn;
+
+-(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isIndicatorsAnimals indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame;
 
 @end
