@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MJCTabItem : UIButton
-
 @property (nonatomic,copy) NSString *itemText;
 @property (nonatomic,assign) CGFloat itemTextFontSize;
 @property (nonatomic,strong) UIColor *itemTitleNormalColor;
@@ -26,5 +25,4 @@
 @property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
 @property(nonatomic,assign)   CGSize itemImageSize;
 @property (nonatomic,assign) NSUInteger imageEffectStyles;
-
 @end

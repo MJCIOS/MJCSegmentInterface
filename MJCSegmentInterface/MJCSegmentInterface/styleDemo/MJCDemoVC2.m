@@ -20,19 +20,12 @@
     
     
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
-    vc1.titlesCount = 1;
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
-    vc2.titlesCount = 2;
     MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
-    vc3.titlesCount = 3;
-    MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
-    vc4.titlesCount = 4;
+    MJCTestCollectVC *vc4 = [[MJCTestCollectVC alloc]init];
     MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
-    vc5.titlesCount = 5;
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
-    vc6.titlesCount = 6;
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
-    vc7.titlesCount = 7;
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
 

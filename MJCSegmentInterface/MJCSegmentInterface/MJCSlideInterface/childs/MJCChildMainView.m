@@ -1,6 +1,6 @@
 //
 //  MJCChildScrollView.m
-//  MJCSlideSwitch
+//  MJCSegmentInterface
 //
 //  Created by mjc on 16/10/26.
 //  Copyright © 2016年 MJC. All rights reserved.
@@ -9,15 +9,12 @@
 #import "MJCChildMainView.h"
 #import "UIView+MJCClassExtension.h"
 
-static CGFloat const animalTime= 0.25;//动画时间
+static CGFloat const animalTime= 0.25;
 @interface MJCChildMainView ()
-
-
+@property (nonatomic,weak) UIViewController *childVC;
+@property (nonatomic,strong) NSArray *titlesArr;
 @end
-
-
 @implementation MJCChildMainView
-
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -26,12 +23,10 @@ static CGFloat const animalTime= 0.25;//动画时间
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.bounces = YES;
-//        self.directionalLockEnabled = YES;
-//        self.scrollsToTop = NO; // 点击状态栏的时候，这个scrollView不会滚动到最顶部
+        self.scrollEnabled = YES;
     }
     return self;
 }
-
 -(void)awakeFromNib
 {
     [super awakeFromNib];
@@ -40,22 +35,67 @@ static CGFloat const animalTime= 0.25;//动画时间
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
     self.bounces = YES;
+    self.scrollEnabled = YES;
 }
-
--(void)setupChildViewScollAnimal:(UIButton *)titleButton isChildScollAnimal:(BOOL)isChildScollAnimal
+-(void)setChildControllerArray:(NSArray *)childControllerArray
 {
-    if (isChildScollAnimal == YES) {
+    _childControllerArray = childControllerArray;
+    if (_hostController.childViewControllers.count == 0) {
+        for (int i = 0; i < childControllerArray.count; i++) {
+            [self.hostController addChildViewController:childControllerArray[i]];
+        }
+        [self addChildVcView];
+    }
+}
+- (void)addChildVcView
+{
+    NSUInteger index = self.contentOffset.x / self.jc_width;
+    UIViewController *childVc;
+    if (index >= _hostController.childViewControllers.count) {
+        return;
+    }
+    childVc = _hostController.childViewControllers[index];
+    if ([childVc isViewLoaded]) return;
+    childVc.view.frame = self.bounds;
+    [self addSubview:childVc.view];
+}
+-(void)setTitlesTabItem:(MJCTabItem *)titlesTabItem
+{
+    _titlesTabItem = titlesTabItem;
+    if (_isChildScollAnimal == YES) {
         [UIView animateWithDuration:animalTime animations:^{
             CGPoint offset = self.contentOffset;
-            offset.x = titleButton.tag * self.jc_width;
+            offset.x = titlesTabItem.tag * self.jc_width;
             [self setContentOffset:offset animated:NO];
         }];
     }else{
         CGPoint offset = self.contentOffset;
-        offset.x = titleButton.tag * self.jc_width;
+        offset.x = titlesTabItem.tag * self.jc_width;
         [self setContentOffset:offset animated:NO];
     }
 }
-
-
+-(void)setupContenSizeWithTitlesArr:(NSArray *)titlesArr mainView:(UIView*)mainView;
+{
+    _titlesArr = titlesArr;
+    self.contentSize = CGSizeMake(titlesArr.count * mainView.frame.size.width,0);
+}
+-(void)setIsChildScollAnimal:(BOOL)isChildScollAnimal
+{
+    _isChildScollAnimal = isChildScollAnimal;
+}
+-(void)setIsChildScollEnabled:(BOOL)isChildScollEnabled
+{
+    _isChildScollEnabled = isChildScollEnabled;
+    self.scrollEnabled = isChildScollEnabled;
+}
+-(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
+{
+    if (isLoadDefaultChildVC == YES) {
+        //        dispatch_async(dispatch_get_main_queue(), ^{
+        NSUInteger index = self.contentOffset.x/self.jc_width;
+        _childVC = _hostController.childViewControllers[index];
+        _childVC.view.jc_height = self.bounds.size.height;
+        //        });
+    }
+}
 @end

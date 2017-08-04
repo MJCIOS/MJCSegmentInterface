@@ -10,6 +10,7 @@
 #define MJCPrefixHeader_pch
 
 
+#import "MJCTestCollectVC.h"
 #import "MJCTestTableViewController.h"
 #import "MJCTestViewController.h"
 #import "MJCTestViewController1.h"

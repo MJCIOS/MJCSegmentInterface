@@ -10,10 +10,8 @@
 #import "UIView+MJCClassExtension.h"
 #import "MJCSegmentInterface.h"
 
-static CGFloat const animalTime= 0.25;//动画时间
-
+static CGFloat const animalTime= 0.25;
 @implementation MJCIndicatorView
-
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -36,22 +34,9 @@ static CGFloat const animalTime= 0.25;//动画时间
 -(void)setIndicatorImage:(UIImage *)indicatorImage
 {
     _indicatorImage = indicatorImage;
- 
     [self setImage:indicatorImage forState:UIControlStateNormal];
-    [self sizeToFit];   
+    [self sizeToFit];
 }
-
--(void)setupDefaultFrame:(CGRect)indicatorFrame tabItemBtn:(UIButton*)tabItemBtn;
-{
-    if (indicatorFrame.size.width == 0) {
-        self.jc_width = tabItemBtn.jc_width;
-    }else{
-        self.jc_width = indicatorFrame.size.width;
-    }
-    self.jc_centerX = tabItemBtn.jc_centerX;
-    
-}
-
 -(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isIndicatorsAnimals indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame;
 {
     if (isIndicatorsAnimals) {
@@ -88,6 +73,4 @@ static CGFloat const animalTime= 0.25;//动画时间
         }
     }
 }
-
-
 @end

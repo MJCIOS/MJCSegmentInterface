@@ -59,7 +59,6 @@
     CGFloat tabItemW = self.frame.size.width;
     CGFloat tabItemCenterX = tabItemW/2;
     CGFloat tabItemCenterY = tabItemH/2;
-    
     if (self.imageView.image != nil) {
         if (_imageEffectStyles == 1) {
             [self.titleLabel sizeToFit];
@@ -70,18 +69,16 @@
             if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
                 self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
             }else{
-                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH);
-            }
+                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
             self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
             self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
         }else{
             if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
                 self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
             }else{
-                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH);
-            }
+                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
             self.titleEdgeInsets = UIEdgeInsetsMake(_topTextMargin, _leftTextMargin, _bottomTextMargin, _rightTextMargin);
-            self.imageEdgeInsets = UIEdgeInsetsMake(_topImageMargin, _leftImageMargin, _bottomImageMargin, _rightImageMargin);        }
+            self.imageEdgeInsets = UIEdgeInsetsMake(_topImageMargin, _leftImageMargin, _bottomImageMargin, _rightImageMargin);  }
     }else{
         [self.titleLabel sizeToFit];
         self.titleLabel.jc_centerX = tabItemCenterX;
@@ -119,10 +116,9 @@
 
 -(void)setItemText:(NSString *)itemText
 {
-    _itemText = itemText;    
+    _itemText = itemText;
     [self setTitle:itemText forState:UIControlStateNormal];
 }
-
 -(void)setItemTextFontSize:(CGFloat)itemTextFontSize
 {
     _itemTextFontSize = itemTextFontSize;
@@ -153,7 +149,7 @@
 }
 -(void)setItemBackSelectedImage:(UIImage *)itemBackSelectedImage
 {
-    _itemBackSelectedImage = itemBackSelectedImage;  
+    _itemBackSelectedImage = itemBackSelectedImage;
     [self setBackgroundImage:itemBackSelectedImage forState:UIControlStateSelected];
 }
 
