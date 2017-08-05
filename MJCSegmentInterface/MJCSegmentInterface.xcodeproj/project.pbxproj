@@ -42,6 +42,7 @@
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
 		257216941F35989B00A1EF49 /* demo12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 257216931F35989B00A1EF49 /* demo12.gif */; };
+		257216961F3599D500A1EF49 /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 257216951F3599D500A1EF49 /* demo0.gif */; };
 		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
 		25C009DE1F2DC74700F65864 /* MJCDemoClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009DD1F2DC74700F65864 /* MJCDemoClassicVC.m */; };
 		25C009E11F2E259200F65864 /* MJCDemoPenetrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009E01F2E259200F65864 /* MJCDemoPenetrationVC.m */; };
@@ -143,6 +144,7 @@
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
 		257216931F35989B00A1EF49 /* demo12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo12.gif; sourceTree = "<group>"; };
+		257216951F3599D500A1EF49 /* demo0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo0.gif; sourceTree = "<group>"; };
 		2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
 		25C009DC1F2DC74700F65864 /* MJCDemoClassicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC.h; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		25E822C81F0CE35F00FB305F /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				257216951F3599D500A1EF49 /* demo0.gif */,
 				2556BE4C1F186AA800E903F5 /* demo4.gif */,
 				2556BE4D1F186AA800E903F5 /* demo5.gif */,
 				257216931F35989B00A1EF49 /* demo12.gif */,
@@ -531,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				257216911F34465E00A1EF49 /* collectionData.plist in Resources */,
+				257216961F3599D500A1EF49 /* demo0.gif in Resources */,
 				2556BE4A1F186A9D00E903F5 /* demo10.gif in Resources */,
 				25E822CD1F0CE35F00FB305F /* mainData.plist in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
