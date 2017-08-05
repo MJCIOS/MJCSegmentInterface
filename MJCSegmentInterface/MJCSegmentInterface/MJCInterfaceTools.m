@@ -10,7 +10,6 @@
 
 @implementation MJCInterfaceTools
 
-
 +(UIViewController *)setupViewControllersStr:(NSString *)vcStr;
 {
     Class class = NSClassFromString(vcStr);
