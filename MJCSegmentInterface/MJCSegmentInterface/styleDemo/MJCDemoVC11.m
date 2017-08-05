@@ -31,7 +31,17 @@
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯",@"诛仙世界"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
-    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
+    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];    
+    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+        UIViewController *vc = vcarrr[i];
+        vc.title = titlesArr[i];
+    }
+
+    
+    
+    
+    
+    
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle] ;

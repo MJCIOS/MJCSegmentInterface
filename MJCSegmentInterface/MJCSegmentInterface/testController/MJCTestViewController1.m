@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSInteger tag  = arc4random() % 9;
+    self.testTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"back%ld",tag]]];
+    
 }
 
 #pragma mark - UITableviewdatasource,UITableViewDelegate
@@ -36,8 +39,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    cell.backgroundColor = [UIColor purpleColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"我是第%@个",[MJCInterfaceTools setupNSStringWithNumberCount:_titlesCount]];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",self.title];
     return cell;
 }
 

@@ -38,10 +38,10 @@
 		2556BE4B1F186A9D00E903F5 /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE441F186A9D00E903F5 /* demo11.gif */; };
 		2556BE501F186AA800E903F5 /* demo4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4C1F186AA800E903F5 /* demo4.gif */; };
 		2556BE511F186AA800E903F5 /* demo5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4D1F186AA800E903F5 /* demo5.gif */; };
-		2556BE521F186AA800E903F5 /* demo6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4E1F186AA800E903F5 /* demo6.gif */; };
 		2556BE531F186AA800E903F5 /* demo7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4F1F186AA800E903F5 /* demo7.gif */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
+		257216941F35989B00A1EF49 /* demo12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 257216931F35989B00A1EF49 /* demo12.gif */; };
 		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
 		25C009DE1F2DC74700F65864 /* MJCDemoClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009DD1F2DC74700F65864 /* MJCDemoClassicVC.m */; };
 		25C009E11F2E259200F65864 /* MJCDemoPenetrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009E01F2E259200F65864 /* MJCDemoPenetrationVC.m */; };
@@ -137,12 +137,12 @@
 		2556BE441F186A9D00E903F5 /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
 		2556BE4C1F186AA800E903F5 /* demo4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo4.gif; sourceTree = "<group>"; };
 		2556BE4D1F186AA800E903F5 /* demo5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo5.gif; sourceTree = "<group>"; };
-		2556BE4E1F186AA800E903F5 /* demo6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo6.gif; sourceTree = "<group>"; };
 		2556BE4F1F186AA800E903F5 /* demo7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo7.gif; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
+		257216931F35989B00A1EF49 /* demo12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo12.gif; sourceTree = "<group>"; };
 		2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
 		25C009DC1F2DC74700F65864 /* MJCDemoClassicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC.h; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 			children = (
 				2556BE4C1F186AA800E903F5 /* demo4.gif */,
 				2556BE4D1F186AA800E903F5 /* demo5.gif */,
-				2556BE4E1F186AA800E903F5 /* demo6.gif */,
+				257216931F35989B00A1EF49 /* demo12.gif */,
 				2556BE4F1F186AA800E903F5 /* demo7.gif */,
 				2556BE3E1F186A9D00E903F5 /* demo3.gif */,
 				2556BE3F1F186A9D00E903F5 /* demo2.gif */,
@@ -547,8 +547,8 @@
 				2556BE451F186A9D00E903F5 /* demo3.gif in Resources */,
 				2556BE491F186A9D00E903F5 /* demo9.gif in Resources */,
 				2556BE481F186A9D00E903F5 /* demo8.gif in Resources */,
-				2556BE521F186AA800E903F5 /* demo6.gif in Resources */,
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
+				257216941F35989B00A1EF49 /* demo12.gif in Resources */,
 				250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

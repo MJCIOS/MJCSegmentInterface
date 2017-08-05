@@ -10,6 +10,4 @@
 
 @interface MJCTestViewController1 : UIViewController
 
-@property (nonatomic,assign) NSInteger titlesCount;
-
 @end

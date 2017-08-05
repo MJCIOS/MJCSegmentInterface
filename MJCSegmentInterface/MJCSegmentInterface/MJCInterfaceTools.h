@@ -16,6 +16,5 @@
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
 @interface MJCInterfaceTools : NSObject
-+(NSString *)setupNSStringWithNumberCount:(NSInteger)count;
 +(UIViewController *)setupViewControllersStr:(NSString *)vcStr;
 @end

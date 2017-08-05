@@ -37,6 +37,12 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
+    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+        UIViewController *vc = vcarrr[i];
+        vc.title = titlesArr[i];
+    }
+
+    
 
     
     //以下是我的控件中的代码

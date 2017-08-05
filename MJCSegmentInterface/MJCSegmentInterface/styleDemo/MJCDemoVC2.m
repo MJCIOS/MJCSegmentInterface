@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
@@ -28,7 +27,17 @@
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+        UIViewController *vc = vcarrr[i];
+        vc.title = titlesArr[i];
+    }
 
+    
+    
+    
+    
+    
+    
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];

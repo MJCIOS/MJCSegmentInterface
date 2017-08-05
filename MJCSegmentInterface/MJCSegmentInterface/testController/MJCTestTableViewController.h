@@ -10,8 +10,6 @@
 
 @interface MJCTestTableViewController : UITableViewController
 
-@property (nonatomic,assign) NSInteger titlesCount;
-
 -(void)beginLoadNewData;
 
 @end

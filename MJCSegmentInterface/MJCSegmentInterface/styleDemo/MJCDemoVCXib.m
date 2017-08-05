@@ -34,6 +34,18 @@
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"诛仙世界",@"飞车",@"炫舞",@"天涯"];
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
+    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+        UIViewController *vc = vcarrr[i];
+        vc.title = titlesArr[i];
+    }
+
+    
+    
+    
+    
+    
+    
+    
     
     
     //以下是我的控件中的代码
