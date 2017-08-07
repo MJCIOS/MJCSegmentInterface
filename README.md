@@ -39,7 +39,7 @@
 ### ☆☆ MJCSegmentInterface分段控制器创建(几行代码设置即可使用) ☆☆
     
         NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-        MJCSegmentFace *segmentsface = [[MJCSegmentFace alloc]init];
+        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
         segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
         [lala intoTitlesArray:titlesArr hostController:self];
         [self.view addSubview:segmentsface];
