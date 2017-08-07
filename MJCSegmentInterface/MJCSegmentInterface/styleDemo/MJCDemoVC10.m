@@ -47,6 +47,7 @@
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
     lala.defaultShowItemCount = 3;
     lala.itemTextFontSize = 13;

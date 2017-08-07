@@ -42,12 +42,13 @@
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 5;
+    lala.defaultShowItemCount = 6;
     lala.indicatorColor = [UIColor purpleColor];
     lala.itemBackColor = [UIColor whiteColor];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];

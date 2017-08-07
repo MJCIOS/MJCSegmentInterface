@@ -40,6 +40,7 @@
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
+    lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.indicatorStyles = MJCIndicatorItemStyle;
     lala.itemTextNormalColor = [UIColor redColor];

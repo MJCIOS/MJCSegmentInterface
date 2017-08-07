@@ -201,6 +201,9 @@ static CGFloat const defaultIndicatorH = 1.5;
 - (NSArray *)normalColorRgbaArr
 {
     if (!_normalColorRgbaArr) {
+        if (!_itemTextNormalColor) {
+            _itemTextNormalColor = [UIColor grayColor];
+        }
         NSArray *normalColorRgbaArr = [UIColor jc_getNeedColorRgbaArr:_itemTextNormalColor];
         _normalColorRgbaArr = normalColorRgbaArr;
     }
@@ -209,6 +212,9 @@ static CGFloat const defaultIndicatorH = 1.5;
 - (NSArray *)selectedColorRgbaArr
 {
     if (!_selectedColorRgbaArr) {
+        if (!_itemTextSelectedColor) {
+            _itemTextSelectedColor = [UIColor blackColor];
+        }
         NSArray *selectedColorRgbaArr = [UIColor jc_getNeedColorRgbaArr:_itemTextSelectedColor];
         _selectedColorRgbaArr = selectedColorRgbaArr;
     }

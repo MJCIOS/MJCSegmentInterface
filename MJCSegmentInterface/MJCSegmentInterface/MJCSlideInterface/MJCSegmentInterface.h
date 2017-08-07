@@ -12,8 +12,8 @@
 
 //标题样式
 typedef NS_OPTIONS(NSUInteger,MJCTitleBarStyles) {
-    MJCTitlesScrollStyle = 0,       //滚动标题栏样式
-    MJCTitlesClassicStyle = 1      //经典标题样式
+    MJCTitlesClassicStyle = 0,      //经典标题样式
+    MJCTitlesScrollStyle = 1       //滚动标题栏样式 
 } ;
 
 //底部指示器样式

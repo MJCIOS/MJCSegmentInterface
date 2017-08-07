@@ -49,6 +49,7 @@
     
     
     //以下是我的控件中的代码
+    _lala.titleBarStyles = MJCTitlesScrollStyle;
     _lala.titlesViewFrame = CGRectMake(0,0,_lala.jc_width,100);//顶部标题栏frame
     _lala.selectedSegmentIndex = 0;//默认选中第几个
     _lala.defaultShowItemCount = 3;//首页,第一页展示多少个
