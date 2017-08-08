@@ -83,12 +83,14 @@ static CGFloat const defaultTitlesViewH = 50;
         CGFloat titlesViewMaxY = CGRectGetMaxY(_titlesView.frame);
         _childMainView.frame =CGRectMake(0,titlesViewMaxY,self.jc_width,self.jc_height-titlesViewMaxY);
     }
+    
     [_childMainView setupChildViewHeightisLoadDefaultChildVC:_isLoadDefaultChildVC];
 }
 
 -(void)intoChildControllerArray:(NSArray *)childControllerArray
 {   _childControllerArray = childControllerArray;
     _childMainView.childControllerArray = childControllerArray;
+    _isLoadDefaultChildVC = YES;
 }
 -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
 {   _titlesArray = titlesArray;
@@ -102,9 +104,6 @@ static CGFloat const defaultTitlesViewH = 50;
     }
     [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
     _titlesView.titlesArray = titlesArray;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        _isLoadDefaultChildVC = YES;
-    });
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

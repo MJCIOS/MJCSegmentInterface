@@ -91,18 +91,21 @@ static CGFloat const defaultIndicatorH = 1.5;
     CGFloat tabItemW;
     if (_titlesBarStyles == MJCTitlesScrollStyle ) {
         if (_defaultShowItemCount) {
-            if (titlesArray.count <=defaultShowCountItem) {
-                _defaultShowItemCount = titlesArray.count;
-            }else{
-                if ( _defaultShowItemCount > titlesArray.count) {
-                    _defaultShowItemCount =defaultShowCountItem;
+            if (_defaultShowItemCount > titlesArray.count) {
+                if (titlesArray.count < defaultShowCountItem) {
+                    tabItemW = self.jc_width/titlesArray.count;
                 }else{
-                    _defaultShowItemCount = self.defaultShowItemCount;
+                    tabItemW = self.jc_width/defaultShowCountItem;
                 }
+            }else{
+                tabItemW = self.jc_width/_defaultShowItemCount;
             }
-            tabItemW = self.jc_width/_defaultShowItemCount;
         }else{
-            tabItemW = self.jc_width/defaultShowCountItem;
+            if (_titlesArray.count <= defaultShowCountItem) {
+                tabItemW = self.jc_width/_titlesArray.count;
+            }else{
+                tabItemW = self.jc_width/defaultShowCountItem;
+            }
         }
     }else{
         tabItemW = self.jc_width/titlesArray.count;
@@ -156,7 +159,10 @@ static CGFloat const defaultIndicatorH = 1.5;
 - (void)titleClick:(MJCTabItem *)titleButton
 {
     _selectedTag = titleButton.tag;
-    [self setupTitleCenter:titleButton];
+    
+    if (_titlesArray.count >=3) {
+        [self setupTitleCenter:titleButton];
+    }
     if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem) { _selectedTitleButton.selected = YES; return;};
     _isSetDefaultSelectedItem = NO;
     if (_itemTextFontSize) {
@@ -179,7 +185,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 - (void)setupTitleCenter:(UIButton *)titleButton
 {
     CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.7;
-    //    CGFloat offsetX = button.center.x - MJCScreenWidth * 0.5;
+//        CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.5;
     if (offsetX < 0) {
         offsetX = 0;
     }

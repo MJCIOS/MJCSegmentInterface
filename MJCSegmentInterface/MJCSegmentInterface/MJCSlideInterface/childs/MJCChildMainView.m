@@ -42,7 +42,7 @@ static CGFloat const animalTime= 0.25;
     _childControllerArray = childControllerArray;
     if (_hostController.childViewControllers.count == 0) {
         for (int i = 0; i < childControllerArray.count; i++) {
-            [self.hostController addChildViewController:childControllerArray[i]];
+            [_hostController addChildViewController:childControllerArray[i]];
         }
         [self addChildVcView];
     }
@@ -91,11 +91,11 @@ static CGFloat const animalTime= 0.25;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 {
     if (isLoadDefaultChildVC == YES) {
-        //        dispatch_async(dispatch_get_main_queue(), ^{
+//                dispatch_async(dispatch_get_main_queue(), ^{
         NSUInteger index = self.contentOffset.x/self.jc_width;
         _childVC = _hostController.childViewControllers[index];
         _childVC.view.jc_height = self.bounds.size.height;
-        //        });
+//                });
     }
 }
 @end

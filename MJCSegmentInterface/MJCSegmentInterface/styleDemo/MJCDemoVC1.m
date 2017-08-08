@@ -36,9 +36,6 @@
         vc.title = titlesArr[i];
     }
     
-    
-    
-    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;
@@ -48,8 +45,8 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.itemTextFontSize = 11;
     [lala intoTitlesArray:titlesArr hostController:self];
-    [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];
+    [self.view addSubview:lala];
 }
 
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
