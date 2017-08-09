@@ -36,21 +36,25 @@
 * (真的很喜欢玩他们的游戏,感觉他们的项目很不错,所以忍不住仿做了他们的项目)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/xiangmu2.gif)
 
-### ☆☆ MJCSegmentInterface分段控制器创建(几行代码设置即可使用) ☆☆
+### ☆☆ 使用说明(几行代码设置即可使用) ☆☆
     
-        NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
-        [lala intoTitlesArray:titlesArr hostController:self];
-        [self.view addSubview:segmentsface];
         MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
         MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
         MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
         MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
         MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
         NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5];
-        [lala intoChildControllerArray:vcarrr];
+        NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
 
+        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
+        segmentsface.isFontGradient = YES
+        segmentsface.indicatorColor = [UIColor blackColor];
+
+        /**所有属性的修改都要在([segmentsface intoTitlesArray:titlesArr hostController:self])方法上面设置*/
+        [segmentsface intoTitlesArray:titlesArr hostController:self];
+        [segmentsface intoChildControllerArray:vcarrr];
+        [self.view addSubview:segmentsface];
         
 ---------------------------------------------------------------------------------------------------------------
         

@@ -35,7 +35,6 @@
 		2556BE4A1F186A9D00E903F5 /* demo10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE431F186A9D00E903F5 /* demo10.gif */; };
 		2556BE4B1F186A9D00E903F5 /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE441F186A9D00E903F5 /* demo11.gif */; };
 		2556BE501F186AA800E903F5 /* demo4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4C1F186AA800E903F5 /* demo4.gif */; };
-		2556BE511F186AA800E903F5 /* demo5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4D1F186AA800E903F5 /* demo5.gif */; };
 		2556BE531F186AA800E903F5 /* demo7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4F1F186AA800E903F5 /* demo7.gif */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
@@ -132,7 +131,6 @@
 		2556BE431F186A9D00E903F5 /* demo10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo10.gif; sourceTree = "<group>"; };
 		2556BE441F186A9D00E903F5 /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
 		2556BE4C1F186AA800E903F5 /* demo4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo4.gif; sourceTree = "<group>"; };
-		2556BE4D1F186AA800E903F5 /* demo5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo5.gif; sourceTree = "<group>"; };
 		2556BE4F1F186AA800E903F5 /* demo7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo7.gif; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				2556BE4C1F186AA800E903F5 /* demo4.gif */,
-				2556BE4D1F186AA800E903F5 /* demo5.gif */,
 				257216931F35989B00A1EF49 /* demo12.gif */,
 				2556BE4F1F186AA800E903F5 /* demo7.gif */,
 				2556BE3E1F186A9D00E903F5 /* demo3.gif */,
@@ -531,7 +528,6 @@
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
 				2556BE471F186A9D00E903F5 /* demo1.gif in Resources */,
 				2556BE251F1721A100E903F5 /* xiangmu2.gif in Resources */,
-				2556BE511F186AA800E903F5 /* demo5.gif in Resources */,
 				2556BE531F186AA800E903F5 /* demo7.gif in Resources */,
 				2556BE501F186AA800E903F5 /* demo4.gif in Resources */,
 				25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */,
