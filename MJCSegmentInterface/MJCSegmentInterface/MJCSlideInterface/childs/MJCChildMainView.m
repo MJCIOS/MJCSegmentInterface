@@ -37,15 +37,21 @@ static CGFloat const animalTime= 0.25;
     self.bounces = YES;
     self.scrollEnabled = YES;
 }
--(void)setChildControllerArray:(NSArray *)childControllerArray
+
+-(void)setHostController:(UIViewController *)hostController
 {
-    _childControllerArray = childControllerArray;
+    _hostController = hostController;
     if (_hostController.childViewControllers.count == 0) {
-        for (int i = 0; i < childControllerArray.count; i++) {
-            [_hostController addChildViewController:childControllerArray[i]];
+        for (int i = 0; i < _childControllerArray.count; i++) {
+            [_hostController addChildViewController:_childControllerArray[i]];
         }
         [self addChildVcView];
     }
+}
+
+-(void)setChildControllerArray:(NSArray *)childControllerArray
+{
+    _childControllerArray = childControllerArray;
 }
 - (void)addChildVcView
 {

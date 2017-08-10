@@ -41,12 +41,14 @@
     lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.delegate= self;
-    lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
-    [lala intoTitlesArray:titlesArr hostController:self];
+    lala.itemTextNormalColor = [UIColor redColor];
+    
     [lala intoChildControllerArray:vcarrr];
+    [lala intoTitlesArray:titlesArr hostController:self];
+    
     [self.view addSubview:lala];
 }
 

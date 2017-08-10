@@ -48,7 +48,7 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 6;
+    lala.defaultShowItemCount = 4;
     lala.indicatorColor = [UIColor purpleColor];
     lala.itemBackColor = [UIColor whiteColor];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];

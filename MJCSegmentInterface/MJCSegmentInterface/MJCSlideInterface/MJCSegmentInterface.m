@@ -13,7 +13,10 @@
 #import "sys/utsname.h"
 #import "UIView+MJCClassExtension.h"
 
+
+#define DELAYTIMES (0.0005)
 static CGFloat const defaultTitlesViewH = 50;
+
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>
 @property (nonatomic, strong) MJCChildMainView *childMainView;
 @property (nonatomic, strong) MJCTitlesView *titlesView;
@@ -90,20 +93,23 @@ static CGFloat const defaultTitlesViewH = 50;
 -(void)intoChildControllerArray:(NSArray *)childControllerArray
 {   _childControllerArray = childControllerArray;
     _childMainView.childControllerArray = childControllerArray;
-    _isLoadDefaultChildVC = YES;
 }
 -(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
 {   _titlesArray = titlesArray;
     hostController.automaticallyAdjustsScrollViewInsets = NO;
     _hostController = hostController;
-    _childMainView.hostController = hostController;
-    _titlesView.hostController = hostController;
-    if (!_isXibLayoutSetup) {
-        [self layoutIfNeeded];
-        [self setNeedsLayout];
-    }
-    [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
-    _titlesView.titlesArray = titlesArray;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMES * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _childMainView.hostController = hostController;
+        _titlesView.hostController = hostController;
+        if (!_isXibLayoutSetup) {
+            [self layoutIfNeeded];
+            [self setNeedsLayout];
+        }
+        [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
+        _titlesView.titlesArray = titlesArray;
+        _isLoadDefaultChildVC = YES;
+        _titlesView.selectedSegmentIndex = _selectedSegmentIndex;        
+    });
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {

@@ -105,4 +105,11 @@
 }
 
 
+
+-(void)dealloc
+{
+    NSLog(@"销毁了");
+}
+
+
 @end

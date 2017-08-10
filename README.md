@@ -50,8 +50,6 @@
         segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
         segmentsface.isFontGradient = YES
         segmentsface.indicatorColor = [UIColor blackColor];
-
-        /**所有属性的修改都要在([segmentsface intoTitlesArray:titlesArr hostController:self])方法上面设置*/
         [segmentsface intoTitlesArray:titlesArr hostController:self];
         [segmentsface intoChildControllerArray:vcarrr];
         [self.view addSubview:segmentsface];

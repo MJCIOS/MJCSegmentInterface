@@ -31,11 +31,6 @@
         vc.title = titlesArr[i];
     }
 
-
-    
-    
-    
-    
     
     
     //以下是我的控件中的代码
@@ -45,15 +40,25 @@
     lala.itemBackColor =  [UIColor clearColor];
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.selectedSegmentIndex = 0;
+    lala.selectedSegmentIndex = 3;
+    lala.defaultShowItemCount = 3;
     //    lala.isIndicatorFollow = YES;
     lala.itemTextFontSize = 11;
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
+    lala.isIndicatorsAnimals = YES;
     [lala intoTitlesArray:titlesArr hostController:self];
-    [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
+    [self.view addSubview:lala];
+    
+    
     
 }
+
+-(void)dealloc
+{
+    NSLog(@"销毁了");
+}
+
 
 
 @end
