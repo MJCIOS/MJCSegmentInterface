@@ -8,6 +8,7 @@
 
 #import "MJCTestCollectVC.h"
 #import "MJCOrdinaryLayout.h"
+#import "MJCPrefixHeader.pch"
 
 @interface MJCTestCollectVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong) NSArray *mainArr;
@@ -32,8 +33,7 @@
     layout.vlitemMaxBottomMargin = 10;
     layout.vlitemMaxTopMargin = 10;
     self.collectionView = [[UICollectionView alloc]initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
-    NSInteger tag  = arc4random() % 9;
-    self.collectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"back%ld",tag]]];
+    self.collectionView.backgroundColor =MJCRandomColor ;
     self.collectionView.delegate = self;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 }

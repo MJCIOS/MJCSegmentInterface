@@ -20,7 +20,6 @@
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
 		250F5E6F1F2C7DEC00B8014A /* MJCDemoVCXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */; };
 		250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */; };
-		2556BE251F1721A100E903F5 /* xiangmu2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE231F1721A100E903F5 /* xiangmu2.gif */; };
 		2556BE281F1792F300E903F5 /* MJCDemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE271F1792F300E903F5 /* MJCDemoVC4.m */; };
 		2556BE2B1F17957A00E903F5 /* MJCDemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2A1F17957A00E903F5 /* MJCDemoVC5.m */; };
 		2556BE2E1F17964600E903F5 /* MJCDemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2D1F17964600E903F5 /* MJCDemoVC6.m */; };
@@ -29,19 +28,12 @@
 		2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE361F17983B00E903F5 /* MJCDemoVC9.m */; };
 		2556BE3A1F17984900E903F5 /* MJCDemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE391F17984900E903F5 /* MJCDemoVC10.m */; };
 		2556BE3D1F179C1300E903F5 /* MJCDemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE3C1F179C1300E903F5 /* MJCDemoVC11.m */; };
-		2556BE451F186A9D00E903F5 /* demo3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE3E1F186A9D00E903F5 /* demo3.gif */; };
-		2556BE471F186A9D00E903F5 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE401F186A9D00E903F5 /* demo1.gif */; };
-		2556BE481F186A9D00E903F5 /* demo8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE411F186A9D00E903F5 /* demo8.gif */; };
-		2556BE4A1F186A9D00E903F5 /* demo10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE431F186A9D00E903F5 /* demo10.gif */; };
-		2556BE4B1F186A9D00E903F5 /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE441F186A9D00E903F5 /* demo11.gif */; };
-		2556BE501F186AA800E903F5 /* demo4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4C1F186AA800E903F5 /* demo4.gif */; };
-		2556BE531F186AA800E903F5 /* demo7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2556BE4F1F186AA800E903F5 /* demo7.gif */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
-		257216941F35989B00A1EF49 /* demo12.gif in Resources */ = {isa = PBXBuildFile; fileRef = 257216931F35989B00A1EF49 /* demo12.gif */; };
 		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
 		25C009DE1F2DC74700F65864 /* MJCDemoClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009DD1F2DC74700F65864 /* MJCDemoClassicVC.m */; };
 		25C009E11F2E259200F65864 /* MJCDemoPenetrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C009E01F2E259200F65864 /* MJCDemoPenetrationVC.m */; };
+		25D3C2821F3F386100921F1E /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2811F3F386100921F1E /* demo0.gif */; };
 		25D9DB471DC2635C00B903B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB461DC2635C00B903B1 /* main.m */; };
 		25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB491DC2635C00B903B1 /* AppDelegate.m */; };
 		25D9DB4D1DC2635C00B903B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D9DB4C1DC2635C00B903B1 /* ViewController.m */; };
@@ -108,7 +100,6 @@
 		250F5E6C1F2C7DEC00B8014A /* MJCDemoVCXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVCXib.h; sourceTree = "<group>"; };
 		250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVCXib.m; sourceTree = "<group>"; };
 		250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCDemoVCXib.xib; sourceTree = "<group>"; };
-		2556BE231F1721A100E903F5 /* xiangmu2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xiangmu2.gif; sourceTree = "<group>"; };
 		2556BE261F1792F300E903F5 /* MJCDemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC4.h; sourceTree = "<group>"; };
 		2556BE271F1792F300E903F5 /* MJCDemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC4.m; sourceTree = "<group>"; };
 		2556BE291F17957A00E903F5 /* MJCDemoVC5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC5.h; sourceTree = "<group>"; };
@@ -125,24 +116,17 @@
 		2556BE391F17984900E903F5 /* MJCDemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC10.m; sourceTree = "<group>"; };
 		2556BE3B1F179C1300E903F5 /* MJCDemoVC11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC11.h; sourceTree = "<group>"; };
 		2556BE3C1F179C1300E903F5 /* MJCDemoVC11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC11.m; sourceTree = "<group>"; };
-		2556BE3E1F186A9D00E903F5 /* demo3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo3.gif; sourceTree = "<group>"; };
-		2556BE401F186A9D00E903F5 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
-		2556BE411F186A9D00E903F5 /* demo8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo8.gif; sourceTree = "<group>"; };
-		2556BE431F186A9D00E903F5 /* demo10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo10.gif; sourceTree = "<group>"; };
-		2556BE441F186A9D00E903F5 /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
-		2556BE4C1F186AA800E903F5 /* demo4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo4.gif; sourceTree = "<group>"; };
-		2556BE4F1F186AA800E903F5 /* demo7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo7.gif; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
-		257216931F35989B00A1EF49 /* demo12.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo12.gif; sourceTree = "<group>"; };
 		2583E5751F20CAFF003E740D /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
 		25C009DC1F2DC74700F65864 /* MJCDemoClassicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC.h; sourceTree = "<group>"; };
 		25C009DD1F2DC74700F65864 /* MJCDemoClassicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoClassicVC.m; sourceTree = "<group>"; };
 		25C009DF1F2E259200F65864 /* MJCDemoPenetrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoPenetrationVC.h; sourceTree = "<group>"; };
 		25C009E01F2E259200F65864 /* MJCDemoPenetrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoPenetrationVC.m; sourceTree = "<group>"; };
+		25D3C2811F3F386100921F1E /* demo0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo0.gif; sourceTree = "<group>"; };
 		25D9DB421DC2635C00B903B1 /* MJCSegmentInterface.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJCSegmentInterface.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D9DB461DC2635C00B903B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25D9DB481DC2635C00B903B1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -315,17 +299,9 @@
 		25E822C81F0CE35F00FB305F /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				2556BE4C1F186AA800E903F5 /* demo4.gif */,
-				257216931F35989B00A1EF49 /* demo12.gif */,
-				2556BE4F1F186AA800E903F5 /* demo7.gif */,
-				2556BE3E1F186A9D00E903F5 /* demo3.gif */,
-				2556BE401F186A9D00E903F5 /* demo1.gif */,
-				2556BE411F186A9D00E903F5 /* demo8.gif */,
-				2556BE431F186A9D00E903F5 /* demo10.gif */,
-				2556BE441F186A9D00E903F5 /* demo11.gif */,
+				25D3C2811F3F386100921F1E /* demo0.gif */,
 				25E822C91F0CE35F00FB305F /* mainData.plist */,
 				257216901F34465E00A1EF49 /* collectionData.plist */,
-				2556BE231F1721A100E903F5 /* xiangmu2.gif */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -522,21 +498,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				257216911F34465E00A1EF49 /* collectionData.plist in Resources */,
-				2556BE4A1F186A9D00E903F5 /* demo10.gif in Resources */,
 				25E822CD1F0CE35F00FB305F /* mainData.plist in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
-				2556BE471F186A9D00E903F5 /* demo1.gif in Resources */,
-				2556BE251F1721A100E903F5 /* xiangmu2.gif in Resources */,
-				2556BE531F186AA800E903F5 /* demo7.gif in Resources */,
-				2556BE501F186AA800E903F5 /* demo4.gif in Resources */,
 				25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */,
-				2556BE4B1F186A9D00E903F5 /* demo11.gif in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
-				2556BE451F186A9D00E903F5 /* demo3.gif in Resources */,
-				2556BE481F186A9D00E903F5 /* demo8.gif in Resources */,
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
-				257216941F35989B00A1EF49 /* demo12.gif in Resources */,
+				25D3C2821F3F386100921F1E /* demo0.gif in Resources */,
 				250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@
 #import "MJCPrefixHeader.pch"
 
 @interface MJCTestViewController1 ()<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *testTableView;
 
 @end
@@ -19,9 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSInteger tag  = arc4random() % 9;
-    self.testTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"back%ld",tag]]];
-    
+    self.testTableView.backgroundColor = MJCRandomColor;
 }
 
 #pragma mark - UITableviewdatasource,UITableViewDelegate

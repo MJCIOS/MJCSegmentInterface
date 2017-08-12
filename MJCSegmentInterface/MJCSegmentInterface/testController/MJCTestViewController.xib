@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MJCTestViewController">
             <connections>
-                <outlet property="backImageViews" destination="FdO-SN-rOF" id="cpZ-gJ-MVv"/>
                 <outlet property="titlesLable" destination="d74-Sd-2m7" id="0UI-x5-gC0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,9 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect11" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-SN-rOF">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是第一个" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d74-Sd-2m7">
                     <rect key="frame" x="144" y="323" width="87" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -33,16 +29,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="FdO-SN-rOF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FuJ-z6-Avp"/>
-                <constraint firstAttribute="trailing" secondItem="FdO-SN-rOF" secondAttribute="trailing" id="UiS-FC-2fL"/>
-                <constraint firstItem="FdO-SN-rOF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="acM-x0-00L"/>
                 <constraint firstItem="d74-Sd-2m7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gVL-VJ-8DC"/>
-                <constraint firstAttribute="bottom" secondItem="FdO-SN-rOF" secondAttribute="bottom" id="hOd-2r-Wo3"/>
                 <constraint firstItem="d74-Sd-2m7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iuT-nX-LTn"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="collect11" width="480" height="800"/>
-    </resources>
 </document>

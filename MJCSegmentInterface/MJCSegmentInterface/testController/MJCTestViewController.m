@@ -10,7 +10,6 @@
 #import "MJCPrefixHeader.pch"
 
 @interface MJCTestViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *backImageViews;
 
 @property (weak, nonatomic) IBOutlet UILabel *titlesLable;
 
@@ -21,9 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSInteger tag  = arc4random() % 9;
-    self.backImageViews.image = [UIImage imageNamed:[NSString stringWithFormat:@"back%ld",tag]];
+    self.view.backgroundColor = MJCRandomColor;
     _titlesLable.text = [NSString stringWithFormat:@"%@",self.title];
+    
 }
 
 

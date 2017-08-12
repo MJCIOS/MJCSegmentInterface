@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 //RBG颜色
+#define MJCRandomColor MJCRGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255),1.0)
 #define MJCRGBColor(r,g,b,alphas) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:alphas]
 #define MJCScreenbound [UIScreen mainScreen].bounds
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
