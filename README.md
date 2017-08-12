@@ -26,9 +26,8 @@
         MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
         MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
         MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
-        MJCTestViewController *vc4 = [[MJCTestViewController alloc]init];
-        MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
-        NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5];// 用数组包装起来
+        MJCTestCollectVC *vc4 = [[MJCTestCollectVC alloc]init];
+        NSArray *vcarrr = @[vc1,vc2,vc3,vc4];// 用数组包装起来
         //  实例化一个标题数组对象,相对应的控制器界面,是与控制器数组中的控制器顺序相对应,比如说(荣耀对应着vc1的控制器界面)
         NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
         //  准备工作做好之后,接来下实例化我的控件
@@ -42,7 +41,16 @@
 
 ## ☆☆ 使用说明及示例图展示 ☆☆
 
-*最普通的初始demo
+*初始默认状态
+
+        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
+        segmentsface.titleBarStyles = MJCTitlesScrollStyle;
+        [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
+        [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
+        [self.view addSubview:segmentsface];
+
+*滚动模式状态
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo0.gif)
 
