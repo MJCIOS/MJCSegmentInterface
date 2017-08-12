@@ -47,6 +47,7 @@
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.isIndicatorFollow = YES;
     lala.titlesViewBackImage = [UIImage imageNamed:@"back"];
+    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcarrr];;
