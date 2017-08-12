@@ -41,7 +41,16 @@
 
 ## ☆☆ 使用说明及示例图展示 ☆☆
 
-*初始默认状态
+*初始默认状态:(默认的是MJCTitlesClassicStyle)
+
+        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
+        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
+        segmentsface.frame.titleBarStyles = MJCTitlesClassicStyle;
+        [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
+        [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
+        [self.view addSubview:segmentsface];
+
+*滚动模式状态:(MJCTitlesScrollStyle)
 
         MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
         segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
@@ -49,8 +58,6 @@
         [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
         [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
         [self.view addSubview:segmentsface];
-
-*滚动模式状态
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo0.gif)
 
