@@ -52,6 +52,8 @@
     lala.defaultShowItemCount = 5;
     lala.itemBackColor = [UIColor orangeColor];
     lala.isFontGradient = YES;
+    lala.indicatorFrame = CGRectMake(0, 0, 80, lala.frame.size.height);
+    lala.indicatorColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
 //    lala.itemTextFontSize = 17;
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
     [lala intoTitlesArray:titlesArr hostController:self];
