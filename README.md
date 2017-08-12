@@ -63,8 +63,16 @@
 
 *默认选中哪一页:(selectedSegmentIndex)
 
-        segmentsface.selectedSegmentIndex = 3;//默认选中的是第三页
+        segmentsface.selectedSegmentIndex = 3;//默认选中的是第3页(从0开始数,第0页,第1页,第2页,第3页)
+
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo1.gif)
+
+*颜色渐变,指示器跟随滑动:(isFontGradient,isIndicatorFollow)
+
+        segmentsface.isFontGradient = YES;
+        segmentsface.isIndicatorFollow = YES;
+
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo2.gif)
 
 * (真的很喜欢玩他们的游戏,感觉他们的项目很不错,所以忍不住仿做了他们的项目)
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/xiangmu2.gif)
