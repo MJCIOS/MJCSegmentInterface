@@ -28,7 +28,7 @@
 		2556BE371F17983B00E903F5 /* MJCDemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE361F17983B00E903F5 /* MJCDemoVC9.m */; };
 		2556BE3A1F17984900E903F5 /* MJCDemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE391F17984900E903F5 /* MJCDemoVC10.m */; };
 		2556BE3D1F179C1300E903F5 /* MJCDemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE3C1F179C1300E903F5 /* MJCDemoVC11.m */; };
-		256E47061F408D68009BD143 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256E47051F408D68009BD143 /* demo1.gif */; };
+		256E47081F408F3A009BD143 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256E47071F408F3A009BD143 /* demo1.gif */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
 		2583E5771F20CAFF003E740D /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583E5761F20CAFF003E740D /* MJCInterfaceTools.m */; };
@@ -128,7 +128,7 @@
 		2556BE3B1F179C1300E903F5 /* MJCDemoVC11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC11.h; sourceTree = "<group>"; };
 		2556BE3C1F179C1300E903F5 /* MJCDemoVC11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC11.m; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
-		256E47051F408D68009BD143 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
+		256E47071F408F3A009BD143 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
@@ -324,8 +324,8 @@
 				25D3C2991F3F655900921F1E /* demo11.gif */,
 				25D3C2971F3F642900921F1E /* demo8.gif */,
 				25D3C2951F3F642500921F1E /* demo9.gif */,
-				256E47051F408D68009BD143 /* demo1.gif */,
 				25D3C2931F3F642100921F1E /* demo10.gif */,
+				256E47071F408F3A009BD143 /* demo1.gif */,
 				25D3C28F1F3F61D300921F1E /* demo6.gif */,
 				25D3C28B1F3F613600921F1E /* demo5.gif */,
 				25D3C28D1F3F616200921F1E /* demo4.gif */,
@@ -533,7 +533,7 @@
 				257216911F34465E00A1EF49 /* collectionData.plist in Resources */,
 				25D3C28A1F3F5F6E00921F1E /* demo3.gif in Resources */,
 				25E822CD1F0CE35F00FB305F /* mainData.plist in Resources */,
-				256E47061F408D68009BD143 /* demo1.gif in Resources */,
+				256E47081F408F3A009BD143 /* demo1.gif in Resources */,
 				25D3C28C1F3F613600921F1E /* demo5.gif in Resources */,
 				25D3C2861F3F5D9200921F1E /* demo2.gif in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
