@@ -297,4 +297,10 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.imageEffectStyles = imageEffectStyles;
 }
 
+-(void)setChildsContainerBackColor:(UIColor *)childsContainerBackColor
+{
+    _childsContainerBackColor = childsContainerBackColor;
+    _childMainView.backgroundColor = childsContainerBackColor;
+}
+
 @end

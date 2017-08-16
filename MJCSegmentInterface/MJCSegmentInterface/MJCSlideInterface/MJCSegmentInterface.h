@@ -50,10 +50,11 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 
 #pragma mark -- 通用设置
-
-//标题文字的内边距
+/** (子视图)主容器的背景色 */
+@property (nonatomic,strong) UIColor *childsContainerBackColor;
+/** 标题文字的内边距 */
 @property(nonatomic)   UIEdgeInsets itemTextsEdgeInsets;
-//标题图片的内边距
+/** 标题图片的内边距 */
 @property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
 /** 默认显示多少个item (初始显示4个) */
 @property (nonatomic,assign) NSInteger defaultShowItemCount;

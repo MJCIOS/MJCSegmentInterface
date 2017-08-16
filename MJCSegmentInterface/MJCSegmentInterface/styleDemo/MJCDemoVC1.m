@@ -45,7 +45,7 @@
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
     lala.itemTextNormalColor = [UIColor redColor];
-    
+    lala.childsContainerBackColor = [UIColor purpleColor];
     [lala intoChildControllerArray:vcarrr];
     [lala intoTitlesArray:titlesArr hostController:self];
     
