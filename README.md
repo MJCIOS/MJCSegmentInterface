@@ -22,12 +22,12 @@
 
 ### ☆☆ 使用说明(几行代码设置即可使用,就是那么简单) ☆☆
 
-        //  实例化您需要添加的控制器对象
+        //  实例化您需要显示的控制器对象
         MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
         MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
         MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
         MJCTestCollectVC *vc4 = [[MJCTestCollectVC alloc]init];
-        NSArray *vcarrr = @[vc1,vc2,vc3,vc4];// 用数组包装起来
+        NSArray *vcarrr = @[vc1,vc2,vc3,vc4];// 用数组将控制器装起来
         //  实例化一个标题数组对象,相对应的控制器界面,是与控制器数组中的控制器顺序相对应,比如说(荣耀对应着vc1的控制器界面)
         NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
         //  准备工作做好之后,接来下实例化我的控件
