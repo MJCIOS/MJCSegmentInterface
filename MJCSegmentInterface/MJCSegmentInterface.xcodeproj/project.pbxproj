@@ -20,7 +20,7 @@
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
 		250F5E6F1F2C7DEC00B8014A /* MJCDemoVCXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */; };
 		250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */; };
-		2524A2711F457F2F004F4126 /* demos0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2524A2701F457F2F004F4126 /* demos0.jpg */; };
+		2524A2731F457FEA004F4126 /* demos0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2524A2721F457FEA004F4126 /* demos0.png */; };
 		2556BE281F1792F300E903F5 /* MJCDemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE271F1792F300E903F5 /* MJCDemoVC4.m */; };
 		2556BE2B1F17957A00E903F5 /* MJCDemoVC5.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2A1F17957A00E903F5 /* MJCDemoVC5.m */; };
 		2556BE2E1F17964600E903F5 /* MJCDemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = 2556BE2D1F17964600E903F5 /* MJCDemoVC6.m */; };
@@ -112,7 +112,7 @@
 		250F5E6C1F2C7DEC00B8014A /* MJCDemoVCXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVCXib.h; sourceTree = "<group>"; };
 		250F5E6D1F2C7DEC00B8014A /* MJCDemoVCXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVCXib.m; sourceTree = "<group>"; };
 		250F5E6E1F2C7DEC00B8014A /* MJCDemoVCXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCDemoVCXib.xib; sourceTree = "<group>"; };
-		2524A2701F457F2F004F4126 /* demos0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = demos0.jpg; sourceTree = "<group>"; };
+		2524A2721F457FEA004F4126 /* demos0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demos0.png; sourceTree = "<group>"; };
 		2556BE261F1792F300E903F5 /* MJCDemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC4.h; sourceTree = "<group>"; };
 		2556BE271F1792F300E903F5 /* MJCDemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoVC4.m; sourceTree = "<group>"; };
 		2556BE291F17957A00E903F5 /* MJCDemoVC5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC5.h; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 		25E822C81F0CE35F00FB305F /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				2524A2701F457F2F004F4126 /* demos0.jpg */,
+				2524A2721F457FEA004F4126 /* demos0.png */,
 				25D3C2991F3F655900921F1E /* demo11.gif */,
 				25D3C2971F3F642900921F1E /* demo8.gif */,
 				25D3C2951F3F642500921F1E /* demo9.gif */,
@@ -540,6 +540,7 @@
 				25D3C28C1F3F613600921F1E /* demo5.gif in Resources */,
 				25D3C2861F3F5D9200921F1E /* demo2.gif in Resources */,
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
+				2524A2731F457FEA004F4126 /* demos0.png in Resources */,
 				25D3C2981F3F642900921F1E /* demo8.gif in Resources */,
 				25D3C2961F3F642500921F1E /* demo9.gif in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
@@ -552,7 +553,6 @@
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
 				25D3C2821F3F386100921F1E /* demo0.gif in Resources */,
 				25D3C2901F3F61D300921F1E /* demo6.gif in Resources */,
-				2524A2711F457F2F004F4126 /* demos0.jpg in Resources */,
 				250F5E701F2C7DEC00B8014A /* MJCDemoVCXib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
