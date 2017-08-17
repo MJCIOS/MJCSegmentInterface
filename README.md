@@ -1,3 +1,8 @@
+### ☆☆ 使用者用在项目中的展示图(已经过使用者同意) ☆☆
+
+![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demos0.jpg)
+
+
 ## ☆☆☆ “MJCSegmentInterface分段控制器” ☆☆☆
 * 大家觉得还可以的话,麻烦耽误大家一点时间,点个赞点个星吧.谢谢大家,点赞的都是大好人...
 * 一款简单的类似百思不得姐主页导航栏下方的那个分段界面的控件,类似王者荣耀助手的聊天模块的导航栏下方的分段界面控件等等,简单的说,这是一款分段界面选择器
