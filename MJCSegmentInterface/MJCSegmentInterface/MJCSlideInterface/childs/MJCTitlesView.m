@@ -155,6 +155,9 @@ static CGFloat const defaultIndicatorH = 1.5;
     tabbutton.imageEffectStyles = _imageEffectStyles;
     tabbutton.itemTextsEdgeInsets = _itemTextsEdgeInsets;
     tabbutton.itemImagesEdgeInsets = _itemImagesEdgeInsets;
+    tabbutton.itemTitleNormalColorArray = _itemTitleNormalColorArray;
+    tabbutton.itemTitleSelectedColorArray = _itemTitleSelectedColorArray;
+
 }
 - (void)titleClick:(MJCTabItem *)titleButton
 {
@@ -172,7 +175,9 @@ static CGFloat const defaultIndicatorH = 1.5;
     }
     _selectedTitleButton.selected = NO;
     titleButton.selected = YES;
-    titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
+    if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
+        titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
+    }
     _selectedTitleButton = titleButton;
     if (_zoomBigEnabled) {
         titleButton.itemTextFontSize = _tabItemTitleMaxfont;
@@ -259,7 +264,7 @@ static CGFloat const defaultIndicatorH = 1.5;
         }
         _indicatorView.jc_centerX = leftItem.jc_centerX + (rightItem.jc_centerX - leftItem.jc_centerX) * scaleRight;
     }
-    if (_isFontGradient && _isItemTitleTextHidden == NO) {
+    if (_isFontGradient && _isItemTitleTextHidden == NO && _itemTitleNormalColorArray.count == 0 && _itemTitleSelectedColorArray.count == 0) {
         CGFloat value = scrollView.contentOffset.x / scrollView.frame.size.width;
         if (value >= _titlesArray.count - 1) return;
         if (value <= 0) return;
@@ -309,9 +314,11 @@ static CGFloat const defaultIndicatorH = 1.5;
     NSUInteger index = scrollView.contentOffset.x / scrollView.jc_width;
     MJCTabItem *titleButton = _titleButtonsArr[index];
     [self titleClick:titleButton];
-    [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.itemTitleNormalColor = _itemTextNormalColor;
-    }];
+    if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
+        [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.itemTitleNormalColor = _itemTextNormalColor;
+        }];
+    }
 }
 -(void)tableItemClickBlock:(TabItemClickBlock)clickBlock
 {
@@ -383,5 +390,15 @@ static CGFloat const defaultIndicatorH = 1.5;
     _zoomBigEnabled = zoomBigEnabled;
     _tabItemTitleMaxfont = tabItemTitleMaxfont;
 }
+
+-(void)setItemTitleNormalColorArray:(NSArray *)itemTitleNormalColorArray
+{
+    _itemTitleNormalColorArray = itemTitleNormalColorArray;
+}
+-(void)setItemTitleSelectedColorArray:(NSArray *)itemTitleSelectedColorArray
+{
+    _itemTitleSelectedColorArray = itemTitleSelectedColorArray;
+}
+
 
 @end

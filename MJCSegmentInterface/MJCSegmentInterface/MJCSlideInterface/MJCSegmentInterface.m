@@ -303,4 +303,16 @@ static CGFloat const defaultTitlesViewH = 50;
     _childMainView.backgroundColor = childsContainerBackColor;
 }
 
+-(void)setItemTitleSelectedColorArray:(NSArray *)itemTitleSelectedColorArray
+{
+    _itemTitleSelectedColorArray = itemTitleSelectedColorArray;
+    _titlesView.itemTitleSelectedColorArray = itemTitleSelectedColorArray;
+}
+
+-(void)setItemTitleNormalColorArray:(NSArray *)itemTitleNormalColorArray
+{
+    _itemTitleNormalColorArray = itemTitleNormalColorArray;
+    _titlesView.itemTitleNormalColorArray = itemTitleNormalColorArray;
+}
+
 @end

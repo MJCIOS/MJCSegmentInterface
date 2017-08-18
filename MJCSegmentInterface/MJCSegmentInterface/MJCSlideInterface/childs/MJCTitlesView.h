@@ -35,6 +35,8 @@ typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
 @property (nonatomic,strong) UIImage *itemBackSelectedImage;
 @property (nonatomic,strong) NSArray *itemNormalBackImageArray;
 @property (nonatomic,strong) NSArray *itemSelectedBackImageArray;
+@property (nonatomic,strong) NSArray *itemTitleNormalColorArray;
+@property (nonatomic,strong) NSArray *itemTitleSelectedColorArray;
 @property (nonatomic,strong) UIColor *itemTextNormalColor;
 @property (nonatomic,strong) UIColor *itemTextSelectedColor;
 @property (nonatomic,assign) CGFloat itemTextFontSize;

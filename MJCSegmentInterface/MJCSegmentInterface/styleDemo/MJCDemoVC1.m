@@ -36,19 +36,21 @@
         vc.title = titlesArr[i];
     }
     
+    
+    
+    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.delegate= self;
     lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
-    lala.itemTextNormalColor = [UIColor redColor];
     lala.childsContainerBackColor = [UIColor purpleColor];
     [lala intoChildControllerArray:vcarrr];
     [lala intoTitlesArray:titlesArr hostController:self];
-    
     [self.view addSubview:lala];
 }
 

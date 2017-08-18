@@ -98,6 +98,10 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,strong) UIImage *titlesViewBackImage;
 
 #pragma mark -- item设置
+/** item普通状态下文字颜色数组(可以让文字显示不同的颜色)(不支持颜色渐变) */
+@property (nonatomic,strong) NSArray *itemTitleNormalColorArray;
+/** item点击状态下文字颜色数组(可以让文字显示不同的颜色)(不支持颜色渐变) */
+@property (nonatomic,strong) NSArray *itemTitleSelectedColorArray;
 /** item背景颜色 */
 @property (nonatomic,strong) UIColor *itemBackColor;
 /** item普通状态下的图片 */

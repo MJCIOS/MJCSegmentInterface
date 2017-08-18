@@ -200,6 +200,27 @@
     }
 }
 
+-(void)setItemTitleNormalColorArray:(NSArray *)itemTitleNormalColorArray
+{
+    _itemTitleNormalColorArray = itemTitleNormalColorArray;
+    
+    if (self.tag >= itemTitleNormalColorArray.count) {
+        //        NSLog(@"你的数组中的颜色不够:颜色count:%ld张 tabItem:%ld个",itemTitleSelectedColorArray.count,self.tag+1);
+    }else{
+        [self setTitleColor:itemTitleNormalColorArray[self.tag] forState:UIControlStateNormal];
+    }
+}
+-(void)setItemTitleSelectedColorArray:(NSArray *)itemTitleSelectedColorArray
+{
+    _itemTitleSelectedColorArray = itemTitleSelectedColorArray;
+    if (self.tag >= itemTitleSelectedColorArray.count) {
+        //        NSLog(@"你的数组中的颜色不够:颜色count:%ld张 tabItem:%ld个",itemTitleSelectedColorArray.count,self.tag+1);
+    }else{
+        [self setTitleColor:itemTitleSelectedColorArray[self.tag] forState:UIControlStateSelected];
+    }
+}
+
+
 -(void)setHighlighted:(BOOL)highlighted
 {
     
