@@ -315,4 +315,10 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.itemTitleNormalColorArray = itemTitleNormalColorArray;
 }
 
+-(void)setIsIndicatorColorEqualTextColor:(BOOL)isIndicatorColorEqualTextColor
+{
+    _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
+    _titlesView.isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
+}
+
 @end

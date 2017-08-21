@@ -54,4 +54,5 @@ typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
 @property (nonatomic,assign) BOOL isIndicatorFollow;
 @property (nonatomic,assign) NSInteger indicatorStyles;
 @property(nonatomic,assign) BOOL isIndicatorsAnimals;
+@property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
 @end

@@ -123,6 +123,9 @@ static CGFloat const defaultIndicatorH = 1.5;
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         if (i == 0) {
             tabbutton.selected = YES;
+            if (_isIndicatorColorEqualTextColor) {
+                _indicatorView.backgroundColor = tabbutton.titleLabel.textColor;
+            }
             if (_zoomBigEnabled) {
                 tabbutton.itemTextFontSize = _tabItemTitleMaxfont;
             }
@@ -177,6 +180,10 @@ static CGFloat const defaultIndicatorH = 1.5;
     titleButton.selected = YES;
     if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
         titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
+    }
+    
+    if (_isIndicatorColorEqualTextColor) {
+        _indicatorView.backgroundColor = titleButton.titleLabel.textColor;
     }
     _selectedTitleButton = titleButton;
     if (_zoomBigEnabled) {
@@ -398,6 +405,11 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)setItemTitleSelectedColorArray:(NSArray *)itemTitleSelectedColorArray
 {
     _itemTitleSelectedColorArray = itemTitleSelectedColorArray;
+}
+
+-(void)setIsIndicatorColorEqualTextColor:(BOOL)isIndicatorColorEqualTextColor
+{
+    _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
 
 

@@ -31,19 +31,23 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
+    
+    NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
+    NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
 
-    
-    
-    
     
     
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    lala.itemTitleNormalColorArray = colorArr;
+    lala.itemTitleSelectedColorArray = colorArr1;
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.indicatorColor = [UIColor redColor];
     lala.isIndicatorFollow = YES;
+    lala.isIndicatorColorEqualTextColor = YES;
     lala.selectedSegmentIndex = 2;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];

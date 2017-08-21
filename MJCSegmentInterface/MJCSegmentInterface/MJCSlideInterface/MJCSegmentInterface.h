@@ -58,7 +58,7 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
 /** 默认显示多少个item (初始显示4个) */
 @property (nonatomic,assign) NSInteger defaultShowItemCount;
-/** 底部指示器是否随着滚动 */
+/** 底部指示器是否跟随滚动 */
 @property (nonatomic,assign) BOOL isIndicatorFollow;
 /** 默认选中的item */
 @property (nonatomic,assign) NSInteger selectedSegmentIndex;
@@ -74,6 +74,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,assign) BOOL isFontGradient;
 /** 是否有穿透效果 */
 @property (nonatomic,assign) BOOL isPenetrationEffect;
+/** 指示器的颜色是否与文字颜色一样 */
+@property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
 /** 用于缩放功能的修改字体的属性 */
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
 
