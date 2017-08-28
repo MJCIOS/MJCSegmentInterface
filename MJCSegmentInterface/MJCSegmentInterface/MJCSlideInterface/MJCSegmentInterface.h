@@ -158,8 +158,9 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 +(instancetype)showInterfaceWithTitleBarFrame:(CGRect)frame Styles:(MJCTitleBarStyles)titleBarStyles;
 /** 添加标题栏与添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
-
+/** 添加控制器界面的方法 */
 -(void)intoChildControllerArray:(NSArray*)childControllerArray;
+/** 添加标题栏的方法 */
 -(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
 
 

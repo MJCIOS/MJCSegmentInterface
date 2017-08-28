@@ -75,6 +75,7 @@
     _lala.isChildScollAnimal = YES;//子界面切换是否有动画效果
     _lala.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
     _lala.imageEffectStyles = MJCImageClassicStyle;//item图片类型
+    
     _lala.itemImagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
     _lala.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
     _lala.isFontGradient = YES;

@@ -9,7 +9,7 @@
 #import "MJCTabItem.h"
 #import "UIView+MJCClassExtension.h"
 
-static CGFloat const tenMargin = 20;
+static CGFloat const tenMargin = 15;
 
 @interface MJCTabItem()
 
@@ -74,9 +74,7 @@ static CGFloat const tenMargin = 20;
                 self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
             self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
             self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
-        }else{
-            self.titleEdgeInsets = UIEdgeInsetsMake(_topTextMargin, _leftTextMargin, _bottomTextMargin, _rightTextMargin);
-            self.imageEdgeInsets = UIEdgeInsetsMake(_topImageMargin, _leftImageMargin, _bottomImageMargin, _rightImageMargin);
+        }else if (_imageEffectStyles == 0) {
             [self.titleLabel sizeToFit];
             self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
             self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin+tenMargin;
@@ -85,6 +83,16 @@ static CGFloat const tenMargin = 20;
             }else{
                 self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
             self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin-tenMargin;
+            self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
+        }else{
+            [self.titleLabel sizeToFit];
+            self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
+            self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
+            if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
+                self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
+            }else{
+                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
+            self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
             self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
         }
     }else{
