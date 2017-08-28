@@ -331,5 +331,28 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.lineMargin = itemMaxEdgeinsets.lineMargin;
 }
 
+-(void)intoChildControllerArray:(NSArray*)childControllerArray;
+{
+    _childControllerArray = childControllerArray;
+    _childMainView.childControllerArray = childControllerArray;
+}
+-(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
+{
+    hostController.automaticallyAdjustsScrollViewInsets = NO;
+    _titlesArray = titlesArray;
+    _hostController = hostController;
+    _childMainView.hostController = hostController;
+    _titlesView.hostController = hostController;
+    if (!_isXibLayoutSetup) {
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
+    }
+    [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMES * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _titlesView.titlesArray = titlesArray;
+        _isLoadDefaultChildVC = YES;
+        _titlesView.selectedSegmentIndex = _selectedSegmentIndex;
+    });
+}
 
 @end

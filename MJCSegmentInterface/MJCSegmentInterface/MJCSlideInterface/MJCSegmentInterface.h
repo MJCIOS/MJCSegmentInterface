@@ -159,5 +159,8 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 /** 添加标题栏与添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
 
+-(void)intoChildControllerArray:(NSArray*)childControllerArray;
+-(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
+
 
 @end

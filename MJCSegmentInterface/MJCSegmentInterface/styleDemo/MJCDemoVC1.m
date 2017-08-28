@@ -50,8 +50,15 @@
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
     lala.childsContainerBackColor = [UIColor purpleColor];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+//    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    
+    [lala intoTitlesArray:titlesArr hostController:self];
+    
     [self.view addSubview:lala];
+    
+    [lala intoChildControllerArray:vcarrr];
+    
+    
 }
 
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
