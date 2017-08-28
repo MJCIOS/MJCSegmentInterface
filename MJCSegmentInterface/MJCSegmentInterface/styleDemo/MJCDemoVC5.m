@@ -53,9 +53,8 @@
     lala.itemBackColor = [UIColor whiteColor];
     lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
     lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 

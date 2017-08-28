@@ -36,21 +36,21 @@
         vc.title = titlesArr[i];
     }
     
-    
-    
-    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
+//    lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.delegate= self;
+    lala.titlesViewBackColor = [UIColor redColor];
+    lala.itemBackColor = [UIColor purpleColor];
+    lala.ItemWidthStyles = MJCItemAdaptiveWidthStyle;
+    lala.itemMaxEdgeinsets = MJCEdgeInsetsMake(10,10,10,20,30);
     lala.itemTextSelectedColor = [UIColor purpleColor];
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
     lala.childsContainerBackColor = [UIColor purpleColor];
-    [lala intoChildControllerArray:vcarrr];
-    [lala intoTitlesArray:titlesArr hostController:self];
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     [self.view addSubview:lala];
 }
 
@@ -68,5 +68,10 @@
     NSLog(@"%@",segmentInterface);
 }
 
+
+-(void)dealloc
+{
+    NSLog(@"%@销毁",self);
+}
 
 @end

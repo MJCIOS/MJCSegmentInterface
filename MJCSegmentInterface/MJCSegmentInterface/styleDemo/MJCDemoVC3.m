@@ -49,9 +49,8 @@
     lala.isIndicatorFollow = YES;
     lala.isIndicatorColorEqualTextColor = YES;
     lala.selectedSegmentIndex = 2;
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 @end

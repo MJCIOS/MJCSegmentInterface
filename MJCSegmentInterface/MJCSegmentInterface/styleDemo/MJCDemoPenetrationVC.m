@@ -44,12 +44,11 @@
     lala.itemBackColor =  [UIColor clearColor];
     lala.itemTextNormalColor = [UIColor redColor];
     lala.itemTextSelectedColor = [UIColor purpleColor];
+    lala.indicatorColor = [UIColor redColor];
     lala.itemTextFontSize = 11;
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
-    
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 -(void)dealloc

@@ -46,11 +46,8 @@
     lala.itemTextFontSize = 11;
     lala.indicatorStyles = MJCIndicatorItemTextStyle;
     lala.isIndicatorsAnimals = YES;
-    [lala intoTitlesArray:titlesArr hostController:self];
-    [lala intoChildControllerArray:vcarrr];;
     [self.view addSubview:lala];
-    
-    
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

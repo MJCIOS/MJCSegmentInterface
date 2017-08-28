@@ -80,9 +80,8 @@
     lala.itemImageSize  = CGSizeMake(10, 10);
     lala.indicatorFrame = CGRectMake(0,lala.titlesViewFrame.size.height - 10,30,10);//指示器位置
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

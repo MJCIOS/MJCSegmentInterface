@@ -22,7 +22,12 @@
     
     self.view.backgroundColor = MJCRandomColor;
     _titlesLable.text = [NSString stringWithFormat:@"%@",self.title];
-    
+}
+
+
+-(void)dealloc
+{
+    NSLog(@"%@销毁",self);
 }
 
 

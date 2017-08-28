@@ -16,6 +16,28 @@
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define MJCiPhone4s CGSizeMake(320.f, 480.f)
+#define MJCiPhone5s CGSizeMake(320.f, 568.f)
+#define MJCiPhone6s CGSizeMake(375.f, 667.f)
+#define MJCiPhone7p CGSizeMake(414.f, 736.f)
+
+#define iPhone4Height (480.f)
+#define iPhone4Width (320.f)
+#define iPhone5Height (568.f)
+#define iPhone5Width (320.f)
+#define iPhone6Height (667.f)
+#define iPhone6Width (375.f)
+#define iPhone6PlusHeight (736.f)
+#define iPhone6PlusWidth (414.f)
+
+#define i5scalsH ((iPhone5Height / iPhone6Height))
+#define i6scalsH ((iPhone6Height / iPhone6Height))
+#define plusScalsH ((iPhone6PlusHeight / iPhone6Height))
+
+#define i5scalsW ((iPhone5Width / iPhone6Width))
+#define i6scalsW ((iPhone6Width / iPhone6Width))
+#define plusScalsW ((iPhone6PlusWidth / iPhone6Width))
+
 #define MJCWeakSelf __weak typeof(self) weakSelf = self
 
 @interface MJCCommonTools : NSObject

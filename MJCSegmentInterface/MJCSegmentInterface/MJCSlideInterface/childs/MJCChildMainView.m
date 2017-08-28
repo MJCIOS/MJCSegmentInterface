@@ -13,6 +13,9 @@ static CGFloat const animalTime= 0.25;
 @interface MJCChildMainView ()
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,strong) NSArray *titlesArr;
+
+@property (nonatomic,strong) NSArray  *vcArr;
+
 @end
 @implementation MJCChildMainView
 -(instancetype)initWithFrame:(CGRect)frame
@@ -41,6 +44,11 @@ static CGFloat const animalTime= 0.25;
 -(void)setHostController:(UIViewController *)hostController
 {
     _hostController = hostController;
+}
+
+-(void)setChildControllerArray:(NSArray *)childControllerArray
+{
+    _childControllerArray = childControllerArray;
     if (_hostController.childViewControllers.count == 0) {
         for (int i = 0; i < _childControllerArray.count; i++) {
             [_hostController addChildViewController:_childControllerArray[i]];
@@ -48,18 +56,11 @@ static CGFloat const animalTime= 0.25;
         [self addChildVcView];
     }
 }
-
--(void)setChildControllerArray:(NSArray *)childControllerArray
-{
-    _childControllerArray = childControllerArray;
-}
 - (void)addChildVcView
 {
     NSUInteger index = self.contentOffset.x / self.jc_width;
     UIViewController *childVc;
-    if (index >= _hostController.childViewControllers.count) {
-        return;
-    }
+    if (index >= _hostController.childViewControllers.count) {return;}
     childVc = _hostController.childViewControllers[index];
     if ([childVc isViewLoaded]) return;
     childVc.view.frame = self.bounds;
@@ -99,6 +100,7 @@ static CGFloat const animalTime= 0.25;
     if (isLoadDefaultChildVC == YES) {
 //                dispatch_async(dispatch_get_main_queue(), ^{
         NSUInteger index = self.contentOffset.x/self.jc_width;
+        if (index >= _hostController.childViewControllers.count) {return;}
         _childVC = _hostController.childViewControllers[index];
         _childVC.view.jc_height = self.bounds.size.height;
 //                });

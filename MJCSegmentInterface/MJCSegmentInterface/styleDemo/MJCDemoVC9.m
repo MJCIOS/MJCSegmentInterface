@@ -55,9 +55,8 @@
     lala.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
     lala.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

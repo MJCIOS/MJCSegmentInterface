@@ -43,6 +43,11 @@
     return cell;
 }
 
+-(void)dealloc
+{
+    NSLog(@"%@销毁",self);
+}
+
 
 
 @end

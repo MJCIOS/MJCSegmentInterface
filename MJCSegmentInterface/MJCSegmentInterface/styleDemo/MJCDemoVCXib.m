@@ -81,8 +81,7 @@
     _lala.indicatorStyles = MJCIndicatorItemTextStyle;
     _lala.indicatorFrame = CGRectMake(0,20,30,10);//指示器位置
     [_lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
-    [_lala intoTitlesArray:titlesArr hostController:self];
-    [_lala intoChildControllerArray:vcarrr];
+    [_lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.tag = 7;

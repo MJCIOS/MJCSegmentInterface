@@ -55,9 +55,8 @@
     NSArray *imageArr1 = @[@"123",@"333",@"345",@"456",@"777",@"999",@"555"];
     lala.itemNormalBackImageArray = imageArr;
     lala.itemSelectedBackImageArray = imageArr1;
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 

@@ -90,25 +90,23 @@ static CGFloat const defaultTitlesViewH = 50;
     [_childMainView setupChildViewHeightisLoadDefaultChildVC:_isLoadDefaultChildVC];
 }
 
--(void)intoChildControllerArray:(NSArray *)childControllerArray
-{   _childControllerArray = childControllerArray;
-    _childMainView.childControllerArray = childControllerArray;
-}
--(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController
-{   _titlesArray = titlesArray;
+-(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
+{
     hostController.automaticallyAdjustsScrollViewInsets = NO;
+    _titlesArray = titlesArray;
     _hostController = hostController;
+    _childMainView.hostController = hostController;
+    _titlesView.hostController = hostController;
+    if (!_isXibLayoutSetup) {
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
+    }
+    [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
+    _childMainView.childControllerArray = childControllerArray;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMES * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _childMainView.hostController = hostController;
-        _titlesView.hostController = hostController;
-        if (!_isXibLayoutSetup) {
-            [self layoutIfNeeded];
-            [self setNeedsLayout];
-        }
-        [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
         _titlesView.titlesArray = titlesArray;
         _isLoadDefaultChildVC = YES;
-        _titlesView.selectedSegmentIndex = _selectedSegmentIndex;        
+        _titlesView.selectedSegmentIndex = _selectedSegmentIndex;
     });
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -320,5 +318,18 @@ static CGFloat const defaultTitlesViewH = 50;
     _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
     _titlesView.isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
+
+-(void)setItemWidthStyles:(MJCItemWidthStyles)ItemWidthStyles
+{
+    _ItemWidthStyles = ItemWidthStyles;
+    _titlesView.ItemWidthStyles = ItemWidthStyles;
+}
+-(void)setItemMaxEdgeinsets:(MJCEdgeInsets)itemMaxEdgeinsets
+{
+    _itemMaxEdgeinsets = itemMaxEdgeinsets;
+    _titlesView.ItemEdgeinsets = UIEdgeInsetsMake(itemMaxEdgeinsets.maxTop, itemMaxEdgeinsets.maxLeft, itemMaxEdgeinsets.maxBottom, itemMaxEdgeinsets.maxRight);
+    _titlesView.lineMargin = itemMaxEdgeinsets.lineMargin;
+}
+
 
 @end

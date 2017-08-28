@@ -56,9 +56,8 @@
     lala.indicatorColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
 //    lala.itemTextFontSize = 17;
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

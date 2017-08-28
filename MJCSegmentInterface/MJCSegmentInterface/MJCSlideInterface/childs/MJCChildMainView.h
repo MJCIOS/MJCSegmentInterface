@@ -10,7 +10,7 @@
 #import "MJCTabItem.h"
 
 @interface MJCChildMainView : UIScrollView
-@property (nonatomic,strong) NSArray *childControllerArray;
+@property (nonatomic,weak) NSArray *childControllerArray;
 @property (nonatomic,weak) UIViewController *hostController;
 - (void)addChildVcView;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;

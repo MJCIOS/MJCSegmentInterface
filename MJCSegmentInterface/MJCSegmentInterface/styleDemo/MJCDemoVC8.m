@@ -55,9 +55,8 @@
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"paperplane"];
     lala.itemImageNormalArray  = imageArr ;
     lala.itemImageSelectedArray  = imageArr1;
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];;
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

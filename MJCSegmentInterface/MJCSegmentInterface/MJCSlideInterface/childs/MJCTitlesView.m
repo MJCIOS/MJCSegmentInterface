@@ -32,6 +32,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 @property (nonatomic,weak) NSArray *selectedColorRgbaArr;
 @property (nonatomic,weak) NSArray *gradientRgbaArr;
 @property (nonatomic,assign) NSInteger selectedTag;
+@property (nonatomic,assign) CGFloat itemNewX;
 @end
 
 @implementation MJCTitlesView
@@ -83,11 +84,11 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)setTitlesArray:(NSArray *)titlesArray
 {
     _titlesArray = titlesArray;
-    CGFloat maxTopMargin = 0;
-    CGFloat maxBottomMargin = 0;
-    CGFloat maxleftMargin = 0;
-    CGFloat maxRightMargin = 0;
-    CGFloat lineMargin = 0;
+    CGFloat maxTopMargin = _ItemEdgeinsets.top;
+    CGFloat maxBottomMargin = _ItemEdgeinsets.bottom;
+    CGFloat maxleftMargin = _ItemEdgeinsets.left;
+    CGFloat maxRightMargin = _ItemEdgeinsets.right;
+    CGFloat lineMargin = _lineMargin;
     CGFloat tabItemW;
     if (_titlesBarStyles == MJCTitlesScrollStyle ) {
         if (_defaultShowItemCount) {
@@ -114,11 +115,30 @@ static CGFloat const defaultIndicatorH = 1.5;
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         MJCTabItem *tabbutton = [MJCTabItem buttonWithType:UIButtonTypeCustom];
         tabbutton.tag = i;
-        CGFloat tabX = tabItemW*i+maxleftMargin;
-        CGFloat tabY = maxTopMargin;
-        CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
-        tabbutton.frame = CGRectMake(tabX,tabY,tabItemW-lineMargin,tabH);
         [self setupButton:tabbutton];
+        if (_ItemWidthStyles == 0) {
+            CGFloat tabX = tabItemW*i+maxleftMargin;
+            CGFloat tabY = maxTopMargin;
+            CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+            tabbutton.frame = CGRectMake(tabX,tabY, tabItemW-lineMargin,tabH);
+        }else{
+            [tabbutton sizeToFit];
+            CGFloat tabX =  _itemNewX + maxleftMargin;
+            CGFloat tabY = maxTopMargin;
+            CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+            _itemNewX +=   tabbutton.jc_width+lineMargin;
+            if (MJCScreenHeight == iPhone6PlusHeight) { //plus适配
+                tabX = tabX * plusScalsW;
+                tabbutton.jc_width = tabbutton.jc_width * plusScalsW;
+                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+            }else if (MJCScreenHeight == iPhone5Height){ //5的适配
+                tabX = tabX * i5scalsW;
+                tabbutton.jc_width = tabbutton.jc_width * i5scalsW;
+                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+            }else{
+                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+            }
+        }
         [self addSubview:tabbutton];
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
         if (i == 0) {
@@ -134,7 +154,17 @@ static CGFloat const defaultIndicatorH = 1.5;
         }
         [self.titleButtonsArr addObject:tabbutton];
     }
-    self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+    if (_ItemWidthStyles == 0) {
+            self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+    }else{
+        if (MJCScreenHeight == iPhone6PlusHeight) { //plus适配
+            self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+        }else if (MJCScreenHeight == iPhone5Height){ //5的适配
+            self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+        }else{
+            self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+        }
+    }
     [self addSubview:_indicatorView];
 }
 -(void)setupButton:(MJCTabItem *)tabbutton
@@ -166,7 +196,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     _selectedTag = titleButton.tag;
     
-    if (_titlesArray.count >=3) {
+    if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
         [self setupTitleCenter:titleButton];
     }
     if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem) { _selectedTitleButton.selected = YES; return;};

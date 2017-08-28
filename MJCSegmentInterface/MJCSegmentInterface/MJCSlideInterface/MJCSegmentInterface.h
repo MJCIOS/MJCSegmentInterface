@@ -25,8 +25,25 @@ typedef NS_OPTIONS(NSUInteger,MJCIndicatorStyles) {
 //按钮图片样式
 typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
     MJCImageClassicStyle = 0,  //普通的图片文字样式,左右样式
-    MJCImageUpDownStyle = 1  //图片和文字上下的样式
+    MJCImageUpDownStyle = 1,  //图片和文字上下的样式
+    MJCImageCenterStyle = 2  //图片和文字都在中间的样式
 };
+
+//item宽度样式
+typedef NS_OPTIONS(NSUInteger,MJCItemWidthStyles) {
+    MJCItemWidthClassicStyle = 0,      //经典标题样式
+    MJCItemAdaptiveWidthStyle = 1       //item自适应样式
+} ;
+
+typedef struct MJCEdgeInsets {
+    CGFloat maxTop, maxLeft, maxBottom, maxRight,lineMargin;
+} MJCEdgeInsets;
+
+UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxLeft, CGFloat maxBottom, CGFloat maxRight,CGFloat lineMargin) {
+    MJCEdgeInsets edgeInsets  = {maxTop, maxLeft, maxBottom, maxRight,lineMargin};
+    return edgeInsets;
+}
+
 
 @class MJCSegmentInterface;
 @protocol MJCSegmentDelegate <NSObject>
@@ -47,6 +64,10 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 @property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
 /** 标题图片效果样式 */
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;
+/** 标题item宽度样式 */
+@property (nonatomic,assign) MJCItemWidthStyles ItemWidthStyles;
+/** item最大内边距和两个item之间的间距 */
+@property (nonatomic) MJCEdgeInsets itemMaxEdgeinsets;
 
 
 #pragma mark -- 通用设置
@@ -135,10 +156,8 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
 
 /** 实例化此控件的方法 */
 +(instancetype)showInterfaceWithTitleBarFrame:(CGRect)frame Styles:(MJCTitleBarStyles)titleBarStyles;
-/** 添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
--(void)intoChildControllerArray:(NSArray *)childControllerArray;
-/** 添加标题栏的方法 */
--(void)intoTitlesArray:(NSArray *)titlesArray hostController:(UIViewController *)hostController;
+/** 添加标题栏与添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
+-(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
 
 
 @end

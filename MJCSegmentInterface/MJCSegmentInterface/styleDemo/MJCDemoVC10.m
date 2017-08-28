@@ -43,12 +43,12 @@
     }
 
     
-
-    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;
     lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
+    lala.itemImageSelected = [UIImage imageNamed:@"food-2"];
+    lala.itemImageNormal = [UIImage imageNamed:@"food"];
     lala.defaultShowItemCount = 3;
     lala.itemTextFontSize = 13;
     lala.itemTextNormalColor = [UIColor redColor];
@@ -59,8 +59,9 @@
     lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
     lala.itemNormalBackImageArray = imageBackArr;
     lala.itemSelectedBackImageArray = imageBackArr1;
-    lala.itemImageSelected = [UIImage imageNamed:@"food-2"];
-    lala.itemImageNormal = [UIImage imageNamed:@"food"];
+    lala.itemImageSize = CGSizeMake(100,50);
+    lala.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,0,0);
+    lala.itemImagesEdgeInsets = UIEdgeInsetsMake(0,0,10, 30);
     lala.itemImageNormalArray = imageArr;
     lala.itemImageSelectedArray = imageArr1;
     lala.indicatorColor = [UIColor redColor];
@@ -70,9 +71,8 @@
     lala.isChildScollEnabled = YES;
     lala.isChildScollAnimal = YES;
     [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
-    [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcarrr];
+    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 
