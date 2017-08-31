@@ -31,7 +31,6 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
     //以下是我的控件中的代码
     MJCSegmentInterface *lala =  [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
     lala.titleBarStyles = MJCTitlesClassicStyle;
