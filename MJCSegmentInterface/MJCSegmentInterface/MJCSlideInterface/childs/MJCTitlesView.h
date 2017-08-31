@@ -10,6 +10,7 @@
 #import "MJCTabItem.h"
 
 typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
+typedef void(^ScrollDidEndBlock)(MJCTabItem *tabItem);
 
 @interface MJCTitlesView : UIScrollView
 @property (nonatomic,weak) UIViewController *hostController;
@@ -20,6 +21,8 @@ typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
 - (void)jc_scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 @property(copy,nonatomic) TabItemClickBlock clickBlock;
 -(void)tableItemClickBlock:(TabItemClickBlock)clickBlock;
+@property(copy,nonatomic) ScrollDidEndBlock scrollDidEndBlock;
+-(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock;
 @property (nonatomic,assign) CGRect titlesViewFrame;
 @property (nonatomic,assign) NSInteger titlesBarStyles;
 @property (nonatomic,strong) UIColor *titlesViewBackColor;

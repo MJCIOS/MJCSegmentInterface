@@ -194,32 +194,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 }
 - (void)titleClick:(MJCTabItem *)titleButton
 {
-    _selectedTag = titleButton.tag;
-    
-    if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
-        [self setupTitleCenter:titleButton];
-    }
-    if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem) { _selectedTitleButton.selected = YES; return;};
-    _isSetDefaultSelectedItem = NO;
-    if (_itemTextFontSize) {
-        _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
-    }else{
-        _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
-    }
-    _selectedTitleButton.selected = NO;
-    titleButton.selected = YES;
-    if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
-        titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
-    }
-    
-    if (_isIndicatorColorEqualTextColor) {
-        _indicatorView.backgroundColor = titleButton.titleLabel.textColor;
-    }
-    _selectedTitleButton = titleButton;
-    if (_zoomBigEnabled) {
-        titleButton.itemTextFontSize = _tabItemTitleMaxfont;
-    }
-    [self setupIndicatorViewCenterAndWidth];
+    [self setupClickAndScrollEndWith:titleButton];
     if (_clickBlock) {
         _clickBlock(titleButton);
     }
@@ -270,7 +245,6 @@ static CGFloat const defaultIndicatorH = 1.5;
 }
 -(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
-    if (selectedSegmentIndex == _selectedTag)return;
     _selectedSegmentIndex = selectedSegmentIndex;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (selectedSegmentIndex >= _titlesArray.count) {
@@ -350,11 +324,16 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.jc_width;
     MJCTabItem *titleButton = _titleButtonsArr[index];
-    [self titleClick:titleButton];
+    [self setupClickAndScrollEndWith:titleButton];
+//    [self titleClick:titleButton];
     if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
         [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.itemTitleNormalColor = _itemTextNormalColor;
         }];
+    }
+    
+    if (_scrollDidEndBlock) {
+        _scrollDidEndBlock(titleButton);
     }
 }
 -(void)tableItemClickBlock:(TabItemClickBlock)clickBlock
@@ -442,5 +421,44 @@ static CGFloat const defaultIndicatorH = 1.5;
     _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
 
+
+-(void)setupClickAndScrollEndWith:(MJCTabItem *)titleButton
+{
+    _selectedTag = titleButton.tag;
+    
+    if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
+        [self setupTitleCenter:titleButton];
+    }
+    if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem){
+        _selectedTitleButton.selected = YES;
+        return;
+    };
+    _isSetDefaultSelectedItem = NO;
+    if (_itemTextFontSize) {
+        _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
+    }else{
+        _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
+    }
+    _selectedTitleButton.selected = NO;
+    titleButton.selected = YES;
+    if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
+        titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
+    }
+    
+    if (_isIndicatorColorEqualTextColor) {
+        _indicatorView.backgroundColor = titleButton.titleLabel.textColor;
+    }
+    _selectedTitleButton = titleButton;
+    if (_zoomBigEnabled) {
+        titleButton.itemTextFontSize = _tabItemTitleMaxfont;
+    }
+    
+    [self setupIndicatorViewCenterAndWidth];
+}
+
+-(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock
+{
+    _scrollDidEndBlock = scrollDidEndBlock;
+}
 
 @end

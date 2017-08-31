@@ -24,6 +24,12 @@
     _titlesLable.text = [NSString stringWithFormat:@"%@",self.title];
 }
 
+-(void)setStyleId:(NSString *)styleId
+{
+    _styleId = styleId;
+    
+    NSLog(@"%@",styleId);
+}
 
 -(void)dealloc
 {

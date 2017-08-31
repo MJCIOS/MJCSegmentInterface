@@ -22,15 +22,22 @@
     self.tableView.mj_footer = [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData) ];
 }
 
--(void)beginLoadNewData
+-(void)setTestData:(NSString *)testData
 {
+    _testData = testData;
+    NSLog(@"%@",testData);
+}
+
+-(void)beginLoadNewData:(NSMutableDictionary *)dicData;
+{
+    NSLog(@"我获取到数据啦,✌️%@",dicData);
     [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)loadNewData
 {
     [self.tableView.mj_header endRefreshing];
-    NSLog(@"heihei");
+    NSLog(@"刷新最新数据啦,哦哦哦哦");
 }
 
 -(void)loadMoreData

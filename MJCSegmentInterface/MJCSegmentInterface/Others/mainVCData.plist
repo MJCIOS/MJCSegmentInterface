@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCScrollStyleMainVC</string>
+		<key>titles</key>
+		<string>滚动样式的普通demo</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCClassicMainVC</string>
+		<key>titles</key>
+		<string>默认不可滚动样式的普通demo</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCSpecialMainVC</string>
+		<key>titles</key>
+		<string>(好多用户不知道如何使用的特殊操作)</string>
+	</dict>
+</array>
+</plist>

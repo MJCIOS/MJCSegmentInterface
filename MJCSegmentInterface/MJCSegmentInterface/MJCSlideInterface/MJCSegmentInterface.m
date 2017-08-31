@@ -57,6 +57,17 @@ static CGFloat const defaultTitlesViewH = 50;
 {
     _titlesView = [[MJCTitlesView alloc]init];
     _titlesView.frame = CGRectMake(0,0,0,defaultTitlesViewH);
+    [_titlesView scrollDidEndBlock:^(MJCTabItem *tabItem) {
+        _childMainView.titlesTabItem = tabItem;
+        [_childMainView addChildVcView];
+        if ([self.delegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:childViewController:segmentInterface:)]) {
+            if ( tabItem.tag >=_hostController.childViewControllers.count) {
+                [self.delegate mjc_scrollDidEndDecelerating:tabItem childViewController:nil segmentInterface:self];
+            }else{
+                [self.delegate mjc_scrollDidEndDecelerating:tabItem childViewController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+            }
+        }
+    }];
     [_titlesView tableItemClickBlock:^(MJCTabItem *tabItem) {
         _childMainView.titlesTabItem = tabItem;
         [_childMainView addChildVcView];

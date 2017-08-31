@@ -49,8 +49,11 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @protocol MJCSegmentDelegate <NSObject>
 @required
 @optional
-/** 点击标题栏按钮的点击事件 */
+/** 点击item会调用的代理方法 */
 - (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 手拽滑动结束之后调用的代理方法 */
+- (void)mjc_scrollDidEndDecelerating:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+
 @end
 
 @interface MJCSegmentInterface : UIView

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>code</key>
+	<string>200</string>
+	<key>data</key>
+	<dict>
+		<key>rootArray</key>
+		<array>
+			<dict>
+				<key>userId</key>
+				<string>77632</string>
+				<key>userNm</key>
+				<string>张三</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77633</string>
+				<key>userNm</key>
+				<string>张四</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77634</string>
+				<key>userNm</key>
+				<string>张九</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77635</string>
+				<key>userNm</key>
+				<string>张八</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77636</string>
+				<key>userNm</key>
+				<string>张七</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77637</string>
+				<key>userNm</key>
+				<string>张六</string>
+			</dict>
+			<dict>
+				<key>userId</key>
+				<string>77638</string>
+				<key>userNm</key>
+				<string>张五</string>
+			</dict>
+		</array>
+	</dict>
+	<key>msg</key>
+	<string>查询成功!</string>
+</dict>
+</plist>

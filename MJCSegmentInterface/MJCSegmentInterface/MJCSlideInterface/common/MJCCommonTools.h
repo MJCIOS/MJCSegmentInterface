@@ -39,6 +39,7 @@
 #define plusScalsW ((iPhone6PlusWidth / iPhone6Width))
 
 #define MJCWeakSelf __weak typeof(self) weakSelf = self
+#define MJCStrongSelf __strong typeof(self) strongSelf = self
 
 @interface MJCCommonTools : NSObject
 

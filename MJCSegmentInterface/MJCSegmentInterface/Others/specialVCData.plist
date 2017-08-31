@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>titles</key>
+		<string>穿透标题栏效果</string>
+		<key>viewControllers</key>
+		<string>MJCSpecialDemoVC0</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>实时刷新数据,并且传送数据的方法</string>
+		<key>viewControllers</key>
+		<string>MJCSpecialDemoVC1</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>xib创建此框架控件的使用</string>
+		<key>viewControllers</key>
+		<string>MJCSpecialDemoVC2</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>切换选中的item页码</string>
+		<key>viewControllers</key>
+		<string>MJCSpecialDemoVC3</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>如何使用同一类型的控制器</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC4</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>简单的控制器数据传输</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC5</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>设置请求过来的标题数据</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC6</string>
+	</dict>
+</array>
+</plist>
