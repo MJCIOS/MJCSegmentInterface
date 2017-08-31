@@ -10,20 +10,8 @@
 #import "MJCPrefixHeader.pch"
 
 @interface MJCSoecialDemoVC6 ()
-{
-    NSString *lala1;
-}
-
-
-/** <#  注释  #> */
-@property (nonatomic,copy) NSString *lalal1;
-
 
 @property (nonatomic,strong) NSArray *mainArr;
-
-
-
-@property (nonatomic,assign) int age;
 
 @end
 
