@@ -10,6 +10,8 @@
 #import "UIView+MJCClassExtension.h"
 #import "MJCCommonTools.h"
 
+@class MJCTabItem;
+
 //标题样式
 typedef NS_OPTIONS(NSUInteger,MJCTitleBarStyles) {
     MJCTitlesClassicStyle = 0,      //经典标题样式
@@ -49,10 +51,14 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @protocol MJCSegmentDelegate <NSObject>
 @required
 @optional
-/** 点击item会调用的代理方法 */
-- (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 选中点击item会调用的代理方法 */
+- (void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 取消选中点击item状态会调用的代理方法 */
+- (void)mjc_cancelClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface;
 /** 手拽滑动结束之后调用的代理方法 */
-- (void)mjc_scrollDidEndDecelerating:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+- (void)mjc_scrollDidEndDeceleratingWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController indexPage:(NSInteger)indexPage segmentInterface:(MJCSegmentInterface *)segmentInterface;
+/** 获取到所有item的代理方法(可在item上面添加新的控件) */
+- (void)mjc_tabitemDataWithTabitemArray:(NSArray<UIButton*>*)tabItemArray childsVCAarray:(NSArray<UIViewController*>*)childsVCAarray segmentInterface:(MJCSegmentInterface *)segmentInterface;
 
 @end
 

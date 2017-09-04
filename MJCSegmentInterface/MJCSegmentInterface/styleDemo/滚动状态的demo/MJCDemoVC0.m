@@ -35,6 +35,8 @@
         vc.title = titlesArr[i];
     }
     
+    
+    
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;

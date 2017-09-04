@@ -1,19 +1,19 @@
 //
-//  MJCDemoVC4.m
+//  MJCSoecialDemoVC7.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/7/2.
+//  Created by mjc on 2017/9/1.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCDemoVC2.h"
+#import "MJCSoecialDemoVC7.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC2 ()
+@interface MJCSoecialDemoVC7 ()<MJCSegmentDelegate>
 
 @end
 
-@implementation MJCDemoVC2
+@implementation MJCSoecialDemoVC7
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +38,7 @@
     //以下是我的控件中的代码
     MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
     lala.titleBarStyles = MJCTitlesScrollStyle;
+    lala.delegate = self;
     lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     lala.itemTitleNormalColorArray = colorArr;
     lala.itemTitleSelectedColorArray = colorArr1;
@@ -46,26 +47,32 @@
     lala.indicatorColor = [UIColor redColor];
     lala.isIndicatorFollow = YES;
     lala.isIndicatorColorEqualTextColor = YES;
+    lala.itemTextFontSize = 11;
     lala.selectedSegmentIndex = 2;
     [self.view addSubview:lala];
     [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
+    
+/**
+ 获取到所有item的代理方法
 
-
+ @param tabItemArray 装有item的数组
+ @param childsVCAarray 装有子控制器的数组
+ @param segmentInterface segmentInterface
+ */
 -(void)mjc_tabitemDataWithTabitemArray:(NSArray<UIButton *> *)tabItemArray childsVCAarray:(NSArray<UIViewController *> *)childsVCAarray segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-    for (int i = 0 ; i < tabItemArray.count; i++) {
-        UIButton *item = tabItemArray[i];
-        UIView *view1 = [[UIView alloc]init];
-        view1.backgroundColor = [UIColor blackColor];
-        [item addSubview:view1];
-        view1.frame = CGRectMake(item.titleLabel.jc_width, item.titleLabel.jc_y,10 ,10);
-    }
-    
-    NSLog(@"%@",tabItemArray);
-    NSLog(@"%@",childsVCAarray);
-    
+        for (int i = 0 ; i < tabItemArray.count; i++) {
+            UIButton *item = tabItemArray[i];//获取到item
+            UIView *roundView = [[UIView alloc]init];//创建圆点view
+            roundView.backgroundColor = [UIColor blackColor];
+            [item addSubview:roundView];//添加到item上面
+            CGFloat  roundViewX= CGRectGetMaxX(item.titleLabel.frame);
+            roundView.frame = CGRectMake(roundViewX,0,10 ,10);//设置圆点view的frame
+        }
 }
+    
+    
 
 
 @end

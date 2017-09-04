@@ -10,7 +10,9 @@
 #import "MJCTabItem.h"
 
 typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
+typedef void(^TabItemClickCancelBlock)(MJCTabItem *tabItem);
 typedef void(^ScrollDidEndBlock)(MJCTabItem *tabItem);
+typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 
 @interface MJCTitlesView : UIScrollView
 @property (nonatomic,weak) UIViewController *hostController;
@@ -19,10 +21,14 @@ typedef void(^ScrollDidEndBlock)(MJCTabItem *tabItem);
 - (void)jc_scrollViewDidEndDragging:(UIScrollView *)scrollView itemTextNormalColor:(UIColor *)itemTextNormalColor;
 - (void)jc_scrollViewWillEndDragging:(UIScrollView *)scrollView itemTextNormalColor:(UIColor *)itemTextNormalColor;
 - (void)jc_scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+@property(copy,nonatomic) TabItemClickCancelBlock clickCancelBlock;
+-(void)tableItemClickCancelBlock:(TabItemClickCancelBlock)clickCancelBlock;
 @property(copy,nonatomic) TabItemClickBlock clickBlock;
 -(void)tableItemClickBlock:(TabItemClickBlock)clickBlock;
 @property(copy,nonatomic) ScrollDidEndBlock scrollDidEndBlock;
 -(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock;
+@property(copy,nonatomic) TabitemArrBlock tabitemArrBlock;
+-(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock;
 @property (nonatomic,assign) CGRect titlesViewFrame;
 @property (nonatomic,assign) NSInteger titlesBarStyles;
 @property (nonatomic,strong) UIColor *titlesViewBackColor;

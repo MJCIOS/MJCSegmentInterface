@@ -18,13 +18,12 @@ static CGFloat const defaultIndicatorH = 1.5;
 
 @interface MJCTitlesView ()
 @property (nonatomic,strong) MJCIndicatorView *indicatorView;
-@property (nonatomic, strong) NSMutableArray *titleButtonsArr;
+@property (nonatomic, strong) NSMutableArray<MJCTabItem*> *titleButtonsArr;
 @property (nonatomic,weak) UIImageView *backgroudView;
 @property (nonatomic,weak) MJCTabItem *selectedTitleButton;
 @property (nonatomic,weak) MJCTabItem *tabItem;
 @property (nonatomic,assign) BOOL zoomBigEnabled;
 @property (nonatomic,assign) CGFloat tabItemTitleMaxfont;
-@property (nonatomic,assign) BOOL isSetDefaultSelectedItem;
 @property (nonatomic,assign) BOOL isLoadIndicatorFrame;
 @property (nonatomic,weak) MJCTabItem *oldsSelectedItem;
 @property (nonatomic,weak) MJCTabItem *newsSelectedItem;
@@ -139,8 +138,10 @@ static CGFloat const defaultIndicatorH = 1.5;
                 tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
             }
         }
-        [self addSubview:tabbutton];
+        
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addSubview:tabbutton];
         if (i == 0) {
             tabbutton.selected = YES;
             if (_isIndicatorColorEqualTextColor) {
@@ -154,6 +155,14 @@ static CGFloat const defaultIndicatorH = 1.5;
         }
         [self.titleButtonsArr addObject:tabbutton];
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (_tabitemArrBlock) {
+            _tabitemArrBlock(_titleButtonsArr);
+        }
+    });
+    
+    
     if (_ItemWidthStyles == 0) {
             self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
     }else{
@@ -166,7 +175,14 @@ static CGFloat const defaultIndicatorH = 1.5;
         }
     }
     [self addSubview:_indicatorView];
+    
 }
+
+-(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock
+{
+    _tabitemArrBlock = tabitemArrBlock;
+}
+
 -(void)setupButton:(MJCTabItem *)tabbutton
 {
     if (!_isItemTitleTextHidden) {
@@ -192,11 +208,38 @@ static CGFloat const defaultIndicatorH = 1.5;
     tabbutton.itemTitleSelectedColorArray = _itemTitleSelectedColorArray;
 
 }
+
+-(void)tableItemClickCancelBlock:(TabItemClickCancelBlock)clickCancelBlock
+{
+    _clickCancelBlock = clickCancelBlock;
+}
+
 - (void)titleClick:(MJCTabItem *)titleButton
 {
+    
+    
+//    NSLog(@"%ld",titleButton.tag);
+//    NSLog(@"%ld",_selectedTitleButton.tag);
+//    NSLog(@"%ld",_titlesArray.count);
+//    
+//    if (titleButton.tag > _selectedTitleButton.tag) {
+//        if (titleButton.tag < _titlesArray.count-1) {
+//            NSLog(@"%@",(_titleButtonsArr[titleButton.tag-1]));
+//        }
+//    }else{
+//        if (titleButton.tag  > 0) {
+//            NSLog(@"%@",(_titleButtonsArr[titleButton.tag+1]));
+//        }
+//    }
+
+    
+    
+
+    
     [self setupClickAndScrollEndWith:titleButton];
+    
     if (_clickBlock) {
-        _clickBlock(titleButton);
+        _clickBlock(_selectedTitleButton);
     }
 }
 - (void)setupTitleCenter:(UIButton *)titleButton
@@ -250,7 +293,6 @@ static CGFloat const defaultIndicatorH = 1.5;
         if (selectedSegmentIndex >= _titlesArray.count) {
             return;
         }
-        _isSetDefaultSelectedItem = YES;
         MJCTabItem *titlesButton =_titleButtonsArr[selectedSegmentIndex];
         [self titleClick:titlesButton];
     });
@@ -421,7 +463,6 @@ static CGFloat const defaultIndicatorH = 1.5;
     _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
 
-
 -(void)setupClickAndScrollEndWith:(MJCTabItem *)titleButton
 {
     _selectedTag = titleButton.tag;
@@ -429,30 +470,35 @@ static CGFloat const defaultIndicatorH = 1.5;
     if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
         [self setupTitleCenter:titleButton];
     }
-    if (titleButton == _selectedTitleButton && !_isSetDefaultSelectedItem){
+    if (titleButton == _selectedTitleButton){
         _selectedTitleButton.selected = YES;
         return;
     };
-    _isSetDefaultSelectedItem = NO;
     if (_itemTextFontSize) {
         _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
     }else{
         _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
     }
     _selectedTitleButton.selected = NO;
+    
+    if (_clickCancelBlock) {
+        _clickCancelBlock(_selectedTitleButton);
+    }
+    
+    
     titleButton.selected = YES;
+    
     if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
         titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
     }
-    
     if (_isIndicatorColorEqualTextColor) {
         _indicatorView.backgroundColor = titleButton.titleLabel.textColor;
     }
-    _selectedTitleButton = titleButton;
     if (_zoomBigEnabled) {
         titleButton.itemTextFontSize = _tabItemTitleMaxfont;
     }
-    
+    _selectedTitleButton = titleButton;
+
     [self setupIndicatorViewCenterAndWidth];
 }
 
@@ -460,5 +506,6 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     _scrollDidEndBlock = scrollDidEndBlock;
 }
+
 
 @end

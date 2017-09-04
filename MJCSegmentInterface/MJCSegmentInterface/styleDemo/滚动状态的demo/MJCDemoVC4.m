@@ -52,16 +52,21 @@
     lala.itemTextFontSize = 11;
     lala.defaultShowItemCount = 5;
     lala.childsContainerBackColor = [UIColor purpleColor];
-    lala.selectedSegmentIndex = 2;
+//    lala.selectedSegmentIndex = 2;
     [lala intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:lala];
     [lala intoChildControllerArray:vcArr];
     
 }
 
--(void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface
+-(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-    
+    NSLog(@"%@",tabItem);
+    NSLog(@"%@",childsController);
+    NSLog(@"%@",segmentInterface);
 }
+
+
+
 
 @end

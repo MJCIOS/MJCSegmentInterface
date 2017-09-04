@@ -44,5 +44,17 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC6</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>如何在tabitem上面添加一个控件</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC7</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>各个代理方法使用,配合使用</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC8</string>
+	</dict>
 </array>
 </plist>

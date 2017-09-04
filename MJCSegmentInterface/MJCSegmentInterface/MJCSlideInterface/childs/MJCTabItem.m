@@ -97,6 +97,7 @@ static CGFloat const tenMargin = 15;
         }
     }else{
         [self.titleLabel sizeToFit];
+//        self.titleLabel.frame = CGRectMake(tabItemCenterX, tabItemCenterY, self.titleLabel.jc_width, self.titleLabel.jc_height);
         self.titleLabel.jc_centerX = tabItemCenterX;
         self.titleLabel.jc_centerY = tabItemCenterY;
     }
@@ -142,6 +143,7 @@ static CGFloat const tenMargin = 15;
     if (itemTextFontSize) {
         self.titleLabel.font = [UIFont systemFontOfSize:itemTextFontSize];
         [self setNeedsLayout];
+        [self layoutIfNeeded];
     }
 }
 -(void)setItemTitleNormalColor:(UIColor *)itemTitleNormalColor

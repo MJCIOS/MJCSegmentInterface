@@ -60,22 +60,36 @@ static CGFloat const defaultTitlesViewH = 50;
     [_titlesView scrollDidEndBlock:^(MJCTabItem *tabItem) {
         _childMainView.titlesTabItem = tabItem;
         [_childMainView addChildVcView];
-        if ([self.delegate respondsToSelector:@selector(mjc_scrollDidEndDecelerating:childViewController:segmentInterface:)]) {
+        if ([self.delegate respondsToSelector:@selector(mjc_scrollDidEndDeceleratingWithItem:childsController:indexPage:segmentInterface:)]) {
             if ( tabItem.tag >=_hostController.childViewControllers.count) {
-                [self.delegate mjc_scrollDidEndDecelerating:tabItem childViewController:nil segmentInterface:self];
+                [self.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:nil indexPage:tabItem.tag segmentInterface:self];
             }else{
-                [self.delegate mjc_scrollDidEndDecelerating:tabItem childViewController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+                [self.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] indexPage:tabItem.tag segmentInterface:self];
             }
         }
     }];
     [_titlesView tableItemClickBlock:^(MJCTabItem *tabItem) {
         _childMainView.titlesTabItem = tabItem;
         [_childMainView addChildVcView];
-        if ([self.delegate respondsToSelector:@selector(mjc_ClickEvent:childViewController:segmentInterface:)]) {
+        if ([self.delegate respondsToSelector:@selector(mjc_ClickEventWithItem:childsController:segmentInterface:)]) {
             if ( tabItem.tag >=_hostController.childViewControllers.count) {
-                [self.delegate mjc_ClickEvent:tabItem childViewController:nil segmentInterface:self];
+                [self.delegate mjc_ClickEventWithItem:tabItem childsController:nil segmentInterface:self];
             }else{
-                [self.delegate mjc_ClickEvent:tabItem childViewController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+                [self.delegate mjc_ClickEventWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+            }
+        }
+    }];
+    [_titlesView tabitemArrBlock:^(NSArray<MJCTabItem *> *tabItemArr) {
+        if ([self.delegate respondsToSelector:@selector(mjc_tabitemDataWithTabitemArray:childsVCAarray:segmentInterface:)]) {
+            [self.delegate mjc_tabitemDataWithTabitemArray:tabItemArr childsVCAarray:_hostController.childViewControllers segmentInterface:self];
+        }
+    }];
+    [_titlesView tableItemClickCancelBlock:^(MJCTabItem *tabItem) {
+        if ([self.delegate respondsToSelector:@selector(mjc_cancelClickEventWithItem:childsController:segmentInterface:)]) {
+            if ( tabItem.tag >=_hostController.childViewControllers.count) {
+                [self.delegate mjc_cancelClickEventWithItem:tabItem childsController:nil segmentInterface:self];
+            }else{
+                [self.delegate mjc_cancelClickEventWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
             }
         }
     }];

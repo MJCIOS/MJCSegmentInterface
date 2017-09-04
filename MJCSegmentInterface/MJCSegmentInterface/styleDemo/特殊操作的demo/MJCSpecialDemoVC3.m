@@ -74,10 +74,10 @@
     [self.view addSubview:button];
 }
 
-- (void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface;
+-(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
     NSLog(@"%ld",tabItem.tag);
-    NSLog(@"%@",childViewController);
+    NSLog(@"%@",childsController);
     NSLog(@"%@",segmentInterface);
 }
 

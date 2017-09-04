@@ -20,5 +20,11 @@
 		<key>titles</key>
 		<string>(好多用户不知道如何使用的特殊操作)</string>
 	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string></string>
+		<key>titles</key>
+		<string>谢谢大家使用,谢谢,有啥功能推荐,请私聊我</string>
+	</dict>
 </array>
 </plist>

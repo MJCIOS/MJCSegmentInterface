@@ -18,8 +18,8 @@
 		250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */; };
 		250F5E611F2B2D8400B8014A /* UILabel+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E581F2B2D8400B8014A /* UILabel+MJCClassExtension.m */; };
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
-		2524A2731F457FEA004F4126 /* demos0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2524A2721F457FEA004F4126 /* demos0.png */; };
 		256E47081F408F3A009BD143 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256E47071F408F3A009BD143 /* demo1.gif */; };
+		257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
 		25D3C2821F3F386100921F1E /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2811F3F386100921F1E /* demo0.gif */; };
@@ -59,6 +59,7 @@
 		25EBD0DF1F57FD1000AF38C6 /* MJCScrollStyleMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD0DE1F57FD1000AF38C6 /* MJCScrollStyleMainVC.m */; };
 		25EBD0E31F57FD1F00AF38C6 /* MJCClassicMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD0E21F57FD1F00AF38C6 /* MJCClassicMainVC.m */; };
 		25EBD0E71F57FD2C00AF38C6 /* MJCSpecialMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD0E61F57FD2C00AF38C6 /* MJCSpecialMainVC.m */; };
+		25EBD0EA1F58FAD700AF38C6 /* MJCSoecialDemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EBD0E91F58FAD700AF38C6 /* MJCSoecialDemoVC7.m */; };
 		25F037511F56A02800B208CD /* jiameng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25F037501F56A02700B208CD /* jiameng.plist */; };
 		25F037591F56D06D00B208CD /* mainVCData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25F037581F56D06D00B208CD /* mainVCData.plist */; };
 		25F037BA1F56D8C400B208CD /* MJCDemoVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F037981F56D8C400B208CD /* MJCDemoVC0.m */; };
@@ -120,9 +121,10 @@
 		250F5E581F2B2D8400B8014A /* UILabel+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MJCClassExtension.m"; sourceTree = "<group>"; };
 		250F5E591F2B2D8400B8014A /* UIView+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCClassExtension.h"; sourceTree = "<group>"; };
 		250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCClassExtension.m"; sourceTree = "<group>"; };
-		2524A2721F457FEA004F4126 /* demos0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demos0.png; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		256E47071F408F3A009BD143 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
+		257033F81F5D367C00132A8F /* MJCSoecialDemoVC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC8.h; sourceTree = "<group>"; };
+		257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC8.m; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
@@ -184,6 +186,8 @@
 		25EBD0E21F57FD1F00AF38C6 /* MJCClassicMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCClassicMainVC.m; sourceTree = "<group>"; };
 		25EBD0E51F57FD2C00AF38C6 /* MJCSpecialMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSpecialMainVC.h; sourceTree = "<group>"; };
 		25EBD0E61F57FD2C00AF38C6 /* MJCSpecialMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSpecialMainVC.m; sourceTree = "<group>"; };
+		25EBD0E81F58FAD700AF38C6 /* MJCSoecialDemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC7.h; sourceTree = "<group>"; };
+		25EBD0E91F58FAD700AF38C6 /* MJCSoecialDemoVC7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC7.m; sourceTree = "<group>"; };
 		25F037501F56A02700B208CD /* jiameng.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jiameng.plist; sourceTree = "<group>"; };
 		25F037581F56D06D00B208CD /* mainVCData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mainVCData.plist; sourceTree = "<group>"; };
 		25F037971F56D8C400B208CD /* MJCDemoVC0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoVC0.h; sourceTree = "<group>"; };
@@ -351,7 +355,6 @@
 			children = (
 				25F037501F56A02700B208CD /* jiameng.plist */,
 				257216901F34465E00A1EF49 /* collectionData.plist */,
-				2524A2721F457FEA004F4126 /* demos0.png */,
 				25D3C2991F3F655900921F1E /* demo11.gif */,
 				25D3C2971F3F642900921F1E /* demo8.gif */,
 				25D3C2951F3F642500921F1E /* demo9.gif */,
@@ -495,6 +498,10 @@
 				25EBD0D01F57EBB000AF38C6 /* MJCSoecialDemoVC5.m */,
 				25EBD0D21F57F0B700AF38C6 /* MJCSoecialDemoVC6.h */,
 				25EBD0D31F57F0B700AF38C6 /* MJCSoecialDemoVC6.m */,
+				25EBD0E81F58FAD700AF38C6 /* MJCSoecialDemoVC7.h */,
+				25EBD0E91F58FAD700AF38C6 /* MJCSoecialDemoVC7.m */,
+				257033F81F5D367C00132A8F /* MJCSoecialDemoVC8.h */,
+				257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -646,7 +653,6 @@
 				25D9DB551DC2635C00B903B1 /* LaunchScreen.storyboard in Resources */,
 				25F037C81F56D8C400B208CD /* MJCSpecialDemoVC2.xib in Resources */,
 				25F037591F56D06D00B208CD /* mainVCData.plist in Resources */,
-				2524A2731F457FEA004F4126 /* demos0.png in Resources */,
 				25E887FF1F56DDB000F0B4C9 /* specialVCData.plist in Resources */,
 				25D3C2981F3F642900921F1E /* demo8.gif in Resources */,
 				25D3C2961F3F642500921F1E /* demo9.gif in Resources */,
@@ -757,6 +763,7 @@
 				25F037BD1F56D8C400B208CD /* MJCDemoVC1.m in Sources */,
 				25F037C91F56D8C400B208CD /* MJCDemoClassicVC.m in Sources */,
 				250F5E471F2B2D3100B8014A /* MJCIndicatorView.m in Sources */,
+				257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */,
 				25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */,
 				250F5E461F2B2D3100B8014A /* MJCChildMainView.m in Sources */,
 				25F037C21F56D8C400B208CD /* MJCDemoVC6.m in Sources */,
@@ -776,6 +783,7 @@
 				25E822EA1F0CE38200FB305F /* MJCTestViewController.m in Sources */,
 				25EBD0DA1F57FD0200AF38C6 /* MJCInterfaceTools.m in Sources */,
 				25F037BC1F56D8C400B208CD /* MJCDemoVC9.m in Sources */,
+				25EBD0EA1F58FAD700AF38C6 /* MJCSoecialDemoVC7.m in Sources */,
 				25E888021F56E49700F0B4C9 /* MJCSpecialDemoVC3.m in Sources */,
 				2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */,
 				25F037BA1F56D8C400B208CD /* MJCDemoVC0.m in Sources */,

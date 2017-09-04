@@ -53,7 +53,7 @@ static CGFloat const animalTime= 0.25;
         for (int i = 0; i < _childControllerArray.count; i++) {
             [_hostController addChildViewController:_childControllerArray[i]];
         }
-        [self addChildVcView];
+//        [self addChildVcView];//暂时没出啥问题,不删,,
     }
 }
 - (void)addChildVcView

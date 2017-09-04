@@ -54,9 +54,9 @@
 
 }
 
--(void)mjc_ClickEvent:(UIButton *)tabItem childViewController:(UIViewController *)childViewController segmentInterface:(MJCSegmentInterface *)segmentInterface
+-(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
-    MJCTestTableViewController *vc = (MJCTestTableViewController *)childViewController;
+    MJCTestTableViewController *vc = (MJCTestTableViewController *)childsController;
     NSMutableDictionary *dic =  _mainArr[tabItem.tag];
     [vc beginLoadNewData:dic];
 }
