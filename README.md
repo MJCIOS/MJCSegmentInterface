@@ -4,7 +4,8 @@
 
 ## ☆☆ 如何导入使用框架方法 ☆☆
 * 可以打开https://github.com/MJCIOS/MJCSegmentInterface 将项目下载下来,将MJCSlideInterface文件夹放入自己的项目中
-* 项目已支持pod导入,仅支持8.0以及8.0以上版本 pod 'MJCSegmentInterface' (如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
+* 项目已支持pod导入,仅支持8.0以及8.0以上版本
+* (1).打开Podfile文件 添加pod 'MJCSegmentInterface'  (2).再执行下pod update (3).(如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
 
 ## ☆☆ 1.8.6版本更新简介 ☆☆
 * 1.增加了滑动标题栏文字颜色渐变功能,并且支持,灰色,黑色,深灰色,浅灰色的这些色值渐变..
