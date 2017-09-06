@@ -7,14 +7,14 @@
 * 2.将MJCSlideInterface文件夹放入自己的项目中
 
 ### * 项目已支持CocoaPods,仅支持8.0以及8.0以上版本	
-* 1. 打开Podfile文件 添加pod 'MJCSegmentInterface'	
-* 2. 再执行下pod update 或pod install (如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
-* 3. import <MJCSegmentInterface/MJCSegmentInterface.h>
+* 1.打开Podfile文件 添加pod 'MJCSegmentInterface'	
+* 2.再执行下pod update 或pod install (如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
+* 3.import <MJCSegmentInterface/MJCSegmentInterface.h>
 
 ## ☆☆ 1.8.6版本更新简介 ☆☆
-* 1. 增加了滑动标题栏文字颜色渐变功能,并且支持,灰色,黑色,深灰色,浅灰色的这些色值渐变..
-* 2. 解决了外界不设置文字大小,导致文字增大后,不会缩小的bug,以及一些小bug...
-* 3. 新增几个代理方法,可让使用者在item上面添加一个控件...具体使用可以查看demo
+* 1.增加了滑动标题栏文字颜色渐变功能,并且支持,灰色,黑色,深灰色,浅灰色的这些色值渐变..
+* 2.解决了外界不设置文字大小,导致文字增大后,不会缩小的bug,以及一些小bug...
+* 3.新增几个代理方法,可让使用者在item上面添加一个控件...具体使用可以查看demo
 
 ---------------------------------------------------------------------------------------------------------------
 * 我只想把框架弄的更好..让大家更方便的用,有问题和bug,还有需要啥新的功能随时提给我,谢谢.
