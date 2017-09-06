@@ -16,10 +16,6 @@
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
-#define MJCiPhone4s CGSizeMake(320.f, 480.f)
-#define MJCiPhone5s CGSizeMake(320.f, 568.f)
-#define MJCiPhone6s CGSizeMake(375.f, 667.f)
-#define MJCiPhone7p CGSizeMake(414.f, 736.f)
 
 #define iPhone4Height (480.f)
 #define iPhone4Width (320.f)
@@ -50,5 +46,14 @@
 /** 有导航栏或者tabbar时,保证标题栏不会被覆盖 */
 +(void)useNavOrTabbarNotBeCover:(UIViewController *)controllers rectEdge:(UIRectEdge)rectEdge;
 
+/** 是否是iphone6的位置大小 */
++ (BOOL )isIphone7Bounds;
+/** 是否是iphone5的位置大小 */
++ (BOOL )isIphoneSEBounds;
+/** 是否是iphonePlus的位置大小 */
++ (BOOL )isIphonePlusBounds;
+/** 是否是假适配(只需要根据iphone5来适配布局的情况下) */
++ (BOOL )isFalseFit;
 
+    
 @end

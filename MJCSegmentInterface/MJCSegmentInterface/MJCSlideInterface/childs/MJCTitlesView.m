@@ -115,32 +115,44 @@ static CGFloat const defaultIndicatorH = 1.5;
         MJCTabItem *tabbutton = [MJCTabItem buttonWithType:UIButtonTypeCustom];
         tabbutton.tag = i;
         [self setupButton:tabbutton];
-        if (_ItemWidthStyles == 0) {
-            CGFloat tabX = tabItemW*i+maxleftMargin;
+        if (_titlesBarStyles == 0) {
+            NSInteger  maxCount = titlesArray.count;
+            NSInteger loc = i % maxCount;
+            CGFloat itemW = (self.jc_width  - maxleftMargin - maxRightMargin - (titlesArray.count - 1)*lineMargin) / titlesArray.count;
+            CGFloat x = maxleftMargin + (lineMargin +itemW) * loc;
             CGFloat tabY = maxTopMargin;
             CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
-            tabbutton.frame = CGRectMake(tabX,tabY, tabItemW-lineMargin,tabH);
+            tabbutton.frame = CGRectMake(x,tabY,itemW,tabH);
         }else{
-            [tabbutton sizeToFit];
-            CGFloat tabX =  _itemNewX + maxleftMargin;
-            CGFloat tabY = maxTopMargin;
-            CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
-            _itemNewX +=   tabbutton.jc_width+lineMargin;
-            if (MJCScreenHeight == iPhone6PlusHeight) { //plus适配
-                tabX = tabX * plusScalsW;
-                tabbutton.jc_width = tabbutton.jc_width * plusScalsW;
-                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
-            }else if (MJCScreenHeight == iPhone5Height){ //5的适配
-                tabX = tabX * i5scalsW;
-                tabbutton.jc_width = tabbutton.jc_width * i5scalsW;
-                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+            if (_ItemWidthStyles == 0) {
+                CGFloat tabX = tabItemW*i+maxleftMargin;
+                CGFloat tabY = maxTopMargin;
+                CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+                tabbutton.frame = CGRectMake(tabX,tabY, tabItemW-lineMargin,tabH);
             }else{
-                tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+                [tabbutton sizeToFit];
+                CGFloat tabX =  _itemNewX + maxleftMargin;
+                CGFloat tabY = maxTopMargin;
+                CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+                _itemNewX +=   tabbutton.jc_width+lineMargin;
+                if ([MJCCommonTools isFalseFit]) {
+                    tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+                }else{
+                    if ( [MJCCommonTools isIphone7Bounds]) { //plus适配
+                        tabX = tabX * plusScalsW;
+                        tabbutton.jc_width = tabbutton.jc_width * plusScalsW;
+                        tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+                    }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
+                        tabX = tabX * i5scalsW;
+                        tabbutton.jc_width = tabbutton.jc_width * i5scalsW;
+                        tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+                    }else{
+                        tabbutton.frame = CGRectMake(tabX,tabY, tabbutton.jc_width,tabH);
+                    }
+                }
             }
         }
-        
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-        
         [self addSubview:tabbutton];
         if (i == 0) {
             tabbutton.selected = YES;
@@ -150,8 +162,8 @@ static CGFloat const defaultIndicatorH = 1.5;
             if (_zoomBigEnabled) {
                 tabbutton.itemTextFontSize = _tabItemTitleMaxfont;
             }
-            _selectedTitleButton = tabbutton;
             [self setupIndicatorViewCenterAndWidth];
+            _selectedTitleButton = tabbutton;
         }
         [self.titleButtonsArr addObject:tabbutton];
     }
@@ -162,13 +174,12 @@ static CGFloat const defaultIndicatorH = 1.5;
         }
     });
     
-    
     if (_ItemWidthStyles == 0) {
             self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
     }else{
-        if (MJCScreenHeight == iPhone6PlusHeight) { //plus适配
+        if ([MJCCommonTools isIphone7Bounds]) { //plus适配
             self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
-        }else if (MJCScreenHeight == iPhone5Height){ //5的适配
+        }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
             self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
         }else{
             self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
@@ -216,25 +227,6 @@ static CGFloat const defaultIndicatorH = 1.5;
 
 - (void)titleClick:(MJCTabItem *)titleButton
 {
-    
-    
-//    NSLog(@"%ld",titleButton.tag);
-//    NSLog(@"%ld",_selectedTitleButton.tag);
-//    NSLog(@"%ld",_titlesArray.count);
-//    
-//    if (titleButton.tag > _selectedTitleButton.tag) {
-//        if (titleButton.tag < _titlesArray.count-1) {
-//            NSLog(@"%@",(_titleButtonsArr[titleButton.tag-1]));
-//        }
-//    }else{
-//        if (titleButton.tag  > 0) {
-//            NSLog(@"%@",(_titleButtonsArr[titleButton.tag+1]));
-//        }
-//    }
-
-    
-    
-
     
     [self setupClickAndScrollEndWith:titleButton];
     

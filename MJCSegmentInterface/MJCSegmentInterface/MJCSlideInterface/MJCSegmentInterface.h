@@ -31,10 +31,10 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
     MJCImageCenterStyle = 2  //图片和文字都在中间的样式
 };
 
-//item宽度样式
+//item宽度样式(暂时只支持标题栏滚动样式)
 typedef NS_OPTIONS(NSUInteger,MJCItemWidthStyles) {
-    MJCItemWidthClassicStyle = 0,      //经典标题样式
-    MJCItemAdaptiveWidthStyle = 1       //item自适应样式
+    MJCItemWidthClassicStyle = 0,      //经典标题宽度样式
+    MJCItemAdaptiveWidthStyle = 1       //item宽度自适应样式
 } ;
 
 typedef struct MJCEdgeInsets {
@@ -73,7 +73,7 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
 /** 标题图片效果样式 */
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;
-/** 标题item宽度样式 */
+/** 标题item宽度样式(暂时只支持标题栏滚动样式) */
 @property (nonatomic,assign) MJCItemWidthStyles ItemWidthStyles;
 /** item最大内边距和两个item之间的间距 */
 @property (nonatomic) MJCEdgeInsets itemMaxEdgeinsets;
