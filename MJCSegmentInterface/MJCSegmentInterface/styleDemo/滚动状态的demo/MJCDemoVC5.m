@@ -34,21 +34,21 @@
 
 
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 5;
-    lala.itemBackColor = [UIColor whiteColor];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.isIndicatorFollow = YES;
+    interFace.selectedSegmentIndex = 3;
+    interFace.defaultShowItemCount = 5;
+    interFace.itemBackColor = [UIColor whiteColor];
     NSArray *imageArr =@[@"111",@"222",@"1111",@"234",@"567",@"666",@"888"];
     NSArray *imageArr1 = @[@"123",@"333",@"345",@"456",@"777",@"999",@"555"];
-    lala.itemNormalBackImageArray = imageArr;
-    lala.itemSelectedBackImageArray = imageArr1;
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    interFace.itemNormalBackImageArray = imageArr;
+    interFace.itemSelectedBackImageArray = imageArr1;
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 

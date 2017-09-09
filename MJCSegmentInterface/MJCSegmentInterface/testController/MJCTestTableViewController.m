@@ -8,6 +8,7 @@
 
 #import "MJCTestTableViewController.h"
 #import "MJCPrefixHeader.pch"
+#import "MJCTestPushVC.h"
 
 @interface MJCTestTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -58,6 +59,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *ID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
@@ -67,6 +69,17 @@
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MJCTestPushVC *vc = [[MJCTestPushVC alloc]jc_initWithSureBtnClickBlock:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"switchSegmentPage" object:nil];
+    }];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [NSString stringWithFormat:@"我是第%ld组",section];

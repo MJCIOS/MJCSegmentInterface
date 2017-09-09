@@ -1,24 +1,23 @@
 //
-//  MJCDemoVC11.m
+//  MJCDemoClassicVC1.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 17/7/13.
+//  Created by mjc on 2017/9/9.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCDemoVC9.h"
+#import "MJCDemoClassicVC1.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoVC9 ()<MJCSegmentDelegate>
-
-@property (nonatomic,weak) MJCSegmentInterface *interFace;
+@interface MJCDemoClassicVC1 ()<MJCSegmentDelegate>
 
 @end
 
-@implementation MJCDemoVC9
+@implementation MJCDemoClassicVC1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
@@ -37,18 +36,17 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
+    
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
     //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle] ;
-    _interFace = interFace;
-    interFace.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,60);//顶部标题栏frame
+    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesClassicStyle] ;
+    interFace.titlesViewFrame = CGRectMake(0, 0, interFace.jc_width, 60);
     interFace.indicatorStyles = MJCIndicatorItemStyle;
     interFace.selectedSegmentIndex = 4;//默认选中第几个
-    interFace.defaultShowItemCount = 3;//首页,第一页展示多少个
     interFace.delegate = self;
+    interFace.imageEffectStyles = MJCImageUpDownStyle;
     interFace.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
     interFace.itemTextFontSize = 13;//item文字大小
     interFace.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
@@ -69,10 +67,8 @@
     interFace.isChildScollEnabled = YES;//是否手拽滚动子界面
     interFace.isChildScollAnimal = YES;//子界面切换是否有动画效果
     interFace.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
-    interFace.imageEffectStyles = MJCImageClassicStyle;//item图片类型
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:NO widthToFitIsEnabled:NO];
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(0, 10, 0, 10, 10);
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10,10,10,0);//item图片位置修改
+    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(5,5,5,5,5);
+    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(0,10,10,10);//item图片位置修改
     interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
     interFace.isFontGradient = YES;//是否渐变
     interFace.isItemTitleTextHidden = NO;
@@ -114,9 +110,11 @@
     NSLog(@"%@",childsVCAarray);
     NSLog(@"%@",segmentInterface);
 }
-    
+
 -(void)dealloc
 {
     NSLog(@"%@销毁了",self);
 }
+
+
 @end

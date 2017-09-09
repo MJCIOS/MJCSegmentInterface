@@ -56,5 +56,17 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC8</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>其他页面进行操作之后,切换顶部item</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC9</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>特殊样式自适应效果</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC10</string>
+	</dict>
 </array>
 </plist>

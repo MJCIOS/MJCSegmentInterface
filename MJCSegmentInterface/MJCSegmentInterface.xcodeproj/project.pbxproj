@@ -22,6 +22,11 @@
 		257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */; };
 		257033FD1F5D3D6500132A8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033FC1F5D3D6500132A8F /* ViewController.m */; };
 		257034001F5D3D6B00132A8F /* MJCInterfaceTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033FF1F5D3D6B00132A8F /* MJCInterfaceTools.m */; };
+		257034031F5FD2D100132A8F /* MJCSoecialDemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = 257034021F5FD2D100132A8F /* MJCSoecialDemoVC9.m */; };
+		257034071F5FD76700132A8F /* MJCTestPushVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 257034051F5FD76700132A8F /* MJCTestPushVC.m */; };
+		257034081F5FD76700132A8F /* MJCTestPushVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 257034061F5FD76700132A8F /* MJCTestPushVC.xib */; };
+		2570340D1F601D0A00132A8F /* MJCSoecialDemoVC10.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570340C1F601D0A00132A8F /* MJCSoecialDemoVC10.m */; };
+		257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
 		25D3C2821F3F386100921F1E /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2811F3F386100921F1E /* demo0.gif */; };
@@ -129,6 +134,15 @@
 		257033FC1F5D3D6500132A8F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		257033FE1F5D3D6B00132A8F /* MJCInterfaceTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCInterfaceTools.h; sourceTree = "<group>"; };
 		257033FF1F5D3D6B00132A8F /* MJCInterfaceTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCInterfaceTools.m; sourceTree = "<group>"; };
+		257034011F5FD2D100132A8F /* MJCSoecialDemoVC9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC9.h; sourceTree = "<group>"; };
+		257034021F5FD2D100132A8F /* MJCSoecialDemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC9.m; sourceTree = "<group>"; };
+		257034041F5FD76700132A8F /* MJCTestPushVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestPushVC.h; sourceTree = "<group>"; };
+		257034051F5FD76700132A8F /* MJCTestPushVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestPushVC.m; sourceTree = "<group>"; };
+		257034061F5FD76700132A8F /* MJCTestPushVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCTestPushVC.xib; sourceTree = "<group>"; };
+		2570340B1F601D0A00132A8F /* MJCSoecialDemoVC10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC10.h; sourceTree = "<group>"; };
+		2570340C1F601D0A00132A8F /* MJCSoecialDemoVC10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC10.m; sourceTree = "<group>"; };
+		2570340E1F6430E700132A8F /* MJCDemoClassicVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC1.h; sourceTree = "<group>"; };
+		2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoClassicVC1.m; sourceTree = "<group>"; };
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
@@ -391,6 +405,9 @@
 				25E822E31F0CE38200FB305F /* MJCTestViewController1.xib */,
 				2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */,
 				2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */,
+				257034041F5FD76700132A8F /* MJCTestPushVC.h */,
+				257034051F5FD76700132A8F /* MJCTestPushVC.m */,
+				257034061F5FD76700132A8F /* MJCTestPushVC.xib */,
 			);
 			path = testController;
 			sourceTree = "<group>";
@@ -455,10 +472,10 @@
 				25F037A01F56D8C400B208CD /* MJCDemoVC2.m */,
 				25F037A11F56D8C400B208CD /* MJCDemoVC3.h */,
 				25F037A21F56D8C400B208CD /* MJCDemoVC3.m */,
-				25F037A51F56D8C400B208CD /* MJCDemoVC5.h */,
-				25F037A61F56D8C400B208CD /* MJCDemoVC5.m */,
 				25E888031F56E95400F0B4C9 /* MJCDemoVC4.h */,
 				25E888041F56E95400F0B4C9 /* MJCDemoVC4.m */,
+				25F037A51F56D8C400B208CD /* MJCDemoVC5.h */,
+				25F037A61F56D8C400B208CD /* MJCDemoVC5.m */,
 				25F037A71F56D8C400B208CD /* MJCDemoVC6.h */,
 				25F037A81F56D8C400B208CD /* MJCDemoVC6.m */,
 				25F037A91F56D8C400B208CD /* MJCDemoVC7.h */,
@@ -494,6 +511,10 @@
 				25EBD0E91F58FAD700AF38C6 /* MJCSoecialDemoVC7.m */,
 				257033F81F5D367C00132A8F /* MJCSoecialDemoVC8.h */,
 				257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */,
+				257034011F5FD2D100132A8F /* MJCSoecialDemoVC9.h */,
+				257034021F5FD2D100132A8F /* MJCSoecialDemoVC9.m */,
+				2570340B1F601D0A00132A8F /* MJCSoecialDemoVC10.h */,
+				2570340C1F601D0A00132A8F /* MJCSoecialDemoVC10.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -504,6 +525,8 @@
 				25EBD0E01F57FD1F00AF38C6 /* mainVC1 */,
 				25F037B81F56D8C400B208CD /* MJCDemoClassicVC.h */,
 				25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */,
+				2570340E1F6430E700132A8F /* MJCDemoClassicVC1.h */,
+				2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */,
 			);
 			path = "默认不可滚动的demo";
 			sourceTree = "<group>";
@@ -648,6 +671,7 @@
 				25E887FF1F56DDB000F0B4C9 /* specialVCData.plist in Resources */,
 				25D3C2981F3F642900921F1E /* demo8.gif in Resources */,
 				25D3C2961F3F642500921F1E /* demo9.gif in Resources */,
+				257034081F5FD76700132A8F /* MJCTestPushVC.xib in Resources */,
 				25D9DB521DC2635C00B903B1 /* Assets.xcassets in Resources */,
 				25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */,
 				25D3C2921F3F623100921F1E /* demo7.gif in Resources */,
@@ -743,6 +767,7 @@
 				250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */,
 				25EBD0D41F57F0B700AF38C6 /* MJCSoecialDemoVC6.m in Sources */,
 				250F5E5B1F2B2D8400B8014A /* MJCAlertMessage.m in Sources */,
+				2570340D1F601D0A00132A8F /* MJCSoecialDemoVC10.m in Sources */,
 				250F5E5D1F2B2D8400B8014A /* MJCOrdinaryLayout.m in Sources */,
 				25F037BB1F56D8C400B208CD /* MJCDemoVC8.m in Sources */,
 				25EBD0E31F57FD1F00AF38C6 /* MJCClassicMainVC.m in Sources */,
@@ -757,15 +782,18 @@
 				250F5E471F2B2D3100B8014A /* MJCIndicatorView.m in Sources */,
 				257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */,
 				25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */,
+				257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */,
 				250F5E461F2B2D3100B8014A /* MJCChildMainView.m in Sources */,
 				25F037C21F56D8C400B208CD /* MJCDemoVC6.m in Sources */,
 				25F037BE1F56D8C400B208CD /* MJCDemoVC2.m in Sources */,
+				257034031F5FD2D100132A8F /* MJCSoecialDemoVC9.m in Sources */,
 				25F037C51F56D8C400B208CD /* MJCSpecialDemoVC0.m in Sources */,
 				250F5E611F2B2D8400B8014A /* UILabel+MJCClassExtension.m in Sources */,
 				25F037C11F56D8C400B208CD /* MJCDemoVC5.m in Sources */,
 				250F5E5C1F2B2D8400B8014A /* MJCCommonTools.m in Sources */,
 				25F037BF1F56D8C400B208CD /* MJCDemoVC3.m in Sources */,
 				25E822EC1F0CE38200FB305F /* MJCTestViewController1.m in Sources */,
+				257034071F5FD76700132A8F /* MJCTestPushVC.m in Sources */,
 				25F037C61F56D8C400B208CD /* MJCSpecialDemoVC1.m in Sources */,
 				257034001F5D3D6B00132A8F /* MJCInterfaceTools.m in Sources */,
 				250F5E481F2B2D3100B8014A /* MJCTabItem.m in Sources */,

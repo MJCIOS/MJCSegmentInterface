@@ -8,8 +8,9 @@
 
 #import "MJCTabItem.h"
 #import "UIView+MJCClassExtension.h"
+#import "MJCCommonTools.h"
 
-static CGFloat const tenMargin = 15;
+//static CGFloat const tenMargin = 13;
 
 @interface MJCTabItem()
 
@@ -25,6 +26,8 @@ static CGFloat const tenMargin = 15;
 
 @property (nonatomic,assign) CGFloat imageViewW;
 @property (nonatomic,assign) CGFloat imageViewH;
+    
+@property (nonatomic,assign) CGFloat itemNewX;
 
 @end
 
@@ -77,12 +80,12 @@ static CGFloat const tenMargin = 15;
         }else if (_imageEffectStyles == 0) {
             [self.titleLabel sizeToFit];
             self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
-            self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin+tenMargin;
+            self.titleLabel.jc_x = self.titleLabel.jc_x + _leftTextMargin - _rightTextMargin;
             if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
                 self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
             }else{
                 self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
-            self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin-tenMargin;
+            self.imageView.jc_x = _leftImageMargin-_rightImageMargin;
             self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
         }else{
             [self.titleLabel sizeToFit];
@@ -101,6 +104,8 @@ static CGFloat const tenMargin = 15;
         self.titleLabel.jc_centerX = tabItemCenterX;
         self.titleLabel.jc_centerY = tabItemCenterY;
     }
+    
+    
 }
 
 -(void)setImageEffectStyles:(NSUInteger)imageEffectStyles
@@ -238,6 +243,24 @@ static CGFloat const tenMargin = 15;
     }
 }
 
+-(void)setupItemFrameTabX:(CGFloat)tabX tabY:(CGFloat)tabY tabH:(CGFloat)tabH;
+{    
+    if ([MJCCommonTools isFalseFit]) {
+        self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+    }else{
+        if ( [MJCCommonTools isIphonePlusBounds]) { //plus适配
+            tabX = tabX * plusScalsW;
+            self.jc_width = self.jc_width * plusScalsW;
+            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+        }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
+            tabX = tabX * i5scalsW;
+            self.jc_width = self.jc_width * i5scalsW;
+            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+        }else{
+            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+        }
+    }
+}
 
 -(void)setHighlighted:(BOOL)highlighted
 {

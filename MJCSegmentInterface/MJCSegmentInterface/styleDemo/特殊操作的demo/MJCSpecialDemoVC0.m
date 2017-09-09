@@ -32,21 +32,21 @@
         vc.title = titlesArr[i];
     }
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala =  [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
-    lala.titleBarStyles = MJCTitlesClassicStyle;
-    lala.isPenetrationEffect = YES;
-    lala.isIndicatorsAnimals = YES;
-    lala.isIndicatorFollow = YES;
-    lala.isChildScollAnimal = YES;
-    lala.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    lala.itemBackColor =  [UIColor clearColor];
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor orangeColor];
-    lala.indicatorColor = [UIColor redColor];
-    lala.itemTextFontSize = 12;
-    lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
+    interFace.titleBarStyles = MJCTitlesClassicStyle;
+    interFace.isPenetrationEffect = YES;
+    interFace.isIndicatorsAnimals = YES;
+    interFace.isIndicatorFollow = YES;
+    interFace.isChildScollAnimal = YES;
+    interFace.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.3];
+    interFace.itemBackColor =  [UIColor clearColor];
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor orangeColor];
+    interFace.indicatorColor = [UIColor redColor];
+    interFace.itemTextFontSize = 12;
+    interFace.indicatorStyles = MJCIndicatorItemTextStyle;
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
 
 -(void)dealloc

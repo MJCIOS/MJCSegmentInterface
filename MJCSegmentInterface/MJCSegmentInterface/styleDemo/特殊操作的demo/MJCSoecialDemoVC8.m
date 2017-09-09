@@ -36,22 +36,22 @@
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.delegate = self;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.itemTitleNormalColorArray = colorArr;
-    lala.itemTitleSelectedColorArray = colorArr1;
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.indicatorColor = [UIColor redColor];
-    lala.isIndicatorFollow = YES;
-    lala.isIndicatorColorEqualTextColor = YES;
-    lala.itemTextFontSize = 11;
-    lala.selectedSegmentIndex = 2;
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:14];
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.delegate = self;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.itemTitleNormalColorArray = colorArr;
+    interFace.itemTitleSelectedColorArray = colorArr1;
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.indicatorColor = [UIColor redColor];
+    interFace.isIndicatorFollow = YES;
+    interFace.isIndicatorColorEqualTextColor = YES;
+    interFace.itemTextFontSize = 11;
+    interFace.selectedSegmentIndex = 2;
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:14];
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 
 }
     

@@ -12,7 +12,7 @@
 
 @interface MJCSpecialDemoVC2 ()<MJCSegmentDelegate>
 
-@property (weak, nonatomic) IBOutlet MJCSegmentInterface *lala;
+@property (weak, nonatomic) IBOutlet MJCSegmentInterface *interFace;
 
 @end
 
@@ -41,43 +41,43 @@
 
     
     //以下是我的控件中的代码
-    _lala.titleBarStyles = MJCTitlesScrollStyle;
-    _lala.titlesViewFrame = CGRectMake(0,0,MJCScreenWidth,100);//顶部标题栏frame
-    _lala.selectedSegmentIndex = 0;//默认选中第几个
-    _lala.defaultShowItemCount = 3;//首页,第一页展示多少个
-    _lala.delegate = self;
-    _lala.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
-    _lala.itemTextFontSize = 13;//item文字大小
-    _lala.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
-    _lala.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
-    _lala.itemBackColor = [UIColor whiteColor];//item背景颜色
-    _lala.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];//标题栏背景图片
-    _lala.itemBackNormalImage = [UIImage imageNamed:@"222"];//item普通状态下的背景图片
-    _lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];//item点击状态下的背景图片
-    _lala.itemNormalBackImageArray = imageArr;//item普通状态下背景图片数组,(为了让item显示不同的图片)
-    _lala.itemSelectedBackImageArray = imageArr1;//item点击状态下背景图片数组,(为了让item显示不同的图片)
-    _lala.itemImageSelected = [UIImage imageNamed:@"food-2"];//item普通状态下图片
-    _lala.itemImageNormal = [UIImage imageNamed:@"food"];//item点击状态下图片
-    _lala.itemImageNormalArray = imageArr;//item普通状态下图片数组,(为了让item显示不同的图片)
-    _lala.itemImageSelectedArray = imageArr1;//item点击状态下图片数组,(为了让item显示不同的图片)
-    _lala.indicatorColor = [UIColor redColor];//底部指示器颜色
-    _lala.indicatorImage = [UIImage imageNamed:@"箭头"] ;//底部指示器图片
-    _lala.indicatorHidden = NO;//底部指示器是否隐藏
-    _lala.isChildScollEnabled = YES;//是否手拽滚动子界面
-    _lala.isChildScollAnimal = YES;//子界面切换是否有动画效果
-    _lala.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
-    _lala.imageEffectStyles = MJCImageClassicStyle;//item图片类型
+    _interFace.titleBarStyles = MJCTitlesScrollStyle;
+    _interFace.titlesViewFrame = CGRectMake(0,0,MJCScreenWidth,100);//顶部标题栏frame
+    _interFace.selectedSegmentIndex = 0;//默认选中第几个
+    _interFace.defaultShowItemCount = 3;//首页,第一页展示多少个
+    _interFace.delegate = self;
+    _interFace.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
+    _interFace.itemTextFontSize = 13;//item文字大小
+    _interFace.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
+    _interFace.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
+    _interFace.itemBackColor = [UIColor whiteColor];//item背景颜色
+    _interFace.titlesViewBackImage = [UIImage imageNamed:@"appStartBackImage"];//标题栏背景图片
+    _interFace.itemBackNormalImage = [UIImage imageNamed:@"222"];//item普通状态下的背景图片
+    _interFace.itemBackSelectedImage = [UIImage imageNamed:@"456"];//item点击状态下的背景图片
+    _interFace.itemNormalBackImageArray = imageArr;//item普通状态下背景图片数组,(为了让item显示不同的图片)
+    _interFace.itemSelectedBackImageArray = imageArr1;//item点击状态下背景图片数组,(为了让item显示不同的图片)
+    _interFace.itemImageSelected = [UIImage imageNamed:@"food-2"];//item普通状态下图片
+    _interFace.itemImageNormal = [UIImage imageNamed:@"food"];//item点击状态下图片
+    _interFace.itemImageNormalArray = imageArr;//item普通状态下图片数组,(为了让item显示不同的图片)
+    _interFace.itemImageSelectedArray = imageArr1;//item点击状态下图片数组,(为了让item显示不同的图片)
+    _interFace.indicatorColor = [UIColor redColor];//底部指示器颜色
+    _interFace.indicatorImage = [UIImage imageNamed:@"箭头"] ;//底部指示器图片
+    _interFace.indicatorHidden = NO;//底部指示器是否隐藏
+    _interFace.isChildScollEnabled = YES;//是否手拽滚动子界面
+    _interFace.isChildScollAnimal = YES;//子界面切换是否有动画效果
+    _interFace.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
+    _interFace.imageEffectStyles = MJCImageClassicStyle;//item图片类型
     
-    _lala.itemImagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
-    _lala.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
-    _lala.isFontGradient = YES;
-    _lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    _lala.indicatorFrame = CGRectMake(0,20,30,10);//指示器位置
-    [_lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
-//    [_lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    _interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
+    _interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
+    _interFace.isFontGradient = YES;
+    _interFace.indicatorStyles = MJCIndicatorItemTextStyle;
+    _interFace.indicatorFrame = CGRectMake(0,20,30,10);//指示器位置
+    [_interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
+//    [_interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
-    [_lala intoTitlesArray:titlesArr hostController:self];
-    [_lala intoChildControllerArray:vcarrr];
+    [_interFace intoTitlesArray:titlesArr hostController:self];
+    [_interFace intoChildControllerArray:vcarrr];
     
 }
 

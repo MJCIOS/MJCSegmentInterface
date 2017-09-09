@@ -56,6 +56,7 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 @property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
 @property (nonatomic,assign) NSInteger imageEffectStyles;
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
+-(void)tabItemSizeToFitIsEnabled:(BOOL)sizeToFitIsEnabled itemHeightToFitIsEnabled:(BOOL)heightToFitIsEnabled itemWidthToFitIsEnabled:(BOOL)widthToFitIsEnabled;
 @property (nonatomic,assign) CGRect indicatorFrame;
 @property (nonatomic,strong) UIColor *indicatorColor;
 @property (nonatomic,strong) UIImage *indicatorImage;
@@ -64,7 +65,6 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 @property (nonatomic,assign) NSInteger indicatorStyles;
 @property(nonatomic,assign) BOOL isIndicatorsAnimals;
 @property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
-@property (nonatomic,assign) NSInteger ItemWidthStyles;
 @property (nonatomic,assign) UIEdgeInsets ItemEdgeinsets;
 @property (nonatomic,assign) CGFloat lineMargin;
 @end

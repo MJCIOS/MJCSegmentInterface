@@ -367,12 +367,22 @@ static CGFloat const defaultTitlesViewH = 50;
     _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
     _titlesView.isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
-
--(void)setItemWidthStyles:(MJCItemWidthStyles)ItemWidthStyles
+ 
+-(void)tabItemSizeToFitIsEnabled:(BOOL)sizeToFitIsEnabled heightToFitIsEnabled:(BOOL)heightToFitIsEnabled widthToFitIsEnabled:(BOOL)widthToFitIsEnabled;
 {
-    _ItemWidthStyles = ItemWidthStyles;
-    _titlesView.ItemWidthStyles = ItemWidthStyles;
+    [_titlesView tabItemSizeToFitIsEnabled:sizeToFitIsEnabled itemHeightToFitIsEnabled:heightToFitIsEnabled itemWidthToFitIsEnabled:widthToFitIsEnabled];
 }
+//-(void)setItemHeightStyles:(MJCItemHeightStyles)ItemHeightStyles
+//{
+//    _ItemHeightStyles = ItemHeightStyles;
+//    _titlesView.ItemHeightStyles = ItemHeightStyles;
+//}
+//
+//-(void)setItemWidthStyles:(MJCItemWidthStyles)ItemWidthStyles
+//{
+//    _ItemWidthStyles = ItemWidthStyles;
+//    _titlesView.ItemWidthStyles = ItemWidthStyles;
+//}
 -(void)setItemMaxEdgeinsets:(MJCEdgeInsets)itemMaxEdgeinsets
 {
     _itemMaxEdgeinsets = itemMaxEdgeinsets;

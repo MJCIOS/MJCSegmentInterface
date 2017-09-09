@@ -26,24 +26,24 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
     
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.titlesViewBackImage = [UIImage imageNamed:@"back"];
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
-    [self.view addSubview:lala];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.isIndicatorFollow = YES;
+    interFace.titlesViewBackImage = [UIImage imageNamed:@"back"];
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
+    [self.view addSubview:interFace];
     
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

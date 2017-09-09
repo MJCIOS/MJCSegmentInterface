@@ -44,36 +44,36 @@
 
     
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
-    lala.itemImageSelected = [UIImage imageNamed:@"food-2"];
-    lala.itemImageNormal = [UIImage imageNamed:@"food"];
-    lala.defaultShowItemCount = 3;
-    lala.itemTextFontSize = 13;
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
-    lala.selectedSegmentIndex = 0;
-    lala.itemBackNormalImage = [UIImage imageNamed:@"222"];
-    lala.itemBackSelectedImage = [UIImage imageNamed:@"456"];
-    lala.itemNormalBackImageArray = imageBackArr;
-    lala.itemSelectedBackImageArray = imageBackArr1;
-    lala.itemImageSize = CGSizeMake(20,20);
-    lala.imageEffectStyles = MJCImageClassicStyle;//item图片类型
-    lala.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,10,10);
-    lala.itemImagesEdgeInsets = UIEdgeInsetsMake(10,10,0,0);
-    lala.itemImageNormalArray = imageArr;
-    lala.itemImageSelectedArray = imageArr1;
-    lala.indicatorColor = [UIColor redColor];
-    lala.indicatorImage =[UIImage imageNamed:@"箭头"];
-    lala.indicatorFrame = CGRectMake(0,0,50,30);
-    lala.indicatorHidden = YES;
-    lala.isChildScollEnabled = YES;
-    lala.isChildScollAnimal = YES;
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
+    interFace.itemImageSelected = [UIImage imageNamed:@"food-2"];
+    interFace.itemImageNormal = [UIImage imageNamed:@"food"];
+    interFace.defaultShowItemCount = 3;
+    interFace.itemTextFontSize = 13;
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
+    interFace.selectedSegmentIndex = 0;
+    interFace.itemBackNormalImage = [UIImage imageNamed:@"222"];
+    interFace.itemBackSelectedImage = [UIImage imageNamed:@"456"];
+    interFace.itemNormalBackImageArray = imageBackArr;
+    interFace.itemSelectedBackImageArray = imageBackArr1;
+    interFace.itemImageSize = CGSizeMake(20,20);
+    interFace.imageEffectStyles = MJCImageClassicStyle;//item图片类型
+    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,10,10);
+    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10,10,0,0);
+    interFace.itemImageNormalArray = imageArr;
+    interFace.itemImageSelectedArray = imageArr1;
+    interFace.indicatorColor = [UIColor redColor];
+    interFace.indicatorImage =[UIImage imageNamed:@"箭头"];
+    interFace.indicatorFrame = CGRectMake(0,0,50,30);
+    interFace.indicatorHidden = YES;
+    interFace.isChildScollEnabled = YES;
+    interFace.isChildScollAnimal = YES;
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

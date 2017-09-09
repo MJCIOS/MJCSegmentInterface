@@ -39,24 +39,24 @@
     
     
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.indicatorStyles = MJCIndicatorItemStyle;
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 5;
-    lala.itemBackColor = [UIColor whiteColor];
-    lala.indicatorColor = [UIColor redColor];
-    lala.itemTextFontSize  = 13;
-    lala.isChildScollAnimal = YES;
-    lala.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
-    lala.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.indicatorStyles = MJCIndicatorItemStyle;
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.isIndicatorFollow = YES;
+    interFace.selectedSegmentIndex = 3;
+    interFace.defaultShowItemCount = 5;
+    interFace.itemBackColor = [UIColor whiteColor];
+    interFace.indicatorColor = [UIColor redColor];
+    interFace.itemTextFontSize  = 13;
+    interFace.isChildScollAnimal = YES;
+    interFace.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
+    interFace.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

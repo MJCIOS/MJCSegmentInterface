@@ -30,18 +30,18 @@
         vc.title = titlesArr[i];
     }
 
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesClassicStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 3;
-    lala.itemTextFontSize = 11;
-    lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    lala.isIndicatorsAnimals = YES;
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesClassicStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.selectedSegmentIndex = 3;
+    interFace.defaultShowItemCount = 3;
+    interFace.itemTextFontSize = 11;
+    interFace.indicatorStyles = MJCIndicatorItemTextStyle;
+    interFace.isIndicatorsAnimals = YES;
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

@@ -12,7 +12,6 @@
 
 -(void)beginLoadNewData:(NSMutableDictionary *)dicData;
 
-
 /** 传输的数据 */
 @property (nonatomic,copy) NSString* testData;
 

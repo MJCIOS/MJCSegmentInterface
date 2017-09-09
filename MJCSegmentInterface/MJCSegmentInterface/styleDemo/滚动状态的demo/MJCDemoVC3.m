@@ -26,7 +26,7 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
@@ -34,24 +34,24 @@
 
         
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextSelectedColor = [UIColor purpleColor];
-    lala.isIndicatorFollow = YES;
-    lala.indicatorHidden = NO;
-    lala.indicatorStyles = MJCIndicatorItemTextStyle;
-    lala.selectedSegmentIndex = 3;
-    lala.defaultShowItemCount = 5;
-    lala.itemBackColor = [UIColor orangeColor];
-    lala.isFontGradient = YES;
-    lala.indicatorFrame = CGRectMake(0, 0, 80, lala.frame.size.height);
-    lala.indicatorColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
-//    lala.itemTextFontSize = 17;
-    [lala tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextSelectedColor = [UIColor purpleColor];
+    interFace.isIndicatorFollow = YES;
+    interFace.indicatorHidden = NO;
+    interFace.isIndicatorsAnimals = YES;
+    interFace.selectedSegmentIndex = 3;
+    interFace.defaultShowItemCount = 5;
+    interFace.itemBackColor = [UIColor orangeColor];
+    interFace.isFontGradient = YES;
+    interFace.indicatorFrame = CGRectMake(0,0,0,50);
+    interFace.indicatorColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
+//    interFace.itemTextFontSize = 17;
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }
 

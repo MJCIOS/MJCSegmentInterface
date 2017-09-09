@@ -30,12 +30,17 @@ typedef NS_OPTIONS(NSUInteger,MJCImageEffectStyles) {
     MJCImageUpDownStyle = 1,  //图片和文字上下的样式
     MJCImageCenterStyle = 2  //图片和文字都在中间的样式
 };
+////item宽度样式(暂时只支持标题栏滚动样式)
+//typedef NS_OPTIONS(NSUInteger,MJCItemWidthStyles) {
+//    MJCItemWidthClassicStyle = 0,      //item标题宽度样式
+//    MJCItemAdaptiveWidthStyle = 1       //item宽度自适应样式
+//};
+////item高度样式(暂时只支持标题栏滚动样式)
+//typedef NS_OPTIONS(NSUInteger,MJCItemHeightStyles) {
+//    MJCItemHeightClassicStyle = 0,      //item标题高度样式
+//    MJCItemAdaptiveHeightStyle = 1       //item高度自适应样式
+//} ;
 
-//item宽度样式(暂时只支持标题栏滚动样式)
-typedef NS_OPTIONS(NSUInteger,MJCItemWidthStyles) {
-    MJCItemWidthClassicStyle = 0,      //经典标题宽度样式
-    MJCItemAdaptiveWidthStyle = 1       //item宽度自适应样式
-} ;
 
 typedef struct MJCEdgeInsets {
     CGFloat maxTop, maxLeft, maxBottom, maxRight,lineMargin;
@@ -74,8 +79,10 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 /** 标题图片效果样式 */
 @property (nonatomic,assign) MJCImageEffectStyles imageEffectStyles;
 /** 标题item宽度样式(暂时只支持标题栏滚动样式) */
-@property (nonatomic,assign) MJCItemWidthStyles ItemWidthStyles;
-/** item最大内边距和两个item之间的间距 */
+//@property (nonatomic,assign) MJCItemWidthStyles ItemWidthStyles;
+/** 标题item高度样式(暂时只支持标题栏滚动样式) */
+//@property (nonatomic,assign) MJCItemHeightStyles ItemHeightStyles;
+/** item最大内边距和两个item之间的间距(如果是item高度自适应,设置top和bottom无效) */
 @property (nonatomic) MJCEdgeInsets itemMaxEdgeinsets;
 
 
@@ -108,7 +115,9 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
 /** 用于缩放功能的修改字体的属性 */
 -(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont;
-
+/** tabitem内容自适应:(高度自适应或宽度自适应)(如果是item高度自适应,设置内边距top和bottom无效)*/
+-(void)tabItemSizeToFitIsEnabled:(BOOL)sizeToFitIsEnabled heightToFitIsEnabled:(BOOL)heightToFitIsEnabled widthToFitIsEnabled:(BOOL)widthToFitIsEnabled;
+    
 #pragma mark -- 底部指示器设置
 
 /** 可设置指示器的Y值和高度,其余不允许自己设置 */

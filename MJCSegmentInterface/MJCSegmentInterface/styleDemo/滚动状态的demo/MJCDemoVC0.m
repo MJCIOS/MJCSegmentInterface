@@ -36,23 +36,22 @@
     }
     
     
-    
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.delegate= self;
-    lala.titlesViewBackColor = [UIColor redColor];
-    lala.itemBackColor = [UIColor purpleColor];
-    lala.itemTextSelectedColor = [UIColor whiteColor];
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextFontSize = 11;
-    lala.defaultShowItemCount = 5;
-    lala.isChildScollAnimal = YES;
-    lala.childsContainerBackColor = [UIColor purpleColor];
-    [self.view addSubview:lala];
-    [lala intoTitlesArray:titlesArr hostController:self];
-    [lala intoChildControllerArray:vcarrr];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.delegate= self;
+    interFace.titlesViewBackColor = [UIColor redColor];
+    interFace.itemBackColor = [UIColor purpleColor];
+    interFace.itemTextSelectedColor = [UIColor whiteColor];
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextFontSize = 11;
+    interFace.defaultShowItemCount = 5;
+    interFace.isChildScollAnimal = YES;
+    interFace.childsContainerBackColor = [UIColor purpleColor];
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr hostController:self];
+    [interFace intoChildControllerArray:vcarrr];
     
 }
 

@@ -38,19 +38,19 @@
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
     //以下是我的控件中的代码
-    MJCSegmentInterface *lala = [[MJCSegmentInterface alloc]init];
-    lala.titleBarStyles = MJCTitlesScrollStyle;
-    lala.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    lala.delegate= self;
-    lala.itemTextSelectedColor = [UIColor blueColor];
-    lala.itemTextNormalColor = [UIColor redColor];
-    lala.itemTextFontSize = 11;
-    lala.defaultShowItemCount = 5;
-    lala.childsContainerBackColor = [UIColor purpleColor];
-    lala.selectedSegmentIndex = 2;
-    [lala intoTitlesArray:titlesArr hostController:self];
-    [self.view addSubview:lala];
-    [lala intoChildControllerArray:vcArr];
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.delegate= self;
+    interFace.itemTextSelectedColor = [UIColor blueColor];
+    interFace.itemTextNormalColor = [UIColor redColor];
+    interFace.itemTextFontSize = 11;
+    interFace.defaultShowItemCount = 5;
+    interFace.childsContainerBackColor = [UIColor purpleColor];
+    interFace.selectedSegmentIndex = 2;
+    [interFace intoTitlesArray:titlesArr hostController:self];
+    [self.view addSubview:interFace];
+    [interFace intoChildControllerArray:vcArr];
 
 }
 
@@ -60,6 +60,12 @@
     NSMutableDictionary *dic =  _mainArr[tabItem.tag];
     [vc beginLoadNewData:dic];
 }
-
+    
+-(void)mjc_scrollDidEndDeceleratingWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController indexPage:(NSInteger)indexPage segmentInterface:(MJCSegmentInterface *)segmentInterface
+{
+    MJCTestTableViewController *vc = (MJCTestTableViewController *)childsController;
+    NSMutableDictionary *dic =  _mainArr[tabItem.tag];
+    [vc beginLoadNewData:dic];
+}
 
 @end
