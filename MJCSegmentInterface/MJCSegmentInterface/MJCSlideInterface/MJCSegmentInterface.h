@@ -99,6 +99,8 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,assign) BOOL isIndicatorFollow;
 /** 默认选中的item */
 @property (nonatomic,assign) NSInteger selectedSegmentIndex;
+/** 是否比例布局 */
+@property (nonatomic,assign) BOOL  scaleLayoutEnabled;
 /** 子界面是否允许滑动 */
 @property (nonatomic,assign) BOOL isChildScollEnabled;
 /** 子界面滚动是否有动画 */

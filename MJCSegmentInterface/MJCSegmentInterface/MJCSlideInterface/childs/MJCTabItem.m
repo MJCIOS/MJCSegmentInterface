@@ -244,22 +244,41 @@
 }
 
 -(void)setupItemFrameTabX:(CGFloat)tabX tabY:(CGFloat)tabY tabH:(CGFloat)tabH;
-{    
-    if ([MJCCommonTools isFalseFit]) {
-        self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
-    }else{
-        if ( [MJCCommonTools isIphonePlusBounds]) { //plus适配
-            tabX = tabX * plusScalsW;
-            self.jc_width = self.jc_width * plusScalsW;
-            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
-        }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
-            tabX = tabX * i5scalsW;
-            self.jc_width = self.jc_width * i5scalsW;
+{
+    if (_scaleLayoutEnabled) {
+        if ([MJCCommonTools isFalseFit]) {
             self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
         }else{
-            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+            if ( [MJCCommonTools isIphonePlusBounds]) { //plus适配
+                tabX = tabX * plusScalsW1;
+                self.jc_width = self.jc_width * plusScalsW1;
+                self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+            }else if ([MJCCommonTools isIphone7Bounds]){ //5的适配
+                tabX = tabX * i6scalsW1;
+                self.jc_width = self.jc_width * i6scalsW1;
+                self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+            }else{
+                self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+            }
         }
+    }else{
+        self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
     }
+//    if ([MJCCommonTools isFalseFit]) {
+//        self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+//    }else{
+//        if ( [MJCCommonTools isIphonePlusBounds]) { //plus适配
+//            tabX = tabX * plusScalsW;
+//            self.jc_width = self.jc_width * plusScalsW;
+//            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+//        }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
+//            tabX = tabX * i5scalsW;
+//            self.jc_width = self.jc_width * i5scalsW;
+//            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+//        }else{
+//            self.frame = CGRectMake(tabX,tabY, self.jc_width,tabH);
+//        }
+//    }
 }
 
 -(void)setHighlighted:(BOOL)highlighted

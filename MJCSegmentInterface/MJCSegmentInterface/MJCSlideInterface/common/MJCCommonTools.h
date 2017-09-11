@@ -34,6 +34,16 @@
 #define i6scalsW ((iPhone6Width / iPhone6Width))
 #define plusScalsW ((iPhone6PlusWidth / iPhone6Width))
 
+
+#define i5scalsH1 ((iPhone5Height / iPhone5Height))
+#define i6scalsH1 ((iPhone6Height / iPhone5Height))
+#define plusScalsH1 ((iPhone6PlusHeight / iPhone5Height))
+
+#define i5scalsW1 ((iPhone5Width / iPhone5Width))
+#define i6scalsW1 ((iPhone6Width / iPhone5Width))
+#define plusScalsW1 ((iPhone6PlusWidth / iPhone5Width))
+
+
 #define MJCWeakSelf __weak typeof(self) weakSelf = self
 #define MJCStrongSelf __strong typeof(self) strongSelf = self
 

@@ -118,6 +118,7 @@ static CGFloat const defaultIndicatorH = 1.5;
     CGFloat tabItemH = self.jc_height;
     for (NSUInteger i = 0 ; i < titlesArray.count; i++) {
         MJCTabItem *tabbutton = [MJCTabItem buttonWithType:UIButtonTypeCustom];
+        tabbutton.scaleLayoutEnabled = _scaleLayoutEnabled;
         tabbutton.tag = i;
         [self setupButton:tabbutton];
         if (_titlesBarStyles == 0) {

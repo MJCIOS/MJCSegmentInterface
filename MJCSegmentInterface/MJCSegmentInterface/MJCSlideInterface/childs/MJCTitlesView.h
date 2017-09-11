@@ -67,4 +67,5 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 @property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
 @property (nonatomic,assign) UIEdgeInsets ItemEdgeinsets;
 @property (nonatomic,assign) CGFloat lineMargin;
+@property (nonatomic,assign) BOOL  scaleLayoutEnabled;
 @end

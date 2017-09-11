@@ -28,4 +28,5 @@
 @property(nonatomic,assign)   CGSize itemImageSize;
 @property (nonatomic,assign) NSUInteger imageEffectStyles;
 -(void)setupItemFrameTabX:(CGFloat)tabX tabY:(CGFloat)tabY tabH:(CGFloat)tabH;
+@property (nonatomic,assign) BOOL  scaleLayoutEnabled;
 @end

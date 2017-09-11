@@ -38,6 +38,7 @@
     //以下是我的控件中的代码
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
     interFace.titleBarStyles = MJCTitlesScrollStyle;
+//    interFace.scaleLayoutEnabled = YES;
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     interFace.itemTextSelectedColor = [UIColor blueColor];
     interFace.itemTextNormalColor = [UIColor redColor];
@@ -48,7 +49,7 @@
     interFace.itemTextFontSize = 11;
     interFace.defaultShowItemCount = 4;
     interFace.childsContainerBackColor = [UIColor purpleColor];
-    interFace.selectedSegmentIndex = 2;
+    interFace.selectedSegmentIndex = 0;
     interFace.itemImageNormalArray  = imageArr ;
     interFace.itemImageSelectedArray  = imageArr1;
     [interFace intoTitlesArray:titlesArr hostController:self];

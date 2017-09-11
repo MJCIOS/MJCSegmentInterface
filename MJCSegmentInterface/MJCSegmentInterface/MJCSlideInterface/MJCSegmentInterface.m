@@ -389,5 +389,10 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.ItemEdgeinsets = UIEdgeInsetsMake(itemMaxEdgeinsets.maxTop, itemMaxEdgeinsets.maxLeft, itemMaxEdgeinsets.maxBottom, itemMaxEdgeinsets.maxRight);
     _titlesView.lineMargin = itemMaxEdgeinsets.lineMargin;
 }
-
+-(void)setScaleLayoutEnabled:(BOOL)scaleLayoutEnabled
+{
+    _scaleLayoutEnabled = scaleLayoutEnabled;
+    _titlesView.scaleLayoutEnabled = scaleLayoutEnabled;
+}
+    
 @end
