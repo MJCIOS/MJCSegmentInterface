@@ -27,7 +27,7 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSArray *titlesArr = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7"];
     for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
@@ -41,8 +41,8 @@
     interFace.titleBarStyles = MJCTitlesScrollStyle;
     interFace.frame = CGRectMake(0,64,self.view.jc_width,self.view.jc_height-64);
     interFace.imageEffectStyles  = MJCImageUpDownStyle;
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(0, 0, 10,0);
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,0, 0);
+    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10, 0,0,0);
+    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,30,0);
     interFace.itemTextNormalColor = [UIColor redColor];
     interFace.itemTextSelectedColor = [UIColor purpleColor];
     interFace.isIndicatorFollow = YES;

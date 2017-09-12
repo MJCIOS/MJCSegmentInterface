@@ -170,13 +170,17 @@ static CGFloat const defaultIndicatorH = 1.5;
     if (_titlesBarStyles == 0) {
         self.contentSize = CGSizeMake(titlesArray.count * tabItemW,0);
     }else{
-        if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
-            if ([MJCCommonTools isIphonePlusBounds]) { //plus适配
-                self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
-            }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
-                self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+        if (_scaleLayoutEnabled) {
+            if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
+                if ([MJCCommonTools isIphonePlusBounds]) { //plus适配
+                    self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+                }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
+                    self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+                }else{
+                    self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+                }
             }else{
-                self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+                self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
             }
         }else{
             self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
@@ -517,7 +521,9 @@ static CGFloat const defaultIndicatorH = 1.5;
             if (idx == _titlesArray.count - 1) {
                 CGFloat maxX = CGRectGetMaxX(obj.frame);
                 self.contentSize = CGSizeMake(maxX+_ItemEdgeinsets.right,0);
-                [self setupTitleCenter:titleButton];
+                if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
+                    [self setupTitleCenter:titleButton];
+                }
             }
             if (_heightToFitIsEnabled != 0) {
                 obj.jc_centerY = self.jc_centerY;
