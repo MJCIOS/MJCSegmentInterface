@@ -82,7 +82,7 @@
     interFace.itemImageSize  = CGSizeMake(15,15);
     interFace.indicatorFrame = CGRectMake(0,interFace.titlesViewFrame.size.height - 10,30,10);//指示器位置
     [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:YES widthToFitIsEnabled:YES];
+    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:NO widthToFitIsEnabled:NO];
     interFace.itemTitleNormalColorArray = colorArr;
     interFace.itemTitleSelectedColorArray = colorArr1;
     [self.view addSubview:interFace];
