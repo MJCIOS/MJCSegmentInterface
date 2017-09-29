@@ -29,6 +29,8 @@
 		257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
+		25BFF4DC1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */; };
+		25BFF4DD1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */; };
 		25D3C2821F3F386100921F1E /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2811F3F386100921F1E /* demo0.gif */; };
 		25D3C2861F3F5D9200921F1E /* demo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2851F3F5D9200921F1E /* demo2.gif */; };
 		25D3C28A1F3F5F6E00921F1E /* demo3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2891F3F5F6E00921F1E /* demo3.gif */; };
@@ -146,6 +148,9 @@
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
+		25BFF4D91F7E1ACF00642BD8 /* MJCSoecialDemoVC11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC11.h; sourceTree = "<group>"; };
+		25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC11.m; sourceTree = "<group>"; };
+		25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MJCSoecialDemoVC11.xib; sourceTree = "<group>"; };
 		25D3C2811F3F386100921F1E /* demo0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo0.gif; sourceTree = "<group>"; };
 		25D3C2851F3F5D9200921F1E /* demo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo2.gif; sourceTree = "<group>"; };
 		25D3C2891F3F5F6E00921F1E /* demo3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo3.gif; sourceTree = "<group>"; };
@@ -515,6 +520,9 @@
 				257034021F5FD2D100132A8F /* MJCSoecialDemoVC9.m */,
 				2570340B1F601D0A00132A8F /* MJCSoecialDemoVC10.h */,
 				2570340C1F601D0A00132A8F /* MJCSoecialDemoVC10.m */,
+				25BFF4D91F7E1ACF00642BD8 /* MJCSoecialDemoVC11.h */,
+				25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */,
+				25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				257216911F34465E00A1EF49 /* collectionData.plist in Resources */,
+				25BFF4DD1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib in Resources */,
 				25D3C28A1F3F5F6E00921F1E /* demo3.gif in Resources */,
 				25E887FD1F56DD4100F0B4C9 /* nonRollingVCData .plist in Resources */,
 				25E822CD1F0CE35F00FB305F /* defaultStyleVCData.plist in Resources */,
@@ -802,6 +811,7 @@
 				25EBD0CE1F57EB6C00AF38C6 /* MJCSoecialDemoVC4.m in Sources */,
 				25F037C71F56D8C400B208CD /* MJCSpecialDemoVC2.m in Sources */,
 				25E822EA1F0CE38200FB305F /* MJCTestViewController.m in Sources */,
+				25BFF4DC1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m in Sources */,
 				25F037BC1F56D8C400B208CD /* MJCDemoVC9.m in Sources */,
 				25EBD0EA1F58FAD700AF38C6 /* MJCSoecialDemoVC7.m in Sources */,
 				25E888021F56E49700F0B4C9 /* MJCSpecialDemoVC3.m in Sources */,

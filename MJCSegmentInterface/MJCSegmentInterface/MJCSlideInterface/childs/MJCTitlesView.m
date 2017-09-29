@@ -183,7 +183,11 @@ static CGFloat const defaultIndicatorH = 1.5;
                 self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
             }
         }else{
-            self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+            if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
+                self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+            }else{
+                self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+            }
         }
     }
     [self addSubview:_indicatorView];

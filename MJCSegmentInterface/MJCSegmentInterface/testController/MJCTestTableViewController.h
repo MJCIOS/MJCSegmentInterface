@@ -15,4 +15,6 @@
 /** 传输的数据 */
 @property (nonatomic,copy) NSString* testData;
 
+@property (weak, nonatomic)  NSLayoutConstraint *heightLayout;
+
 @end

@@ -68,5 +68,11 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC10</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>标题栏停留在导航栏的下方</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC11</string>
+	</dict>
 </array>
 </plist>

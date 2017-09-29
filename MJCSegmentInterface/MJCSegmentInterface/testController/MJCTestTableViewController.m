@@ -10,6 +10,9 @@
 #import "MJCPrefixHeader.pch"
 #import "MJCTestPushVC.h"
 
+
+#define oriHeight 180
+
 @interface MJCTestTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -85,6 +88,16 @@
     return [NSString stringWithFormat:@"我是第%ld组",section];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.y;
+    
+    CGFloat h = oriHeight - offset;
+    if (h <= 0) {
+        h = 0;
+    }
+    _heightLayout.constant = h;
+}
 
 -(void)dealloc
 {

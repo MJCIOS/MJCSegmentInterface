@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"天涯明月刀月刀月刀月刀天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     MJCTestCollectVC *vc4 = [[MJCTestCollectVC alloc]init];
@@ -30,10 +30,10 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc4,vc3,vc5,vc6,vc7];
-    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
-        UIViewController *vc = vcarrr[i];
-        vc.title = titlesArr[i];
-    }
+//    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+//        UIViewController *vc = vcarrr[i];
+//        vc.title = titlesArr[i];
+//    }
     
     
     //以下是我的控件中的代码
@@ -48,6 +48,8 @@
     interFace.itemTextFontSize = 11;
     interFace.defaultShowItemCount = 5;
     interFace.isChildScollAnimal = YES;
+    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:NO widthToFitIsEnabled:YES];
+    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(0, 20, 0, 20, 90);
     interFace.childsContainerBackColor = [UIColor purpleColor];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr hostController:self];

@@ -41,8 +41,6 @@
     interFace.itemTextNormalColor = [UIColor redColor];
     interFace.itemTextSelectedColor = [UIColor purpleColor];
     interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(5,5,5,5,25);
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:YES widthToFitIsEnabled:YES];
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
     interFace.isIndicatorFollow = YES;
     interFace.selectedSegmentIndex = 3;
     interFace.defaultShowItemCount = 4;
@@ -50,10 +48,8 @@
     interFace.indicatorColor = [UIColor redColor];
     interFace.itemTextFontSize  = 13;
     interFace.isChildScollAnimal = YES;
-    
     interFace.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
     interFace.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
-    
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 
