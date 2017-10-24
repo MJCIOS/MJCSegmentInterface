@@ -1,19 +1,19 @@
 //
-//  MJCSocialDemoVC10.m
+//  MJCSoecialDemoVC12.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 2017/9/6.
+//  Created by mjc on 2017/10/10.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCSoecialDemoVC10.h"
+#import "MJCSoecialDemoVC12.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCSoecialDemoVC10 ()
+@interface MJCSoecialDemoVC12 ()
 
 @end
 
-@implementation MJCSoecialDemoVC10
+@implementation MJCSoecialDemoVC12
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,37 +25,26 @@
         vc.title = titlesArr[i];
         [vcArr addObject:vc];
     }
-
+    
     [self setupBasicUIWithTitlesArr:titlesArr vcArr:vcArr];
 }
-    
+
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
-    
-    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"phone"];
-    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"phone"];
-    
-    //以下是我的控件中的代码
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
     interFace.titleBarStyles = MJCTitlesScrollStyle;
-//    interFace.scaleLayoutEnabled = YES;
+    //    interFace.scaleLayoutEnabled = YES;
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     interFace.itemTextSelectedColor = [UIColor blueColor];
     interFace.itemTextNormalColor = [UIColor redColor];
-//    interFace.itemBackColor = [UIColor orangeColor];
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(15,15,15,15,20);
+    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(15,15,15,15,15);
     [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:YES widthToFitIsEnabled:YES];
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
-    interFace.itemTextFontSize = 13;
-    interFace.defaultShowItemCount = 4;
+    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:17];
+    interFace.itemTextFontSize = 15;
     interFace.childsContainerBackColor = [UIColor purpleColor];
     interFace.selectedSegmentIndex = 0;
-    interFace.itemImageNormalArray  = imageArr ;
-    interFace.itemImageSelectedArray  = imageArr1;
-    [interFace intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:interFace];
-    [interFace intoChildControllerArray:vcArr];
-    
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }
 
 

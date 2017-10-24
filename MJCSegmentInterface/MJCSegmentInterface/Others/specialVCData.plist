@@ -64,7 +64,7 @@
 	</dict>
 	<dict>
 		<key>titles</key>
-		<string>特殊样式自适应效果</string>
+		<string>特殊样式自适应效果(有图片)</string>
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC10</string>
 	</dict>
@@ -73,6 +73,12 @@
 		<string>标题栏停留在导航栏的下方</string>
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC11</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>特殊样式自适应效果(只有文字)</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC12</string>
 	</dict>
 </array>
 </plist>

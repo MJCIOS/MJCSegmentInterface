@@ -14,7 +14,7 @@
 #import "UIView+MJCClassExtension.h"
 
 
-#define DELAYTIMES (0.0005)
+#define DELAYTIMES (0.0001)
 static CGFloat const defaultTitlesViewH = 50;
 
 @interface MJCSegmentInterface ()<UIScrollViewDelegate>

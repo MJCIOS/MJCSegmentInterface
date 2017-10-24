@@ -83,6 +83,7 @@
 		25F037C71F56D8C400B208CD /* MJCSpecialDemoVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F037B41F56D8C400B208CD /* MJCSpecialDemoVC2.m */; };
 		25F037C81F56D8C400B208CD /* MJCSpecialDemoVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F037B51F56D8C400B208CD /* MJCSpecialDemoVC2.xib */; };
 		25F037C91F56D8C400B208CD /* MJCDemoClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */; };
+		25F66F641F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */; };
 		EFFE3A3A071E655AAB9054B9 /* libPods-MJCSegmentInterface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD4EF3B9C05F6FF768C87F2 /* libPods-MJCSegmentInterface.a */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +237,8 @@
 		25F037B51F56D8C400B208CD /* MJCSpecialDemoVC2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MJCSpecialDemoVC2.xib; sourceTree = "<group>"; };
 		25F037B81F56D8C400B208CD /* MJCDemoClassicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC.h; sourceTree = "<group>"; };
 		25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoClassicVC.m; sourceTree = "<group>"; };
+		25F66F621F8CC6AF00A478D3 /* MJCSoecialDemoVC12.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC12.h; sourceTree = "<group>"; };
+		25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC12.m; sourceTree = "<group>"; };
 		BCD4EF3B9C05F6FF768C87F2 /* libPods-MJCSegmentInterface.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MJCSegmentInterface.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -283,8 +286,6 @@
 		250F5E4A1F2B2D8300B8014A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				250F5E4B1F2B2D8300B8014A /* MJCAlertMessage.h */,
-				250F5E4C1F2B2D8300B8014A /* MJCAlertMessage.m */,
 				250F5E4D1F2B2D8300B8014A /* MJCCommonTools.h */,
 				250F5E4E1F2B2D8300B8014A /* MJCCommonTools.m */,
 				250F5E4F1F2B2D8400B8014A /* MJCOrdinaryLayout.h */,
@@ -344,6 +345,8 @@
 				25E822C81F0CE35F00FB305F /* Others */,
 				25D9DB481DC2635C00B903B1 /* AppDelegate.h */,
 				25D9DB491DC2635C00B903B1 /* AppDelegate.m */,
+				250F5E4B1F2B2D8300B8014A /* MJCAlertMessage.h */,
+				250F5E4C1F2B2D8300B8014A /* MJCAlertMessage.m */,
 				25D9DB511DC2635C00B903B1 /* Assets.xcassets */,
 				25D9DB4E1DC2635C00B903B1 /* Main.storyboard */,
 				25D9DB531DC2635C00B903B1 /* LaunchScreen.storyboard */,
@@ -523,6 +526,8 @@
 				25BFF4D91F7E1ACF00642BD8 /* MJCSoecialDemoVC11.h */,
 				25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */,
 				25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */,
+				25F66F621F8CC6AF00A478D3 /* MJCSoecialDemoVC12.h */,
+				25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -803,6 +808,7 @@
 				25F037BF1F56D8C400B208CD /* MJCDemoVC3.m in Sources */,
 				25E822EC1F0CE38200FB305F /* MJCTestViewController1.m in Sources */,
 				257034071F5FD76700132A8F /* MJCTestPushVC.m in Sources */,
+				25F66F641F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m in Sources */,
 				25F037C61F56D8C400B208CD /* MJCSpecialDemoVC1.m in Sources */,
 				257034001F5D3D6B00132A8F /* MJCInterfaceTools.m in Sources */,
 				250F5E481F2B2D3100B8014A /* MJCTabItem.m in Sources */,

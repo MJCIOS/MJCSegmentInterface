@@ -24,8 +24,20 @@
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     _mainArr =  dic[@"data"][@"rootArray"];
     
+    
     //标题数据
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
+    
+    //创建添加控制器对象
+    NSMutableArray *vcArr = [NSMutableArray array];
+    for (int i = 0 ; i < titlesArr.count; i++) {//赋值标题
+        MJCTestTableViewController *vc = [MJCTestTableViewController new];
+        vc.title = titlesArr[i];
+        NSMutableDictionary *dic = _mainArr[i];
+        vc.testData = dic[@"userNm"];
+        [vcArr addObject:vc];
+    }
+
     
     //    //    有新手反应看不懂下方的写法,特地写了一份这种的最笨的写法...
 //    NSMutableDictionary *testdic;
@@ -59,15 +71,6 @@
 //    vc7.testData = testdic[@"userNm"];
 //    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
 
-    //创建添加控制器对象
-    NSMutableArray *vcArr = [NSMutableArray array];
-    for (int i = 0 ; i < titlesArr.count; i++) {//赋值标题
-        MJCTestTableViewController *vc = [MJCTestTableViewController new];
-        vc.title = titlesArr[i];
-        NSMutableDictionary *dic = _mainArr[i];
-        vc.testData = dic[@"userNm"];
-        [vcArr addObject:vc];
-    }
     
     MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle] ;
     interFace.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,60);//顶部标题栏frame

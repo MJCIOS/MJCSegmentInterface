@@ -58,7 +58,11 @@
     interFace.isFontGradient = YES;//是否渐变
     [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [self.view addSubview:interFace];
+    
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
+    
+    
+    NSLog(@"%@",interFace);
     
 }
 
