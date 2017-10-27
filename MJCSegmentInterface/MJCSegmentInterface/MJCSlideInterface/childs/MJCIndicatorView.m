@@ -39,8 +39,9 @@ static CGFloat const animalTime= 0.25;
 }
 -(void)setupIndicatorViewCenterAndWidthIsAnimal:(BOOL)isIndicatorsAnimals indicatorStyles:(NSUInteger)indicatorStyles selectedTitleButton:(UIButton*)selectedTitleButton indicatorFrame:(CGRect)indicatorFrame;
 {
+//    ![selectedTitleButton.titleLabel.text isEqualToString:@""]
     if (isIndicatorsAnimals) {
-        if (indicatorStyles == MJCIndicatorItemTextStyle) {
+        if (indicatorStyles == MJCIndicatorItemTextStyle &&  selectedTitleButton.titleLabel.text != nil) {
             [selectedTitleButton.titleLabel sizeToFit];
             [UIView animateWithDuration:animalTime animations:^{
                 self.jc_width = selectedTitleButton.titleLabel.jc_width;

@@ -22,6 +22,12 @@
 	</dict>
 	<dict>
 		<key>viewControllers</key>
+		<string>MJCOtherAppDemo</string>
+		<key>titles</key>
+		<string>其他APP的分段样式</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
 		<string></string>
 		<key>titles</key>
 		<string>谢谢大家使用,谢谢,有啥功能推荐,请私聊我</string>

@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"天涯明月刀月刀月刀月刀天涯"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     MJCTestCollectVC *vc4 = [[MJCTestCollectVC alloc]init];
@@ -48,7 +48,6 @@
     interFace.itemTextFontSize = 11;
     interFace.defaultShowItemCount = 5;
     interFace.isChildScollAnimal = YES;
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:NO widthToFitIsEnabled:YES];
     interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(0, 20, 0, 20, 90);
     interFace.childsContainerBackColor = [UIColor purpleColor];
     [self.view addSubview:interFace];

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>推荐</string>
+	<string>热门</string>
+	<string>英雄联盟</string>
+	<string>搞笑</string>
+	<string>娱乐</string>
+	<string>舞蹈</string>
+	<string>游戏</string>
+	<string>军事</string>
+	<string>王者荣耀</string>
+	<string>球球大作战</string>
+	<string>二次元</string>
+	<string>科技</string>
+	<string>我的世界</string>
+	<string>地下城与勇士</string>
+	<string>坦克世界</string>
+	<string>守望先锋</string>
+	<string>炉石传说</string>
+	<string>吃鸡</string>
+</array>
+</plist>

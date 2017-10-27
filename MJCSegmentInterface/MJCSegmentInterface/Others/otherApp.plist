@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo0</string>
+		<key>titles</key>
+		<string>斗鱼(首页)</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo1</string>
+		<key>titles</key>
+		<string>多玩饭盒</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo2</string>
+		<key>titles</key>
+		<string>今日头条</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo3</string>
+		<key>titles</key>
+		<string>腾讯新闻</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo4</string>
+		<key>titles</key>
+		<string>百思不得姐</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo5</string>
+		<key>titles</key>
+		<string>淘宝(微淘)</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo6</string>
+		<key>titles</key>
+		<string>淘宝(问大家)</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
+		<string>MJCOtherAppDemo7</string>
+		<key>titles</key>
+		<string>京东(发现)</string>
+	</dict>
+</array>
+</plist>
