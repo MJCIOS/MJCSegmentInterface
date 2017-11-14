@@ -53,8 +53,6 @@
         [self.view addSubview:interFace];
         [interFace intoTitlesArray:titlesArr hostController:self];
         [interFace intoChildControllerArray:vcarrr];
-
-    
     
 }
 

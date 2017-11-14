@@ -136,7 +136,7 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemEdgeinsets)(MJCEdgeInsets);
 @property (nonatomic) MJCEdgeInsets itemEdgeinsets;
 
-/** 标题图片效果样式 */
+/** item图片效果样式 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImageEffectStyles)(MJCImageEffectStyles);
 @property (nonatomic,assign) MJCImageEffectStyles itemImageEffectStyles;
 
@@ -186,7 +186,7 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextColorArraySelected)(NSArray *itemTextColorArraySelected);
 @property (nonatomic,strong,readonly) NSArray *itemTextColorArraySelected;
 
-///** tabitem内容自适应:(高度自适应或宽度自适应)(如果是item高度自适应,设置内边距top和bottom无效)*/
+/** tabitem内容自适应:(高度自适应或宽度自适应)(如果是item高度自适应,设置内边距top和bottom无效)*/
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_tabItemSizeToFitIsEnabled)(BOOL sizeToFitIsEnabled,BOOL heightToFitIsEnabled, BOOL widthToFitIsEnabled);
 @property (nonatomic,assign) BOOL itemSizeToFitIsEnabled;
 @property (nonatomic,assign) BOOL itemHeightToFitIsEnabled;

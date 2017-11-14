@@ -53,9 +53,7 @@
     }];
 
     
-    //以下是我的控件中的代码
     MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
-    
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
