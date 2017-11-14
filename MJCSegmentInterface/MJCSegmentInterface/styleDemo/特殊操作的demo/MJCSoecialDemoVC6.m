@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+//    [self.navigationController setNavigationBarHidden:YES];
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"jiameng" ofType:@"plist"];
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     _mainArr =  dic[@"data"][@"rootArray"];

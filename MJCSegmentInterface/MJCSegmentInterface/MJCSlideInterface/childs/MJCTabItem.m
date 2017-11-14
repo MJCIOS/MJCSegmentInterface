@@ -11,6 +11,7 @@
 #import "MJCCommonTools.h"
 
 //static CGFloat const tenMargin = 13;
+static CGFloat const tenMargin = 10;
 
 @interface MJCTabItem()
 
@@ -80,12 +81,12 @@
         }else if (_imageEffectStyles == 0) {
             [self.titleLabel sizeToFit];
             self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
-            self.titleLabel.jc_x = self.titleLabel.jc_x + _leftTextMargin - _rightTextMargin;
+            self.titleLabel.jc_x = ( tabItemCenterX -tenMargin ) + _leftTextMargin - _rightTextMargin;
             if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
                 self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
             }else{
                 self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
-            self.imageView.jc_x = _leftImageMargin-_rightImageMargin;
+            self.imageView.jc_x = (tabItemCenterX -self.imageView.frame.size.width - tenMargin)+_leftImageMargin-_rightImageMargin;
             self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
         }else{
             [self.titleLabel sizeToFit];

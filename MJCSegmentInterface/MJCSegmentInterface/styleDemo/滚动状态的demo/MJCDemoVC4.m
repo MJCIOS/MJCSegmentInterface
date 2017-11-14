@@ -38,9 +38,14 @@
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
     
+    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"heart-2"];
+    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"heart"];
+    
     MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
 
         jc_tools.
+        jc_itemImageArrayNormal(imageArr).
+        jc_itemImageArraySelected(imageArr1).
         jc_titlesViewBackColor([UIColor redColor]).
         jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_itemBackColor([UIColor purpleColor]).
