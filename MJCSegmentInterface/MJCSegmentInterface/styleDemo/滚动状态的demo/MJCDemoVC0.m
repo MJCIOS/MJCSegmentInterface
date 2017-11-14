@@ -35,8 +35,6 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-    
-    
         MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
             jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
             jc_indicatorColor([UIColor orangeColor]).
