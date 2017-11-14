@@ -52,23 +52,13 @@
 
 *初始默认状态:(默认的是MJCTitlesClassicStyle)
 
-        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
-        segmentsface.frame.titleBarStyles = MJCTitlesClassicStyle;
-        [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
-        [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
-        [self.view addSubview:segmentsface];
+        jc_titleBarStyles(MJCTitlesClassicStyle);
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo6.gif)
 
 *滚动模式状态:(MJCTitlesScrollStyle)
 
-        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
-        segmentsface.titleBarStyles = MJCTitlesScrollStyle;
-        [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
-        [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
-        [self.view addSubview:segmentsface];
+        jc_titleBarStyles(MJCTitlesScrollStyle);
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo0.gif)
 
@@ -78,25 +68,23 @@
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo1.gif)
 
-*颜色渐变,指示器跟随滑动:(isFontGradient,isIndicatorFollow)
+*颜色渐变,指示器跟随滑动:(jc_itemTextGradientEnabled,jc_indicatorFollowEnabled)
 
-        segmentsface.isFontGradient = YES;
-        segmentsface.isIndicatorFollow = YES;
+        jc_itemTextGradientEnabled(YES)
+        jc_indicatorFollowEnabled(YES)
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo2.gif)
 
-*字体放大:(tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont)
+*字体放大:(jc_tabItemTextZoomBigEnabled)
 
-        [segmentsface tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
+        jc_tabItemTextZoomBigEnabled(YES, 18).
 
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo3.gif)
 
-*上下滑动的穿透效果:(isPenetrationEffect)
-        
-        segmentsface.itemBackColor =  [UIColor clearColor];
-        segmentsface.isPenetrationEffect = YES;
-        segmentsface.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.3];
+*上下滑动的穿透效果:(jc_titlesViewPenetrationEnabled)
 
+      jc_titlesViewPenetrationEnabled(YES)
+      
 ![image](https://github.com/MJCIOS/MJCSegmentInterface/raw/master/MJCSegmentInterface/MJCSegmentInterface/Others/demo7.gif)
 
 *实时刷新最新数据的做法:(代理方法的使用(MJCSegmentDelegate))
