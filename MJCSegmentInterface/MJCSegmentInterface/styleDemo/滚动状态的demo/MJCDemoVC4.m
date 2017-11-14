@@ -42,7 +42,6 @@
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"heart"];
     
     MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
-
         jc_tools.
         jc_itemImageArrayNormal(imageArr).
         jc_itemImageArraySelected(imageArr1).
@@ -57,11 +56,8 @@
     }];
 
     
-    //以下是我的控件中的代码
     MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame: CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     interFace.delegate= self;
-
-
     [interFace intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:interFace];
     [interFace intoChildControllerArray:vcArr];

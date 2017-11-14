@@ -54,7 +54,6 @@
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
     interFace.tools = tools;
-
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
