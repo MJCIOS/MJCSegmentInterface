@@ -44,21 +44,27 @@
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr imageNArr:(NSArray *)imageNArr imageSArr:(NSArray*)imageSArr
 {
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
-    interFace.titlesViewFrame = CGRectMake(0, 0, interFace.jc_width, 50);
-    interFace.titlesViewBackColor = [UIColor yellowColor];
-    interFace.indicatorHidden = YES;
-    interFace.imageEffectStyles = MJCImageUpDownStyle;
-    interFace.itemImageSize = CGSizeMake(20, 20);
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(0, 0, 10, 0);
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0, 0, 3, 0);
-    interFace.itemImageNormalArray = imageNArr;
-    interFace.itemImageSelectedArray = imageSArr;
-    interFace.defaultShowItemCount = 5;
-    interFace.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]];
-    interFace.itemTextNormalColor = [UIColor blackColor];
-    interFace.itemTextFontSize = 13;
-    interFace.isChildScollAnimal = YES;
+    MJCSegmentStylesTools *tools=  [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50)).
+        jc_titlesViewBackColor([UIColor yellowColor]).
+        jc_indicatorHidden(YES).
+        jc_childScollEnabled(YES).
+        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_itemImageSize(CGSizeMake(20, 20)).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0, 0, 10, 0)).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0, 0, 3, 0)).
+        jc_itemImageArrayNormal(imageNArr).
+        jc_itemImageArraySelected(imageSArr).
+        jc_ItemDefaultShowCount(5).
+        jc_itemBackImageSelected([MJCCommonTools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]]).
+        jc_itemTextNormalColor([UIColor blackColor]).
+        jc_itemTextFontSize(13).
+        jc_childScollAnimalEnabled(YES);
+    }];
+    
+    MJCSegmentInterface *interFace=  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }

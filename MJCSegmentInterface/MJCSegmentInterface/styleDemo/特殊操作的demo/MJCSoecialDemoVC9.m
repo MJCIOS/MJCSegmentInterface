@@ -38,30 +38,25 @@
         vc.title = titlesArr[i];
     }
     
-    NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
-    NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interface = [[MJCSegmentInterface alloc]init];
-    interface.titleBarStyles = MJCTitlesScrollStyle;
-    interface.delegate = self;
-    interface.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interface.itemTitleNormalColorArray = colorArr;
-    interface.itemTitleSelectedColorArray = colorArr1;
-    interface.itemBackColor = [UIColor purpleColor];
-    interface.itemMaxEdgeinsets = MJCEdgeInsetsMake(0,15,0,15,20);
-    interface.itemTextNormalColor = [UIColor redColor];
-    interface.itemTextSelectedColor = [UIColor purpleColor];
-    interface.indicatorColor = [UIColor redColor];
-    interface.isIndicatorFollow = YES;
-    interface.isIndicatorColorEqualTextColor = YES;
-    interface.itemTextFontSize = 11;
-    interface.selectedSegmentIndex = 1;
-    [interface tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:14];
-    [self.view addSubview:interface];
-    [interface intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-    _interface = interface;
-    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+                                           {
+                                               jc_tools.
+                                               jc_titlesViewBackColor([UIColor whiteColor]).
+                                               jc_titleBarStyles(MJCTitlesScrollStyle).
+                                               jc_itemTextNormalColor([UIColor redColor]).
+                                               jc_itemTextSelectedColor([UIColor purpleColor]).
+                                               jc_itemTextFontSize(11).
+                                               jc_indicatorColor([UIColor redColor]).
+                                               jc_indicatorFollowEnabled(YES).
+                                               jc_itemSelectedSegmentIndex(2);
+                                           }];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
+    _interface = interFace;
+    interFace.delegate = self;
+    [self.view addSubview:interFace];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"点我进入下个界面" forState:UIControlStateNormal];
     button.frame = CGRectMake(0,0, 0, 0);

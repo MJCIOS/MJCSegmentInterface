@@ -35,20 +35,25 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+                                      {
+                                          jc_tools.
+                                          jc_titlesViewBackColor([UIColor whiteColor]).
+                                          jc_titleBarStyles(MJCTitlesScrollStyle).
+                                          jc_itemTextNormalColor([UIColor redColor]).
+                                          jc_itemTextSelectedColor([UIColor purpleColor]).
+                                          jc_itemTextColorArrayNormal(colorArr).
+                                          jc_itemTextColorArraySelected(colorArr1).
+                                          jc_itemTextFontSize(11).
+                                          jc_indicatorColor([UIColor redColor]).
+                                          jc_indicatorFollowEnabled(YES).
+                                          jc_indicatorColorEqualTextColorEnabled(YES).
+                                          jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10, 0, 0, 0)).
+                                          jc_itemSelectedSegmentIndex(2);
+                                      }];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     interFace.delegate = self;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTitleNormalColorArray = colorArr;
-    interFace.itemTitleSelectedColorArray = colorArr1;
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.isIndicatorColorEqualTextColor = YES;
-    interFace.itemTextFontSize = 11;
-    interFace.selectedSegmentIndex = 2;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }
@@ -64,10 +69,10 @@
 {
         for (int i = 0 ; i < tabItemArray.count; i++) {
             UIButton *item = tabItemArray[i];//获取到item
+            CGFloat  roundViewX= CGRectGetMaxX(item.titleLabel.frame);
             UIView *roundView = [[UIView alloc]init];//创建圆点view
             roundView.backgroundColor = [UIColor blackColor];
             [item addSubview:roundView];//添加到item上面
-            CGFloat  roundViewX= CGRectGetMaxX(item.titleLabel.frame);
             roundView.frame = CGRectMake(roundViewX,0,10 ,10);//设置圆点view的frame
         }
 }

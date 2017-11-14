@@ -32,24 +32,33 @@
         vc.title = titlesArr[i];
     }
 
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_indicatorFrame(CGRectMake(0,0,0,50)).
+        jc_indicatorFollowEnabled(YES).
+        jc_childScollEnabled(YES).
+        jc_itemSelectedSegmentIndex(3).
+        jc_indicatorColor([[UIColor blackColor]colorWithAlphaComponent:0.3]).
+        jc_tabItemTextZoomBigEnabled(YES, 22).
+        jc_itemTextFontSize(17).
+        jc_titlesViewBackColor([UIColor redColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor whiteColor]).
+        jc_itemTextFontSize(11).
+        jc_tabItemTextZoomBigEnabled(YES, 18).
+        jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
+        jc_indicatorHidden(NO).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_ItemDefaultShowCount(5).
+        jc_itemBackColor([UIColor orangeColor]).
+        jc_itemTextGradientEnabled(YES);
+    }];
+
         
-    //以下是我的控件中的代码
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.indicatorHidden = NO;
-    interFace.isIndicatorsAnimals = YES;
-    interFace.selectedSegmentIndex = 3;
-    interFace.defaultShowItemCount = 5;
-    interFace.itemBackColor = [UIColor orangeColor];
-    interFace.isFontGradient = YES;
-    interFace.indicatorFrame = CGRectMake(0,0,0,50);
-    interFace.indicatorColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
-//    interFace.itemTextFontSize = 17;
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:22];
+    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

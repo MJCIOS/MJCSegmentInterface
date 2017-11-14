@@ -29,7 +29,6 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 -(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock;
 @property(copy,nonatomic) TabitemArrBlock tabitemArrBlock;
 -(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock;
-@property (nonatomic,assign) CGRect titlesViewFrame;
 @property (nonatomic,assign) NSInteger titlesBarStyles;
 @property (nonatomic,strong) UIColor *titlesViewBackColor;
 @property (nonatomic,strong)  UIImage*backgroudImage;

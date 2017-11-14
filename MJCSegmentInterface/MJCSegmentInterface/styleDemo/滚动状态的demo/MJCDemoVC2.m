@@ -35,18 +35,28 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_indicatorFollowEnabled(YES).
+        jc_indicatorHidden(NO).
+        jc_itemSelectedSegmentIndex(2).
+        jc_itemTextColorArrayNormal(colorArr).
+        jc_itemTextColorArraySelected(colorArr1).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_indicatorColor( [UIColor redColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor whiteColor]).
+        jc_itemTextFontSize(11).
+        jc_tabItemTextZoomBigEnabled(YES, 18).
+        jc_indicatorColorEqualTextColorEnabled(YES);
+    }];
+
+    
     //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTitleNormalColorArray = colorArr;
-    interFace.itemTitleSelectedColorArray = colorArr1;
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.isIndicatorColorEqualTextColor = YES;
-    interFace.selectedSegmentIndex = 2;
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
+    
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }

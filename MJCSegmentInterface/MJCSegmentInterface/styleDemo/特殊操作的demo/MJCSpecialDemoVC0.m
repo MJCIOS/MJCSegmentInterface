@@ -31,20 +31,22 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace =  [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
-    interFace.titleBarStyles = MJCTitlesClassicStyle;
-    interFace.isPenetrationEffect = YES;
-    interFace.isIndicatorsAnimals = YES;
-    interFace.isIndicatorFollow = YES;
-    interFace.isChildScollAnimal = YES;
-    interFace.titlesViewBackColor =  [[UIColor blueColor]colorWithAlphaComponent:0.3];
-    interFace.itemBackColor =  [UIColor clearColor];
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor orangeColor];
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.itemTextFontSize = 12;
-    interFace.indicatorStyles = MJCIndicatorItemTextStyle;
+    
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesClassicStyle).
+        jc_childScollAnimalEnabled(YES).
+        jc_titlesViewPenetrationEnabled(YES).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_indicatorFollowEnabled(YES).
+        jc_titlesViewBackColor([[UIColor blueColor]colorWithAlphaComponent:0.3]).
+        jc_itemTextNormalColor( [UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor orangeColor]).
+        jc_indicatorColor([UIColor redColor]).
+        jc_itemTextFontSize(12).
+        jc_indicatorStyles(MJCIndicatorItemTextStyle);
+    }];
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface initWithFrame:CGRectMake(0, 64, self.view.jc_width, self.view.jc_height - 64) interFaceStyleTools:tools];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }

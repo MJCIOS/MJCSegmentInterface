@@ -41,37 +41,47 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
     
-    //以下是我的控件中的代码
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor purpleColor]).
+        jc_itemSelectedSegmentIndex(0).
+        jc_ItemDefaultShowCount(4).
+        jc_indicatorFollowEnabled(YES).
+        jc_indicatorColor([UIColor redColor]).
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemTextFontSize(13).
+        jc_childScollAnimalEnabled(YES).
+        jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
+        jc_itemImageNormal([UIImage imageNamed:@"food"]).
+        jc_ItemDefaultShowCount(3).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width,50)).
+        jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
+        jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
+        jc_itemBackImageNormal([UIImage imageNamed:@"222"]).
+        jc_itemBackImageSelected( [UIImage imageNamed:@"456"]).
+        jc_itemBackImageArrayNormal(imageBackArr).
+        jc_itemBackImageArraySelected(imageBackArr).
+        jc_itemImageSize(CGSizeMake(20,20)).
+        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,10,10)).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,0,0)).
+        jc_itemImageArrayNormal(imageArr).
+        jc_itemImageArraySelected(imageArr1).
+        jc_indicatorColor([UIColor redColor]).
+        jc_indicatorImage([UIImage imageNamed:@"箭头"]).
+        jc_indicatorHidden(YES).
+        jc_childScollEnabled(YES).
+        jc_childScollAnimalEnabled(YES).
+        jc_tabItemTextZoomBigEnabled(YES, 20).
+        jc_indicatorFrame(CGRectMake(0,0,50,30));
+    }];
+
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
     interFace.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
-    interFace.itemImageSelected = [UIImage imageNamed:@"food-2"];
-    interFace.itemImageNormal = [UIImage imageNamed:@"food"];
-    interFace.defaultShowItemCount = 3;
-    interFace.itemTextFontSize = 13;
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.titlesViewFrame = CGRectMake(0, 0, self.view.jc_width,50);
-    interFace.selectedSegmentIndex = 0;
-    interFace.itemBackNormalImage = [UIImage imageNamed:@"222"];
-    interFace.itemBackSelectedImage = [UIImage imageNamed:@"456"];
-    interFace.itemNormalBackImageArray = imageBackArr;
-    interFace.itemSelectedBackImageArray = imageBackArr1;
-    interFace.itemImageSize = CGSizeMake(20,20);
-    interFace.imageEffectStyles = MJCImageClassicStyle;//item图片类型
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,10,10);
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10,10,0,0);
-    interFace.itemImageNormalArray = imageArr;
-    interFace.itemImageSelectedArray = imageArr1;
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.indicatorImage =[UIImage imageNamed:@"箭头"];
-    interFace.indicatorFrame = CGRectMake(0,0,50,30);
-    interFace.indicatorHidden = YES;
-    interFace.isChildScollEnabled = YES;
-    interFace.isChildScollAnimal = YES;
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
+    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

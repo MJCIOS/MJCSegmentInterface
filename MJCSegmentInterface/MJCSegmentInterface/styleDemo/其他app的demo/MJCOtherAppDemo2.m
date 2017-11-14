@@ -42,29 +42,36 @@
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr
 {
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
-    interFace.titlesViewFrame = CGRectMake(0, 0, interFace.jc_width-50, 35);
-    interFace.indicatorHidden = YES;
-    interFace.titlesViewBackColor = [UIColor whiteColor];
-    interFace.itemTextSelectedColor = [UIColor redColor];
-    interFace.itemTextNormalColor = [UIColor blackColor];
-    interFace.isFontGradient = YES;
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:19];
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:NO widthToFitIsEnabled:YES];
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(0,15, 0,15, 20);
-    interFace.itemTextFontSize = 16;
-    interFace.isChildScollAnimal = YES;
+    
+    MJCSegmentStylesTools *tools=  [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width-50, 35)).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_childScollEnabled(YES).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_itemTextNormalColor([UIColor blackColor]).
+        jc_itemTextSelectedColor([UIColor redColor]).
+        jc_indicatorColor([UIColor orangeColor]).
+        jc_itemTextGradientEnabled(YES).
+        jc_indicatorFrame(CGRectMake(0, jc_tools.titlesViewFrame.size.height-5,15,2)).
+        jc_tabItemTextZoomBigEnabled(YES, 19).
+        jc_itemTextFontSize(16).
+        jc_indicatorHidden(YES).
+        jc_tabItemSizeToFitIsEnabled(YES, NO, YES).
+        jc_itemEdgeinsets(MJCEdgeInsetsMake(0,15, 0,15, 20)).
+        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+        jc_childScollAnimalEnabled(YES);
+    }];
+    
+    MJCSegmentInterface *interFace=  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
-    
-    
-    [self liebiaoUI:interFace];
-    
+    [self liebiaoUI:tools];
 }
 
--(void)liebiaoUI:(MJCSegmentInterface*)interFace
+-(void)liebiaoUI:(MJCSegmentStylesTools*)tools
 {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(interFace.titlesViewFrame), 64, 50,35)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(tools.titlesViewFrame), 64, 50,35)];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0,8,1, view.jc_height-16)];

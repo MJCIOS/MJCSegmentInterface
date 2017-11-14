@@ -37,15 +37,20 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-    
-    _interFace.titleBarStyles = MJCTitlesScrollStyle;
-    _interFace.titlesViewFrame = CGRectMake(0,0,MJCScreenWidth,50);//顶部标题栏frame
-    _interFace.selectedSegmentIndex = 0;//默认选中第几个
-    _interFace.defaultShowItemCount = 3;//首页,第一页展示多少个
-    _interFace.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
-    _interFace.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
-    _interFace.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
-    _interFace.itemBackColor = [UIColor whiteColor];//item背景颜色
+
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+                                      {
+                                          jc_tools.
+                                          jc_titleBarStyles(MJCTitlesScrollStyle).
+                                          jc_titlesViewFrame(CGRectMake(0,0,MJCScreenWidth,50)).
+                                          jc_itemSelectedSegmentIndex(0).
+                                          jc_ItemDefaultShowCount(3).
+                                          jc_itemTextNormalColor([UIColor redColor]).
+                                          jc_itemTextSelectedColor([UIColor purpleColor]).
+                                          jc_titlesViewBackColor([UIColor blueColor]).
+                                          jc_itemBackColor([UIColor whiteColor]);
+                                      }];
+    _interFace.tools = tools;
     [_interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }

@@ -29,25 +29,32 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesClassicStyle).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor purpleColor]).
+        jc_itemSelectedSegmentIndex(3).
+        jc_ItemDefaultShowCount(6).
+        jc_itemTextFontSize(11).
+        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
+    }];
 
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesClassicStyle;
+    MJCSegmentInterface *interFace =  [[MJCSegmentInterface alloc]init];
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.selectedSegmentIndex = 3;
-    interFace.defaultShowItemCount = 3;
-    interFace.itemTextFontSize = 11;
-    interFace.indicatorStyles = MJCIndicatorItemTextStyle;
-    interFace.isIndicatorsAnimals = YES;
-    [self.view addSubview:interFace];
+    interFace.tools = tools;
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    [self.view addSubview:interFace];
     
 }
 
 -(void)dealloc
 {
-    NSLog(@"销毁了");
+    NSLog(@"%@销毁了",self);
 }
 
 

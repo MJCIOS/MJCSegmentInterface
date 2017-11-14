@@ -32,24 +32,26 @@
         vc.title = titlesArr[i];
     }
 
-    
-    //以下是我的控件中的代码
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor purpleColor]).
+        jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,25)).
+        jc_itemSelectedSegmentIndex(3).
+        jc_ItemDefaultShowCount(4).
+        jc_indicatorFollowEnabled(YES).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_indicatorColor([UIColor redColor]).
+        jc_itemTextFontSize(13).
+        jc_childScollAnimalEnabled(YES).
+        jc_itemBackImageNormal([MJCCommonTools jc_imageWithColor:[UIColor yellowColor]]).
+        jc_itemBackImageSelected([MJCCommonTools jc_imageWithColor:[UIColor blueColor]]);
+    }];
+
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.indicatorStyles = MJCIndicatorItemStyle;
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(5,5,5,5,25);
-    interFace.isIndicatorFollow = YES;
-    interFace.selectedSegmentIndex = 3;
-    interFace.defaultShowItemCount = 4;
-    interFace.itemBackColor = [UIColor whiteColor];
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.itemTextFontSize  = 13;
-    interFace.isChildScollAnimal = YES;
-    interFace.itemBackNormalImage = [MJCCommonTools jc_imageWithColor:[UIColor yellowColor]];
-    interFace.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[UIColor blueColor]];
+    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 

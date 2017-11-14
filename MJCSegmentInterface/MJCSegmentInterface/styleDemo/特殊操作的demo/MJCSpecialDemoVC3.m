@@ -31,7 +31,8 @@
     MJCTestViewController *vc5 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
-    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7];
+    MJCTestViewController *vc8 = [[MJCTestViewController alloc]init];
+    NSArray *vcarrr = @[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯",@"诛仙世界"];
     _titlesArr = titlesArr;
     for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
@@ -39,27 +40,35 @@
         vc.title = titlesArr[i];
     }
     
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0,0,self.view.jc_width,60)).
+        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_titlesViewBackColor([UIColor blueColor]).
+        jc_itemTextSelectedColor([UIColor purpleColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextFontSize(13).
+        jc_ItemDefaultShowCount(3).
+        jc_childsContainerBackColor([UIColor purpleColor]).
+        jc_indicatorColor([UIColor blackColor]).
+        jc_indicatorHidden(NO).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_childScollEnabled(YES).
+        jc_childScollAnimalEnabled(YES).
+        jc_indicatorFollowEnabled(YES).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,0,10,0)).
+        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
+        jc_itemTextGradientEnabled(YES).
+        jc_tabItemTextZoomBigEnabled(YES, 18);
+    }];
+
     
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle] ;
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools] ;
     _interFace = interFace;
-    interFace.titlesViewFrame = CGRectMake(0,0,self.view.jc_width,60);//顶部标题栏frame
-    interFace.indicatorStyles = MJCIndicatorItemTextStyle;
-    interFace.defaultShowItemCount = 3;//首页,第一页展示多少个
     interFace.delegate = self;
-    interFace.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
-    interFace.itemTextFontSize = 13;//item文字大小
-    interFace.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
-    interFace.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
-    interFace.itemBackColor = [UIColor whiteColor];//item背景颜色
-    interFace.indicatorHidden = NO;//底部指示器是否隐藏
-    interFace.isChildScollEnabled = YES;//是否手拽滚动子界面
-    interFace.isChildScollAnimal = YES;//子界面切换是否有动画效果
-    interFace.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
-    interFace.imageEffectStyles = MJCImageClassicStyle;//item图片类型
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10,0,10,0);//item图片位置修改
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
-    interFace.isFontGradient = YES;//是否渐变
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

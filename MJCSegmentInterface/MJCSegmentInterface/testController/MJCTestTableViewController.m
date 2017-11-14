@@ -9,6 +9,7 @@
 #import "MJCTestTableViewController.h"
 #import "MJCPrefixHeader.pch"
 #import "MJCTestPushVC.h"
+#import "MJCAlertMessage.h"
 
 #define oriHeight 180
 
@@ -25,10 +26,19 @@
     self.tableView.mj_footer = [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData) ];
 }
 
--(void)setTestData:(NSString *)testData
+-(void)setMainDataArr:(NSArray *)mainDataArr
 {
-    _testData = testData;
-    NSLog(@"%@",testData);
+    _mainDataArr = mainDataArr;
+    
+    NSMutableArray *otherBtnStrArr = [NSMutableArray array];
+    for (int i = 0 ; i < _mainDataArr.count; i++) {
+        NSMutableDictionary *dic = _mainDataArr[i];
+        NSString *nameStr = dic[@"userNm"];
+        [otherBtnStrArr addObject:nameStr];
+    }
+    
+    [MJCAlertMessage showMessageViewTitle:@"提示" message:@"传送过来的数据" cancelButtonTitle:nil otherButtonTitles:otherBtnStrArr clickedButtonBlock:nil];
+    
 }
 
 -(void)beginLoadNewData:(NSMutableDictionary *)dicData;

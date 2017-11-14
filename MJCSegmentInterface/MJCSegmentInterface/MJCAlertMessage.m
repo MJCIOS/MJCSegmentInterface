@@ -12,9 +12,13 @@
 
 @property (nonatomic,copy) MJCClickedButtonBlock clickedButtonBlock;
 
+
+@property (nonatomic,strong) UIAlertView *alertView;
+
 @end
 
 @implementation MJCAlertMessage
+
 static MJCAlertMessage *showMessage = nil;
 + (MJCAlertMessage *)showMessage
 {
@@ -27,11 +31,18 @@ static MJCAlertMessage *showMessage = nil;
     return showMessage;
 }
 
+- (UIAlertView*)alertViewinitWithTitle:(nullable NSString *)title message:(nullable NSString *)message  cancelButtonTitle:(nullable NSString *)cancelButtonTitle otherButtonTitles:(nullable NSString *)otherButtonTitles
+{
+    if (!_alertView) {
+        _alertView = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    }
+    return _alertView;
+}
+
 +(UIAlertView*)showMessageViewTitle:(NSString *)msgTitle message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray<NSString *> *)otherButtonTitles clickedButtonBlock:(MJCClickedButtonBlock)clickedButtonBlock
 {
     MJCAlertMessage *alertMessage =   [MJCAlertMessage showMessage];
-    
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:msgTitle message:message delegate:nil cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
+    UIAlertView *alertView =  [alertMessage alertViewinitWithTitle:msgTitle message:message cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     if (clickedButtonBlock) {
         alertView.delegate = self;
         alertMessage.clickedButtonBlock = clickedButtonBlock;

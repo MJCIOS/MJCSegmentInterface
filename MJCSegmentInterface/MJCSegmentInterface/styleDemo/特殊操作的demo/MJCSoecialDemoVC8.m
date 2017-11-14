@@ -8,6 +8,7 @@
 
 #import "MJCSoecialDemoVC8.h"
 #import "MJCPrefixHeader.pch"
+#import "MJCTabItem.h"
 
 @interface MJCSoecialDemoVC8 ()<MJCSegmentDelegate>
 
@@ -35,24 +36,27 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+                                      {
+                                          jc_tools.
+                                          jc_titlesViewBackColor([UIColor whiteColor]).
+                                          jc_titleBarStyles(MJCTitlesScrollStyle).
+                                          jc_itemTextNormalColor([UIColor redColor]).
+                                          jc_itemTextSelectedColor([UIColor purpleColor]).
+                                          jc_itemTextColorArrayNormal(colorArr).
+                                          jc_itemTextColorArraySelected(colorArr1).
+                                          jc_itemTextFontSize(11).
+                                          jc_tabItemTextZoomBigEnabled(YES, 14).
+                                          jc_indicatorColor([UIColor redColor]).
+                                          jc_indicatorFollowEnabled(YES).
+                                          jc_indicatorColorEqualTextColorEnabled(YES).
+                                          jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10, 0, 0, 0)).
+                                          jc_itemSelectedSegmentIndex(2);
+                                      }];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     interFace.delegate = self;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTitleNormalColorArray = colorArr;
-    interFace.itemTitleSelectedColorArray = colorArr1;
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.isIndicatorColorEqualTextColor = YES;
-    interFace.itemTextFontSize = 11;
-    interFace.selectedSegmentIndex = 2;
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:14];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-
 }
     
 /**
@@ -99,6 +103,7 @@
  */
 -(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
+//    segmentInterface.itemBackSelectedImage = [MJCCommonTools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]];
     UIView *roundView =    tabItem.subviews[2];//获取到圆点view
     roundView.backgroundColor = [UIColor blackColor];
     roundView.jc_x = CGRectGetMaxX(tabItem.titleLabel.frame);//修改位置

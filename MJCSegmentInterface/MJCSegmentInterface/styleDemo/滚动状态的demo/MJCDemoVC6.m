@@ -32,27 +32,32 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
+    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"heart-2"];
+    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"heart"];
 
     
-        
-    
-    //以下是我的控件中的代码
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titlesViewBackColor([UIColor redColor]).
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_indicatorFollowEnabled(YES).
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemBackColor([UIColor purpleColor]).
+        jc_itemSelectedSegmentIndex(3).
+        jc_itemTextSelectedColor([UIColor blackColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemImageArraySelected(imageArr1).
+        jc_itemImageArrayNormal(imageArr).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10, 0,0,0)).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,30,0)).
+        jc_itemTextFontSize(13).
+        jc_ItemDefaultShowCount(5).
+        jc_childsContainerBackColor([UIColor purpleColor]);
+    }];
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
     interFace.frame = CGRectMake(0,64,self.view.jc_width,self.view.jc_height-64);
-    interFace.imageEffectStyles  = MJCImageUpDownStyle;
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(10, 0,0,0);
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0,0,30,0);
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.selectedSegmentIndex = 3;
-    interFace.defaultShowItemCount = 5;
-    interFace.itemBackColor = [UIColor whiteColor];
-    NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2"];
-    NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone"];
-    interFace.itemImageNormalArray  = imageArr ;
-    interFace.itemImageSelectedArray  = imageArr1;
+    interFace.tools  = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

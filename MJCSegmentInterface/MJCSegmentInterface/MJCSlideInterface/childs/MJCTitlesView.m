@@ -12,6 +12,9 @@
 #import "UIColor+MJCClassExtension.h"
 #import "MJCSegmentInterface.h"
 
+#define DELAYTIMES (0.000001)
+#define DELAYTIMESTWO (0.1)
+
 static CGFloat const defaultShowCountItem = 4;
 static CGFloat const defaultItemFontSize = 14;
 static CGFloat const defaultIndicatorH = 1.5;
@@ -31,14 +34,15 @@ static CGFloat const defaultIndicatorH = 1.5;
 @property (nonatomic,weak) NSArray *selectedColorRgbaArr;
 @property (nonatomic,weak) NSArray *gradientRgbaArr;
 @property (nonatomic,assign) NSInteger selectedTag;
-@property (nonatomic,assign) CGFloat itemNewX;
 @property (nonatomic,assign) BOOL sizeToFitIsEnabled;
 @property (nonatomic,assign) BOOL heightToFitIsEnabled;
 @property (nonatomic,assign) BOOL widthToFitIsEnabled;
 @property (nonatomic,assign) CGFloat tabItemW;
+@property (nonatomic,assign) CGFloat itemNewX;
 @end
 
 @implementation MJCTitlesView
+
 - (NSMutableArray *)titleButtonsArr
 {
     if (!_titleButtonsArr) {
@@ -61,7 +65,6 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)setupBasic
 {
     _indicatorView = [MJCIndicatorView buttonWithType:UIButtonTypeCustom];
-    _indicatorView.frame = CGRectMake(0,0,0,defaultIndicatorH);
     self.showsVerticalScrollIndicator = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.backgroundColor = [UIColor whiteColor];
@@ -73,16 +76,13 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     [super layoutSubviews];
     _backgroudView.frame = self.bounds;
-    if (_isLoadIndicatorFrame) {
-        _indicatorView.jc_y = _indicatorFrame.origin.y;
-        _indicatorView.jc_height = _indicatorFrame.size.height;
-    }else{
-        _indicatorView.jc_y = self.frame.size.height - _indicatorView.jc_height;
-    }
-}
--(void)setHostController:(UIViewController *)hostController
-{
-    _hostController = hostController;
+//    if (_isLoadIndicatorFrame) {
+//        _indicatorView.jc_y = _indicatorFrame.origin.y;
+//        _indicatorView.jc_height = _indicatorFrame.size.height;
+//    }else{
+//        _indicatorView.jc_y = self.frame.size.height - _indicatorView.jc_height;
+//        _indicatorView.jc_height = defaultIndicatorH;
+//    }
 }
 -(void)setTitlesArray:(NSArray *)titlesArray
 {
@@ -161,11 +161,6 @@ static CGFloat const defaultIndicatorH = 1.5;
         [self.titleButtonsArr addObject:tabbutton];
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (_tabitemArrBlock) {
-            _tabitemArrBlock(_titleButtonsArr);
-        }
-    });
     
     if (_titlesBarStyles == 0) {
         self.contentSize = CGSizeMake(titlesArray.count * tabItemW,0);
@@ -190,6 +185,14 @@ static CGFloat const defaultIndicatorH = 1.5;
             }
         }
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMES * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (_tabitemArrBlock) {
+            _tabitemArrBlock(_titleButtonsArr);
+        };
+    });
+
+    
     [self addSubview:_indicatorView];
 }
 
@@ -221,7 +224,30 @@ static CGFloat const defaultIndicatorH = 1.5;
     tabbutton.itemImagesEdgeInsets = _itemImagesEdgeInsets;
     tabbutton.itemTitleNormalColorArray = _itemTitleNormalColorArray;
     tabbutton.itemTitleSelectedColorArray = _itemTitleSelectedColorArray;
+}
 
+-(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
+{
+    _selectedSegmentIndex = selectedSegmentIndex;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMESTWO * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (selectedSegmentIndex >= _titlesArray.count) {
+            MJCTabItem *titlesButton = _titleButtonsArr[0];
+            [self titleClick:titlesButton];
+            return;
+        }
+        MJCTabItem *titlesButton = _titleButtonsArr[selectedSegmentIndex];
+        [self titleClick:titlesButton];
+    });
+}
+
+
+- (void)titleClick:(MJCTabItem *)titleButton
+{
+    [self setupClickAndScrollEndWith:titleButton];
+    
+    if (_clickBlock) {
+        _clickBlock(_selectedTitleButton);
+    }
 }
 
 -(void)tableItemClickCancelBlock:(TabItemClickCancelBlock)clickCancelBlock
@@ -229,19 +255,9 @@ static CGFloat const defaultIndicatorH = 1.5;
     _clickCancelBlock = clickCancelBlock;
 }
 
-- (void)titleClick:(MJCTabItem *)titleButton
-{
-    
-    [self setupClickAndScrollEndWith:titleButton];
-    
-    if (_clickBlock) {
-        _clickBlock(_selectedTitleButton);
-    }
-}
 - (void)setupTitleCenter:(UIButton *)titleButton
 {
     CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.7;
-//        CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.5;
     if (offsetX < 0) {
         offsetX = 0;
     }
@@ -281,17 +297,6 @@ static CGFloat const defaultIndicatorH = 1.5;
         _selectedColorRgbaArr = selectedColorRgbaArr;
     }
     return  _selectedColorRgbaArr;
-}
--(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
-{
-    _selectedSegmentIndex = selectedSegmentIndex;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (selectedSegmentIndex >= _titlesArray.count) {
-            return;
-        }
-        MJCTabItem *titlesButton =_titleButtonsArr[selectedSegmentIndex];
-        [self titleClick:titlesButton];
-    });
 }
 -(void)jc_scrollViewDidScroll:(UIScrollView *)scrollView isIndicatorFollow:(BOOL)isIndicatorFollow
 {
@@ -346,10 +351,6 @@ static CGFloat const defaultIndicatorH = 1.5;
         _oldsSelectedItem =  rightItem;
     }
 }
--(void)setupIndicatorViewCenterAndWidth
-{
-    [_indicatorView setupIndicatorViewCenterAndWidthIsAnimal:_isIndicatorsAnimals indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame];
-}
 - (void)jc_scrollViewDidEndDragging:(UIScrollView *)scrollView itemTextNormalColor:(UIColor *)itemTextNormalColor
 {
     _oldsSelectedItem.itemTitleNormalColor = itemTextNormalColor;
@@ -376,86 +377,6 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)tableItemClickBlock:(TabItemClickBlock)clickBlock
 {
     _clickBlock = clickBlock;
-}
--(void)setBackgroudImage:(UIImage *)backgroudImage
-{
-    _backgroudImage = backgroudImage;
-    _backgroudView.image = backgroudImage;
-}
-
--(void)setIsFontGradient:(BOOL)isFontGradient
-{
-    _isFontGradient = isFontGradient;
-}
--(void)setTitlesViewBackColor:(UIColor *)titlesViewBackColor
-{
-    _titlesViewBackColor = titlesViewBackColor;
-    self.backgroundColor = titlesViewBackColor;
-}
--(void)setDefaultShowItemCount:(NSInteger)defaultShowItemCount
-{
-    _defaultShowItemCount = defaultShowItemCount;
-}
--(void)setIsIndicatorsAnimals:(BOOL)isIndicatorsAnimals
-{
-    _isIndicatorsAnimals  = isIndicatorsAnimals;
-}
--(void)setIndicatorFrame:(CGRect)indicatorFrame
-{
-    _indicatorFrame = indicatorFrame;
-    _isLoadIndicatorFrame = YES;
-}
--(void)setIndicatorColor:(UIColor *)indicatorColor
-{
-    _indicatorColor = indicatorColor;
-    _indicatorView.backgroundColor  = indicatorColor;
-}
--(void)setIndicatorImage:(UIImage *)indicatorImage
-{
-    _indicatorImage = indicatorImage;
-    _indicatorView.indicatorImage = indicatorImage;
-    _indicatorView.frame = CGRectMake(0,CGRectGetMaxY(self.frame)-_indicatorView.jc_height,_indicatorView.jc_width,_indicatorView.jc_height);
-}
--(void)setIndicatorHidden:(BOOL)indicatorHidden
-{
-    _indicatorHidden = indicatorHidden;
-    _indicatorView.hidden = indicatorHidden;
-}
--(void)setIsIndicatorFollow:(BOOL)isIndicatorFollow
-{
-    _isIndicatorFollow = isIndicatorFollow;
-}
--(void)setIndicatorStyles:(NSInteger)indicatorStyles
-{
-    _indicatorStyles = indicatorStyles;
-}
--(void)setTitlesBarStyles:(NSInteger)titlesBarStyles
-{
-    _titlesBarStyles = titlesBarStyles;
-}
--(void)setTitlesViewFrame:(CGRect)titlesViewFrame
-{
-    _titlesViewFrame = titlesViewFrame;
-    self.frame = titlesViewFrame;
-}
--(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont
-{
-    _zoomBigEnabled = zoomBigEnabled;
-    _tabItemTitleMaxfont = tabItemTitleMaxfont;
-}
-
--(void)setItemTitleNormalColorArray:(NSArray *)itemTitleNormalColorArray
-{
-    _itemTitleNormalColorArray = itemTitleNormalColorArray;
-}
--(void)setItemTitleSelectedColorArray:(NSArray *)itemTitleSelectedColorArray
-{
-    _itemTitleSelectedColorArray = itemTitleSelectedColorArray;
-}
-
--(void)setIsIndicatorColorEqualTextColor:(BOOL)isIndicatorColorEqualTextColor
-{
-    _isIndicatorColorEqualTextColor = isIndicatorColorEqualTextColor;
 }
 
 -(void)setupClickAndScrollEndWith:(MJCTabItem *)titleButton
@@ -538,16 +459,86 @@ static CGFloat const defaultIndicatorH = 1.5;
     [self setupIndicatorViewCenterAndWidth];
 }
 
+-(void)setupIndicatorViewCenterAndWidth
+{
+    [_indicatorView setupIndicatorViewCenterAndWidthIsAnimal:_isIndicatorsAnimals indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame];
+}
+
 -(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock
 {
     _scrollDidEndBlock = scrollDidEndBlock;
 }
 
+-(void)setBackgroudImage:(UIImage *)backgroudImage
+{
+    _backgroudImage = backgroudImage;
+    _backgroudView.image = backgroudImage;
+}
+-(void)setTitlesViewBackColor:(UIColor *)titlesViewBackColor
+{
+    _titlesViewBackColor = titlesViewBackColor;
+    self.backgroundColor = titlesViewBackColor;
+}
+-(void)setIndicatorFrame:(CGRect)indicatorFrame
+{
+    _indicatorFrame = indicatorFrame;
+    if (indicatorFrame.size.height == 0 && indicatorFrame.size.width == 0 && indicatorFrame.origin.x == 0 && indicatorFrame.origin.y == 0) {
+        if (_indicatorImage) {
+            _indicatorView.jc_y = self.frame.size.height - _indicatorImage.size.height;
+            _indicatorView.jc_height = _indicatorImage.size.height;
+        }else{
+            _indicatorView.jc_y = self.frame.size.height - defaultIndicatorH;
+            _indicatorView.jc_height = defaultIndicatorH;
+        }
+    }else{
+        _indicatorView.frame = indicatorFrame;
+    }
+}
+
+-(void)setIndicatorColor:(UIColor *)indicatorColor
+{
+    _indicatorColor = indicatorColor;
+    if (indicatorColor) {
+        _indicatorView.backgroundColor  = indicatorColor;
+    }else{
+        _indicatorView.backgroundColor  = [UIColor blackColor];
+    }
+}
+
+-(void)setIndicatorImage:(UIImage *)indicatorImage
+{
+    _indicatorImage = indicatorImage;
+    _indicatorView.indicatorImage = indicatorImage;
+    if (_indicatorFrame.size.height == 0 && _indicatorFrame.size.width == 0 && _indicatorFrame.origin.x == 0 && _indicatorFrame.origin.y == 0) {
+        _indicatorView.jc_y = self.frame.size.height - indicatorImage.size.height;
+        _indicatorView.jc_height = indicatorImage.size.height;
+    }else{
+        _indicatorView.frame = _indicatorFrame;
+    }
+}
+-(void)setIndicatorHidden:(BOOL)indicatorHidden
+{
+    _indicatorHidden = indicatorHidden;
+    _indicatorView.hidden = indicatorHidden;
+}
+-(void)tabItemTitlezoomBigEnabled:(BOOL)zoomBigEnabled tabItemTitleMaxfont:(CGFloat)tabItemTitleMaxfont
+{
+    _zoomBigEnabled = zoomBigEnabled;
+    _tabItemTitleMaxfont = tabItemTitleMaxfont;
+}
 -(void)tabItemSizeToFitIsEnabled:(BOOL)sizeToFitIsEnabled itemHeightToFitIsEnabled:(BOOL)heightToFitIsEnabled itemWidthToFitIsEnabled:(BOOL)widthToFitIsEnabled;
 {
     _sizeToFitIsEnabled = sizeToFitIsEnabled;
     _heightToFitIsEnabled = heightToFitIsEnabled;
     _widthToFitIsEnabled = widthToFitIsEnabled;
 }
+
+-(void)removeFromSuperview
+{
+    [super removeFromSuperview];
+    
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
 
 @end

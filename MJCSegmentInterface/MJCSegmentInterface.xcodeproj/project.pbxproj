@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2502461F1FBA77CC00F3AE7F /* MJCSegmentStylesTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502461D1FBA77CC00F3AE7F /* MJCSegmentStylesTools.m */; };
+		250396FD1FA8593F00282F34 /* MJCDemoClassicVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 250396FC1FA8593F00282F34 /* MJCDemoClassicVC2.m */; };
 		250F5E461F2B2D3100B8014A /* MJCChildMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E3F1F2B2D3100B8014A /* MJCChildMainView.m */; };
 		250F5E471F2B2D3100B8014A /* MJCIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E411F2B2D3100B8014A /* MJCIndicatorView.m */; };
 		250F5E481F2B2D3100B8014A /* MJCTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E431F2B2D3100B8014A /* MJCTabItem.m */; };
@@ -120,6 +122,10 @@
 /* Begin PBXFileReference section */
 		08FA5BA61A1C20E09ED0D83F /* Pods-MJCSegmentInterface.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJCSegmentInterface.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJCSegmentInterface/Pods-MJCSegmentInterface.release.xcconfig"; sourceTree = "<group>"; };
 		1C1649F3D1BD3EB7F0BE8AAD /* Pods-MJCSegmentInterface.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJCSegmentInterface.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MJCSegmentInterface/Pods-MJCSegmentInterface.debug.xcconfig"; sourceTree = "<group>"; };
+		2502461D1FBA77CC00F3AE7F /* MJCSegmentStylesTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSegmentStylesTools.m; sourceTree = "<group>"; };
+		2502461E1FBA77CC00F3AE7F /* MJCSegmentStylesTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSegmentStylesTools.h; sourceTree = "<group>"; };
+		250396FB1FA8593F00282F34 /* MJCDemoClassicVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCDemoClassicVC2.h; sourceTree = "<group>"; };
+		250396FC1FA8593F00282F34 /* MJCDemoClassicVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCDemoClassicVC2.m; sourceTree = "<group>"; };
 		250F5E3E1F2B2D3100B8014A /* MJCChildMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCChildMainView.h; sourceTree = "<group>"; };
 		250F5E3F1F2B2D3100B8014A /* MJCChildMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCChildMainView.m; sourceTree = "<group>"; };
 		250F5E401F2B2D3100B8014A /* MJCIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCIndicatorView.h; sourceTree = "<group>"; };
@@ -322,8 +328,6 @@
 			children = (
 				250F5E4D1F2B2D8300B8014A /* MJCCommonTools.h */,
 				250F5E4E1F2B2D8300B8014A /* MJCCommonTools.m */,
-				250F5E4F1F2B2D8400B8014A /* MJCOrdinaryLayout.h */,
-				250F5E501F2B2D8400B8014A /* MJCOrdinaryLayout.m */,
 				250F5E531F2B2D8400B8014A /* UIButton+MJCClassExtension.h */,
 				250F5E541F2B2D8400B8014A /* UIButton+MJCClassExtension.m */,
 				250F5E551F2B2D8400B8014A /* UIColor+MJCClassExtension.h */,
@@ -384,6 +388,8 @@
 		25D9DB441DC2635C00B903B1 /* MJCSegmentInterface */ = {
 			isa = PBXGroup;
 			children = (
+				250F5E4F1F2B2D8400B8014A /* MJCOrdinaryLayout.h */,
+				250F5E501F2B2D8400B8014A /* MJCOrdinaryLayout.m */,
 				257033FE1F5D3D6B00132A8F /* MJCInterfaceTools.h */,
 				257033FF1F5D3D6B00132A8F /* MJCInterfaceTools.m */,
 				257033FB1F5D3D6500132A8F /* ViewController.h */,
@@ -485,6 +491,8 @@
 		25E822EE1F0CE39700FB305F /* MJCSlideInterface */ = {
 			isa = PBXGroup;
 			children = (
+				2502461E1FBA77CC00F3AE7F /* MJCSegmentStylesTools.h */,
+				2502461D1FBA77CC00F3AE7F /* MJCSegmentStylesTools.m */,
 				25E822F51F0CE39700FB305F /* MJCSegmentInterface.h */,
 				25E822F61F0CE39700FB305F /* MJCSegmentInterface.m */,
 				250F5E3D1F2B2D3100B8014A /* childs */,
@@ -603,6 +611,8 @@
 				25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */,
 				2570340E1F6430E700132A8F /* MJCDemoClassicVC1.h */,
 				2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */,
+				250396FB1FA8593F00282F34 /* MJCDemoClassicVC2.h */,
+				250396FC1FA8593F00282F34 /* MJCDemoClassicVC2.m */,
 			);
 			path = "默认不可滚动的demo";
 			sourceTree = "<group>";
@@ -865,12 +875,14 @@
 				250F5E471F2B2D3100B8014A /* MJCIndicatorView.m in Sources */,
 				257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */,
 				25E823001F0CE39700FB305F /* MJCSegmentInterface.m in Sources */,
+				2502461F1FBA77CC00F3AE7F /* MJCSegmentStylesTools.m in Sources */,
 				257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */,
 				250F5E461F2B2D3100B8014A /* MJCChildMainView.m in Sources */,
 				25F037C21F56D8C400B208CD /* MJCDemoVC6.m in Sources */,
 				2541CB271FA07504003E756F /* MJCOtherAppDemo1.m in Sources */,
 				2541CB2C1FA1B460003E756F /* MJCOtherAppDemo2.m in Sources */,
 				2541CB331FA1DAF5003E756F /* MJCOtherAppDemo3.m in Sources */,
+				250396FD1FA8593F00282F34 /* MJCDemoClassicVC2.m in Sources */,
 				25F037BE1F56D8C400B208CD /* MJCDemoVC2.m in Sources */,
 				257034031F5FD2D100132A8F /* MJCSoecialDemoVC9.m in Sources */,
 				25F037C51F56D8C400B208CD /* MJCSpecialDemoVC0.m in Sources */,

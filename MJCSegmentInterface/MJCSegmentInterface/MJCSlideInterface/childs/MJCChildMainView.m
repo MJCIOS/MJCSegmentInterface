@@ -53,7 +53,7 @@ static CGFloat const animalTime= 0.25;
         for (int i = 0; i < _childControllerArray.count; i++) {
             [_hostController addChildViewController:_childControllerArray[i]];
         }
-//        [self addChildVcView];//暂时没出啥问题,不删,,
+        [self addChildVcView];//暂时没出啥问题,不删,,
     }
 }
 - (void)addChildVcView
@@ -98,12 +98,21 @@ static CGFloat const animalTime= 0.25;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 {
     if (isLoadDefaultChildVC == YES) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
         NSUInteger index = self.contentOffset.x/self.jc_width;
         if (index >= _hostController.childViewControllers.count) {return;}
         _childVC = _hostController.childViewControllers[index];
         _childVC.view.jc_height = self.bounds.size.height;
-//                });
     }
 }
+
+-(void)removeFromSuperview
+{
+    [super removeFromSuperview];
+    NSInteger vcCount = _hostController.childViewControllers.count;
+    for (int i = 0 ; i < vcCount; i++) {
+        UIViewController *vc =  _hostController.childViewControllers[0];
+        [vc removeFromParentViewController];
+    }
+}
+
 @end

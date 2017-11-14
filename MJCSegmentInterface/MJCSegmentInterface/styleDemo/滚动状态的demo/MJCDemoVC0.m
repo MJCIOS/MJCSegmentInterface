@@ -10,6 +10,7 @@
 #import "MJCPrefixHeader.pch"
 
 
+
 @interface MJCDemoVC0 ()<MJCSegmentDelegate>
 
 @property (nonatomic,strong) NSArray *mainArr;
@@ -30,29 +31,32 @@
     MJCTestViewController *vc6 = [[MJCTestViewController alloc]init];
     MJCTestViewController *vc7 = [[MJCTestViewController alloc]init];
     NSArray *vcarrr = @[vc1,vc2,vc4,vc3,vc5,vc6,vc7];
-//    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
-//        UIViewController *vc = vcarrr[i];
-//        vc.title = titlesArr[i];
-//    }
+    for (int i = 0 ; i < vcarrr.count; i++) {//赋值标题
+        UIViewController *vc = vcarrr[i];
+        vc.title = titlesArr[i];
+    }
     
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.delegate= self;
-    interFace.titlesViewBackColor = [UIColor redColor];
-    interFace.itemBackColor = [UIColor purpleColor];
-    interFace.itemTextSelectedColor = [UIColor whiteColor];
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextFontSize = 11;
-    interFace.defaultShowItemCount = 5;
-    interFace.isChildScollAnimal = YES;
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(0, 20, 0, 20, 90);
-    interFace.childsContainerBackColor = [UIColor purpleColor];
-    [self.view addSubview:interFace];
-    [interFace intoTitlesArray:titlesArr hostController:self];
-    [interFace intoChildControllerArray:vcarrr];
+        MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+            jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+            jc_indicatorColor([UIColor orangeColor]).
+            jc_childScollAnimalEnabled(YES).
+            jc_indicatorHidden(NO).
+            jc_childScollEnabled(YES).
+            jc_childsContainerBackColor([UIColor whiteColor]).
+            jc_titlesViewBackColor([UIColor whiteColor]).
+            jc_itemTextNormalColor([UIColor redColor]).
+            jc_itemTextSelectedColor([UIColor purpleColor]).
+            jc_itemTextFontSize(13).
+            jc_ItemDefaultShowCount(5);
+        }];
+        MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
+        interFace.delegate= self;
+        [self.view addSubview:interFace];
+        [interFace intoTitlesArray:titlesArr hostController:self];
+        [interFace intoChildControllerArray:vcarrr];
+
+    
     
 }
 

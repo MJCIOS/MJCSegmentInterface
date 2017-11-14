@@ -35,26 +35,31 @@
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"phone"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"phone"];
     
-    //以下是我的控件中的代码
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewBackColor([UIColor blackColor]).
+        jc_scaleLayoutEnabled(YES).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor blueColor]).
+        jc_itemBackColor([UIColor orangeColor]).
+        jc_itemEdgeinsets(MJCEdgeInsetsMake(15, 15, 15, 15, 20)).
+        jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
+        jc_tabItemTextZoomBigEnabled(YES, 20).
+        jc_itemTextFontSize(13).
+        jc_ItemDefaultShowCount(4).
+        jc_childsContainerBackColor([UIColor purpleColor]).
+        jc_itemSelectedSegmentIndex(0).
+        jc_itemImageArrayNormal(imageArr).
+        jc_itemImageArraySelected(imageArr1);
+    }];
+
     MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
-//    interFace.scaleLayoutEnabled = YES;
     interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTextSelectedColor = [UIColor blueColor];
-    interFace.itemTextNormalColor = [UIColor redColor];
-//    interFace.itemBackColor = [UIColor orangeColor];
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(15,15,15,15,20);
-    [interFace tabItemSizeToFitIsEnabled:YES heightToFitIsEnabled:YES widthToFitIsEnabled:YES];
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:20];
-    interFace.itemTextFontSize = 13;
-    interFace.defaultShowItemCount = 4;
-    interFace.childsContainerBackColor = [UIColor purpleColor];
-    interFace.selectedSegmentIndex = 0;
-    interFace.itemImageNormalArray  = imageArr ;
-    interFace.itemImageSelectedArray  = imageArr1;
-    [interFace intoTitlesArray:titlesArr hostController:self];
+    interFace.tools = tools;
     [self.view addSubview:interFace];
-    [interFace intoChildControllerArray:vcArr];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
     
 }
 

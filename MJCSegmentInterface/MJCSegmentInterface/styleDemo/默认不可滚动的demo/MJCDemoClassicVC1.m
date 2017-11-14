@@ -40,46 +40,47 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesClassicStyle] ;
-    interFace.titlesViewFrame = CGRectMake(0, 0, interFace.jc_width, 60);
-    interFace.indicatorStyles = MJCIndicatorItemStyle;
-    interFace.selectedSegmentIndex = 4;//默认选中第几个
-    interFace.delegate = self;
-    interFace.imageEffectStyles = MJCImageUpDownStyle;
-    interFace.titlesViewBackColor = [UIColor blueColor];//标题栏背景颜色
-    interFace.itemTextFontSize = 13;//item文字大小
-    interFace.itemTextNormalColor = [UIColor redColor];//item普通状态下文字颜色
-    interFace.itemTextSelectedColor = [UIColor purpleColor];//item点击状态下文字颜色
-    interFace.itemBackColor = [UIColor orangeColor];//item背景颜色
-    interFace.titlesViewBackImage = [UIImage imageNamed:@"back"];//标题栏背景图片
-    interFace.itemBackNormalImage = [UIImage imageNamed:@"222"];//item普通状态下的背景图片
-    interFace.itemBackSelectedImage = [UIImage imageNamed:@"456"];//item点击状态下的背景图片
-    interFace.itemNormalBackImageArray = backimageArr;//item普通状态下背景图片数组,(为了让item显示不同的图片)
-    interFace.itemSelectedBackImageArray = backimageArr1;//item点击状态下背景图片数组,(为了让item显示不同的图片)
-    interFace.itemImageSelected = [UIImage imageNamed:@"food-2"];//item普通状态下图片
-    interFace.itemImageNormal = [UIImage imageNamed:@"food"];//item点击状态下图片
-    interFace.itemImageNormalArray = imageArr1 ;//item普通状态下图片数组,(为了让item显示不同的图片)
-    interFace.itemImageSelectedArray = imageArr;//item点击状态下图片数组,(为了让item显示不同的图片)
-    interFace.indicatorColor = [UIColor redColor];//底部指示器颜色
-    interFace.indicatorImage =[UIImage imageNamed:@"箭头"];//底部指示器图片
-    interFace.indicatorHidden = NO;//底部指示器是否隐藏
-    interFace.isChildScollEnabled = YES;//是否手拽滚动子界面
-    interFace.isChildScollAnimal = YES;//子界面切换是否有动画效果
-    interFace.isIndicatorFollow = YES;//底部指示器是否随着滑动而跟随
-    interFace.itemMaxEdgeinsets = MJCEdgeInsetsMake(5,5,5,5,5);
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(0,10,10,10);//item图片位置修改
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(10,10,10,10);//item文字位置修改
-    interFace.isFontGradient = YES;//是否渐变
-    interFace.isItemTitleTextHidden = NO;
-    interFace.isPenetrationEffect = NO;
-    interFace.isIndicatorColorEqualTextColor = YES;
-    interFace.childsContainerBackColor = [UIColor redColor];
-    interFace.itemImageSize  = CGSizeMake(15,15);
-    interFace.indicatorFrame = CGRectMake(0,interFace.titlesViewFrame.size.height - 10,30,10);//指示器位置
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];//是否同意字体放大
-    interFace.itemTitleNormalColorArray = colorArr;
-    interFace.itemTitleSelectedColorArray = colorArr1;
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 60)).
+        jc_ItemDefaultShowCount(6).
+        jc_itemTextFontSize(11).
+        jc_indicatorFrame(CGRectMake(10,10,0,10)).
+        jc_indicatorFollowEnabled(YES).jc_indicatorHidden(NO).jc_indicatorsAnimalsEnabled(YES).jc_childScollEnabled(YES).
+        jc_childScollAnimalEnabled(YES).jc_indicatorColorEqualTextColorEnabled(YES).jc_scaleLayoutEnabled(NO).jc_itemTextHidden(NO).
+        jc_itemTextGradientEnabled(YES).jc_titlesViewPenetrationEnabled(NO).
+        jc_titleBarStyles(MJCTitlesClassicStyle).
+        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_itemTextNormalColor([UIColor blueColor]).
+        jc_itemTextSelectedColor([UIColor orangeColor]).
+        jc_itemBackColor([UIColor redColor]).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0,5,0,0)).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,0,5)).
+        jc_tabItemTextZoomBigEnabled(YES, 14).
+        jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
+        jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
+        jc_itemImageNormal([UIImage imageNamed:@"food"]).
+        jc_itemImageArrayNormal(imageArr).
+        jc_itemImageArraySelected(imageArr1).
+        jc_itemBackImageNormal([UIImage imageNamed:@"222"]).
+        jc_itemBackImageSelected([UIImage imageNamed:@"456"]).
+        jc_itemBackImageArraySelected(backimageArr).
+        jc_itemBackImageArrayNormal(backimageArr1).
+        jc_itemImageSize(CGSizeMake(15, 15)).
+        jc_itemTextColorArrayNormal(colorArr).jc_itemTextColorArraySelected(colorArr1).
+        jc_indicatorColor([UIColor blackColor]).
+        jc_indicatorImage([UIImage imageNamed:@"箭头"]).
+        jc_tabItemSizeToFitIsEnabled(NO, YES, YES).
+        jc_itemEdgeinsets(MJCEdgeInsetsMake(5, 5, 5, 5,5));
+    }];
+
+    
+    MJCSegmentInterface *interFace =  [[MJCSegmentInterface alloc]init];
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

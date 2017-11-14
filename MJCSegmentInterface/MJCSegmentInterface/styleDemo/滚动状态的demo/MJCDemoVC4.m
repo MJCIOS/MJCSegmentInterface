@@ -37,17 +37,26 @@
 
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+
+        jc_tools.
+        jc_titlesViewBackColor([UIColor redColor]).
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_itemBackColor([UIColor purpleColor]).
+        jc_itemTextSelectedColor([UIColor blackColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextFontSize(13).
+        jc_ItemDefaultShowCount(5).
+        jc_childsContainerBackColor([UIColor purpleColor]);
+    }];
+
+    
     //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame: CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesScrollStyle];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame: CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     interFace.delegate= self;
-    interFace.titlesViewBackColor = [UIColor redColor];
-    interFace.itemBackColor = [UIColor purpleColor];
-    interFace.itemTextSelectedColor = [UIColor blackColor];
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextFontSize = 13;
-    interFace.defaultShowItemCount = 5;
-    interFace.childsContainerBackColor = [UIColor purpleColor];
-//    interFace.selectedSegmentIndex = 2;
+
+
     [interFace intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:interFace];
     [interFace intoChildControllerArray:vcArr];

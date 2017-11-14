@@ -31,22 +31,30 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
-
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.selectedSegmentIndex = 3;
-    interFace.defaultShowItemCount = 5;
-    interFace.itemBackColor = [UIColor whiteColor];
+    
     NSArray *imageArr =@[@"111",@"222",@"1111",@"234",@"567",@"666",@"888"];
     NSArray *imageArr1 = @[@"123",@"333",@"345",@"456",@"777",@"999",@"555"];
-    interFace.itemNormalBackImageArray = imageArr;
-    interFace.itemSelectedBackImageArray = imageArr1;
+
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        
+        jc_tools.jc_titlesViewBackColor([UIColor redColor]).
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_indicatorFollowEnabled(YES).
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemSelectedSegmentIndex(3).
+        jc_itemTextSelectedColor([UIColor blackColor]).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextFontSize(13).
+        jc_itemBackImageArrayNormal(imageArr).
+        jc_itemBackImageArraySelected(imageArr1).
+        jc_ItemDefaultShowCount(5).
+        jc_childsContainerBackColor([UIColor purpleColor]);
+    }];
+    
+    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
+    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+    interFace.tools = tools;
+
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }

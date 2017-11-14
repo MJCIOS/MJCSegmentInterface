@@ -38,30 +38,36 @@
     }
     
     [self setupSegmentWithTitlesArr:titlesArr vcArr:vcarrr imageNArr:itemImageNorArr imageSArr:itemImageSelectArr];
-
 }
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr imageNArr:(NSArray *)imageNArr imageSArr:(NSArray*)imageSArr
 {
     
-    MJCSegmentInterface *interFace = [MJCSegmentInterface showInterfaceWithTitleBarFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) Styles:MJCTitlesClassicStyle];
-    interFace.titlesViewFrame = CGRectMake(0, 0, interFace.jc_width, 50);
-    interFace.titlesViewBackColor = [UIColor whiteColor];
-    interFace.isIndicatorsAnimals  = YES;
-    interFace.imageEffectStyles = MJCImageUpDownStyle;
-    interFace.itemImageSize = CGSizeMake(20, 20);
-    interFace.itemImagesEdgeInsets = UIEdgeInsetsMake(0, 0, 10, 0);
-    interFace.itemTextsEdgeInsets = UIEdgeInsetsMake(0, 0, 3, 0);
-    interFace.itemImageNormalArray = imageNArr;
-    interFace.itemImageSelectedArray = imageSArr;
-    interFace.itemTextSelectedColor = [UIColor orangeColor];
-    interFace.itemTextNormalColor = [UIColor blackColor];
-    interFace.indicatorColor = [UIColor orangeColor];
-    interFace.indicatorStyles = MJCIndicatorItemStyle;
-    interFace.itemTextFontSize = 13;
-    interFace.indicatorColor = [UIColor redColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.isChildScollAnimal = YES;
+    MJCSegmentStylesTools *tools=  [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50)).
+        jc_indicatorFollowEnabled(YES).
+        jc_titlesViewBackColor([UIColor whiteColor]).
+        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_itemImageSize(CGSizeMake(20, 20)).
+        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0, 0, 10, 0)).
+        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0, 0, 3, 0)).
+        jc_childScollEnabled(YES).
+        jc_childsContainerBackColor([UIColor whiteColor]).
+        jc_indicatorsAnimalsEnabled(YES).
+        jc_itemTextNormalColor([UIColor blackColor]).
+        jc_itemTextSelectedColor([UIColor orangeColor]).
+        jc_indicatorColor([UIColor redColor]).
+        jc_tabItemTextZoomBigEnabled(YES, 15).
+        jc_itemTextFontSize(13).
+        jc_indicatorColorEqualTextColorEnabled(YES).
+        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_childScollAnimalEnabled(YES).
+        jc_itemImageArrayNormal(imageNArr).
+        jc_itemImageArraySelected(imageSArr);
+    }];
+    
+    MJCSegmentInterface *interFace=  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }

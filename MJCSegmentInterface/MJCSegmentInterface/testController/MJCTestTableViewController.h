@@ -12,9 +12,10 @@
 
 -(void)beginLoadNewData:(NSMutableDictionary *)dicData;
 
-/** 传输的数据 */
-@property (nonatomic,copy) NSString* testData;
-
 @property (weak, nonatomic)  NSLayoutConstraint *heightLayout;
+
+/** <#  注释  #> */
+@property (nonatomic,strong) NSArray *mainDataArr;
+
 
 @end

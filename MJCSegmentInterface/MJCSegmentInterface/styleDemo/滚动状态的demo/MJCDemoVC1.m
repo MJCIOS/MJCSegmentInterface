@@ -32,19 +32,17 @@
         vc.title = titlesArr[i];
     }
     
-    //以下是我的控件中的代码
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.titleBarStyles = MJCTitlesScrollStyle;
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.itemTextNormalColor = [UIColor redColor];
-    interFace.itemTextSelectedColor = [UIColor purpleColor];
-    interFace.isIndicatorFollow = YES;
-    interFace.titlesViewBackImage = [UIImage imageNamed:@"back"];
-    [interFace tabItemTitlezoomBigEnabled:YES tabItemTitleMaxfont:18];
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor whiteColor]).
+        jc_itemTextFontSize(11).
+        jc_tabItemTextZoomBigEnabled(YES, 18).
+        jc_titlesViewBackImage([UIImage imageNamed:@"back"]);
+    }];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
     [self.view addSubview:interFace];
-    
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-    
 }
 
 @end
