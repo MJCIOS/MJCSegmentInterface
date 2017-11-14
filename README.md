@@ -11,10 +11,8 @@
 * 2.再执行下pod update 或pod install (如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
 * 3.import <MJCSegmentInterface/MJCSegmentInterface.h>
 
-## ☆☆ 1.8.6版本更新简介 ☆☆
-* 1.增加了滑动标题栏文字颜色渐变功能,并且支持,灰色,黑色,深灰色,浅灰色的这些色值渐变..
-* 2.解决了外界不设置文字大小,导致文字增大后,不会缩小的bug,以及一些小bug...
-* 3.新增几个代理方法,可让使用者在item上面添加一个控件...具体使用可以查看demo
+## ☆☆ 1.9.0版本更新简介 ☆☆
+* 1.全新代码的修改,增添了样式属性类,使用链式属性...让代码更简洁,更方便..
 
 ---------------------------------------------------------------------------------------------------------------
 * 我只想把框架弄的更好..让大家更方便的用,有问题和bug,还有需要啥新的功能随时提给我,谢谢.
@@ -39,12 +37,14 @@
         NSArray *vcarrr = @[vc1,vc2,vc3,vc4];// 用数组将控制器装起来
         //  实例化一个标题数组对象,相对应的控制器界面,是与控制器数组中的控制器顺序相对应,比如说(荣耀对应着vc1的控制器界面)
         NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-        //  准备工作做好之后,接来下实例化我的控件
-        MJCSegmentInterface *segmentsface = [[MJCSegmentInterface alloc]init];
-        segmentsface.frame = CGRectMake(0,64, MJCScreenWidth,MJCScreenHeight);
-        [segmentsface intoTitlesArray:titlesArr hostController:self];// 传入标题数组
-        [segmentsface intoChildControllerArray:vcarrr];//   传入控制器数组
-        [self.view addSubview:segmentsface];
+        // 分段样式属性工具
+        MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width,50));
+        }];
+        MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
+        [self.view addSubview:interFace];
+        [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 
 ---------------------------------------------------------------------------------------------------------------
 
