@@ -80,5 +80,11 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC12</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>特殊样式自适应效果(增加超量尺寸)</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC13</string>
+	</dict>
 </array>
 </plist>

@@ -43,7 +43,10 @@
     
     _vcArr = [NSMutableArray array];
     [_vcArr removeAllObjects];
-    for (int i = 0 ; i < self.titlesArr.count; i++) {//循环创建控制器对象
+    
+    NSInteger count = self.titlesArr.count;
+    
+    for (int i = 0 ; i < count; i++) {//循环创建控制器对象
         MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
         vc.title = _titlesArr[i];
         [_vcArr addObject:vc];
@@ -67,15 +70,15 @@
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     _mainArr =  dic[@"data"][@"rootArray"];
 
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-    NSMutableArray *vcArr = [NSMutableArray array];
-    for (int i = 0 ; i < titlesArr.count; i++) {//循环创建控制器对象
-        MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
-        vc.title = titlesArr[i];
-        [vcArr addObject:vc];
-    }
-    
-    [self setupBasicUIWithTitlesArr:titlesArr vcArr:vcArr];
+//    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+//    NSMutableArray *vcArr = [NSMutableArray array];
+//    for (int i = 0 ; i < titlesArr.count; i++) {//循环创建控制器对象
+//        MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
+//        vc.title = titlesArr[i];
+//        [vcArr addObject:vc];
+//    }
+//
+//    [self setupBasicUIWithTitlesArr:titlesArr vcArr:vcArr];
 }
 
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
@@ -106,8 +109,6 @@
     }
     
     [interFace jc_reviseSegmentInterfaceTitleArr:titlesArr childsViewControllerArr:vcArr];
-    
-//    interFace.selectedSegmentIndex = 2;
 }
 
 -(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface

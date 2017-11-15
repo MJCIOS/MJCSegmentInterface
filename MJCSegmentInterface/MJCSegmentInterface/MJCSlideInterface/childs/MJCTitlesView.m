@@ -135,14 +135,14 @@ static CGFloat const defaultIndicatorH = 1.5;
                 CGFloat tabX = 0;CGFloat tabH = 0;CGFloat tabY = 0;
                 if (_widthToFitIsEnabled) {
                     tabX =  _itemNewX + maxleftMargin;
-                    tabbutton.jc_width = tabbutton.jc_width;
+                    tabbutton.jc_width = tabbutton.jc_width+_tabItemExcessSize.width;
                     _itemNewX +=   tabbutton.jc_width+lineMargin;
                 }else{
                     tabX =  tabItemW*i+maxleftMargin;
                     tabbutton.jc_width = tabItemW-lineMargin;
                 }
                 if (_heightToFitIsEnabled) {
-                    tabH =tabbutton.jc_height;
+                    tabH =tabbutton.jc_height+_tabItemExcessSize.height;
                 }else{
                     tabY = _ItemEdgeinsets.top;
                     tabH= tabItemH - maxBottomMargin - maxTopMargin;
@@ -423,14 +423,14 @@ static CGFloat const defaultIndicatorH = 1.5;
                 CGFloat tabX = 0;CGFloat tabH = 0;CGFloat tabY = 0;
                 if (_widthToFitIsEnabled) {
                     tabX =  _itemNewX + _ItemEdgeinsets.left;
-                    obj.jc_width = obj.jc_width;
+                    obj.jc_width = obj.jc_width+_tabItemExcessSize.width;
                     _itemNewX +=   obj.jc_width+_lineMargin;
                 }else{
                     tabX =  _tabItemW*obj.tag+_ItemEdgeinsets.left;
                     obj.jc_width = _tabItemW-_lineMargin;
                 }
                 if (_heightToFitIsEnabled) {
-                    tabH =obj.jc_height;
+                    tabH =obj.jc_height+_tabItemExcessSize.height;
                 }else{
                     tabY = _ItemEdgeinsets.top;
                     tabH= tabItemH - _ItemEdgeinsets.bottom - _ItemEdgeinsets.top;

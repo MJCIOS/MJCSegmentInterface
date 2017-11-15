@@ -30,6 +30,7 @@
 
 @interface MJCSegmentInterface : UIView
 
+/** 修改分段界面控件的标题和子控制器 */
 -(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewControllerArr:(NSArray *)childsViewControllerArr;
 
 /** 代理方法 */

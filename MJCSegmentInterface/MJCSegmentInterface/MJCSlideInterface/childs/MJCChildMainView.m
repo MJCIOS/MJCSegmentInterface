@@ -62,7 +62,7 @@ static CGFloat const animalTime= 0.25;
     UIViewController *childVc;
     if (index >= _hostController.childViewControllers.count) {return;}
     childVc = _hostController.childViewControllers[index];
-    if ([childVc isViewLoaded]) return;
+    if ([childVc isViewLoaded] && [childVc.view window]) return;
     childVc.view.frame = self.bounds;
     [self addSubview:childVc.view];
 }
@@ -97,17 +97,20 @@ static CGFloat const animalTime= 0.25;
 }
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 {
-    if (isLoadDefaultChildVC == YES) {
-        NSUInteger index = self.contentOffset.x/self.jc_width;
-        if (index >= _hostController.childViewControllers.count) {return;}
-        _childVC = _hostController.childViewControllers[index];
-        _childVC.view.jc_height = self.bounds.size.height;
-    }
+        if (isLoadDefaultChildVC == YES) {
+            NSUInteger index = self.contentOffset.x/self.jc_width;
+            if (index >= _hostController.childViewControllers.count) {return;}
+            _childVC = _hostController.childViewControllers[index];
+            _childVC.view.jc_height = self.bounds.size.height;
+        }
 }
 
 -(void)removeFromSuperview
 {
     [super removeFromSuperview];
+    
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     NSInteger vcCount = _hostController.childViewControllers.count;
     for (int i = 0 ; i < vcCount; i++) {
         UIViewController *vc =  _hostController.childViewControllers[0];

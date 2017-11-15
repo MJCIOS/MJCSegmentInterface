@@ -44,6 +44,7 @@
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor blueColor]).
         jc_itemBackColor([UIColor orangeColor]).
+        jc_itemImageSize(CGSizeMake(20, 20)).
         jc_itemEdgeinsets(MJCEdgeInsetsMake(15, 15, 15, 15, 20)).
         jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
         jc_tabItemTextZoomBigEnabled(YES, 20).

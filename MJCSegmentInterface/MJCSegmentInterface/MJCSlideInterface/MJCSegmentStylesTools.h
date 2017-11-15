@@ -36,7 +36,6 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
     return edgeInsets;
 }
 
-
 @interface MJCSegmentStylesTools : NSObject
 
 +(instancetype)jc_initWithjc_toolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock;
@@ -45,7 +44,6 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 /** 是否启用比例布局 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_scaleLayoutEnabled)(BOOL scaleLayoutEnabled);
 @property (nonatomic,assign) BOOL  scaleLayoutEnabled;
-
 
 
 #pragma mark -- 子界面效果的设置
@@ -196,6 +194,9 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,assign) BOOL itemTextZoomBigEnabled;
 @property (nonatomic,assign) CGFloat itemTextMaxfontSize;
 
-
+/** 给tabitem自适应大小增加超量的尺寸 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_tabItemExcessSize)(CGFloat excessWidth,CGFloat excessHeight);
+@property (nonatomic,assign) CGFloat itemExcessWidth;
+@property (nonatomic,assign) CGFloat itemExcessHeight;
 
 @end

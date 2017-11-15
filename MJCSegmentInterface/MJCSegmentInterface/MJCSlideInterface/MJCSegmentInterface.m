@@ -209,7 +209,7 @@ static CGFloat const defaultTitlesViewH = 50;
     _childMainView.isChildScollEnabled = tools.childScollEnabled;
     _childMainView.isChildScollAnimal = tools.childScollAnimalEnabled;
     
-    
+    _titlesView.tabItemExcessSize = CGSizeMake(tools.itemExcessWidth, tools.itemExcessHeight);
     [_titlesView tabItemTitlezoomBigEnabled:tools.itemTextZoomBigEnabled tabItemTitleMaxfont:tools.itemTextMaxfontSize];
     [_titlesView tabItemSizeToFitIsEnabled:tools.itemSizeToFitIsEnabled itemHeightToFitIsEnabled:tools.itemHeightToFitIsEnabled itemWidthToFitIsEnabled:tools.itemWidthToFitIsEnabled];
     _titlesView.ItemEdgeinsets = UIEdgeInsetsMake(tools.itemEdgeinsets.maxTop, tools.itemEdgeinsets.maxLeft, tools.itemEdgeinsets.maxBottom, tools.itemEdgeinsets.maxRight);

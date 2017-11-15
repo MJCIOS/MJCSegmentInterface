@@ -397,7 +397,17 @@
         _itemEdgeinsets = itemEdgeinsets;
         return self;
     };
-
 }
+
+-(MJCSegmentStylesTools *(^)(CGFloat, CGFloat))jc_tabItemExcessSize
+{
+    return ^MJCSegmentStylesTools *(CGFloat excessWidth,CGFloat excessHeight)
+    {
+        _itemExcessWidth = excessWidth;
+        _itemExcessHeight = excessHeight;
+        return self;
+    };
+}
+
 
 @end

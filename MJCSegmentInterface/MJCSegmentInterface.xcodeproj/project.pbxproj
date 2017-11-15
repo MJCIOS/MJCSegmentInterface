@@ -28,6 +28,7 @@
 		2541CB2E1FA1B633003E756F /* jinritoutiaoData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2541CB2D1FA1B633003E756F /* jinritoutiaoData.plist */; };
 		2541CB301FA1D929003E756F /* tengxunxinwenData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2541CB2F1FA1D929003E756F /* tengxunxinwenData.plist */; };
 		2541CB331FA1DAF5003E756F /* MJCOtherAppDemo3.m in Sources */ = {isa = PBXBuildFile; fileRef = 2541CB321FA1DAF5003E756F /* MJCOtherAppDemo3.m */; };
+		2542DB131FBC1E8800480B49 /* MJCSoecialDemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = 2542DB121FBC1E8800480B49 /* MJCSoecialDemoVC13.m */; };
 		256E47081F408F3A009BD143 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 256E47071F408F3A009BD143 /* demo1.gif */; };
 		257033FA1F5D367C00132A8F /* MJCSoecialDemoVC8.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033F91F5D367C00132A8F /* MJCSoecialDemoVC8.m */; };
 		257033FD1F5D3D6500132A8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257033FC1F5D3D6500132A8F /* ViewController.m */; };
@@ -160,6 +161,8 @@
 		2541CB2F1FA1D929003E756F /* tengxunxinwenData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tengxunxinwenData.plist; sourceTree = "<group>"; };
 		2541CB311FA1DAF5003E756F /* MJCOtherAppDemo3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCOtherAppDemo3.h; sourceTree = "<group>"; };
 		2541CB321FA1DAF5003E756F /* MJCOtherAppDemo3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCOtherAppDemo3.m; sourceTree = "<group>"; };
+		2542DB111FBC1E8800480B49 /* MJCSoecialDemoVC13.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC13.h; sourceTree = "<group>"; };
+		2542DB121FBC1E8800480B49 /* MJCSoecialDemoVC13.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC13.m; sourceTree = "<group>"; };
 		256BD8941E037D52005185C9 /* MJCPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCPrefixHeader.pch; sourceTree = "<group>"; };
 		256E47071F408F3A009BD143 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
 		257033F81F5D367C00132A8F /* MJCSoecialDemoVC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC8.h; sourceTree = "<group>"; };
@@ -599,6 +602,8 @@
 				25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */,
 				25F66F621F8CC6AF00A478D3 /* MJCSoecialDemoVC12.h */,
 				25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */,
+				2542DB111FBC1E8800480B49 /* MJCSoecialDemoVC13.h */,
+				2542DB121FBC1E8800480B49 /* MJCSoecialDemoVC13.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -856,6 +861,7 @@
 				257033FD1F5D3D6500132A8F /* ViewController.m in Sources */,
 				250F5E491F2B2D3100B8014A /* MJCTitlesView.m in Sources */,
 				25F037C31F56D8C400B208CD /* MJCDemoVC7.m in Sources */,
+				2542DB131FBC1E8800480B49 /* MJCSoecialDemoVC13.m in Sources */,
 				250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */,
 				25EBD0D41F57F0B700AF38C6 /* MJCSoecialDemoVC6.m in Sources */,
 				250F5E5B1F2B2D8400B8014A /* MJCAlertMessage.m in Sources */,

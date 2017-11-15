@@ -42,7 +42,7 @@
                                           jc_itemTextSelectedColor([UIColor purpleColor]).
                                           jc_titlesViewBackColor([UIColor blueColor]).
                                           jc_itemBackColor([UIColor whiteColor]).
-                                          jc_itemEdgeinsets(MJCEdgeInsetsMake(15,15,15,15,15)).
+                                          jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,5)).
                                           jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
                                           jc_tabItemTextZoomBigEnabled(YES, 17).
                                           jc_itemTextFontSize(15).
