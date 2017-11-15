@@ -10,7 +10,7 @@
 #import "MJCSegmentInterface.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCSoecialDemoVC11 ()
+@interface MJCSoecialDemoVC11 ()<MJCSegmentDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightLayout;
 @property (weak, nonatomic) IBOutlet MJCSegmentInterface *interFace;
 
@@ -51,9 +51,14 @@
                                           jc_itemBackColor([UIColor whiteColor]);
                                       }];
     _interFace.tools = tools;
+//    _interFace.delegate = self;
     [_interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-    
 }
 
+
+//-(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
+//{
+//    _heightLayout.constant = 180;
+//}
 
 @end

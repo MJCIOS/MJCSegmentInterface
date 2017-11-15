@@ -89,6 +89,7 @@
     }];
 
     MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools] ;
+    interFace.delegate = self;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     _interFace = interFace;

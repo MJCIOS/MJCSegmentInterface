@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
