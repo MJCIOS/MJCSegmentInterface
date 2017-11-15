@@ -86,5 +86,11 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC13</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>如何修改标题数据和子控制器界面数据</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC14</string>
+	</dict>
 </array>
 </plist>

@@ -18,9 +18,6 @@
 
 @property (nonatomic,strong) NSArray *mainArr;
 
-
-
-/** <#  注释  #> */
 @property (nonatomic,strong) NSMutableArray *titlesArr;
 
 @property (nonatomic,strong) NSMutableArray *vcArr;
@@ -70,15 +67,15 @@
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     _mainArr =  dic[@"data"][@"rootArray"];
 
-//    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
-//    NSMutableArray *vcArr = [NSMutableArray array];
-//    for (int i = 0 ; i < titlesArr.count; i++) {//循环创建控制器对象
-//        MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
-//        vc.title = titlesArr[i];
-//        [vcArr addObject:vc];
-//    }
-//
-//    [self setupBasicUIWithTitlesArr:titlesArr vcArr:vcArr];
+    NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯明月刀"];
+    NSMutableArray *vcArr = [NSMutableArray array];
+    for (int i = 0 ; i < titlesArr.count; i++) {//循环创建控制器对象
+        MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
+        vc.title = titlesArr[i];
+        [vcArr addObject:vc];
+    }
+
+    [self setupBasicUIWithTitlesArr:titlesArr vcArr:vcArr];
 }
 
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
