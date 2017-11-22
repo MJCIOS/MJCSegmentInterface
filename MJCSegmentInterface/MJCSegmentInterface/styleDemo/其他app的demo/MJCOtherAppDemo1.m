@@ -44,7 +44,8 @@
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr
 {
-    MJCSegmentStylesTools *tools=  [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    
+    MJCSegmentInterface *interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width-40, 50)).
         jc_titlesViewBackColor([UIColor whiteColor]).
@@ -61,11 +62,10 @@
         jc_indicatorStyles(MJCIndicatorItemTextStyle).
         jc_childScollAnimalEnabled(YES);
     }];
+    [self.view addSubview:interface];
+    [interface intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
     
-    MJCSegmentInterface *interFace=  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
-    [self.view addSubview:interFace];
-    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
-    [self liebiaoUI:tools];
+    [self liebiaoUI:interface.jc_stylesTools];
 }
 
 -(void)liebiaoUI:(MJCSegmentStylesTools*)tools

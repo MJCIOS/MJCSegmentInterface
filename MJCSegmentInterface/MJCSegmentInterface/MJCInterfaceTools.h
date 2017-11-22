@@ -1,5 +1,5 @@
 //
-//  MJCTools.h
+//  MJCtools.h
 //  MJCSegmentInterface
 //
 //  Created by mjc on 17/7/2.
@@ -15,6 +15,6 @@
 #define MJCScreenWidth [UIScreen mainScreen].bounds.size.width
 #define MJCScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface MJCInterfaceTools : NSObject
+@interface MJCInterfacetools : NSObject
 +(UIViewController *)setupViewControllersStr:(NSString *)vcStr;
 @end

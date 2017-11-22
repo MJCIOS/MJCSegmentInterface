@@ -1,5 +1,5 @@
 //
-//  MJCCommonTools.h
+//  MJCCommontools.h
 //  MJCSegmentInterface
 //
 //  Created by mjc on 17/7/20.
@@ -47,7 +47,7 @@
 #define MJCWeakSelf __weak typeof(self) weakSelf = self
 #define MJCStrongSelf __strong typeof(self) strongSelf = self
 
-@interface MJCCommonTools : NSObject
+@interface MJCCommontools : NSObject
 
 /** 图片转颜色 */
 +(UIImage *)jc_imageWithColor:(UIColor *)color;

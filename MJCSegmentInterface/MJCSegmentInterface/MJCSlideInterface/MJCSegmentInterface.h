@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+MJCClassExtension.h"
-#import "MJCCommonTools.h"
+#import "MJCCommontools.h"
 #import "MJCSegmentStylesTools.h"
 
 @class MJCTabItem;
@@ -44,8 +44,10 @@
 
 #pragma mark -- 添加方法和创建方法
 
+/** 实例化此控件的方法(带有样式工具类的回调) */
++(instancetype)jc_initWithFrame:(CGRect)frame  interFaceStyleToolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock;
 /** 实例化此控件的方法 */
-+(instancetype)initWithFrame:(CGRect)frame interFaceStyleTools:(MJCSegmentStylesTools *)tools;
++(instancetype)initWithFrame:(CGRect)frame interFaceStyletools:(MJCSegmentStylesTools *)tools;
 
 /** 添加标题栏与添加控制器的方法(添加控制器按照控制器添加的先后顺序与按钮对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
@@ -54,7 +56,7 @@
 /** 添加标题栏的方法 */
 -(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
 
-/** <#  注释  #> */
-@property (nonatomic,strong) MJCSegmentStylesTools *tools;
+/** 需要传入分段控件样式调整工具 */
+@property (nonatomic,strong) MJCSegmentStylesTools *jc_stylesTools;
 
 @end

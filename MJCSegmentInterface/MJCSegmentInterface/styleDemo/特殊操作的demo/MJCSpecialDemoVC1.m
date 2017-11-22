@@ -82,7 +82,7 @@
 {
     if(interFace == nil)
     {
-        MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
             jc_tools.
             jc_titleBarStyles(MJCTitlesScrollStyle).
             jc_titlesViewBackColor([UIColor whiteColor]).
@@ -98,7 +98,7 @@
         }];
         
         interFace = [[MJCSegmentInterface alloc]init];
-        interFace.tools = tools;
+        interFace.jc_stylesTools = tools;
         interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
         [self.view addSubview:interFace];
         interFace.delegate= self;

@@ -37,8 +37,8 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+    
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools)
                                       {
                                           jc_tools.
                                           jc_titleBarStyles(MJCTitlesScrollStyle).
@@ -50,7 +50,7 @@
                                           jc_titlesViewBackColor([UIColor blueColor]).
                                           jc_itemBackColor([UIColor whiteColor]);
                                       }];
-    _interFace.tools = tools;
+    _interFace.jc_stylesTools = tools;
 //    _interFace.delegate = self;
     [_interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }

@@ -31,28 +31,25 @@
 
 -(void)setupBasicUIWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
-                                      {
-                                          jc_tools.
-                                          jc_titleBarStyles(MJCTitlesScrollStyle).
-                                          jc_titlesViewFrame(CGRectMake(0,0,MJCScreenWidth,50)).
-                                          jc_itemSelectedSegmentIndex(0).
-                                          jc_ItemDefaultShowCount(3).
-                                          jc_itemTextNormalColor([UIColor redColor]).
-                                          jc_itemTextSelectedColor([UIColor purpleColor]).
-                                          jc_titlesViewBackColor([UIColor blueColor]).
-                                          jc_itemBackColor([UIColor whiteColor]).
-                                          jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,5)).
-                                          jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
-                                          jc_tabItemTextZoomBigEnabled(YES, 17).
-                                          jc_itemTextFontSize(15).
-                                          jc_itemSelectedSegmentIndex(0).
-                                          jc_childsContainerBackColor([UIColor purpleColor]).
-                                          jc_scaleLayoutEnabled(NO);
-                                      }];
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.tools = tools;
+    
+    MJCSegmentInterface *interFace = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        jc_tools.
+        jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_titlesViewFrame(CGRectMake(0,0,MJCScreenWidth,50)).
+        jc_itemSelectedSegmentIndex(0).
+        jc_ItemDefaultShowCount(3).
+        jc_itemTextNormalColor([UIColor redColor]).
+        jc_itemTextSelectedColor([UIColor purpleColor]).
+        jc_titlesViewBackColor([UIColor blueColor]).
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,15)).
+        jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
+        jc_tabItemTextZoomBigEnabled(YES, 17).
+        jc_itemTextFontSize(15).
+        jc_itemSelectedSegmentIndex(0).
+        jc_childsContainerBackColor([UIColor purpleColor]).
+        jc_scaleLayoutEnabled(NO);
+    }];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }

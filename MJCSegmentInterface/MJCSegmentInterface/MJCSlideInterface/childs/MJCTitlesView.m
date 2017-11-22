@@ -167,9 +167,9 @@ static CGFloat const defaultIndicatorH = 1.5;
     }else{
         if (_scaleLayoutEnabled) {
             if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
-                if ([MJCCommonTools isIphonePlusBounds]) { //plus适配
+                if ([MJCCommontools isIphonePlusBounds]) { //plus适配
                     self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
-                }else if ([MJCCommonTools isIphoneSEBounds]){ //5的适配
+                }else if ([MJCCommontools isIphoneSEBounds]){ //5的适配
                     self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
                 }else{
                     self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);

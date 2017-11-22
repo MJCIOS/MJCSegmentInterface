@@ -14,7 +14,7 @@
 #import "MJCTestTableViewController.h"
 #import "MJCTestViewController.h"
 #import "MJCTestViewController1.h"
-#import "MJCInterfaceTools.h"
+#import "MJCInterfacetools.h"
 #import "MJCSegmentInterface.h"
 #import <MJRefresh.h>
 

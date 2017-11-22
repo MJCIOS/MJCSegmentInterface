@@ -35,8 +35,7 @@
     NSArray *imageArr =@[@"111",@"222",@"1111",@"234",@"567",@"666",@"888"];
     NSArray *imageArr1 = @[@"123",@"333",@"345",@"456",@"777",@"999",@"555"];
 
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
-        
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titlesViewBackColor([UIColor redColor]).
         jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorFollowEnabled(YES).
@@ -50,12 +49,8 @@
         jc_ItemDefaultShowCount(5).
         jc_childsContainerBackColor([UIColor purpleColor]);
     }];
-    
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.tools = tools;
     [self.view addSubview:interFace];
-    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];    
 }
 
 

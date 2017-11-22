@@ -37,44 +37,46 @@ static CGFloat const defaultTitlesViewH = 50;
 }
 - (MJCTitlesView*)titlesView
 {
+    MJCWeakSelf;
+    
     if (!_titlesView) {
         _titlesView = [[MJCTitlesView alloc]init];
         _titlesView.frame = CGRectMake(0,0,0,defaultTitlesViewH);
 
         [_titlesView tabitemArrBlock:^(NSArray<MJCTabItem *> *tabItemArr) {
-            if ([self.delegate respondsToSelector:@selector(mjc_tabitemDataWithTabitemArray:childsVCAarray:segmentInterface:)]) {
-                [self.delegate mjc_tabitemDataWithTabitemArray:tabItemArr childsVCAarray:_hostController.childViewControllers segmentInterface:self];
+            if ([weakSelf.delegate respondsToSelector:@selector(mjc_tabitemDataWithTabitemArray:childsVCAarray:segmentInterface:)]) {
+                [weakSelf.delegate mjc_tabitemDataWithTabitemArray:tabItemArr childsVCAarray:weakSelf.hostController.childViewControllers segmentInterface:weakSelf];
             }
         }];
         
         [_titlesView scrollDidEndBlock:^(MJCTabItem *tabItem) {
-            _childMainView.titlesTabItem = tabItem;
-            [_childMainView addChildVcView];
-            if ([self.delegate respondsToSelector:@selector(mjc_scrollDidEndDeceleratingWithItem:childsController:indexPage:segmentInterface:)]) {
-                if ( tabItem.tag >=_hostController.childViewControllers.count) {
-                    [self.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:nil indexPage:tabItem.tag segmentInterface:self];
+            weakSelf.childMainView.titlesTabItem = tabItem;
+            [weakSelf.childMainView addChildVcView];
+            if ([weakSelf.delegate respondsToSelector:@selector(mjc_scrollDidEndDeceleratingWithItem:childsController:indexPage:segmentInterface:)]) {
+                if ( tabItem.tag >=weakSelf.hostController.childViewControllers.count) {
+                    [weakSelf.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:nil indexPage:tabItem.tag segmentInterface:weakSelf];
                 }else{
-                    [self.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] indexPage:tabItem.tag segmentInterface:self];
+                    [weakSelf.delegate mjc_scrollDidEndDeceleratingWithItem:tabItem childsController:weakSelf.hostController.childViewControllers[tabItem.tag] indexPage:tabItem.tag segmentInterface:weakSelf];
                 }
             }
         }];
         [_titlesView tableItemClickBlock:^(MJCTabItem *tabItem) {
-            _childMainView.titlesTabItem = tabItem;
-            [_childMainView addChildVcView];
-            if ([self.delegate respondsToSelector:@selector(mjc_ClickEventWithItem:childsController:segmentInterface:)]) {
-                if ( tabItem.tag >=_hostController.childViewControllers.count) {
-                    [self.delegate mjc_ClickEventWithItem:tabItem childsController:nil segmentInterface:self];
+            weakSelf.childMainView.titlesTabItem = tabItem;
+            [weakSelf.childMainView addChildVcView];
+            if ([weakSelf.delegate respondsToSelector:@selector(mjc_ClickEventWithItem:childsController:segmentInterface:)]) {
+                if ( tabItem.tag >=weakSelf.hostController.childViewControllers.count) {
+                    [weakSelf.delegate mjc_ClickEventWithItem:tabItem childsController:nil segmentInterface:weakSelf];
                 }else{
-                    [self.delegate mjc_ClickEventWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+                    [weakSelf.delegate mjc_ClickEventWithItem:tabItem childsController:weakSelf.hostController.childViewControllers[tabItem.tag] segmentInterface:weakSelf];
                 }
             }
         }];
         [_titlesView tableItemClickCancelBlock:^(MJCTabItem *tabItem) {
-            if ([self.delegate respondsToSelector:@selector(mjc_cancelClickEventWithItem:childsController:segmentInterface:)]) {
-                if ( tabItem.tag >=_hostController.childViewControllers.count) {
-                    [self.delegate mjc_cancelClickEventWithItem:tabItem childsController:nil segmentInterface:self];
+            if ([weakSelf.delegate respondsToSelector:@selector(mjc_cancelClickEventWithItem:childsController:segmentInterface:)]) {
+                if ( tabItem.tag >=weakSelf.hostController.childViewControllers.count) {
+                    [weakSelf.delegate mjc_cancelClickEventWithItem:tabItem childsController:nil segmentInterface:weakSelf];
                 }else{
-                    [self.delegate mjc_cancelClickEventWithItem:tabItem childsController:_hostController.childViewControllers[tabItem.tag] segmentInterface:self];
+                    [weakSelf.delegate mjc_cancelClickEventWithItem:tabItem childsController:weakSelf.hostController.childViewControllers[tabItem.tag] segmentInterface:weakSelf];
                 }
             }
         }];
@@ -123,10 +125,10 @@ static CGFloat const defaultTitlesViewH = 50;
     [_childMainView setupChildViewHeightisLoadDefaultChildVC:_isLoadDefaultChildVC];
 }
 
-+(instancetype)initWithFrame:(CGRect)frame interFaceStyleTools:(MJCSegmentStylesTools *)tools
++(instancetype)initWithFrame:(CGRect)frame interFaceStyletools:(MJCSegmentStylesTools *)tools;
 {
     MJCSegmentInterface *interface = [[self alloc]initWithFrame:frame];
-    interface.tools = tools;
+    interface.jc_stylesTools = tools;
     return interface;
 }
 
@@ -168,15 +170,15 @@ static CGFloat const defaultTitlesViewH = 50;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [_titlesView jc_scrollViewDidScroll:scrollView isIndicatorFollow:_tools.indicatorFollowEnabled];
+    [_titlesView jc_scrollViewDidScroll:scrollView isIndicatorFollow:_jc_stylesTools.indicatorFollowEnabled];
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 {
-    [_titlesView jc_scrollViewDidEndDragging:scrollView itemTextNormalColor:_tools.itemTextNormalColor];
+    [_titlesView jc_scrollViewDidEndDragging:scrollView itemTextNormalColor:_jc_stylesTools.itemTextNormalColor];
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    [_titlesView jc_scrollViewWillEndDragging:scrollView itemTextNormalColor:_tools.itemTextNormalColor];
+    [_titlesView jc_scrollViewWillEndDragging:scrollView itemTextNormalColor:_jc_stylesTools.itemTextNormalColor];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -189,62 +191,61 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.selectedSegmentIndex = selectedSegmentIndex;
 }
 
-
--(void)setTools:(MJCSegmentStylesTools *)tools
+-(void)setJc_stylesTools:(MJCSegmentStylesTools *)jc_stylesTools
 {
-    _tools = tools;
-    _isPenetrationEffect = tools.titlesViewPenetrationEnabled;
+    _jc_stylesTools = jc_stylesTools;
+    _isPenetrationEffect = jc_stylesTools.titlesViewPenetrationEnabled;
     
-    if (tools.titlesViewFrame.size.height == 0 && tools.titlesViewFrame.size.width == 0) {
+    if (jc_stylesTools.titlesViewFrame.size.height == 0 && jc_stylesTools.titlesViewFrame.size.width == 0) {
         _titlesView.frame = CGRectMake(0, 0, self.frame.size.width, defaultTitlesViewH);
     }else{
-        _titlesView.frame = tools.titlesViewFrame;
+        _titlesView.frame = jc_stylesTools.titlesViewFrame;
     }
     
-    _titlesView.backgroundColor = tools.titlesViewBackColor;
-    _childMainView.backgroundColor = tools.childsContainerBackColor;
-    _titlesView.titlesBarStyles = tools.titleBarStyles;
-    _titlesView.backgroudImage = tools.titlesViewBackImage;
-    _titlesView.scaleLayoutEnabled = tools.scaleLayoutEnabled;
-    _childMainView.isChildScollEnabled = tools.childScollEnabled;
-    _childMainView.isChildScollAnimal = tools.childScollAnimalEnabled;
+    _titlesView.backgroundColor = jc_stylesTools.titlesViewBackColor;
+    _childMainView.backgroundColor = jc_stylesTools.childsContainerBackColor;
+    _titlesView.titlesBarStyles = jc_stylesTools.titleBarStyles;
+    _titlesView.backgroudImage = jc_stylesTools.titlesViewBackImage;
+    _titlesView.scaleLayoutEnabled = jc_stylesTools.scaleLayoutEnabled;
+    _childMainView.isChildScollEnabled = jc_stylesTools.childScollEnabled;
+    _childMainView.isChildScollAnimal = jc_stylesTools.childScollAnimalEnabled;
     
-    _titlesView.tabItemExcessSize = CGSizeMake(tools.itemExcessWidth, tools.itemExcessHeight);
-    [_titlesView tabItemTitlezoomBigEnabled:tools.itemTextZoomBigEnabled tabItemTitleMaxfont:tools.itemTextMaxfontSize];
-    [_titlesView tabItemSizeToFitIsEnabled:tools.itemSizeToFitIsEnabled itemHeightToFitIsEnabled:tools.itemHeightToFitIsEnabled itemWidthToFitIsEnabled:tools.itemWidthToFitIsEnabled];
-    _titlesView.ItemEdgeinsets = UIEdgeInsetsMake(tools.itemEdgeinsets.maxTop, tools.itemEdgeinsets.maxLeft, tools.itemEdgeinsets.maxBottom, tools.itemEdgeinsets.maxRight);
-    _titlesView.lineMargin = tools.itemEdgeinsets.lineMargin;
-    _titlesView.isIndicatorColorEqualTextColor = tools.indicatorColorEqualTextColorEnabled;
-    _titlesView.isFontGradient = tools.itemTextGradientEnabled;
-    _titlesView.isItemTitleTextHidden = tools.itemTextHidden;
-    _titlesView.selectedSegmentIndex = tools.itemSelectedSegmentIndex;
-    _titlesView.defaultShowItemCount = tools.ItemDefaultShowCount;
-    _titlesView.itemImagesEdgeInsets = tools.itemImagesEdgeInsets;
-    _titlesView.itemTextsEdgeInsets = tools.itemTextsEdgeInsets;
-    _titlesView.imageEffectStyles = tools.itemImageEffectStyles;
-    _titlesView.itemBackColor = tools.itemBackColor;
-    _titlesView.itemTextFontSize = tools.itemTextFontSize;
-    _titlesView.itemTextNormalColor = tools.itemTextNormalColor;
-    _titlesView.itemTextSelectedColor = tools.itemTextSelectedColor;
-    _titlesView.itemImageNormal = tools.itemImageNormal;
-    _titlesView.itemImageSelected = tools.itemImageSelected;
-    _titlesView.itemImageNormalArray = tools.itemImageArrayNormal;
-    _titlesView.itemImageSelectedArray = tools.itemImageArraySelected;
-    _titlesView.itemBackNormalImage = tools.itemBackImageNormal;
-    _titlesView.itemBackSelectedImage = tools.itemBackImageSelected;
-    _titlesView.itemNormalBackImageArray = tools.itemBackImageArrayNormal;
-    _titlesView.itemSelectedBackImageArray = tools.itemBackImageArraySelected;
-    _titlesView.itemImageSize = tools.itemImageSize;
-    _titlesView.itemTitleNormalColorArray = tools.itemTextColorArrayNormal;
-    _titlesView.itemTitleSelectedColorArray = tools.itemTextColorArraySelected;
+    _titlesView.tabItemExcessSize = CGSizeMake(jc_stylesTools.itemExcessWidth, jc_stylesTools.itemExcessHeight);
+    [_titlesView tabItemTitlezoomBigEnabled:jc_stylesTools.itemTextZoomBigEnabled tabItemTitleMaxfont:jc_stylesTools.itemTextMaxfontSize];
+    [_titlesView tabItemSizeToFitIsEnabled:jc_stylesTools.itemSizeToFitIsEnabled itemHeightToFitIsEnabled:jc_stylesTools.itemHeightToFitIsEnabled itemWidthToFitIsEnabled:jc_stylesTools.itemWidthToFitIsEnabled];
+    _titlesView.ItemEdgeinsets = UIEdgeInsetsMake(jc_stylesTools.itemEdgeinsets.maxTop, jc_stylesTools.itemEdgeinsets.maxLeft, jc_stylesTools.itemEdgeinsets.maxBottom, jc_stylesTools.itemEdgeinsets.maxRight);
+    _titlesView.lineMargin = jc_stylesTools.itemEdgeinsets.lineMargin;
+    _titlesView.isIndicatorColorEqualTextColor = jc_stylesTools.indicatorColorEqualTextColorEnabled;
+    _titlesView.isFontGradient = jc_stylesTools.itemTextGradientEnabled;
+    _titlesView.isItemTitleTextHidden = jc_stylesTools.itemTextHidden;
+    _titlesView.selectedSegmentIndex = jc_stylesTools.itemSelectedSegmentIndex;
+    _titlesView.defaultShowItemCount = jc_stylesTools.ItemDefaultShowCount;
+    _titlesView.itemImagesEdgeInsets = jc_stylesTools.itemImagesEdgeInsets;
+    _titlesView.itemTextsEdgeInsets = jc_stylesTools.itemTextsEdgeInsets;
+    _titlesView.imageEffectStyles = jc_stylesTools.itemImageEffectStyles;
+    _titlesView.itemBackColor = jc_stylesTools.itemBackColor;
+    _titlesView.itemTextFontSize = jc_stylesTools.itemTextFontSize;
+    _titlesView.itemTextNormalColor = jc_stylesTools.itemTextNormalColor;
+    _titlesView.itemTextSelectedColor = jc_stylesTools.itemTextSelectedColor;
+    _titlesView.itemImageNormal = jc_stylesTools.itemImageNormal;
+    _titlesView.itemImageSelected = jc_stylesTools.itemImageSelected;
+    _titlesView.itemImageNormalArray = jc_stylesTools.itemImageArrayNormal;
+    _titlesView.itemImageSelectedArray = jc_stylesTools.itemImageArraySelected;
+    _titlesView.itemBackNormalImage = jc_stylesTools.itemBackImageNormal;
+    _titlesView.itemBackSelectedImage = jc_stylesTools.itemBackImageSelected;
+    _titlesView.itemNormalBackImageArray = jc_stylesTools.itemBackImageArrayNormal;
+    _titlesView.itemSelectedBackImageArray = jc_stylesTools.itemBackImageArraySelected;
+    _titlesView.itemImageSize = jc_stylesTools.itemImageSize;
+    _titlesView.itemTitleNormalColorArray = jc_stylesTools.itemTextColorArrayNormal;
+    _titlesView.itemTitleSelectedColorArray = jc_stylesTools.itemTextColorArraySelected;
     
-    _titlesView.isIndicatorsAnimals = tools.indicatorsAnimalsEnabled;
-    _titlesView.isIndicatorFollow = tools.indicatorFollowEnabled;
-    _titlesView.indicatorStyles = tools.indicatorStyles;
-    _titlesView.indicatorHidden = tools.indicatorHidden;
-    _titlesView.indicatorColor = tools.indicatorColor;
-    _titlesView.indicatorImage = tools.indicatorImage;
-    _titlesView.indicatorFrame = tools.indicatorFrame;
+    _titlesView.isIndicatorsAnimals = jc_stylesTools.indicatorsAnimalsEnabled;
+    _titlesView.isIndicatorFollow = jc_stylesTools.indicatorFollowEnabled;
+    _titlesView.indicatorStyles = jc_stylesTools.indicatorStyles;
+    _titlesView.indicatorHidden = jc_stylesTools.indicatorHidden;
+    _titlesView.indicatorColor = jc_stylesTools.indicatorColor;
+    _titlesView.indicatorImage = jc_stylesTools.indicatorImage;
+    _titlesView.indicatorFrame = jc_stylesTools.indicatorFrame;
 }
 
 -(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewControllerArr:(NSArray *)childsViewControllerArr;
@@ -255,8 +256,17 @@ static CGFloat const defaultTitlesViewH = 50;
     _childMainView = nil;
     _titlesView = nil;
     [self setupBasicUI];
-    [self setTools:_tools];
+    [self setJc_stylesTools:_jc_stylesTools];
     [self intoTitlesArray:titlesArr intoChildControllerArray:childsViewControllerArr hostController:_hostController];
+}
+
++(instancetype)jc_initWithFrame:(CGRect)frame interFaceStyleToolsBlock:(void (^)(MJCSegmentStylesTools *))toolsBlock
+{
+    MJCSegmentInterface *interface = [[MJCSegmentInterface alloc]initWithFrame:frame];
+    MJCSegmentStylesTools *tools = [[MJCSegmentStylesTools alloc]init];
+    toolsBlock(tools);
+    interface.jc_stylesTools = tools;
+    return interface;
 }
 
 

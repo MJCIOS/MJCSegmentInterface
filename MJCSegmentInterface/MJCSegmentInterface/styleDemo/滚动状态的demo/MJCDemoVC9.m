@@ -42,8 +42,7 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
-    
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+   MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
         jc_titleBarStyles(MJCTitlesScrollStyle).
@@ -87,13 +86,18 @@
         jc_scaleLayoutEnabled(NO).
         jc_itemBackColor([UIColor redColor]);
     }];
-
-    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools] ;
     interFace.delegate = self;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     _interFace = interFace;
 }
+-(void)mjc_tabitemDataWithTabitemArray:(NSArray<UIButton *> *)tabItemArray childsVCAarray:(NSArray<UIViewController *> *)childsVCAarray segmentInterface:(MJCSegmentInterface *)segmentInterface
+{
+    NSLog(@"%@",tabItemArray);
+    NSLog(@"%@",childsVCAarray);
+    NSLog(@"%@",segmentInterface);
+}
+
 
 -(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
 {
@@ -114,13 +118,7 @@
     NSLog(@"%@",childsController);
     NSLog(@"%@",segmentInterface);
 }
--(void)mjc_tabitemDataWithTabitemArray:(NSArray<UIButton *> *)tabItemArray childsVCAarray:(NSArray<UIViewController *> *)childsVCAarray segmentInterface:(MJCSegmentInterface *)segmentInterface
-{
-    NSLog(@"%@",tabItemArray);
-    NSLog(@"%@",childsVCAarray);
-    NSLog(@"%@",segmentInterface);
-}
-    
+
 -(void)dealloc
 {
     NSLog(@"%@销毁了",self);

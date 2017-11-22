@@ -45,7 +45,7 @@
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
 
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
         jc_titleBarStyles(MJCTitlesScrollStyle).
@@ -90,7 +90,7 @@
         jc_itemBackColor([UIColor redColor]);
     }];
     
-    _interFace.tools = tools;
+    _interFace.jc_stylesTools = tools;
     [_interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     
 }

@@ -8,7 +8,7 @@
 
 #import "MJCSpecialMainVC.h"
 
-#import "MJCInterfaceTools.h"
+#import "MJCInterfacetools.h"
 #import "MJCPrefixHeader.pch"
 
 @interface MJCSpecialMainVC ()
@@ -48,7 +48,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [MJCInterfaceTools setupViewControllersStr:_mainArr[indexPath.row][@"viewControllers"]];
+    UIViewController *vc = [MJCInterfacetools setupViewControllersStr:_mainArr[indexPath.row][@"viewControllers"]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

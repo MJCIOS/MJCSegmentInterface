@@ -30,7 +30,16 @@
         vc.title = titlesArr[i];
     }
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    
+    
+    [self setupInterfaceWithTitlesArr:titlesArr vcArr:vcarrr];
+    
+}
+
+-(void)setupInterfaceWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
+{
+    
+   MJCSegmentInterface *interFace = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,0,0, 0) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titleBarStyles(MJCTitlesClassicStyle).
         jc_titlesViewBackColor([UIColor whiteColor]).
@@ -43,13 +52,32 @@
         jc_indicatorsAnimalsEnabled(YES).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
     }];
-
-    MJCSegmentInterface *interFace =  [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.tools = tools;
-    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-    [self.view addSubview:interFace];
     
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
+    interFace.frame = CGRectMake(0, 64, self.view.jc_width, self.view.jc_height-64);
+    [self.view addSubview:interFace];
+
+    
+//    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+//        jc_tools.
+//        jc_titleBarStyles(MJCTitlesClassicStyle).
+//        jc_titlesViewBackColor([UIColor whiteColor]).
+//        jc_itemTextNormalColor([UIColor redColor]).
+//        jc_itemTextSelectedColor([UIColor purpleColor]).
+//        jc_itemSelectedSegmentIndex(3).
+//        jc_ItemDefaultShowCount(6).
+//        jc_itemTextFontSize(11).
+//        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+//        jc_indicatorsAnimalsEnabled(YES).
+//        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
+//    }];
+//
+//    MJCSegmentInterface *interFace =  [[MJCSegmentInterface alloc]init];
+//    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
+//    interFace.jc_stylesTools = tools;
+//    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
+//    [self.view addSubview:interFace];
+
 }
 
 -(void)dealloc

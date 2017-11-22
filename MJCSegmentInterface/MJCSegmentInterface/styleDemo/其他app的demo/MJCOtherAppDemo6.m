@@ -8,7 +8,7 @@
 
 #import "MJCOtherAppDemo6.h"
 #import "MJCPrefixHeader.pch"
-#import "MJCCommonTools.h"
+#import "MJCCommontools.h"
 
 @interface MJCOtherAppDemo6 ()
 
@@ -44,7 +44,7 @@
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr imageNArr:(NSArray *)imageNArr imageSArr:(NSArray*)imageSArr
 {
-    MJCSegmentStylesTools *tools=  [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface *interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50)).
@@ -58,15 +58,13 @@
         jc_itemImageArrayNormal(imageNArr).
         jc_itemImageArraySelected(imageSArr).
         jc_ItemDefaultShowCount(5).
-        jc_itemBackImageSelected([MJCCommonTools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]]).
+        jc_itemBackImageSelected([MJCCommontools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]]).
         jc_itemTextNormalColor([UIColor blackColor]).
         jc_itemTextFontSize(13).
         jc_childScollAnimalEnabled(YES);
     }];
-    
-    MJCSegmentInterface *interFace=  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
-    [self.view addSubview:interFace];
-    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
+    [self.view addSubview:interface];
+    [interface intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }
 
 @end

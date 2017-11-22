@@ -42,7 +42,7 @@
         vc.title = titlesArr[i];
     }
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame: CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame)) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorStyles(MJCIndicatorItemStyle).
         jc_itemTextNormalColor([UIColor redColor]).
@@ -78,10 +78,7 @@
         jc_tabItemTextZoomBigEnabled(YES, 20).
         jc_indicatorFrame(CGRectMake(0,0,50,30));
     }];
-
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame));
-    interFace.tools = tools;
+    
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

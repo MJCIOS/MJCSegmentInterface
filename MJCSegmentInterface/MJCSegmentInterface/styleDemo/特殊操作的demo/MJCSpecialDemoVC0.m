@@ -33,7 +33,7 @@
     }
     
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesClassicStyle).
         jc_childScollAnimalEnabled(YES).
         jc_titlesViewPenetrationEnabled(YES).
@@ -46,7 +46,7 @@
         jc_itemTextFontSize(12).
         jc_indicatorStyles(MJCIndicatorItemTextStyle);
     }];
-    MJCSegmentInterface *interFace =  [MJCSegmentInterface initWithFrame:CGRectMake(0, 64, self.view.jc_width, self.view.jc_height - 64) interFaceStyleTools:tools];
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface initWithFrame:CGRectMake(0, 64, self.view.jc_width, self.view.jc_height - 64) interFaceStyletools:tools];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 }

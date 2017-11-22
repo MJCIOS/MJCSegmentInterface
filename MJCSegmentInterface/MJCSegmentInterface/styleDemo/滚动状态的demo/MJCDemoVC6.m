@@ -35,8 +35,7 @@
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2",@"phone-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart",@"phone",@"heart"];
 
-    
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titlesViewBackColor([UIColor redColor]).
         jc_titleBarStyles(MJCTitlesScrollStyle).
@@ -55,9 +54,6 @@
         jc_ItemDefaultShowCount(5).
         jc_childsContainerBackColor([UIColor purpleColor]);
     }];
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width,self.view.jc_height-64);
-    interFace.tools  = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
     

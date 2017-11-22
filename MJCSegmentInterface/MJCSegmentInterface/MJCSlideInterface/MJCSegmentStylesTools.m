@@ -13,7 +13,7 @@
 @end
 
 @implementation MJCSegmentStylesTools
-+(instancetype)jc_initWithjc_toolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock;
++(instancetype)jc_initWithSegmentStylestoolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock;
 {
     MJCSegmentStylesTools *tools = [[MJCSegmentStylesTools alloc]init];
     toolsBlock(tools);
@@ -408,6 +408,5 @@
         return self;
     };
 }
-
 
 @end

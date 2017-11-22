@@ -1,12 +1,12 @@
 //
-//  MJCCommonTools.m
+//  MJCCommontools.m
 //  MJCSegmentInterface
 //
 //  Created by mjc on 17/7/20.
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCCommonTools.h"
+#import "MJCCommontools.h"
 #import "sys/utsname.h"
 
 #define MJCiPhone4sB CGSizeMake(320.f, 480.f)
@@ -15,7 +15,7 @@
 #define MJCiPhone7pB CGSizeMake(414.f, 736.f)
 
 
-@implementation MJCCommonTools
+@implementation MJCCommontools
 
 /**
  *  图片转换成颜色的方法

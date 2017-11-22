@@ -31,8 +31,8 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorStyles(MJCIndicatorItemStyle).
         jc_itemTextNormalColor([UIColor redColor]).
@@ -45,13 +45,10 @@
         jc_indicatorColor([UIColor redColor]).
         jc_itemTextFontSize(13).
         jc_childScollAnimalEnabled(YES).
-        jc_itemBackImageNormal([MJCCommonTools jc_imageWithColor:[UIColor yellowColor]]).
-        jc_itemBackImageSelected([MJCCommonTools jc_imageWithColor:[UIColor blueColor]]);
+        jc_itemBackImageNormal([MJCCommontools jc_imageWithColor:[UIColor yellowColor]]).
+        jc_itemBackImageSelected([MJCCommontools jc_imageWithColor:[UIColor blueColor]]);
     }];
 
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
 

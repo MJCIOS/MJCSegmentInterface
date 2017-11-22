@@ -40,7 +40,7 @@
         vc.title = titlesArr[i];
     }
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_titlesViewFrame(CGRectMake(0,0,self.view.jc_width,60)).
@@ -66,7 +66,7 @@
     }];
 
     
-    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools] ;
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyletools:tools] ;
     _interFace = interFace;
     interFace.delegate = self;
     [self.view addSubview:interFace];

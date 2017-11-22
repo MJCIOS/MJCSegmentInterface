@@ -32,36 +32,27 @@
         vc.title = titlesArr[i];
     }
 
-    
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorFrame(CGRectMake(0,0,0,50)).
         jc_indicatorFollowEnabled(YES).
         jc_childScollEnabled(YES).
         jc_itemSelectedSegmentIndex(3).
-        jc_indicatorColor([[UIColor blackColor]colorWithAlphaComponent:0.3]).
+        jc_indicatorColor([[UIColor redColor]colorWithAlphaComponent:0.1]).
         jc_tabItemTextZoomBigEnabled(YES, 22).
         jc_itemTextFontSize(17).
-        jc_titlesViewBackColor([UIColor redColor]).
-        jc_itemTextNormalColor([UIColor redColor]).
-        jc_itemTextSelectedColor([UIColor whiteColor]).
-        jc_itemTextFontSize(11).
+        jc_itemTextNormalColor([UIColor purpleColor]).
+        jc_itemTextSelectedColor([UIColor orangeColor]).
+        jc_itemTextFontSize(13).
         jc_tabItemTextZoomBigEnabled(YES, 18).
-        jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
         jc_indicatorHidden(NO).
         jc_indicatorsAnimalsEnabled(YES).
         jc_ItemDefaultShowCount(5).
-        jc_itemBackColor([UIColor orangeColor]).
-        jc_itemTextGradientEnabled(YES);
+        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemTextGradientEnabled(NO);
     }];
-
-        
-    MJCSegmentInterface *interFace = [[MJCSegmentInterface alloc]init];
-    interFace.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-    interFace.tools = tools;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
-    
 }
 
 

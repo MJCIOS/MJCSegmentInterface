@@ -11,7 +11,7 @@
 
 @interface MJCSoecialDemoVC14 ()
 
-@property (nonatomic,weak) MJCSegmentInterface *interface;
+@property (nonatomic,strong) MJCSegmentInterface *interface;
 
 @property (nonatomic,strong) NSArray *mainArr;
 
@@ -26,7 +26,7 @@
 - (MJCSegmentInterface*)interface
 {
     if (!_interface) {
-        MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+        _interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
             jc_tools.
             jc_titleBarStyles(MJCTitlesScrollStyle).
             jc_titlesViewBackColor([UIColor whiteColor]).
@@ -40,11 +40,7 @@
             jc_indicatorsAnimalsEnabled(YES).
             jc_itemSelectedSegmentIndex(3);
         }];
-        MJCSegmentInterface *interface = [[MJCSegmentInterface  alloc]init];
-        interface.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64);
-        interface.tools = tools;
-        [interface intoTitlesArray:_titlesArr intoChildControllerArray:_vcArr hostController:self];
-        _interface = interface;
+        [_interface intoTitlesArray:_titlesArr intoChildControllerArray:_vcArr hostController:self];
     }
     return _interface;
 }

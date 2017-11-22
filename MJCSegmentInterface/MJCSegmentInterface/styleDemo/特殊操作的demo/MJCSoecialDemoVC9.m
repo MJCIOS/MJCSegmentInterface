@@ -39,7 +39,7 @@
     }
     
     
-    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithjc_toolsBlock:^(MJCSegmentStylesTools *jc_tools)
+    MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools)
                                            {
                                                jc_tools.
                                                jc_titlesViewBackColor([UIColor whiteColor]).
@@ -51,7 +51,7 @@
                                                jc_indicatorFollowEnabled(YES).
                                                jc_itemSelectedSegmentIndex(2);
                                            }];
-    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleTools:tools];
+    MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyletools:tools];
     _interface = interFace;
     interFace.delegate = self;
     [self.view addSubview:interFace];
