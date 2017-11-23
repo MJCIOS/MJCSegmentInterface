@@ -6,10 +6,17 @@
 * 1.打开https://github.com/MJCIOS/MJCSegmentInterface 将项目下载下来
 * 2.将MJCSlideInterface文件夹放入自己的项目中
 
-### * 项目已支持CocoaPods,仅支持8.0以及8.0以上版本	
+### * 项目已支持CocoaPods
+
+        platform :ios, '8.0'
+        target '<Your Target Name>' do
+            pod 'MJCSegmentInterface'
+        end
+        
 * 1.打开Podfile文件 添加pod 'MJCSegmentInterface'	
 * 2.再执行下pod update 或pod install (如果没法导入,可以先 pod repo update 更新整个.cocoapods下的所有库...)
-* 3.import <MJCSegmentInterface/MJCSegmentInterface.h>
+* 3.如果没更新到最新版本,请先pod repo update 更新整个.cocoapods下的所有库... ,然后再pod update
+* 4.import <MJCSegmentInterface/MJCSegmentInterface.h>
 
 ## ☆☆ 1.9.0版本更新简介 ☆☆
 
