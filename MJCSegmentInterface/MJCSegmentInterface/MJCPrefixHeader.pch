@@ -17,6 +17,7 @@
 #import "MJCInterfacetools.h"
 #import "MJCSegmentInterface.h"
 #import <MJRefresh.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 

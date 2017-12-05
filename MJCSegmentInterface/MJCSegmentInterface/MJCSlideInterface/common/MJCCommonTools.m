@@ -6,7 +6,7 @@
 //  Copyright © 2017年 MJC. All rights reserved.
 //
 
-#import "MJCCommontools.h"
+#import "MJCCommonTools.h"
 #import "sys/utsname.h"
 
 #define MJCiPhone4sB CGSizeMake(320.f, 480.f)

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+MJCClassExtension.h"
-#import "MJCCommontools.h"
+#import "MJCCommonTools.h"
 #import "MJCSegmentStylesTools.h"
 
 @class MJCTabItem;
