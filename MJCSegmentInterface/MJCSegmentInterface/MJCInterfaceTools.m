@@ -6,7 +6,7 @@
 //  Copyright © 2017年 MJC. All rights reserved.
 //  有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 
-#import "MJCInterfacetools.h"
+#import "MJCInterfaceTools.h"
 
 @implementation MJCInterfacetools
 

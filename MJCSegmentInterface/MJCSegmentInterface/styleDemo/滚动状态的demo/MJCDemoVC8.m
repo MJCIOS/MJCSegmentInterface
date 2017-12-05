@@ -27,7 +27,7 @@
     NSArray *imageArr =@[@"bulb-2",@"cloud-2",@"diamond-2",@"food-2",@"heart-2"];
     NSArray *imageArr1 = @[@"bulb",@"cloud",@"diamond",@"food",@"heart"];
     NSArray *imageBackArr =@[@"111",@"222",@"567",@"1111",@"567"];
-    NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];
+//    NSArray *imageBackArr1 = @[@"567",@"111",@"222",@"1111",@"111"];
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];

@@ -14,10 +14,9 @@
 #import "MJCTestTableViewController.h"
 #import "MJCTestViewController.h"
 #import "MJCTestViewController1.h"
-#import "MJCInterfacetools.h"
+#import "MJCInterfaceTools.h"
 #import "MJCSegmentInterface.h"
 #import <MJRefresh.h>
-#import <MBProgressHUD/MBProgressHUD.h>
 
 
 
