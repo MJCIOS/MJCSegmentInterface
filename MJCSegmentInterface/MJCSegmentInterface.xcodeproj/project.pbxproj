@@ -41,6 +41,7 @@
 		257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
+		25A407F81FEA1248002C3130 /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25A407F71FEA1248002C3130 /* demo11.gif */; };
 		25BFF4DC1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */; };
 		25BFF4DD1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */; };
 		25D3C2821F3F386100921F1E /* demo0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2811F3F386100921F1E /* demo0.gif */; };
@@ -53,7 +54,6 @@
 		25D3C2941F3F642100921F1E /* demo10.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2931F3F642100921F1E /* demo10.gif */; };
 		25D3C2961F3F642500921F1E /* demo9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2951F3F642500921F1E /* demo9.gif */; };
 		25D3C2981F3F642900921F1E /* demo8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2971F3F642900921F1E /* demo8.gif */; };
-		25D3C29A1F3F655900921F1E /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C2991F3F655900921F1E /* demo11.gif */; };
 		25D678601FA2CD9B00D699D0 /* MJCOtherAppDemo4.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D6785F1FA2CD9B00D699D0 /* MJCOtherAppDemo4.m */; };
 		25D678631FA2D74500D699D0 /* MJCOtherAppDemo5.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D678621FA2D74500D699D0 /* MJCOtherAppDemo5.m */; };
 		25D678661FA2D74C00D699D0 /* MJCOtherAppDemo6.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D678651FA2D74C00D699D0 /* MJCOtherAppDemo6.m */; };
@@ -186,6 +186,7 @@
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
+		25A407F71FEA1248002C3130 /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
 		25BFF4D91F7E1ACF00642BD8 /* MJCSoecialDemoVC11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC11.h; sourceTree = "<group>"; };
 		25BFF4DA1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC11.m; sourceTree = "<group>"; };
 		25BFF4DB1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MJCSoecialDemoVC11.xib; sourceTree = "<group>"; };
@@ -199,7 +200,6 @@
 		25D3C2931F3F642100921F1E /* demo10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo10.gif; sourceTree = "<group>"; };
 		25D3C2951F3F642500921F1E /* demo9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo9.gif; sourceTree = "<group>"; };
 		25D3C2971F3F642900921F1E /* demo8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo8.gif; sourceTree = "<group>"; };
-		25D3C2991F3F655900921F1E /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
 		25D6785E1FA2CD9B00D699D0 /* MJCOtherAppDemo4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCOtherAppDemo4.h; sourceTree = "<group>"; };
 		25D6785F1FA2CD9B00D699D0 /* MJCOtherAppDemo4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCOtherAppDemo4.m; sourceTree = "<group>"; };
 		25D678611FA2D74500D699D0 /* MJCOtherAppDemo5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCOtherAppDemo5.h; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 			children = (
 				25F037501F56A02700B208CD /* jiameng.plist */,
 				257216901F34465E00A1EF49 /* collectionData.plist */,
-				25D3C2991F3F655900921F1E /* demo11.gif */,
+				25A407F71FEA1248002C3130 /* demo11.gif */,
 				25D3C2971F3F642900921F1E /* demo8.gif */,
 				25D3C2951F3F642500921F1E /* demo9.gif */,
 				25D3C2931F3F642100921F1E /* demo10.gif */,
@@ -769,6 +769,7 @@
 				25F037C81F56D8C400B208CD /* MJCSpecialDemoVC2.xib in Resources */,
 				25F037591F56D06D00B208CD /* mainVCData.plist in Resources */,
 				25E887FF1F56DDB000F0B4C9 /* specialVCData.plist in Resources */,
+				25A407F81FEA1248002C3130 /* demo11.gif in Resources */,
 				2541CB2E1FA1B633003E756F /* jinritoutiaoData.plist in Resources */,
 				25D3C2981F3F642900921F1E /* demo8.gif in Resources */,
 				25D3C2961F3F642500921F1E /* demo9.gif in Resources */,
@@ -777,7 +778,6 @@
 				25E822ED1F0CE38200FB305F /* MJCTestViewController1.xib in Resources */,
 				25D3C2921F3F623100921F1E /* demo7.gif in Resources */,
 				25D9DB501DC2635C00B903B1 /* Main.storyboard in Resources */,
-				25D3C29A1F3F655900921F1E /* demo11.gif in Resources */,
 				25D3C2941F3F642100921F1E /* demo10.gif in Resources */,
 				25D3C28E1F3F616200921F1E /* demo4.gif in Resources */,
 				25E822EB1F0CE38200FB305F /* MJCTestViewController.xib in Resources */,
