@@ -257,7 +257,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 
 - (void)setupTitleCenter:(UIButton *)titleButton
 {
-    CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.7;
+    CGFloat offsetX = titleButton.center.x - self.frame.size.width * 0.5;
     if (offsetX < 0) {
         offsetX = 0;
     }
