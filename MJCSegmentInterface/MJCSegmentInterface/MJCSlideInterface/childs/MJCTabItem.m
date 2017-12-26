@@ -142,6 +142,13 @@
     _topImageMargin = itemImagesEdgeInsets.top;
     _bottomImageMargin = itemImagesEdgeInsets.bottom;
 }
+-(void)setItemBackColorSelected:(UIColor *)itemBackColorSelected
+{
+    _itemBackColorSelected = itemBackColorSelected;
+    if (itemBackColorSelected) {
+        [self setBackgroundImage:[MJCCommontools jc_imageWithColor:itemBackColorSelected] forState:UIControlStateSelected];
+    }
+}
 
 -(void)setItemText:(NSString *)itemText
 {
@@ -180,7 +187,9 @@
 -(void)setItemBackSelectedImage:(UIImage *)itemBackSelectedImage
 {
     _itemBackSelectedImage = itemBackSelectedImage;
-    [self setBackgroundImage:itemBackSelectedImage forState:UIControlStateSelected];
+    if (itemBackSelectedImage) {
+        [self setBackgroundImage:itemBackSelectedImage forState:UIControlStateSelected];
+    }
 }
 
 -(void)setItemImageNormal:(UIImage *)itemImageNormal

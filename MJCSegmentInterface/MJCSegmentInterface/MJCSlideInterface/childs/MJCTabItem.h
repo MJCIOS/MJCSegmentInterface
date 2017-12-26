@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MJCTabItem : UIButton
+
+@property (nonatomic,strong) UIColor *itemBackColorSelected;
 @property (nonatomic,copy) NSString *itemText;
 @property (nonatomic,assign) CGFloat itemTextFontSize;
 @property (nonatomic,strong) NSArray *itemTitleNormalColorArray;

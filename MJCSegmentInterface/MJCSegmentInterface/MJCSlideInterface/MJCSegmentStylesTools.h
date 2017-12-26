@@ -137,10 +137,12 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 /** item图片效果样式 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImageEffectStyles)(MJCImageEffectStyles);
 @property (nonatomic,assign) MJCImageEffectStyles itemImageEffectStyles;
-
 /** item背景颜色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemBackColor)(UIColor *itemBackColor);
 @property (nonatomic,strong,readonly) UIColor *itemBackColor;
+/** item选中状态下的背景颜色 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemBackColorSelected)(UIColor *itemBackColorSelected);
+@property (nonatomic,strong,readonly) UIColor *itemBackColorSelected;
 /** item普通状态下文字颜色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextNormalColor)(UIColor *itemTextNormalColor);
 @property (nonatomic,strong,readonly) UIColor *itemTextNormalColor;
@@ -150,6 +152,9 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 /** item文字大小 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextFontSize)(CGFloat itemTextFontSize);
 @property (nonatomic,assign,readonly) CGFloat itemTextFontSize;
+/** item文字加粗大小 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextBoldFontSize)(CGFloat itemTextBoldFontSize);
+@property (nonatomic,assign) CGFloat itemTextBoldFontSize;
 /** item普通状态下的图片 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImageNormal)(UIImage *itemImageNormal);
 @property (nonatomic,strong,readonly) UIImage *itemImageNormal;

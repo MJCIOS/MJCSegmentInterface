@@ -1,4 +1,4 @@
-//https://github.com/MJCIOS/MJCSegmentInterface
+// https://github.com/MJCIOS/MJCSegmentInterface
 //如果觉得好,麻烦点个星,谢谢大家支持,有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 //  MJCSegmentInterface.m
 //  MJCSegmentInterface
@@ -224,6 +224,7 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.itemTextsEdgeInsets = jc_stylesTools.itemTextsEdgeInsets;
     _titlesView.imageEffectStyles = jc_stylesTools.itemImageEffectStyles;
     _titlesView.itemBackColor = jc_stylesTools.itemBackColor;
+    _titlesView.itemBackColorSelected = jc_stylesTools.itemBackColorSelected;
     _titlesView.itemTextFontSize = jc_stylesTools.itemTextFontSize;
     _titlesView.itemTextNormalColor = jc_stylesTools.itemTextNormalColor;
     _titlesView.itemTextSelectedColor = jc_stylesTools.itemTextSelectedColor;
@@ -238,6 +239,7 @@ static CGFloat const defaultTitlesViewH = 50;
     _titlesView.itemImageSize = jc_stylesTools.itemImageSize;
     _titlesView.itemTitleNormalColorArray = jc_stylesTools.itemTextColorArrayNormal;
     _titlesView.itemTitleSelectedColorArray = jc_stylesTools.itemTextColorArraySelected;
+    _titlesView.itemTextBoldFontSize = jc_stylesTools.itemTextBoldFontSize;
     
     _titlesView.isIndicatorsAnimals = jc_stylesTools.indicatorsAnimalsEnabled;
     _titlesView.isIndicatorFollow = jc_stylesTools.indicatorFollowEnabled;

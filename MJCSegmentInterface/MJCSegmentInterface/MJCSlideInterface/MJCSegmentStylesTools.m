@@ -244,6 +244,15 @@
 
 }
 
+-(MJCSegmentStylesTools *(^)(UIColor *))jc_itemBackColorSelected
+{
+    return ^MJCSegmentStylesTools *(UIColor *itemBackColorSelected)
+    {
+        _itemBackColorSelected = itemBackColorSelected;
+        return self;
+    };
+}
+
 -(MJCSegmentStylesTools *(^)(UIColor *))jc_itemBackColor
 {
     return ^MJCSegmentStylesTools *(UIColor *itemBackColor)
@@ -257,6 +266,15 @@
     return ^MJCSegmentStylesTools* (CGFloat itemTextFontSize)
     {
         _itemTextFontSize = itemTextFontSize;
+        return self;
+    };
+}
+
+-(MJCSegmentStylesTools *(^)(CGFloat))jc_itemTextBoldFontSize
+{
+    return ^MJCSegmentStylesTools* (CGFloat itemTextBoldFontSize)
+    {
+        _itemTextBoldFontSize = itemTextBoldFontSize;
         return self;
     };
 }

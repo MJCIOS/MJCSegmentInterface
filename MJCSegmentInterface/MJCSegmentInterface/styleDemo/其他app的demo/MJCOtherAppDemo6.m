@@ -58,7 +58,7 @@
         jc_itemImageArrayNormal(imageNArr).
         jc_itemImageArraySelected(imageSArr).
         jc_ItemDefaultShowCount(5).
-        jc_itemBackImageSelected([MJCCommontools jc_imageWithColor:[[UIColor orangeColor] colorWithAlphaComponent:0.7]]).
+        jc_itemBackColorSelected([[UIColor orangeColor] colorWithAlphaComponent:0.7]).
         jc_itemTextNormalColor([UIColor blackColor]).
         jc_itemTextFontSize(13).
         jc_childScollAnimalEnabled(YES);

@@ -47,7 +47,7 @@
         jc_itemTextSelectedColor([UIColor purpleColor]).
         jc_itemSelectedSegmentIndex(3).
         jc_ItemDefaultShowCount(6).
-        jc_itemTextFontSize(11).
+        jc_itemTextFontSize(13).
         jc_indicatorStyles(MJCIndicatorItemTextStyle).
         jc_indicatorsAnimalsEnabled(YES).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));

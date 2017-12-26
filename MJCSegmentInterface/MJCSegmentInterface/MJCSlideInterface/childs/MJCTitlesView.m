@@ -207,6 +207,7 @@ static CGFloat const defaultIndicatorH = 1.5;
         tabbutton.itemText = _titlesArray[tabbutton.tag];
     }
     tabbutton.backgroundColor = _itemBackColor;
+    tabbutton.itemBackColorSelected = _itemBackColorSelected;
     tabbutton.itemImageSize = _itemImageSize;
     tabbutton.itemTextFontSize = _itemTextFontSize;
     tabbutton.itemTitleNormalColor = _itemTextNormalColor;
@@ -383,6 +384,8 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     _selectedTag = titleButton.tag;
     
+    
+    
     if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
         [self setupTitleCenter:titleButton];
     }
@@ -457,6 +460,10 @@ static CGFloat const defaultIndicatorH = 1.5;
     }
     
     [self setupIndicatorViewCenterAndWidth];
+    
+    if (_itemTextBoldFontSize) {
+        titleButton.titleLabel.font  = [UIFont fontWithName:@"Helvetica-Bold" size:_itemTextBoldFontSize];
+    }
 }
 
 -(void)setupIndicatorViewCenterAndWidth
