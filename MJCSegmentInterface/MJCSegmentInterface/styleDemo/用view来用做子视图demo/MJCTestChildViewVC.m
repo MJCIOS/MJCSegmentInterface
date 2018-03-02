@@ -1,15 +1,15 @@
 //
-//  MJCDemoClassicVC2.m
+//  MJCTestChildViewVC.m
 //  MJCSegmentInterface
 //
-//  Created by mjc on 2017/10/31.
-//  Copyright © 2017年 MJC. All rights reserved.
+//  Created by mjc on 2018/3/1.
+//  Copyright © 2018年 MJC. All rights reserved.
 //
 
-#import "MJCDemoClassicVC2.h"
+#import "MJCTestChildViewVC.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCDemoClassicVC2 ()<MJCSegmentDelegate>
+@interface MJCTestChildViewVC ()<MJCSegmentDelegate>
 
 @property (nonatomic,weak) MJCSegmentInterface *interface;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation MJCDemoClassicVC2
+@implementation MJCTestChildViewVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +46,7 @@
     MJCSegmentInterface *interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
-        jc_titleBarStyles(MJCTitlesClassicStyle).
+        jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorStyles(MJCIndicatorItemStyle).
         jc_itemImageEffectStyles(MJCImageClassicStyle).
         jc_itemSelectedSegmentIndex(4).
@@ -141,3 +141,4 @@
 }
 
 @end
+

@@ -11,6 +11,7 @@
 
 @interface MJCChildMainView : UIScrollView
 @property (nonatomic,weak) NSArray *childControllerArray;
+@property (nonatomic,strong) NSMutableArray *childViewArray;
 @property (nonatomic,weak) UIViewController *hostController;
 - (void)addChildVcView;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;

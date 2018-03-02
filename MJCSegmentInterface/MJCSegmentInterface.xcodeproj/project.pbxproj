@@ -19,6 +19,7 @@
 		250F5E5F1F2B2D8400B8014A /* UIButton+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E541F2B2D8400B8014A /* UIButton+MJCClassExtension.m */; };
 		250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */; };
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
+		253300192047A41800EFB5C9 /* MJCTestChildViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */; };
 		2541CB1F1FA03A52003E756F /* MJCOtherAppDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2541CB1E1FA03A52003E756F /* MJCOtherAppDemo.m */; };
 		2541CB211FA03AF1003E756F /* otherApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2541CB201FA03AF1003E756F /* otherApp.plist */; };
 		2541CB241FA03BB5003E756F /* MJCOtherAppDemo0.m in Sources */ = {isa = PBXBuildFile; fileRef = 2541CB231FA03BB5003E756F /* MJCOtherAppDemo0.m */; };
@@ -148,6 +149,8 @@
 		250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MJCClassExtension.m"; sourceTree = "<group>"; };
 		250F5E591F2B2D8400B8014A /* UIView+MJCClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJCClassExtension.h"; sourceTree = "<group>"; };
 		250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCClassExtension.m"; sourceTree = "<group>"; };
+		253300172047A41800EFB5C9 /* MJCTestChildViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCTestChildViewVC.h; sourceTree = "<group>"; };
+		253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCTestChildViewVC.m; sourceTree = "<group>"; };
 		2541CB1D1FA03A52003E756F /* MJCOtherAppDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCOtherAppDemo.h; sourceTree = "<group>"; };
 		2541CB1E1FA03A52003E756F /* MJCOtherAppDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCOtherAppDemo.m; sourceTree = "<group>"; };
 		2541CB201FA03AF1003E756F /* otherApp.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = otherApp.plist; sourceTree = "<group>"; };
@@ -344,6 +347,15 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		253300162047A3C400EFB5C9 /* 用view来用做子视图demo */ = {
+			isa = PBXGroup;
+			children = (
+				253300172047A41800EFB5C9 /* MJCTestChildViewVC.h */,
+				253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */,
+			);
+			path = "用view来用做子视图demo";
+			sourceTree = "<group>";
+		};
 		2541CB1C1FA03A24003E756F /* 其他app的demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +549,7 @@
 		25F037941F56D8C400B208CD /* styleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				253300162047A3C400EFB5C9 /* 用view来用做子视图demo */,
 				2541CB1C1FA03A24003E756F /* 其他app的demo */,
 				25F037951F56D8C400B208CD /* 滚动状态的demo */,
 				25F037B61F56D8C400B208CD /* 默认不可滚动的demo */,
@@ -870,6 +883,7 @@
 				250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */,
 				25EBD0D41F57F0B700AF38C6 /* MJCSoecialDemoVC6.m in Sources */,
 				250F5E5B1F2B2D8400B8014A /* MJCAlertMessage.m in Sources */,
+				253300192047A41800EFB5C9 /* MJCTestChildViewVC.m in Sources */,
 				2570340D1F601D0A00132A8F /* MJCSoecialDemoVC10.m in Sources */,
 				250F5E5D1F2B2D8400B8014A /* MJCOrdinaryLayout.m in Sources */,
 				25F037BB1F56D8C400B208CD /* MJCDemoVC8.m in Sources */,

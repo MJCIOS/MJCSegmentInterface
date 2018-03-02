@@ -1,5 +1,5 @@
 // https://github.com/MJCIOS/MJCSegmentInterface
-//如果觉得好,麻烦点个星,谢谢大家支持,有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
+// 如果觉得好,麻烦点个星,谢谢大家支持,有啥问题加我QQ: 292251588 一起交流,我是菜菜..求大神指教
 //  MJCSegmentInterface.m
 //  MJCSegmentInterface
 //
@@ -23,6 +23,8 @@ static CGFloat const defaultTitlesViewH = 50;
 @property (nonatomic,weak) NSArray *childControllerArray;
 @property (nonatomic,assign) BOOL isXibLayoutSetup;
 @property (nonatomic,assign) BOOL isLoadDefaultChildVC;
+/** 是否有穿透效果 */
+@property (nonatomic,assign) BOOL isPenetrationEffect;
 @end
 
 @implementation MJCSegmentInterface
@@ -131,7 +133,21 @@ static CGFloat const defaultTitlesViewH = 50;
     interface.jc_stylesTools = tools;
     return interface;
 }
-
+-(void)intoTitlesArray:(NSArray *)titlesArray intoChildViewArray:(NSArray *)childViewArray hostController:(UIViewController *)hostController;
+{
+    hostController.automaticallyAdjustsScrollViewInsets = NO;
+    
+    _titlesArray = titlesArray;
+    _hostController = hostController;
+    _childMainView.hostController = hostController;
+    _titlesView.hostController = hostController;
+    [self layoutIfNeeded];
+    [self setNeedsLayout];
+    [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
+    _childMainView.childViewArray =  [NSMutableArray arrayWithArray:childViewArray] ;
+    _titlesView.titlesArray = titlesArray;
+    _isLoadDefaultChildVC = YES;
+}
 -(void)intoChildControllerArray:(NSArray*)childControllerArray;
 {
     _childControllerArray = childControllerArray;
@@ -261,6 +277,18 @@ static CGFloat const defaultTitlesViewH = 50;
     [self setJc_stylesTools:_jc_stylesTools];
     [self intoTitlesArray:titlesArr intoChildControllerArray:childsViewControllerArr hostController:_hostController];
 }
+-(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewArr:(NSArray *)childsViewArr;
+{
+    if (childsViewArr.count == 0) return;
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [_childMainView removeFromSuperview];
+    [_titlesView removeFromSuperview];
+    _childMainView = nil;
+    _titlesView = nil;
+    [self setupBasicUI];
+    [self setJc_stylesTools:_jc_stylesTools];
+    [self intoTitlesArray:titlesArr intoChildViewArray:childsViewArr hostController:_hostController];
+}
 
 +(instancetype)jc_initWithFrame:(CGRect)frame interFaceStyleToolsBlock:(void (^)(MJCSegmentStylesTools *))toolsBlock
 {
@@ -270,7 +298,5 @@ static CGFloat const defaultTitlesViewH = 50;
     interface.jc_stylesTools = tools;
     return interface;
 }
-
-
 
 @end

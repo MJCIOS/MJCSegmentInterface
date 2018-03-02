@@ -13,9 +13,6 @@ static CGFloat const animalTime= 0.25;
 @interface MJCChildMainView ()
 @property (nonatomic,weak) UIViewController *childVC;
 @property (nonatomic,strong) NSArray *titlesArr;
-
-@property (nonatomic,strong) NSArray  *vcArr;
-
 @end
 @implementation MJCChildMainView
 -(instancetype)initWithFrame:(CGRect)frame
@@ -46,6 +43,12 @@ static CGFloat const animalTime= 0.25;
     _hostController = hostController;
 }
 
+-(void)setChildViewArray:(NSMutableArray *)childViewArray
+{
+    _childViewArray = childViewArray;
+//    [self addChildVcView];
+}
+
 -(void)setChildControllerArray:(NSArray *)childControllerArray
 {
     _childControllerArray = childControllerArray;
@@ -53,18 +56,28 @@ static CGFloat const animalTime= 0.25;
         for (int i = 0; i < _childControllerArray.count; i++) {
             [_hostController addChildViewController:_childControllerArray[i]];
         }
-        [self addChildVcView];//暂时没出啥问题,不删,,
+//        [self addChildVcView];//暂时没出啥问题,不删,
     }
 }
 - (void)addChildVcView
 {
-    NSUInteger index = self.contentOffset.x / self.jc_width;
-    UIViewController *childVc;
-    if (index >= _hostController.childViewControllers.count) {return;}
-    childVc = _hostController.childViewControllers[index];
-    if ([childVc isViewLoaded] && [childVc.view window]) return;
-    childVc.view.frame = self.bounds;
-    [self addSubview:childVc.view];
+    if (_hostController.childViewControllers.count != 0 || _childControllerArray.count != 0 || _childControllerArray != nil) {
+        NSUInteger index = self.contentOffset.x / self.jc_width;
+        UIViewController *childVc;
+        if (index >= _hostController.childViewControllers.count) {return;}
+        childVc = _hostController.childViewControllers[index];
+        if ([childVc isViewLoaded] && [childVc.view window]) return;
+        childVc.view.frame = self.bounds;
+        [self addSubview:childVc.view];
+    }else{
+        if (_childViewArray.count != 0) {
+            NSUInteger index = self.contentOffset.x / self.jc_width;
+            UIView *childView =_childViewArray[index];
+            if ([childView window]) return;
+            childView.frame= self.bounds;
+            [self addSubview:childView];
+        }
+    }
 }
 -(void)setTitlesTabItem:(MJCTabItem *)titlesTabItem
 {
@@ -108,16 +121,19 @@ static CGFloat const animalTime= 0.25;
 -(void)removeFromSuperview
 {
     [super removeFromSuperview];
-    
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
+    for (int i = 0 ; i < _childViewArray.count; i++) {
+        UIView *childView =  _childViewArray[i];
+        [childView removeFromSuperview];
+        childView = nil;
+    }
+    [_childViewArray removeAllObjects];
+    _childViewArray = nil;
     NSInteger vcCount = _hostController.childViewControllers.count;
     for (int i = 0 ; i < vcCount; i++) {
         UIViewController *vc =  _hostController.childViewControllers[0];
         [vc removeFromParentViewController];
     }
 }
-
-
 
 @end

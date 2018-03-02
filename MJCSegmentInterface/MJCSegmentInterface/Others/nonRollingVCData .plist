@@ -14,5 +14,11 @@
 		<key>viewControllers</key>
 		<string>MJCDemoClassicVC1</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>普通界面</string>
+		<key>viewControllers</key>
+		<string>MJCDemoClassicVC2</string>
+	</dict>
 </array>
 </plist>

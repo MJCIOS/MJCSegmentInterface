@@ -28,6 +28,12 @@
 	</dict>
 	<dict>
 		<key>viewControllers</key>
+		<string>MJCTestChildViewVC</string>
+		<key>titles</key>
+		<string>展示子视图(用的是view,不是子控制器)</string>
+	</dict>
+	<dict>
+		<key>viewControllers</key>
 		<string></string>
 		<key>titles</key>
 		<string>谢谢大家使用,谢谢,有啥功能推荐,请私聊我</string>

@@ -543,9 +543,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)removeFromSuperview
 {
     [super removeFromSuperview];
-    
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
-
 
 @end

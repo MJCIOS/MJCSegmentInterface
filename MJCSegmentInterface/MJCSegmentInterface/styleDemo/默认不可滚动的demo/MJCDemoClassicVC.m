@@ -39,9 +39,10 @@
 -(void)setupInterfaceWithTitlesArr:(NSArray*)titlesArr vcArr:(NSArray*)vcArr
 {
     
-   MJCSegmentInterface *interFace = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,0,0, 0) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+   MJCSegmentInterface *interFace = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0, 64, self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titleBarStyles(MJCTitlesClassicStyle).
+       jc_childScollEnabled(YES).
         jc_titlesViewBackColor([UIColor whiteColor]).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
@@ -52,9 +53,7 @@
         jc_indicatorsAnimalsEnabled(YES).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
     }];
-    
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
-    interFace.frame = CGRectMake(0, 64, self.view.jc_width, self.view.jc_height-64);
     [self.view addSubview:interFace];
 
     

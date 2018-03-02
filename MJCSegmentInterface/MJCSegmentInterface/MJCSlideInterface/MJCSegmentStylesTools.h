@@ -43,31 +43,31 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 #pragma mark -- 通用设置的设置
 /** 是否启用比例布局 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_scaleLayoutEnabled)(BOOL scaleLayoutEnabled);
-@property (nonatomic,assign) BOOL  scaleLayoutEnabled;
+@property (nonatomic,assign,readonly) BOOL  scaleLayoutEnabled;
 
 
 #pragma mark -- 子界面效果的设置
 
 /** (子视图)滚动是否有动画 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_childScollAnimalEnabled)(BOOL childScollAnimalEnabled);
-@property(nonatomic,assign) BOOL childScollAnimalEnabled;
+@property(nonatomic,assign,readonly) BOOL childScollAnimalEnabled;
 /** (子视图)是否开启手拽滑动 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_childScollEnabled)(BOOL childScollEnabled);
-@property (nonatomic,assign) BOOL childScollEnabled;
+@property (nonatomic,assign,readonly) BOOL childScollEnabled;
 /** (子视图)主容器的背景色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_childsContainerBackColor)(UIColor *childsContainerBackColor);
-@property (nonatomic,strong) UIColor *childsContainerBackColor;
+@property (nonatomic,strong,readonly) UIColor *childsContainerBackColor;
 
 
 #pragma mark -- 标题栏设置
 
 /** (标题栏)启用穿透效果 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_titlesViewPenetrationEnabled)(BOOL titlesViewPenetrationEnabled);
-@property (nonatomic,assign) BOOL  titlesViewPenetrationEnabled;
+@property (nonatomic,assign,readonly) BOOL  titlesViewPenetrationEnabled;
 
 /** 标题栏样式 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_titleBarStyles)(MJCTitleBarStyles);
-@property (nonatomic,assign) MJCTitleBarStyles titleBarStyles;
+@property (nonatomic,assign,readonly) MJCTitleBarStyles titleBarStyles;
 
 /** 标题栏颜色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_titlesViewBackColor)(UIColor *titlesViewBackColor);
@@ -83,60 +83,60 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 
 /** 指示器的颜色是否与文字颜色一样 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorColorEqualTextColorEnabled)(BOOL indicatorColorEqualTextColorEnabled);
-@property (nonatomic,assign) BOOL indicatorColorEqualTextColorEnabled;
+@property (nonatomic,assign,readonly) BOOL indicatorColorEqualTextColorEnabled;
 
 /** (指示器)启用动画效果 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorsAnimalsEnabled)(BOOL indicatorsAnimalsEnabled);
-@property(nonatomic,assign) BOOL indicatorsAnimalsEnabled;
+@property(nonatomic,assign,readonly) BOOL indicatorsAnimalsEnabled;
 /** 底部指示器是否跟随滚动 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorFollowEnabled)(BOOL indicatorFollowEnabled);
-@property (nonatomic,assign) BOOL indicatorFollowEnabled;
+@property (nonatomic,assign,readonly) BOOL indicatorFollowEnabled;
 /** 底部指示器大小样式 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorStyles)(MJCIndicatorStyles);
-@property (nonatomic,assign) MJCIndicatorStyles indicatorStyles;
+@property (nonatomic,assign,readonly) MJCIndicatorStyles indicatorStyles;
 
 /** 可设置指示器的Y值和高度,其余不允许自己设置 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorFrame)(CGRect indicatorFrame);
-@property (nonatomic,assign) CGRect indicatorFrame;
+@property (nonatomic,assign,readonly) CGRect indicatorFrame;
 /** 底部指示器背景色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorColor)(UIColor *indicatorColor);
-@property (nonatomic,strong) UIColor *indicatorColor;
+@property (nonatomic,strong,readonly) UIColor *indicatorColor;
 /** 底部指示器图片(设置了图片的话,此控件是根据图片本身的大小自适应的) */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorImage)(UIImage *indicatorImage);
-@property (nonatomic,strong) UIImage *indicatorImage;
+@property (nonatomic,strong,readonly) UIImage *indicatorImage;
 /** 底部指示器是否隐藏 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_indicatorHidden)(BOOL indicatorHidden);
-@property (nonatomic,assign) BOOL indicatorHidden;
+@property (nonatomic,assign,readonly) BOOL indicatorHidden;
 
 #pragma mark -- item设置
 /** (item)启用滑动颜色渐变 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextGradientEnabled)(BOOL itemTextGradientEnabled);
-@property (nonatomic,assign) BOOL itemTextGradientEnabled;
+@property (nonatomic,assign,readonly) BOOL itemTextGradientEnabled;
 
 /** 是否显示标题文字 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextHidden)(BOOL itemTextHidden);
-@property(nonatomic,assign) BOOL itemTextHidden;
+@property(nonatomic,assign,readonly) BOOL itemTextHidden;
 /** 默认选中的item */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemSelectedSegmentIndex)(NSInteger itemSelectedSegmentIndex);
-@property (nonatomic,assign) NSInteger itemSelectedSegmentIndex;
+@property (nonatomic,assign,readonly) NSInteger itemSelectedSegmentIndex;
 /** 默认显示多少个item (初始显示4个) */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_ItemDefaultShowCount)(NSInteger ItemDefaultShowCount);
-@property (nonatomic,assign) NSInteger ItemDefaultShowCount;
+@property (nonatomic,assign,readonly) NSInteger ItemDefaultShowCount;
 
 /** item文字的内边距 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextsEdgeInsets)(UIEdgeInsets);
-@property(nonatomic)   UIEdgeInsets itemTextsEdgeInsets;
+@property(nonatomic,readonly)   UIEdgeInsets itemTextsEdgeInsets;
 /** item图片的内边距 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImagesEdgeInsets)(UIEdgeInsets);
-@property(nonatomic)   UIEdgeInsets itemImagesEdgeInsets;
+@property(nonatomic,readonly)   UIEdgeInsets itemImagesEdgeInsets;
 
 /** item最大内边距和两个item之间的间距(如果是item高度自适应,设置top和bottom无效) */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemEdgeinsets)(MJCEdgeInsets);
-@property (nonatomic) MJCEdgeInsets itemEdgeinsets;
+@property (nonatomic,readonly) MJCEdgeInsets itemEdgeinsets;
 
 /** item图片效果样式 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImageEffectStyles)(MJCImageEffectStyles);
-@property (nonatomic,assign) MJCImageEffectStyles itemImageEffectStyles;
+@property (nonatomic,assign,readonly) MJCImageEffectStyles itemImageEffectStyles;
 /** item背景颜色 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemBackColor)(UIColor *itemBackColor);
 @property (nonatomic,strong,readonly) UIColor *itemBackColor;
@@ -154,7 +154,7 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,assign,readonly) CGFloat itemTextFontSize;
 /** item文字加粗大小 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemTextBoldFontSize)(CGFloat itemTextBoldFontSize);
-@property (nonatomic,assign) CGFloat itemTextBoldFontSize;
+@property (nonatomic,assign,readonly) CGFloat itemTextBoldFontSize;
 /** item普通状态下的图片 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_itemImageNormal)(UIImage *itemImageNormal);
 @property (nonatomic,strong,readonly) UIImage *itemImageNormal;
@@ -191,17 +191,17 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 
 /** tabitem内容自适应:(高度自适应或宽度自适应)(如果是item高度自适应,设置内边距top和bottom无效)*/
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_tabItemSizeToFitIsEnabled)(BOOL sizeToFitIsEnabled,BOOL heightToFitIsEnabled, BOOL widthToFitIsEnabled);
-@property (nonatomic,assign) BOOL itemSizeToFitIsEnabled;
-@property (nonatomic,assign) BOOL itemHeightToFitIsEnabled;
-@property (nonatomic,assign) BOOL itemWidthToFitIsEnabled;
+@property (nonatomic,assign,readonly) BOOL itemSizeToFitIsEnabled;
+@property (nonatomic,assign,readonly) BOOL itemHeightToFitIsEnabled;
+@property (nonatomic,assign,readonly) BOOL itemWidthToFitIsEnabled;
 /** 用于缩放功能的修改字体的属性 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_tabItemTextZoomBigEnabled)(BOOL zoomBigEnabled,CGFloat itemTextMaxfontSize);
-@property (nonatomic,assign) BOOL itemTextZoomBigEnabled;
-@property (nonatomic,assign) CGFloat itemTextMaxfontSize;
+@property (nonatomic,assign,readonly) BOOL itemTextZoomBigEnabled;
+@property (nonatomic,assign,readonly) CGFloat itemTextMaxfontSize;
 
 /** 给tabitem自适应大小增加超量的尺寸 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_tabItemExcessSize)(CGFloat excessWidth,CGFloat excessHeight);
-@property (nonatomic,assign) CGFloat itemExcessWidth;
-@property (nonatomic,assign) CGFloat itemExcessHeight;
+@property (nonatomic,assign,readonly) CGFloat itemExcessWidth;
+@property (nonatomic,assign,readonly) CGFloat itemExcessHeight;
 
 @end

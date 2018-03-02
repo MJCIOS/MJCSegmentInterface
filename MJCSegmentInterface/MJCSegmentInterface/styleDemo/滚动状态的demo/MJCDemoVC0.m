@@ -47,6 +47,7 @@
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
         jc_itemTextFontSize(13).
+        jc_itemTextBoldFontSize(13).
         jc_ItemDefaultShowCount(5);
     }];
     interFace.delegate= self;

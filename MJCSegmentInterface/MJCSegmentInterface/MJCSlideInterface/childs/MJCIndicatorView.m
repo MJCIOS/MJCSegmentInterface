@@ -75,6 +75,4 @@ static CGFloat const animalTime= 0.25;
     }
 }
 
-
-
 @end
