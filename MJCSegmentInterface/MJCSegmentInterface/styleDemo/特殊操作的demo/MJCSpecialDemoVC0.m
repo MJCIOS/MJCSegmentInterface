@@ -32,10 +32,15 @@
         vc.title = titlesArr[i];
     }
     
+    UIView *testView = [[UIView alloc]init];
+    testView.backgroundColor = [UIColor purpleColor];
+    
     
     MJCSegmentStylesTools *tools = [MJCSegmentStylesTools jc_initWithSegmentStylestoolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesClassicStyle).
+        jc_customChildBackView(testView).
         jc_childScollAnimalEnabled(YES).
+        jc_childScollEnabled(YES).
         jc_titlesViewPenetrationEnabled(YES).
         jc_indicatorsAnimalsEnabled(YES).
         jc_indicatorFollowEnabled(YES).

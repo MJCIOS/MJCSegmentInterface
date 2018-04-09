@@ -92,5 +92,11 @@
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC14</string>
 	</dict>
+	<dict>
+		<key>titles</key>
+		<string>如何让它滑动的时候看不到背景色</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC15</string>
+	</dict>
 </array>
 </plist>

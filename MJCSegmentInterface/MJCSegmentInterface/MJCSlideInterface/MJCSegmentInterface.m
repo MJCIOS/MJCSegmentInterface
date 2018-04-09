@@ -183,7 +183,12 @@ static CGFloat const defaultTitlesViewH = 50;
     _childMainView.childControllerArray = childControllerArray;
     _titlesView.titlesArray = titlesArray;
     _isLoadDefaultChildVC = YES;
+    
+    if (_jc_stylesTools.loadAllChildViewEnabled) {
+        [_childMainView addAllChildVcView];
+    }
 }
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [_titlesView jc_scrollViewDidScroll:scrollView isIndicatorFollow:_jc_stylesTools.indicatorFollowEnabled];
@@ -212,12 +217,14 @@ static CGFloat const defaultTitlesViewH = 50;
     _jc_stylesTools = jc_stylesTools;
     _isPenetrationEffect = jc_stylesTools.titlesViewPenetrationEnabled;
     
+    
     if (jc_stylesTools.titlesViewFrame.size.height == 0 && jc_stylesTools.titlesViewFrame.size.width == 0) {
         _titlesView.frame = CGRectMake(0, 0, self.frame.size.width, defaultTitlesViewH);
     }else{
         _titlesView.frame = jc_stylesTools.titlesViewFrame;
     }
-    
+    _childMainView.bouncesEnabled = jc_stylesTools.childScollBouncesEnabled;
+    _childMainView.customChildBackView = jc_stylesTools.customChildBackView;
     _titlesView.backgroundColor = jc_stylesTools.titlesViewBackColor;
     _childMainView.backgroundColor = jc_stylesTools.childsContainerBackColor;
     _titlesView.titlesBarStyles = jc_stylesTools.titleBarStyles;

@@ -29,8 +29,36 @@
         return self;
     };
 }
+-(MJCSegmentStylesTools *(^)(BOOL))jc_loadAllChildViewEnabled
+{
+    return ^MJCSegmentStylesTools *(BOOL loadAllChildViewEnabled)
+    {
+        _loadAllChildViewEnabled = loadAllChildViewEnabled;
+        return self;
+    };
+}
+
+-(MJCSegmentStylesTools *(^)(UIView *))jc_customChildBackView
+{
+    return ^MJCSegmentStylesTools *(UIView *customChildBackView)
+    {
+        _customChildBackView = customChildBackView;
+        return self;
+    };
+}
+
+
 
 #pragma mark -- 子界面效果的设置
+
+-(MJCSegmentStylesTools *(^)(BOOL))jc_childScollBouncesEnabled
+{
+    return ^MJCSegmentStylesTools * (BOOL childScollBouncesEnabled)
+    {
+        _childScollBouncesEnabled = childScollBouncesEnabled;
+        return self;
+    };
+}
 
 -(MJCSegmentStylesTools *(^)(BOOL))jc_childScollAnimalEnabled
 {

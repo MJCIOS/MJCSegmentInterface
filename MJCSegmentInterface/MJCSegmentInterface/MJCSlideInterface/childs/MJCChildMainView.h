@@ -14,9 +14,12 @@
 @property (nonatomic,strong) NSMutableArray *childViewArray;
 @property (nonatomic,weak) UIViewController *hostController;
 - (void)addChildVcView;
+- (void)addAllChildVcView;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 @property (nonatomic,strong) MJCTabItem *titlesTabItem;
 -(void)setupContenSizeWithTitlesArr:(NSArray *)titlesArr mainView:(UIView*)mainView;
 @property(nonatomic,assign) BOOL isChildScollAnimal;
 @property (nonatomic,assign) BOOL isChildScollEnabled;
+@property (nonatomic,assign) BOOL bouncesEnabled;
+@property (nonatomic,weak) UIView *customChildBackView;
 @end

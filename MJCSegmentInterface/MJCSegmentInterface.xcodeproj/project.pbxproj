@@ -42,6 +42,7 @@
 		257034101F6430E700132A8F /* MJCDemoClassicVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2570340F1F6430E700132A8F /* MJCDemoClassicVC1.m */; };
 		2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */; };
 		257216911F34465E00A1EF49 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 257216901F34465E00A1EF49 /* collectionData.plist */; };
+		2589DBCE20720C790085D255 /* MJCSoecialDemoVC15.m in Sources */ = {isa = PBXBuildFile; fileRef = 2589DBCD20720C790085D255 /* MJCSoecialDemoVC15.m */; };
 		25A407F81FEA1248002C3130 /* demo11.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25A407F71FEA1248002C3130 /* demo11.gif */; };
 		25A407FA1FEA383C002C3130 /* demo9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25A407F91FEA383C002C3130 /* demo9.gif */; };
 		25A407FC1FEA388D002C3130 /* demo8.gif in Resources */ = {isa = PBXBuildFile; fileRef = 25A407FB1FEA388D002C3130 /* demo8.gif */; };
@@ -189,6 +190,8 @@
 		2572168D1F34461E00A1EF49 /* MJCTestCollectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJCTestCollectVC.h; sourceTree = "<group>"; };
 		2572168E1F34461E00A1EF49 /* MJCTestCollectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCTestCollectVC.m; sourceTree = "<group>"; };
 		257216901F34465E00A1EF49 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
+		2589DBCC20720C790085D255 /* MJCSoecialDemoVC15.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC15.h; sourceTree = "<group>"; };
+		2589DBCD20720C790085D255 /* MJCSoecialDemoVC15.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC15.m; sourceTree = "<group>"; };
 		25A407F71FEA1248002C3130 /* demo11.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo11.gif; sourceTree = "<group>"; };
 		25A407F91FEA383C002C3130 /* demo9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo9.gif; sourceTree = "<group>"; };
 		25A407FB1FEA388D002C3130 /* demo8.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo8.gif; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 				2542DB121FBC1E8800480B49 /* MJCSoecialDemoVC13.m */,
 				2542DB141FBC214B00480B49 /* MJCSoecialDemoVC14.h */,
 				2542DB151FBC214B00480B49 /* MJCSoecialDemoVC14.m */,
+				2589DBCC20720C790085D255 /* MJCSoecialDemoVC15.h */,
+				2589DBCD20720C790085D255 /* MJCSoecialDemoVC15.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -934,6 +939,7 @@
 				25BFF4DC1F7E1ACF00642BD8 /* MJCSoecialDemoVC11.m in Sources */,
 				25F037BC1F56D8C400B208CD /* MJCDemoVC9.m in Sources */,
 				25EBD0EA1F58FAD700AF38C6 /* MJCSoecialDemoVC7.m in Sources */,
+				2589DBCE20720C790085D255 /* MJCSoecialDemoVC15.m in Sources */,
 				25E888021F56E49700F0B4C9 /* MJCSpecialDemoVC3.m in Sources */,
 				2572168F1F34461E00A1EF49 /* MJCTestCollectVC.m in Sources */,
 				25F037BA1F56D8C400B208CD /* MJCDemoVC0.m in Sources */,

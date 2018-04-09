@@ -22,8 +22,6 @@ static CGFloat const animalTime= 0.25;
         self.pagingEnabled = YES;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        self.bounces = YES;
-        self.scrollEnabled = YES;
     }
     return self;
 }
@@ -34,13 +32,23 @@ static CGFloat const animalTime= 0.25;
     self.pagingEnabled = YES;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
-    self.bounces = YES;
-    self.scrollEnabled = YES;
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    _customChildBackView.frame = self.bounds;
 }
 
 -(void)setHostController:(UIViewController *)hostController
 {
     _hostController = hostController;
+}
+
+-(void)setCustomChildBackView:(UIView *)customChildBackView
+{
+    _customChildBackView = customChildBackView;
+    [self addSubview:customChildBackView];
 }
 
 -(void)setChildViewArray:(NSMutableArray *)childViewArray
@@ -59,6 +67,20 @@ static CGFloat const animalTime= 0.25;
 //        [self addChildVcView];//暂时没出啥问题,不删,
     }
 }
+
+- (void)addAllChildVcView;
+{
+    for (int i = 0 ; i < _hostController.childViewControllers.count; i++) {
+        UIViewController *childVc;
+        if (i >= _hostController.childViewControllers.count) {return;}
+        childVc = _hostController.childViewControllers[i];
+        if ([childVc isViewLoaded] && [childVc.view window]) return;
+        CGFloat childVCX = i * self.bounds.size.width;
+        childVc.view.frame = CGRectMake(childVCX, self.bounds.origin.y, self.bounds.size.width, self.bounds.size.height);
+        [self addSubview:childVc.view];
+    }
+}
+
 - (void)addChildVcView
 {
     if (_hostController.childViewControllers.count != 0 || _childControllerArray.count != 0 || _childControllerArray != nil) {
@@ -108,6 +130,13 @@ static CGFloat const animalTime= 0.25;
     _isChildScollEnabled = isChildScollEnabled;
     self.scrollEnabled = isChildScollEnabled;
 }
+
+-(void)setBouncesEnabled:(BOOL)bouncesEnabled
+{
+    _bouncesEnabled = bouncesEnabled;
+    self.bounces = bouncesEnabled;
+}
+
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 {
         if (isLoadDefaultChildVC == YES) {

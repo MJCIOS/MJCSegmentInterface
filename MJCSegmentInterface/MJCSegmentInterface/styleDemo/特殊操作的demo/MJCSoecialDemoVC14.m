@@ -42,6 +42,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"xiugai" style:0 target:self action:@selector(xiugai)];
+    
     NSInteger count = self.titlesArr.count;
     for (int i = 0 ; i < count; i++) {//循环创建控制器对象
         MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
@@ -85,6 +88,20 @@
     [super viewWillDisappear:animated];
     if (_titlesArr.count == 0)return;
     [_titlesArr removeObjectAtIndex:0];
+}
+
+-(void)xiugai
+{
+    [_titlesArr removeObjectAtIndex:0];
+    
+    [_vcArr removeAllObjects];
+    NSInteger count = _titlesArr.count;
+    for (int i = 0 ; i < count; i++) {//循环创建控制器对象
+        MJCTestTableViewController *vc = [[MJCTestTableViewController alloc]init];
+        vc.title = _titlesArr[i];
+        [_vcArr addObject:vc];
+    }
+    [_interface jc_reviseSegmentInterfaceTitleArr:_titlesArr childsViewControllerArr:_vcArr];
 }
 
 -(void)dealloc

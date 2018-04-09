@@ -45,8 +45,20 @@ UIKIT_STATIC_INLINE MJCEdgeInsets MJCEdgeInsetsMake(CGFloat maxTop, CGFloat maxL
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_scaleLayoutEnabled)(BOOL scaleLayoutEnabled);
 @property (nonatomic,assign,readonly) BOOL  scaleLayoutEnabled;
 
+/** 是否加载全部的子界面 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_loadAllChildViewEnabled)(BOOL loadAllChildViewEnabled);
+@property (nonatomic,assign,readonly) BOOL  loadAllChildViewEnabled;
+
+
+/**自定义子视图的背景控件 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_customChildBackView)(UIView *customChildBackView);
+@property (nonatomic,strong,readonly) UIView *customChildBackView;
 
 #pragma mark -- 子界面效果的设置
+
+/** (子视图)是否开启手拽滑动反弹的效果 */
+@property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_childScollBouncesEnabled)(BOOL childScollBouncesEnabled);
+@property (nonatomic,assign,readonly) BOOL childScollBouncesEnabled;
 
 /** (子视图)滚动是否有动画 */
 @property (nonatomic,copy,readonly) MJCSegmentStylesTools *(^jc_childScollAnimalEnabled)(BOOL childScollAnimalEnabled);
