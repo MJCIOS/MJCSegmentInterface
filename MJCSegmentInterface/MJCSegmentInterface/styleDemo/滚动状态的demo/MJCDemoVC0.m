@@ -9,8 +9,6 @@
 #import "MJCDemoVC0.h"
 #import "MJCPrefixHeader.pch"
 
-
-
 @interface MJCDemoVC0 ()<MJCSegmentDelegate>
 
 @property (nonatomic,strong) NSArray *mainArr;
@@ -35,7 +33,6 @@
         UIViewController *vc = vcarrr[i];
         vc.title = titlesArr[i];
     }
-    
     
     MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).

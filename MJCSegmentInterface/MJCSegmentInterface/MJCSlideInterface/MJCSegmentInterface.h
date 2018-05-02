@@ -45,11 +45,12 @@
 
 #pragma mark -- 添加方法和创建方法
 
+/** 实例化此控件的方法(将添加子控件界面和添加标题栏的方法都封装进去了) */
++(instancetype)jc_initWithFrame:(CGRect)frame titlesArray:(NSArray *)titlesArray childControllerArray:(NSArray *)childControllerArray interFaceStyleToolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock hostController:(UIViewController *)hostController;
 /** 实例化此控件的方法(带有样式工具类的回调) */
 +(instancetype)jc_initWithFrame:(CGRect)frame  interFaceStyleToolsBlock:(void(^)(MJCSegmentStylesTools *jc_tools))toolsBlock;
 /** 实例化此控件的方法 */
 +(instancetype)initWithFrame:(CGRect)frame interFaceStyletools:(MJCSegmentStylesTools *)tools;
-
 /** 添加标题栏与添加控制器的方法(添加子控制器界面的顺序是按照标题的先后顺序与之对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
 /** 添加子控制器界面的方法 */

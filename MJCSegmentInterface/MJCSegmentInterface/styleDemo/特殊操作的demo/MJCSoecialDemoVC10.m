@@ -49,6 +49,10 @@
       jc_ItemDefaultShowCount(4).
       jc_childsContainerBackColor([UIColor purpleColor]).
       jc_itemSelectedSegmentIndex(0).
+//      jc_itemImageNormal([UIImage imageNamed:@"bulb-2"]).
+//      jc_itemImageSelected([UIImage imageNamed:@"bulb"]).
+//      jc_itemBackImageArrayNormal(imageArr).
+//      jc_itemBackImageArrayNormal(imageArr1).
       jc_itemImageArrayNormal(imageArr).
       jc_itemImageArraySelected(imageArr1);
     }];

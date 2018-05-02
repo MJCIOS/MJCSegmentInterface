@@ -65,45 +65,52 @@
     CGFloat tabItemW = self.frame.size.width;
     CGFloat tabItemCenterX = tabItemW/2;
     CGFloat tabItemCenterY = tabItemH/2;
+    
+    
     if (self.imageView.image != nil) {
-        if (_imageEffectStyles == 1) {
+        if ([self.imageView isHidden]) {
             [self.titleLabel sizeToFit];
-            self.titleLabel.jc_y = (tabItemH-self.titleLabel.jc_height)+_topTextMargin-_bottomTextMargin;
-            self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
-            self.imageView.frame = CGRectMake(0,0,0,0);
-            [self.imageView sizeToFit];
-            if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
-                self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
-            }else{
-                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
-            self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
-            self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
-        }else if (_imageEffectStyles == 0) {
-            [self.titleLabel sizeToFit];
-            if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
-                self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
-            }else{
-                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH);
-            }
             self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
-            self.titleLabel.jc_centerX = (tabItemCenterX + self.imageView.frame.size.width/2) + _leftTextMargin - _rightTextMargin;
-            self.imageView.jc_centerX = (tabItemCenterX - self.titleLabel.jc_width/2)+_leftImageMargin-_rightImageMargin;
-//            self.titleLabel.jc_x = ( tabItemCenterX -tenMargin ) + _leftTextMargin - _rightTextMargin;
-//            self.imageView.jc_x = (tabItemCenterX -self.imageView.frame.size.width - tenMargin)+_leftImageMargin-_rightImageMargin;
-            self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
+            self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
         }else{
-            [self.titleLabel sizeToFit];
-            self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
-            self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
-            if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
-                self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
+            if (_imageEffectStyles == 1) {
+                [self.titleLabel sizeToFit];
+                self.titleLabel.jc_y = (tabItemH-self.titleLabel.jc_height)+_topTextMargin-_bottomTextMargin;
+                self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
+                self.imageView.frame = CGRectMake(0,0,0,0);
+                [self.imageView sizeToFit];
+                if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
+                    self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
+                }else{
+                    self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
+                self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
+                self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
+            }else if (_imageEffectStyles == 0) {
+                [self.titleLabel sizeToFit];
+                if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
+                    self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
+                }else{
+                    self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH);
+                }
+                self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
+                self.titleLabel.jc_centerX = (tabItemCenterX + self.imageView.frame.size.width/2) + _leftTextMargin - _rightTextMargin;
+                self.imageView.jc_centerX = (tabItemCenterX - self.titleLabel.jc_width/2)+_leftImageMargin-_rightImageMargin;
+                //            self.titleLabel.jc_x = ( tabItemCenterX -tenMargin ) + _leftTextMargin - _rightTextMargin;
+                //            self.imageView.jc_x = (tabItemCenterX -self.imageView.frame.size.width - tenMargin)+_leftImageMargin-_rightImageMargin;
+                self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
             }else{
-                self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
-            self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
-            self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
+                [self.titleLabel sizeToFit];
+                self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;
+                self.titleLabel.jc_centerX = tabItemCenterX +_leftTextMargin-_rightTextMargin;
+                if (_itemImageSize.width == 0 || _itemImageSize.height == 0 ) {
+                    self.imageView.jc_size = CGSizeMake(self.imageView.jc_size.width, self.imageView.jc_size.height);
+                }else{
+                    self.imageView.jc_size = CGSizeMake(_imageViewW,_imageViewH); }
+                self.imageView.jc_centerX = tabItemCenterX +_leftImageMargin-_rightImageMargin;
+                self.imageView.jc_centerY = tabItemCenterY+_topImageMargin-_bottomImageMargin;
+            }
         }
     }else{
-        [self.titleLabel sizeToFit];
 //        self.titleLabel.frame = CGRectMake(tabItemCenterX, tabItemCenterY, self.titleLabel.jc_width, self.titleLabel.jc_height);
         [self.titleLabel sizeToFit];
         self.titleLabel.jc_centerY = tabItemCenterY+_topTextMargin-_bottomTextMargin;

@@ -306,4 +306,14 @@ static CGFloat const defaultTitlesViewH = 50;
     return interface;
 }
 
++(instancetype)jc_initWithFrame:(CGRect)frame titlesArray:(NSArray *)titlesArray childControllerArray:(NSArray *)childControllerArray interFaceStyleToolsBlock:(void (^)(MJCSegmentStylesTools *))toolsBlock hostController:(UIViewController *)hostController
+{
+    MJCSegmentInterface *interface = [[MJCSegmentInterface alloc]initWithFrame:frame];
+    MJCSegmentStylesTools *tools = [[MJCSegmentStylesTools alloc]init];
+    toolsBlock(tools);
+    interface.jc_stylesTools = tools;
+    [interface intoTitlesArray:titlesArray intoChildControllerArray:childControllerArray hostController:hostController];
+    return interface;
+}
+
 @end

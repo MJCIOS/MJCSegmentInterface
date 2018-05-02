@@ -9,7 +9,7 @@
 #import "MJCSoecialDemoVC15.h"
 #import "MJCPrefixHeader.pch"
 
-@interface MJCSoecialDemoVC15 ()
+@interface MJCSoecialDemoVC15 ()<MJCSegmentDelegate>
 @property (nonatomic,weak) MJCSegmentInterface *interFace;
 @end
 
