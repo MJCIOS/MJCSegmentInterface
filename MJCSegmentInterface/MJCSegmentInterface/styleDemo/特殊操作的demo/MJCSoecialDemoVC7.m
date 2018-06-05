@@ -49,7 +49,7 @@
                                           jc_indicatorColor([UIColor redColor]).
                                           jc_indicatorFollowEnabled(YES).
                                           jc_indicatorColorEqualTextColorEnabled(YES).
-                                          jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10, 0, 0, 0)).
+                                          jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0, 0, 0, 0)).
                                           jc_itemSelectedSegmentIndex(2);
                                       }];
     MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyletools:tools];

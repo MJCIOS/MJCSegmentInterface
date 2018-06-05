@@ -87,6 +87,7 @@ static CGFloat const defaultIndicatorH = 1.5;
 -(void)setTitlesArray:(NSArray *)titlesArray
 {
     _titlesArray = titlesArray;
+    
     CGFloat maxTopMargin = _ItemEdgeinsets.top;
     CGFloat maxBottomMargin = _ItemEdgeinsets.bottom;
     CGFloat maxleftMargin = _ItemEdgeinsets.left;
@@ -192,8 +193,8 @@ static CGFloat const defaultIndicatorH = 1.5;
         };
     });
 
-    
     [self addSubview:_indicatorView];
+    
 }
 
 -(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock

@@ -37,7 +37,7 @@
 
 -(void)setupSegmentWithTitlesArr:(NSArray *)titlesArr vcArr:(NSArray *)vcArr
 {
-    MJCSegmentInterface *interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface * interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) titlesArray:titlesArr childControllerArray:vcArr interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesClassicStyle).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 40)).
         jc_titlesViewBackColor([UIColor whiteColor]).
@@ -51,9 +51,8 @@
         jc_itemTextFontSize(15).
         jc_indicatorFollowEnabled(YES).
         jc_childScollAnimalEnabled(YES);
-    }];
+    } hostController:self];
     [self.view addSubview:interface];
-    [interface intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
 }
 
 

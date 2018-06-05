@@ -34,7 +34,8 @@
         vc.title = titlesArr[i];
     }
     
-    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    
+   MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) titlesArray:titlesArr childControllerArray:vcarrr interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_indicatorColor([UIColor orangeColor]).
         jc_childScollAnimalEnabled(YES).
@@ -46,11 +47,9 @@
         jc_itemTextFontSize(13).
         jc_itemTextBoldFontSize(13).
         jc_ItemDefaultShowCount(5);
-    }];
+    } hostController:self];
     interFace.delegate= self;
     [self.view addSubview:interFace];
-    [interFace intoTitlesArray:titlesArr hostController:self];
-    [interFace intoChildControllerArray:vcarrr];
     
 }
 

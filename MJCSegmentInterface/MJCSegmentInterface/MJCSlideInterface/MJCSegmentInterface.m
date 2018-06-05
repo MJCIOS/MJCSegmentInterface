@@ -158,14 +158,16 @@ static CGFloat const defaultTitlesViewH = 50;
     hostController.automaticallyAdjustsScrollViewInsets = NO;
     _titlesArray = titlesArray;
     _hostController = hostController;
-    _childMainView.hostController = hostController;
-    _titlesView.hostController = hostController;
-    [self layoutIfNeeded];
-    [self setNeedsLayout];
-    [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
-    _titlesView.titlesArray = titlesArray;
-    _isLoadDefaultChildVC = YES;
-    _titlesView.selectedSegmentIndex = _selectedSegmentIndex;
+    if (_titlesView.subviews.count == 1) {
+        _childMainView.hostController = hostController;
+        _titlesView.hostController = hostController;
+        [self layoutIfNeeded];
+        [self setNeedsLayout];
+        [_childMainView setupContenSizeWithTitlesArr:titlesArray mainView:self];
+        _titlesView.titlesArray = titlesArray;
+        _isLoadDefaultChildVC = YES;
+        //    _titlesView.selectedSegmentIndex = _selectedSegmentIndex;
+    }
 }
 
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
@@ -197,7 +199,7 @@ static CGFloat const defaultTitlesViewH = 50;
 {
     [_titlesView jc_scrollViewDidEndDragging:scrollView itemTextNormalColor:_jc_stylesTools.itemTextNormalColor];
 }
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     [_titlesView jc_scrollViewWillEndDragging:scrollView itemTextNormalColor:_jc_stylesTools.itemTextNormalColor];
 }
