@@ -91,6 +91,7 @@ static CGFloat const animalTime= 0.25;
         if ([childVc isViewLoaded] && [childVc.view window]) return;
         childVc.view.frame = self.bounds;
         [self addSubview:childVc.view];
+        [self preloadNextControllerView:index];
     }else{
         if (_childViewArray.count != 0) {
             NSUInteger index = self.contentOffset.x / self.jc_width;
@@ -101,6 +102,26 @@ static CGFloat const animalTime= 0.25;
         }
     }
 }
+
+/**
+ 预加载选中页面左右两边页面
+ */
+- (void)preloadNextControllerView:(NSInteger)currentIndex {
+    NSInteger nextIndex = currentIndex + 1;
+    while (nextIndex > 0 && ABS(currentIndex - nextIndex <= 1)) {
+        if (nextIndex >= _hostController.childViewControllers.count) {
+            nextIndex = nextIndex - 2;
+            continue;
+        }
+        UIViewController *childVc = _hostController.childViewControllers[nextIndex];
+        if ([childVc isViewLoaded] && [childVc.view window]) return;
+        CGFloat childVCX = nextIndex * self.bounds.size.width;
+        childVc.view.frame = CGRectMake(childVCX, self.bounds.origin.y, self.bounds.size.width, self.bounds.size.height);
+        [self addSubview:childVc.view];
+        nextIndex = nextIndex - 2;
+    }
+}
+
 -(void)setTitlesTabItem:(MJCTabItem *)titlesTabItem
 {
     _titlesTabItem = titlesTabItem;
