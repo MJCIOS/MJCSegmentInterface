@@ -88,10 +88,10 @@ static CGFloat const animalTime= 0.25;
         UIViewController *childVc;
         if (index >= _hostController.childViewControllers.count) {return;}
         childVc = _hostController.childViewControllers[index];
+        [self preloadNextControllerView:index];
         if ([childVc isViewLoaded] && [childVc.view window]) return;
         childVc.view.frame = self.bounds;
         [self addSubview:childVc.view];
-        [self preloadNextControllerView:index];
     }else{
         if (_childViewArray.count != 0) {
             NSUInteger index = self.contentOffset.x / self.jc_width;
