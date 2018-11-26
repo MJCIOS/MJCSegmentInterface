@@ -51,13 +51,13 @@
         jc_titlesViewBackColor([UIColor yellowColor]).
         jc_indicatorHidden(YES).
         jc_childScollEnabled(YES).
-        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_itemTextImageStyle(MJCUpDownEffect).
         jc_itemImageSize(CGSizeMake(20, 20)).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0, 0, 10, 0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0, 0, 3, 0)).
         jc_itemImageArrayNormal(imageNArr).
         jc_itemImageArraySelected(imageSArr).
-        jc_ItemDefaultShowCount(5).
+        jc_defaultItemShowCount(5).
         jc_itemBackColorSelected([[UIColor orangeColor] colorWithAlphaComponent:0.7]).
         jc_itemTextNormalColor([UIColor blackColor]).
         jc_itemTextFontSize(13).

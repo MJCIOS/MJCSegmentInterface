@@ -53,11 +53,11 @@
         jc_itemImageArrayNormal(imageNArr).
         jc_indicatorColor([UIColor redColor]).
         jc_tabItemSizeToFitIsEnabled(YES, NO, YES ).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(0, 15, 0, 15, 20)).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(0, 15, 0, 15, 20)).
         jc_itemTextFontSize(15).
         jc_childScollEnabled(YES).
         jc_indicatorsAnimalsEnabled(YES).
-        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
         jc_childScollAnimalEnabled(YES);
     }];
     [self.view addSubview:interface];

@@ -37,7 +37,7 @@
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor whiteColor]).
         jc_itemTextFontSize(11).
-        jc_tabItemTextZoomBigEnabled(YES, 18).
+        jc_itemTextZoomEnabled(YES, 18).
         jc_titlesViewBackImage([UIImage imageNamed:@"back"]);
     }];
     [self.view addSubview:interFace];

@@ -31,7 +31,7 @@
 @interface MJCSegmentInterface : UIView
 
 /** 修改分段界面控件的标题和子控制器 */
--(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewControllerArr:(NSArray *)childsViewControllerArr;
+-(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewControllerArr:(NSArray *)childsViewControllerArr stylesTools:(MJCSegmentStylesTools *)stylesTools;
 
 /** 修改分段界面控件的标题和子界面 */
 -(void)jc_reviseSegmentInterfaceTitleArr:(NSArray *)titlesArr childsViewArr:(NSArray *)childsViewArr;
@@ -40,7 +40,7 @@
 @property (nonatomic,weak)id<MJCSegmentDelegate> delegate;
 
 #pragma mark -- 通用设置
-/** 默认选中的item */
+/** 选择切换的选中的item索引 */
 @property (nonatomic,assign) NSInteger selectedSegmentIndex;
 
 #pragma mark -- 添加方法和创建方法
@@ -53,10 +53,10 @@
 +(instancetype)initWithFrame:(CGRect)frame interFaceStyletools:(MJCSegmentStylesTools *)tools;
 /** 添加标题栏与添加控制器的方法(添加子控制器界面的顺序是按照标题的先后顺序与之对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildControllerArray:(NSArray *)childControllerArray hostController:(UIViewController *)hostController;
-/** 添加子控制器界面的方法 */
--(void)intoChildControllerArray:(NSArray*)childControllerArray;
-/** 添加标题栏的方法 */
--(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
+///** 添加子控制器界面的方法 */
+//-(void)intoChildControllerArray:(NSArray*)childControllerArray;
+///** 添加标题栏的方法 */
+//-(void)intoTitlesArray:(NSArray*)titlesArray hostController:(UIViewController*)hostController;
 /** 添加标题栏与添加子界面的方法(添加子界面的顺序是按照子界面添加的先后顺序与标题对应的 */
 -(void)intoTitlesArray:(NSArray *)titlesArray intoChildViewArray:(NSArray *)childViewArray hostController:(UIViewController *)hostController;
 /** 需要传入分段控件样式调整工具 */

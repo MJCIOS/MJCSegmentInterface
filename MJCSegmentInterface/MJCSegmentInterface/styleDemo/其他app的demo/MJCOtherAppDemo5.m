@@ -47,7 +47,7 @@
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50)).
         jc_indicatorFollowEnabled(YES).
         jc_titlesViewBackColor([UIColor whiteColor]).
-        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_itemTextImageStyle(MJCUpDownEffect).
         jc_itemImageSize(CGSizeMake(20, 20)).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0, 0, 10, 0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0, 0, 3, 0)).
@@ -57,10 +57,10 @@
         jc_itemTextNormalColor([UIColor blackColor]).
         jc_itemTextSelectedColor([UIColor orangeColor]).
         jc_indicatorColor([UIColor redColor]).
-        jc_tabItemTextZoomBigEnabled(YES, 15).
+        jc_itemTextZoomEnabled(YES, 15).
         jc_itemTextFontSize(13).
         jc_indicatorColorEqualTextColorEnabled(YES).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
         jc_childScollAnimalEnabled(YES).
         jc_itemImageArrayNormal(imageNArr).
         jc_itemImageArraySelected(imageSArr);

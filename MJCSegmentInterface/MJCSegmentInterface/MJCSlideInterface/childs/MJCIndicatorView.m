@@ -11,6 +11,12 @@
 #import "MJCSegmentInterface.h"
 
 static CGFloat const animalTime= 0.25;
+
+@interface MJCIndicatorView()
+
+
+@end
+
 @implementation MJCIndicatorView
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -41,7 +47,7 @@ static CGFloat const animalTime= 0.25;
 {
 //    ![selectedTitleButton.titleLabel.text isEqualToString:@""]
     if (isIndicatorsAnimals) {
-        if (indicatorStyles == MJCIndicatorItemTextStyle &&  selectedTitleButton.titleLabel.text != nil) {
+        if (indicatorStyles == MJCIndicatorEqualTextEffect &&  selectedTitleButton.titleLabel.text != nil) {
             [selectedTitleButton.titleLabel sizeToFit];
             [UIView animateWithDuration:animalTime animations:^{
                 self.jc_width = selectedTitleButton.titleLabel.jc_width;
@@ -60,7 +66,7 @@ static CGFloat const animalTime= 0.25;
             }];;
         }
     }else{
-        if (indicatorStyles == MJCIndicatorItemTextStyle) {
+        if (indicatorStyles == MJCIndicatorEqualTextEffect) {
             [selectedTitleButton.titleLabel sizeToFit];
             self.jc_width = selectedTitleButton.titleLabel.jc_width;
             self.jc_centerX = selectedTitleButton.jc_centerX;

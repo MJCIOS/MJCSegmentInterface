@@ -94,9 +94,15 @@
 	</dict>
 	<dict>
 		<key>titles</key>
-		<string>如何让它滑动的时候看不到背景色</string>
+		<string>初始加载显示所有界面</string>
 		<key>viewControllers</key>
 		<string>MJCSoecialDemoVC15</string>
+	</dict>
+	<dict>
+		<key>titles</key>
+		<string>重新设置修改它的标题和子界面</string>
+		<key>viewControllers</key>
+		<string>MJCSoecialDemoVC16</string>
 	</dict>
 </array>
 </plist>

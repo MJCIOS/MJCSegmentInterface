@@ -52,22 +52,22 @@
                                           jc_tools.
                                           jc_titleBarStyles(MJCTitlesScrollStyle).
                                           jc_titlesViewFrame(CGRectMake(0,0,self.view.jc_width,60)).
-                                          jc_indicatorStyles(MJCIndicatorItemTextStyle).
-                                          jc_ItemDefaultShowCount(3).
+                                          jc_indicatorStyles(MJCIndicatorEqualTextEffect).
+                                          jc_defaultItemShowCount(3).
                                           jc_titlesViewBackColor([UIColor blueColor]).
                                           jc_itemTextFontSize(13).
                                           jc_itemTextNormalColor([UIColor redColor]).
                                           jc_itemTextSelectedColor([UIColor purpleColor]).
-                                          jc_itemBackColor([UIColor whiteColor]).
+                                          jc_itemBackColorNormal([UIColor whiteColor]).
                                           jc_indicatorHidden(NO).
                                           jc_childScollEnabled(YES).
                                           jc_childScollAnimalEnabled(YES).
                                           jc_indicatorFollowEnabled(YES).
-                                          jc_itemImageEffectStyles(MJCImageClassicStyle).
+                                          jc_itemTextImageStyle(MJCLeftRightEffect).
                                           jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,0,10,0)).
                                           jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
                                           jc_itemTextGradientEnabled(YES).
-                                          jc_tabItemTextZoomBigEnabled(YES, 18);
+                                          jc_itemTextZoomEnabled(YES, 18);
                                       }];
     
     MJCSegmentInterface *interFace =  [MJCSegmentInterface initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyletools:tools];

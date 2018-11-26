@@ -50,16 +50,17 @@
         jc_itemTextSelectedColor([UIColor blackColor]).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextFontSize(13).
-        jc_ItemDefaultShowCount(5).
+        jc_defaultItemShowCount(5).
         jc_childsContainerBackColor([UIColor purpleColor]);
     }];
-
     
     MJCSegmentInterface *interFace = [MJCSegmentInterface initWithFrame: CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyletools:tools];
     interFace.delegate= self;
-    [interFace intoTitlesArray:titlesArr hostController:self];
+//    [interFace intoTitlesArray:titlesArr hostController:self];
     [self.view addSubview:interFace];
-    [interFace intoChildControllerArray:vcArr];
+//    [interFace intoChildControllerArray:vcArr];
+    
+    [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
     
 }
 

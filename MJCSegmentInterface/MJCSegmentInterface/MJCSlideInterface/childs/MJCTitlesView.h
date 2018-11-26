@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MJCTabItem.h"
+#import "MJCSegmentStylesTools.h"
 
+
+typedef void(^DefaultSelectedItemBlock)(MJCTabItem *tabItem);
+typedef void(^SelectedItemClickBlock)(MJCTabItem *tabItem);
 typedef void(^TabItemClickBlock)(MJCTabItem *tabItem);
 typedef void(^TabItemClickCancelBlock)(MJCTabItem *tabItem);
 typedef void(^ScrollDidEndBlock)(MJCTabItem *tabItem);
-typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
+typedef void(^TabItemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 
 @interface MJCTitlesView : UIScrollView
 @property (nonatomic,weak) UIViewController *hostController;
@@ -21,19 +25,18 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 - (void)jc_scrollViewDidEndDragging:(UIScrollView *)scrollView itemTextNormalColor:(UIColor *)itemTextNormalColor;
 - (void)jc_scrollViewWillEndDragging:(UIScrollView *)scrollView itemTextNormalColor:(UIColor *)itemTextNormalColor;
 - (void)jc_scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
-@property(copy,nonatomic) TabItemClickCancelBlock clickCancelBlock;
--(void)tableItemClickCancelBlock:(TabItemClickCancelBlock)clickCancelBlock;
-@property(copy,nonatomic) TabItemClickBlock clickBlock;
--(void)tableItemClickBlock:(TabItemClickBlock)clickBlock;
+@property(copy,nonatomic) TabItemClickCancelBlock tabItemClickCancelBlock;
+@property(copy,nonatomic) TabItemClickBlock tabItemClickBlock;
 @property(copy,nonatomic) ScrollDidEndBlock scrollDidEndBlock;
--(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock;
-@property(copy,nonatomic) TabitemArrBlock tabitemArrBlock;
--(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock;
+@property(copy,nonatomic) TabItemArrBlock tabItemArrBlock;
+@property(copy,nonatomic) SelectedItemClickBlock selectedItemClickBlock;
+@property(copy,nonatomic) DefaultSelectedItemBlock defaultSelectedItemBlock;
 @property (nonatomic,assign) NSInteger titlesBarStyles;
 @property (nonatomic,strong) UIColor *titlesViewBackColor;
 @property (nonatomic,strong)  UIImage*backgroudImage;
 @property (nonatomic,assign) NSInteger defaultShowItemCount;
 @property (nonatomic,assign) NSInteger selectedSegmentIndex;
+@property (nonatomic,assign) NSInteger defaultSelectedIndex;
 @property (nonatomic,strong) UIColor *itemBackColor;
 @property (nonatomic,strong) UIColor *itemBackColorSelected;
 @property (nonatomic,strong) UIImage *itemImageNormal;
@@ -49,7 +52,7 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 @property (nonatomic,strong) UIColor *itemTextNormalColor;
 @property (nonatomic,strong) UIColor *itemTextSelectedColor;
 @property (nonatomic,assign) CGFloat itemTextFontSize;
-@property (nonatomic,assign) CGFloat itemTextBoldFontSize;
+@property (nonatomic,assign) CGFloat itemTextBoldFontSizeSelected;
 @property (nonatomic,assign) CGSize itemImageSize;
 @property(nonatomic,assign) BOOL isItemTitleTextHidden;
 @property (nonatomic,assign) BOOL isFontGradient;
@@ -66,8 +69,7 @@ typedef void(^TabitemArrBlock)(NSArray<MJCTabItem*>*tabItemArr);
 @property (nonatomic,assign) NSInteger indicatorStyles;
 @property(nonatomic,assign) BOOL isIndicatorsAnimals;
 @property (nonatomic,assign) BOOL isIndicatorColorEqualTextColor;
-@property (nonatomic,assign) UIEdgeInsets ItemEdgeinsets;
-@property (nonatomic,assign) CGFloat lineMargin;
+@property (nonatomic,assign) MJCItemEdgeInsets itemEdgeinsets;
 @property (nonatomic,assign) BOOL  scaleLayoutEnabled;
 @property (nonatomic,assign) CGSize tabItemExcessSize;
 @end

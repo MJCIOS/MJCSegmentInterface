@@ -44,19 +44,19 @@
     
     MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame: CGRectMake(0,CGRectGetMaxY(view.frame),self.view.jc_width, self.view.jc_height-CGRectGetMaxY(view.frame)) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
         jc_itemSelectedSegmentIndex(0).
-        jc_ItemDefaultShowCount(4).
+        jc_defaultItemShowCount(4).
         jc_indicatorFollowEnabled(YES).
         jc_indicatorColor([UIColor redColor]).
-        jc_itemBackColor([UIColor whiteColor]).
+        jc_itemBackColorNormal([UIColor whiteColor]).
         jc_itemTextFontSize(13).
         jc_childScollAnimalEnabled(YES).
         jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
         jc_itemImageNormal([UIImage imageNamed:@"food"]).
-        jc_ItemDefaultShowCount(3).
+        jc_defaultItemShowCount(3).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width,50)).
         jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
         jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
@@ -65,7 +65,7 @@
         jc_itemBackImageArrayNormal(imageBackArr).
         jc_itemBackImageArraySelected(imageBackArr).
         jc_itemImageSize(CGSizeMake(20,20)).
-        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_itemTextImageStyle(MJCLeftRightEffect).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,10,10)).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,0,0)).
         jc_itemImageArrayNormal(imageArr).
@@ -75,7 +75,7 @@
         jc_indicatorHidden(YES).
         jc_childScollEnabled(YES).
         jc_childScollAnimalEnabled(YES).
-        jc_tabItemTextZoomBigEnabled(YES, 20).
+        jc_itemTextZoomEnabled(YES, 20).
         jc_indicatorFrame(CGRectMake(0,0,50,30));
     }];
     

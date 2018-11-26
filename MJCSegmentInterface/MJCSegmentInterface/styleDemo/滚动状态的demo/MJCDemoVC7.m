@@ -34,12 +34,12 @@
     
     MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,25)).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(5,5,5,5,25)).
         jc_itemSelectedSegmentIndex(3).
-        jc_ItemDefaultShowCount(4).
+        jc_defaultItemShowCount(4).
         jc_indicatorFollowEnabled(YES).
         jc_titlesViewBackColor([UIColor whiteColor]).
         jc_indicatorColor([UIColor redColor]).

@@ -49,7 +49,7 @@
         jc_itemTextSelectedColor([UIColor orangeColor]).
         jc_indicatorColor([UIColor redColor]).
         jc_itemTextFontSize(12).
-        jc_indicatorStyles(MJCIndicatorItemTextStyle);
+        jc_indicatorStyles(MJCIndicatorEqualTextEffect);
     }];
     MJCSegmentInterface *interFace =  [MJCSegmentInterface initWithFrame:CGRectMake(0, 64, self.view.jc_width, self.view.jc_height - 64) interFaceStyletools:tools];
     [self.view addSubview:interFace];

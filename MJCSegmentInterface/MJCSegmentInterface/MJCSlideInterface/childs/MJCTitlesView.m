@@ -17,7 +17,7 @@
 
 static CGFloat const defaultShowCountItem = 4;
 static CGFloat const defaultItemFontSize = 14;
-static CGFloat const defaultIndicatorH = 1.5;
+static CGFloat const defaultIndicatorH = 1;
 
 @interface MJCTitlesView ()
 @property (nonatomic,strong) MJCIndicatorView *indicatorView;
@@ -37,8 +37,15 @@ static CGFloat const defaultIndicatorH = 1.5;
 @property (nonatomic,assign) BOOL sizeToFitIsEnabled;
 @property (nonatomic,assign) BOOL heightToFitIsEnabled;
 @property (nonatomic,assign) BOOL widthToFitIsEnabled;
+
 @property (nonatomic,assign) CGFloat tabItemW;
 @property (nonatomic,assign) CGFloat itemNewX;
+@property (nonatomic,assign)CGFloat maxTopMargin;
+@property (nonatomic,assign)CGFloat maxBottomMargin;
+@property (nonatomic,assign)CGFloat maxleftMargin;
+@property (nonatomic,assign)CGFloat maxRightMargin;
+@property (nonatomic,assign)CGFloat lineMargin;
+
 @end
 
 @implementation MJCTitlesView
@@ -76,23 +83,64 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     [super layoutSubviews];
     _backgroudView.frame = self.bounds;
-//    if (_isLoadIndicatorFrame) {
-//        _indicatorView.jc_y = _indicatorFrame.origin.y;
-//        _indicatorView.jc_height = _indicatorFrame.size.height;
-//    }else{
-//        _indicatorView.jc_y = self.frame.size.height - _indicatorView.jc_height;
-//        _indicatorView.jc_height = defaultIndicatorH;
-//    }
 }
+
+-(void)setDefaultSelectedIndex:(NSInteger)defaultSelectedIndex
+{
+    _defaultSelectedIndex = defaultSelectedIndex;    
+    if (defaultSelectedIndex >= _titlesArray.count) {
+        MJCTabItem *titlesButton = _titleButtonsArr[0];
+        [self defaultSelectedItemClick:titlesButton];
+        return;
+    }
+    MJCTabItem *titlesButton = _titleButtonsArr[defaultSelectedIndex];
+    [self defaultSelectedItemClick:titlesButton];
+
+}
+
+-(void)defaultSelectedItemClick:(MJCTabItem *)selectedTitleButton
+{
+    [self setupClickAndScrollEndWith:selectedTitleButton isIndicatorsAnimals:NO];
+    if (_defaultSelectedItemBlock) {
+        _defaultSelectedItemBlock(_selectedTitleButton);
+    }
+}
+
+-(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
+{
+    _selectedSegmentIndex = selectedSegmentIndex;
+    
+    if (selectedSegmentIndex >= _titlesArray.count) {
+        MJCTabItem *titlesButton = _titleButtonsArr[0];
+        [self selectedItemClick:titlesButton];
+        return;
+    }
+    MJCTabItem *titlesButton = _titleButtonsArr[selectedSegmentIndex];
+    [self selectedItemClick:titlesButton];    
+}
+
+-(void)selectedItemClick:(MJCTabItem *)selectedTitleButton
+{
+    [self setupClickAndScrollEndWith:selectedTitleButton isIndicatorsAnimals:_isIndicatorsAnimals];
+    if (_selectedItemClickBlock) {
+        _selectedItemClickBlock(_selectedTitleButton);
+    }
+}
+
+-(void)setItemEdgeinsets:(MJCItemEdgeInsets)itemEdgeinsets
+{
+    _itemEdgeinsets = itemEdgeinsets;
+    _maxTopMargin = itemEdgeinsets.maxTop;
+    _maxBottomMargin = itemEdgeinsets.maxBottom;
+    _maxleftMargin = itemEdgeinsets.maxLeft;
+    _maxRightMargin = itemEdgeinsets.maxRight;
+    _lineMargin = itemEdgeinsets.lineMargin;
+}
+
 -(void)setTitlesArray:(NSArray *)titlesArray
 {
     _titlesArray = titlesArray;
     
-    CGFloat maxTopMargin = _ItemEdgeinsets.top;
-    CGFloat maxBottomMargin = _ItemEdgeinsets.bottom;
-    CGFloat maxleftMargin = _ItemEdgeinsets.left;
-    CGFloat maxRightMargin = _ItemEdgeinsets.right;
-    CGFloat lineMargin = _lineMargin;
     CGFloat tabItemW;
     if (_titlesBarStyles == MJCTitlesScrollStyle ) {
         if (_defaultShowItemCount) {
@@ -125,36 +173,37 @@ static CGFloat const defaultIndicatorH = 1.5;
         if (_titlesBarStyles == 0) {
             NSInteger  maxCount = titlesArray.count;
             NSInteger loc = i % maxCount;
-            CGFloat itemW = (self.jc_width  - maxleftMargin - maxRightMargin - (titlesArray.count - 1)*lineMargin) / titlesArray.count;
-            CGFloat x = maxleftMargin + (lineMargin +itemW) * loc;
-            CGFloat tabY = maxTopMargin;
-            CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
+            CGFloat itemW = (self.jc_width  - _maxleftMargin - _maxRightMargin - (titlesArray.count - 1)*_lineMargin) / titlesArray.count;
+            CGFloat x = _maxleftMargin + (_lineMargin +itemW) * loc;
+            CGFloat tabY = _maxTopMargin;
+            CGFloat tabH = tabItemH - _maxBottomMargin - _maxTopMargin;
             tabbutton.frame = CGRectMake(x,tabY,itemW,tabH);
         }else{
             if (_sizeToFitIsEnabled && (_heightToFitIsEnabled || _widthToFitIsEnabled)) {
                 [tabbutton sizeToFit];
                 CGFloat tabX = 0;CGFloat tabH = 0;CGFloat tabY = 0;
                 if (_widthToFitIsEnabled) {
-                    tabX =  _itemNewX + maxleftMargin;
-                    tabbutton.jc_width = tabbutton.jc_width+_tabItemExcessSize.width;
-                    _itemNewX +=   tabbutton.jc_width+lineMargin;
+                    tabX =  _itemNewX + _maxleftMargin;
+                    tabbutton.jc_width = tabbutton.jc_width + _tabItemExcessSize.width;
+                    _itemNewX +=   tabbutton.jc_width + _lineMargin;
                 }else{
-                    tabX =  tabItemW*i+maxleftMargin;
-                    tabbutton.jc_width = tabItemW-lineMargin;
+                    tabX =  tabItemW * i + _maxleftMargin;
+                    tabbutton.jc_width = tabItemW - _lineMargin;
                 }
                 if (_heightToFitIsEnabled) {
-                    tabH =tabbutton.jc_height+_tabItemExcessSize.height;
+                    tabH = tabbutton.jc_height + _tabItemExcessSize.height;
+//                    tabH = tabbutton.itemHeight + _tabItemExcessSize.height;
                 }else{
-                    tabY = _ItemEdgeinsets.top;
-                    tabH= tabItemH - maxBottomMargin - maxTopMargin;
+                    tabY = _maxTopMargin;
+                    tabH = tabItemH - _maxBottomMargin - _maxTopMargin;
                 }
                 [tabbutton setupItemFrameTabX:tabX tabY:tabY tabH:tabH];
                 tabbutton.jc_centerY = self.jc_centerY;
             }else{
-                CGFloat tabX = tabItemW*i+maxleftMargin;
-                CGFloat tabY = maxTopMargin;
-                CGFloat tabH = tabItemH - maxBottomMargin - maxTopMargin;
-                tabbutton.frame = CGRectMake(tabX,tabY, tabItemW-lineMargin,tabH);
+                CGFloat tabX = tabItemW * i + _maxleftMargin;
+                CGFloat tabY = _maxTopMargin;
+                CGFloat tabH = tabItemH - _maxBottomMargin - _maxTopMargin;
+                tabbutton.frame = CGRectMake(tabX,tabY, tabItemW - _lineMargin,tabH);
             }
         }
         [tabbutton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -167,40 +216,36 @@ static CGFloat const defaultIndicatorH = 1.5;
         self.contentSize = CGSizeMake(titlesArray.count * tabItemW,0);
     }else{
         if (_scaleLayoutEnabled) {
-            if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
+            if (_sizeToFitIsEnabled && _widthToFitIsEnabled) {
                 if ([MJCCommontools isIphonePlusBounds]) { //plus适配
-                    self.contentSize = CGSizeMake(_itemNewX*plusScalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+                    self.contentSize = CGSizeMake(_itemNewX * plusScalsW + _maxRightMargin + _maxleftMargin - _lineMargin,0);
                 }else if ([MJCCommontools isIphoneSEBounds]){ //5的适配
-                    self.contentSize = CGSizeMake(_itemNewX*i5scalsW+maxRightMargin+maxleftMargin-lineMargin,0);
+                    self.contentSize = CGSizeMake(_itemNewX * i5scalsW + _maxRightMargin + _maxleftMargin - _lineMargin,0);
                 }else{
-                    self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+                    self.contentSize = CGSizeMake(_itemNewX + _maxRightMargin + _maxleftMargin - _lineMargin,0);
                 }
             }else{
-                self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+                self.contentSize = CGSizeMake(titlesArray.count * tabItemW + _maxRightMargin + _maxleftMargin - _lineMargin,0);
             }
         }else{
-            if (_sizeToFitIsEnabled&& _widthToFitIsEnabled) {
-                self.contentSize = CGSizeMake(_itemNewX+maxRightMargin+maxleftMargin-lineMargin,0);
+            if (_sizeToFitIsEnabled && _widthToFitIsEnabled) {
+                self.contentSize = CGSizeMake(_itemNewX + _maxRightMargin + _maxleftMargin - _lineMargin,0);
             }else{
-                self.contentSize = CGSizeMake(titlesArray.count * tabItemW+maxRightMargin+maxleftMargin-lineMargin,0);
+                self.contentSize = CGSizeMake(titlesArray.count * tabItemW + _maxRightMargin + _maxleftMargin - _lineMargin,0);
             }
         }
     }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMES * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (_tabitemArrBlock) {
-            _tabitemArrBlock(_titleButtonsArr);
-        };
-    });
-
     [self addSubview:_indicatorView];
+    
+    
+    if (_tabItemArrBlock) {
+        _tabItemArrBlock(_titleButtonsArr);
+    };
+
     
 }
 
--(void)tabitemArrBlock:(TabitemArrBlock)tabitemArrBlock
-{
-    _tabitemArrBlock = tabitemArrBlock;
-}
 
 -(void)setupButton:(MJCTabItem *)tabbutton
 {
@@ -228,33 +273,13 @@ static CGFloat const defaultIndicatorH = 1.5;
     tabbutton.itemTitleSelectedColorArray = _itemTitleSelectedColorArray;
 }
 
--(void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
-{
-    _selectedSegmentIndex = selectedSegmentIndex;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(DELAYTIMESTWO * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (selectedSegmentIndex >= _titlesArray.count) {
-            MJCTabItem *titlesButton = _titleButtonsArr[0];
-            [self titleClick:titlesButton];
-            return;
-        }
-        MJCTabItem *titlesButton = _titleButtonsArr[selectedSegmentIndex];
-        [self titleClick:titlesButton];
-    });
-}
-
-
 - (void)titleClick:(MJCTabItem *)titleButton
 {
-    [self setupClickAndScrollEndWith:titleButton];
+    [self setupClickAndScrollEndWith:titleButton isIndicatorsAnimals:_isIndicatorsAnimals];
     
-    if (_clickBlock) {
-        _clickBlock(_selectedTitleButton);
+    if (_tabItemClickBlock) {
+        _tabItemClickBlock(_selectedTitleButton);
     }
-}
-
--(void)tableItemClickCancelBlock:(TabItemClickCancelBlock)clickCancelBlock
-{
-    _clickCancelBlock = clickCancelBlock;
 }
 
 - (void)setupTitleCenter:(UIButton *)titleButton
@@ -365,8 +390,8 @@ static CGFloat const defaultIndicatorH = 1.5;
 {
     NSUInteger index = scrollView.contentOffset.x / scrollView.jc_width;
     MJCTabItem *titleButton = _titleButtonsArr[index];
-    [self setupClickAndScrollEndWith:titleButton];
-//    [self titleClick:titleButton];
+    [self setupClickAndScrollEndWith:titleButton isIndicatorsAnimals:_isIndicatorsAnimals];
+    //    [self titleClick:titleButton];
     if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
         [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.itemTitleNormalColor = _itemTextNormalColor;
@@ -376,15 +401,10 @@ static CGFloat const defaultIndicatorH = 1.5;
         _scrollDidEndBlock(titleButton);
     }
 }
--(void)tableItemClickBlock:(TabItemClickBlock)clickBlock
-{
-    _clickBlock = clickBlock;
-}
 
--(void)setupClickAndScrollEndWith:(MJCTabItem *)titleButton
+-(void)setupClickAndScrollEndWith:(MJCTabItem *)titleButton isIndicatorsAnimals:(BOOL)isIndicatorsAnimals
 {
     _selectedTag = titleButton.tag;
-    
     
     
     if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
@@ -394,17 +414,21 @@ static CGFloat const defaultIndicatorH = 1.5;
         _selectedTitleButton.selected = YES;
         return;
     };
+    
+    
     if (_itemTextFontSize) {
         _selectedTitleButton.itemTextFontSize = _itemTextFontSize;
     }else{
         _selectedTitleButton.itemTextFontSize = defaultItemFontSize;
     }
     
-    _selectedTitleButton.selected = NO;
-    if (_clickCancelBlock) {
-        _clickCancelBlock(_selectedTitleButton);
+    if (_selectedTitleButton) {
+        _selectedTitleButton.selected = NO;
+        if (_tabItemClickCancelBlock) {
+            _tabItemClickCancelBlock(_selectedTitleButton);
+        }
     }
-
+    
     titleButton.selected = YES;
     if (_itemTitleSelectedColorArray.count == 0 && _itemTitleNormalColorArray.count == 0) {
         titleButton.itemTitleSelectedColor = _itemTextSelectedColor;
@@ -418,7 +442,7 @@ static CGFloat const defaultIndicatorH = 1.5;
     }
     _selectedTitleButton = titleButton;
     
-    if ((_titlesBarStyles == 1 &&_zoomBigEnabled && _sizeToFitIsEnabled) &&( _widthToFitIsEnabled || _heightToFitIsEnabled)) {
+    if ((_titlesBarStyles == 1 && _zoomBigEnabled && _sizeToFitIsEnabled) && ( _widthToFitIsEnabled || _heightToFitIsEnabled)) {
         _itemNewX = 0;
         CGFloat tabItemH = self.jc_height;
         [_titleButtonsArr enumerateObjectsUsingBlock:^(MJCTabItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -426,30 +450,31 @@ static CGFloat const defaultIndicatorH = 1.5;
                 [obj sizeToFit];
                 CGFloat tabX = 0;CGFloat tabH = 0;CGFloat tabY = 0;
                 if (_widthToFitIsEnabled) {
-                    tabX =  _itemNewX + _ItemEdgeinsets.left;
-                    obj.jc_width = obj.jc_width+_tabItemExcessSize.width;
-                    _itemNewX +=   obj.jc_width+_lineMargin;
+                    tabX =  _itemNewX + _maxleftMargin;
+                    obj.jc_width = obj.jc_width + _tabItemExcessSize.width;
+                    _itemNewX +=   obj.jc_width + _lineMargin;
                 }else{
-                    tabX =  _tabItemW*obj.tag+_ItemEdgeinsets.left;
-                    obj.jc_width = _tabItemW-_lineMargin;
+                    tabX =  _tabItemW * obj.tag + _maxleftMargin;
+                    obj.jc_width = _tabItemW - _lineMargin;
                 }
                 if (_heightToFitIsEnabled) {
-                    tabH =obj.jc_height+_tabItemExcessSize.height;
+                    tabH = obj.jc_height+_tabItemExcessSize.height;
+//                    tabH = obj.itemHeight+_tabItemExcessSize.height;
                 }else{
-                    tabY = _ItemEdgeinsets.top;
-                    tabH= tabItemH - _ItemEdgeinsets.bottom - _ItemEdgeinsets.top;
+                    tabY = _maxTopMargin;
+                    tabH= tabItemH - _maxBottomMargin - _maxTopMargin;
                 }
                 [obj setupItemFrameTabX:tabX tabY:tabY tabH:tabH];
                 obj.jc_centerY = self.jc_centerY;
             }else{
-                CGFloat tabX = _tabItemW*obj.tag+_ItemEdgeinsets.left;
-                CGFloat tabY = _ItemEdgeinsets.top;
-                CGFloat tabH = tabItemH - _ItemEdgeinsets.bottom - _ItemEdgeinsets.top;
-                obj.frame = CGRectMake(tabX,tabY, _tabItemW-_lineMargin,tabH);
+                CGFloat tabX = _tabItemW * obj.tag + _maxleftMargin;
+                CGFloat tabY = _maxTopMargin;
+                CGFloat tabH = tabItemH - _maxBottomMargin - _maxTopMargin;
+                obj.frame = CGRectMake(tabX,tabY,_tabItemW - _lineMargin,tabH);
             }
             if (idx == _titlesArray.count - 1) {
                 CGFloat maxX = CGRectGetMaxX(obj.frame);
-                self.contentSize = CGSizeMake(maxX+_ItemEdgeinsets.right,0);
+                self.contentSize = CGSizeMake(maxX + _maxRightMargin,0);
                 if (_titlesArray.count >=3 &&  self.contentSize.width > self.frame.size.width) {
                     [self setupTitleCenter:titleButton];
                 }
@@ -460,16 +485,17 @@ static CGFloat const defaultIndicatorH = 1.5;
         }];
     }
     
-    [self setupIndicatorViewCenterAndWidth];
+    [self setupIndicatorViewCenterAndWidthWith:isIndicatorsAnimals];
     
-    if (_itemTextBoldFontSize) {
-        titleButton.titleLabel.font  = [UIFont fontWithName:@"Helvetica-Bold" size:_itemTextBoldFontSize];
+    if (_itemTextBoldFontSizeSelected) {
+        titleButton.titleLabel.font  = [UIFont fontWithName:@"Helvetica-Bold" size:_itemTextBoldFontSizeSelected];
     }
+    
 }
 
--(void)setupIndicatorViewCenterAndWidth
+-(void)setupIndicatorViewCenterAndWidthWith:(BOOL)isIndicatorsAnimals
 {
-    [_indicatorView setupIndicatorViewCenterAndWidthIsAnimal:_isIndicatorsAnimals indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame];
+    [_indicatorView setupIndicatorViewCenterAndWidthIsAnimal:isIndicatorsAnimals indicatorStyles:_indicatorStyles selectedTitleButton:_selectedTitleButton indicatorFrame:_indicatorFrame];
 }
 
 -(void)scrollDidEndBlock:(ScrollDidEndBlock)scrollDidEndBlock

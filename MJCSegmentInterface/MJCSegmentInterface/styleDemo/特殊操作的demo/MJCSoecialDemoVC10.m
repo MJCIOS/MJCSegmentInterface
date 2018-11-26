@@ -40,13 +40,13 @@
       jc_scaleLayoutEnabled(YES).
       jc_itemTextNormalColor([UIColor redColor]).
       jc_itemTextSelectedColor([UIColor blueColor]).
-      jc_itemBackColor([UIColor orangeColor]).
+      jc_itemBackColorNormal([UIColor orangeColor]).
       jc_itemImageSize(CGSizeMake(20, 20)).
-      jc_itemEdgeinsets(MJCEdgeInsetsMake(15, 15, 15, 15, 20)).
+      jc_itemEdgeinsets(MJCItemEdgeInsetsMake(15, 15, 15, 15, 20)).
       jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
-      jc_tabItemTextZoomBigEnabled(YES, 20).
+      jc_itemTextZoomEnabled(YES, 20).
       jc_itemTextFontSize(13).
-      jc_ItemDefaultShowCount(4).
+      jc_defaultItemShowCount(4).
       jc_childsContainerBackColor([UIColor purpleColor]).
       jc_itemSelectedSegmentIndex(0).
 //      jc_itemImageNormal([UIImage imageNamed:@"bulb-2"]).

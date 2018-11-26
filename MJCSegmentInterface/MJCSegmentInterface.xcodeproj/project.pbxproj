@@ -20,6 +20,7 @@
 		250F5E601F2B2D8400B8014A /* UIColor+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E561F2B2D8400B8014A /* UIColor+MJCClassExtension.m */; };
 		250F5E621F2B2D8400B8014A /* UIView+MJCClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */; };
 		253300192047A41800EFB5C9 /* MJCTestChildViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */; };
+		2534B97921ABDB94000557B9 /* MJCSoecialDemoVC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 2534B97821ABDB94000557B9 /* MJCSoecialDemoVC16.m */; };
 		2541CB1F1FA03A52003E756F /* MJCOtherAppDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2541CB1E1FA03A52003E756F /* MJCOtherAppDemo.m */; };
 		2541CB211FA03AF1003E756F /* otherApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2541CB201FA03AF1003E756F /* otherApp.plist */; };
 		2541CB241FA03BB5003E756F /* MJCOtherAppDemo0.m in Sources */ = {isa = PBXBuildFile; fileRef = 2541CB231FA03BB5003E756F /* MJCOtherAppDemo0.m */; };
@@ -152,6 +153,8 @@
 		250F5E5A1F2B2D8400B8014A /* UIView+MJCClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJCClassExtension.m"; sourceTree = "<group>"; };
 		253300172047A41800EFB5C9 /* MJCTestChildViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCTestChildViewVC.h; sourceTree = "<group>"; };
 		253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCTestChildViewVC.m; sourceTree = "<group>"; };
+		2534B97721ABDB94000557B9 /* MJCSoecialDemoVC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC16.h; sourceTree = "<group>"; };
+		2534B97821ABDB94000557B9 /* MJCSoecialDemoVC16.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC16.m; sourceTree = "<group>"; };
 		2541CB1D1FA03A52003E756F /* MJCOtherAppDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCOtherAppDemo.h; sourceTree = "<group>"; };
 		2541CB1E1FA03A52003E756F /* MJCOtherAppDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCOtherAppDemo.m; sourceTree = "<group>"; };
 		2541CB201FA03AF1003E756F /* otherApp.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = otherApp.plist; sourceTree = "<group>"; };
@@ -627,6 +630,8 @@
 				2542DB151FBC214B00480B49 /* MJCSoecialDemoVC14.m */,
 				2589DBCC20720C790085D255 /* MJCSoecialDemoVC15.h */,
 				2589DBCD20720C790085D255 /* MJCSoecialDemoVC15.m */,
+				2534B97721ABDB94000557B9 /* MJCSoecialDemoVC16.h */,
+				2534B97821ABDB94000557B9 /* MJCSoecialDemoVC16.m */,
 			);
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				25E673B51FA32F8D00F51B3E /* MJCOtherAppDemo7.m in Sources */,
 				25EBD0E31F57FD1F00AF38C6 /* MJCClassicMainVC.m in Sources */,
 				250F5E5F1F2B2D8400B8014A /* UIButton+MJCClassExtension.m in Sources */,
+				2534B97921ABDB94000557B9 /* MJCSoecialDemoVC16.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				25E888051F56E95400F0B4C9 /* MJCDemoVC4.m in Sources */,
@@ -1096,6 +1102,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.MJC.MJCSegmentInterface;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1109,6 +1116,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.MJC.MJCSegmentInterface;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

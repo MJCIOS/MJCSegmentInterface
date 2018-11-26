@@ -47,7 +47,7 @@
                                           jc_itemTextColorArraySelected(colorArr1).
                                           jc_itemTextFontSize(11).
                                           jc_childScollEnabled(YES).
-                                          jc_tabItemTextZoomBigEnabled(YES, 14).
+                                          jc_itemTextZoomEnabled(YES, 14).
                                           jc_indicatorColor([UIColor redColor]).
                                           jc_indicatorFollowEnabled(YES).
                                           jc_indicatorColorEqualTextColorEnabled(YES).
@@ -58,6 +58,8 @@
     interFace.delegate = self;
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcarrr hostController:self];
+    
+//    interFace.selectedSegmentIndex = 3;
 }
     
 /**

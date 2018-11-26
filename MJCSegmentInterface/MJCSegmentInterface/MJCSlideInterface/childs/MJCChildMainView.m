@@ -101,6 +101,15 @@ static CGFloat const animalTime= 0.25;
         }
     }
 }
+
+-(void)setDefaulTabItem:(MJCTabItem *)defaulTabItem
+{
+    _defaulTabItem = defaulTabItem;
+    CGPoint offset = self.contentOffset;
+    offset.x = defaulTabItem.tag * self.jc_width;
+    [self setContentOffset:offset animated:NO];
+}
+
 -(void)setTitlesTabItem:(MJCTabItem *)titlesTabItem
 {
     _titlesTabItem = titlesTabItem;

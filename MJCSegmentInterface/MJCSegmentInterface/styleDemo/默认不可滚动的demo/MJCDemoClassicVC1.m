@@ -44,22 +44,23 @@
     MJCSegmentInterface *interFace = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 60)).
-        jc_ItemDefaultShowCount(6).
+        jc_itemSelectedSegmentIndex(3).
+        jc_defaultItemShowCount(6).
         jc_itemTextFontSize(11).
         jc_indicatorFrame(CGRectMake(10,10,0,10)).
         jc_indicatorFollowEnabled(YES).jc_indicatorHidden(NO).jc_indicatorsAnimalsEnabled(YES).jc_childScollEnabled(YES).
         jc_childScollAnimalEnabled(YES).jc_indicatorColorEqualTextColorEnabled(YES).jc_scaleLayoutEnabled(NO).jc_itemTextHidden(NO).
         jc_itemTextGradientEnabled(YES).jc_titlesViewPenetrationEnabled(NO).
         jc_titleBarStyles(MJCTitlesClassicStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
-        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
+        jc_itemTextImageStyle(MJCLeftRightEffect).
         jc_titlesViewBackColor([UIColor whiteColor]).
         jc_itemTextNormalColor([UIColor blueColor]).
         jc_itemTextSelectedColor([UIColor orangeColor]).
-        jc_itemBackColor([UIColor redColor]).
+        jc_itemBackColorNormal([UIColor redColor]).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(0,5,0,0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,0,5)).
-        jc_tabItemTextZoomBigEnabled(YES, 14).
+        jc_itemTextZoomEnabled(YES, 14).
         jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
         jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
         jc_itemImageNormal([UIImage imageNamed:@"food"]).
@@ -74,7 +75,7 @@
         jc_indicatorColor([UIColor blackColor]).
         jc_indicatorImage([UIImage imageNamed:@"箭头"]).
         jc_tabItemSizeToFitIsEnabled(NO, YES, YES).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(5, 5, 5, 5,5));
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(5, 5, 5, 5,5));
     }];
     interFace.delegate = self;
     interFace.frame = CGRectMake(0, 64, self.view.jc_width, self.view.jc_height-64);

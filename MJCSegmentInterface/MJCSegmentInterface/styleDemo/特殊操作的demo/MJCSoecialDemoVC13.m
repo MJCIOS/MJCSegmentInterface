@@ -37,19 +37,19 @@
         jc_titleBarStyles(MJCTitlesScrollStyle).
         jc_titlesViewFrame(CGRectMake(0,0,MJCScreenWidth,50)).
         jc_itemSelectedSegmentIndex(0).
-        jc_ItemDefaultShowCount(3).
+        jc_defaultItemShowCount(3).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
         jc_titlesViewBackColor([UIColor blueColor]).
-        jc_itemBackColor([UIColor whiteColor]).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(5,5,5,5,5)).
+        jc_itemBackColorNormal([UIColor whiteColor]).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(5,5,5,5,5)).
         jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
-        jc_tabItemTextZoomBigEnabled(YES, 17).
+        jc_itemTextZoomEnabled(YES, 17).
         jc_itemTextFontSize(15).
         jc_itemSelectedSegmentIndex(0).
         jc_childsContainerBackColor([UIColor purpleColor]).
         jc_scaleLayoutEnabled(NO).
-        jc_tabItemExcessSize(15, 15);
+        jc_tabItemExcessSize(CGSizeMake(15, 15));
     }];
     [self.view addSubview:interFace];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];

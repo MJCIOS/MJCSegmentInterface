@@ -59,7 +59,7 @@
         jc_itemTextSelectedColor([UIColor blueColor]).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextFontSize(11).
-        jc_ItemDefaultShowCount(5).
+        jc_defaultItemShowCount(5).
         jc_childsContainerBackColor([UIColor purpleColor]).
         jc_indicatorColor([UIColor purpleColor]).
         jc_indicatorHidden(NO).
@@ -80,7 +80,9 @@
         vc.title = _titlesArr[i];
         [_vcArr addObject:vc];
     }
-    [_interface jc_reviseSegmentInterfaceTitleArr:_titlesArr childsViewControllerArr:_vcArr];
+    
+    
+    [_interface jc_reviseSegmentInterfaceTitleArr:_titlesArr childsViewControllerArr:_vcArr stylesTools:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -101,7 +103,7 @@
         vc.title = _titlesArr[i];
         [_vcArr addObject:vc];
     }
-    [_interface jc_reviseSegmentInterfaceTitleArr:_titlesArr childsViewControllerArr:_vcArr];
+    [_interface jc_reviseSegmentInterfaceTitleArr:_titlesArr childsViewControllerArr:_vcArr stylesTools:nil];
 }
 
 -(void)dealloc

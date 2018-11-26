@@ -10,6 +10,7 @@
 
 @interface MJCTabItem : UIButton
 
+@property (nonatomic,assign) CGFloat itemHeight;
 @property (nonatomic,strong) UIColor *itemBackColorSelected;
 @property (nonatomic,copy) NSString *itemText;
 @property (nonatomic,assign) CGFloat itemTextFontSize;

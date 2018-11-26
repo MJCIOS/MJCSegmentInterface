@@ -17,6 +17,7 @@
 - (void)addAllChildVcView;
 -(void)setupChildViewHeightisLoadDefaultChildVC:(BOOL)isLoadDefaultChildVC;
 @property (nonatomic,strong) MJCTabItem *titlesTabItem;
+@property (nonatomic,strong) MJCTabItem *defaulTabItem;
 -(void)setupContenSizeWithTitlesArr:(NSArray *)titlesArr mainView:(UIView*)mainView;
 @property(nonatomic,assign) BOOL isChildScollAnimal;
 @property (nonatomic,assign) BOOL isChildScollEnabled;

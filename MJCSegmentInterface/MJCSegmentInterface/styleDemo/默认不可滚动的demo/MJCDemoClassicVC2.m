@@ -47,10 +47,10 @@
         jc_tools.
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
         jc_titleBarStyles(MJCTitlesClassicStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
-        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
+        jc_itemTextImageStyle(MJCLeftRightEffect).
         jc_itemSelectedSegmentIndex(4).
-        jc_ItemDefaultShowCount(3).
+        jc_defaultItemShowCount(3).
         jc_itemTextFontSize(13).
         jc_titlesViewBackColor([UIColor orangeColor]).
         jc_itemTextNormalColor([UIColor redColor]).
@@ -64,28 +64,28 @@
         jc_itemImageNormal([UIImage imageNamed:@"food"]).
         jc_itemImageArrayNormal(imageArr).
         jc_itemImageArraySelected(imageArr1).
-        jc_indicatorColor([UIColor redColor]).
+        jc_indicatorColor([UIColor purpleColor]).
         jc_indicatorImage([UIImage imageNamed:@"箭头"]).
         jc_indicatorHidden(NO).
         jc_childScollEnabled(YES).
         jc_childScollAnimalEnabled(YES).
         jc_indicatorFollowEnabled(YES).
         jc_tabItemSizeToFitIsEnabled(YES, NO, NO).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(0, 10, 0, 10, 10)).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(0, 10, 0, 10, 10)).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,10,0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
         jc_itemTextGradientEnabled(YES).
         jc_itemTextHidden(NO).
         jc_titlesViewPenetrationEnabled(NO).
-        jc_indicatorColorEqualTextColorEnabled(YES).
+        jc_indicatorColorEqualTextColorEnabled(NO).
         jc_childsContainerBackColor([UIColor redColor]).
         jc_itemImageSize(CGSizeMake(15, 15)).
-        jc_indicatorFrame(CGRectMake(0,jc_tools.titlesViewFrame.size.height - 10,30,10)).
-        jc_tabItemTextZoomBigEnabled(YES, 14).
+//        jc_indicatorFrame(CGRectMake(0,jc_tools.titlesViewFrame.size.height - 10,30,10)).
+        jc_itemTextZoomEnabled(YES, 14).
         jc_itemTextColorArrayNormal(colorArr).jc_itemTextColorArraySelected(colorArr1).
         jc_indicatorsAnimalsEnabled(YES).
         jc_scaleLayoutEnabled(NO).
-        jc_itemBackColor([UIColor redColor]);
+        jc_itemBackColorNormal([UIColor redColor]);
     }];
     [interface intoTitlesArray:titlesArr intoChildViewArray:viewArr hostController:self];
     interface.delegate = self;

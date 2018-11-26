@@ -39,10 +39,9 @@
         jc_tools.
         jc_titlesViewBackColor([UIColor redColor]).
         jc_titleBarStyles(MJCTitlesScrollStyle).
-        jc_itemImageEffectStyles(MJCImageUpDownStyle).
+        jc_itemTextImageStyle(MJCUpDownEffect).
         jc_indicatorFollowEnabled(YES).
-        jc_itemBackColor([UIColor whiteColor]).
-        jc_itemBackColor([UIColor purpleColor]).
+        jc_itemBackColorNormal([UIColor purpleColor]).
         jc_itemSelectedSegmentIndex(3).
         jc_itemTextSelectedColor([UIColor blackColor]).
         jc_itemTextNormalColor([UIColor redColor]).
@@ -51,7 +50,7 @@
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10, 0,0,0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(0,0,30,0)).
         jc_itemTextFontSize(13).
-        jc_ItemDefaultShowCount(5).
+        jc_defaultItemShowCount(5).
         jc_childsContainerBackColor([UIColor purpleColor]);
     }];
     [self.view addSubview:interFace];

@@ -46,11 +46,11 @@
         jc_titlesViewBackColor([UIColor whiteColor]).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
-        jc_itemSelectedSegmentIndex(3).
-        jc_ItemDefaultShowCount(6).
+//        jc_itemSelectedSegmentIndex(3).
+        jc_defaultItemShowCount(6).
         jc_itemTextFontSize(13).
-        jc_indicatorStyles(MJCIndicatorItemTextStyle).
-        jc_indicatorsAnimalsEnabled(YES).
+        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
+        jc_indicatorsAnimalsEnabled(NO).
         jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
     }];
     [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
@@ -64,9 +64,9 @@
 //        jc_itemTextNormalColor([UIColor redColor]).
 //        jc_itemTextSelectedColor([UIColor purpleColor]).
 //        jc_itemSelectedSegmentIndex(3).
-//        jc_ItemDefaultShowCount(6).
+//        jc_defaultItemShowCount(6).
 //        jc_itemTextFontSize(11).
-//        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+//        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
 //        jc_indicatorsAnimalsEnabled(YES).
 //        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 50));
 //    }];

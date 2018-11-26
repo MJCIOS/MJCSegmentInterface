@@ -43,14 +43,17 @@
     }
     _viewArr = viewArr;
     
+    CGFloat titlesViewW = self.view.jc_width;
+    CGFloat titlesViewH = 100;
+    
     MJCSegmentInterface *interface = [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.
-        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
+        jc_titlesViewFrame(CGRectMake(0, 0, titlesViewW, titlesViewH)).
         jc_titleBarStyles(MJCTitlesScrollStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
-        jc_itemImageEffectStyles(MJCImageClassicStyle).
+        jc_indicatorStyles(MJCIndicatorEqualItemEffect).
+        jc_itemTextImageStyle(MJCLeftRightEffect).
         jc_itemSelectedSegmentIndex(4).
-        jc_ItemDefaultShowCount(3).
+        jc_defaultItemShowCount(3).
         jc_itemTextFontSize(13).
         jc_titlesViewBackColor([UIColor orangeColor]).
         jc_itemTextNormalColor([UIColor redColor]).
@@ -71,7 +74,7 @@
         jc_childScollAnimalEnabled(YES).
         jc_indicatorFollowEnabled(YES).
         jc_tabItemSizeToFitIsEnabled(YES, NO, NO).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(0, 10, 0, 10, 10)).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(0, 10, 0, 10, 10)).
         jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,10,0)).
         jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
         jc_itemTextGradientEnabled(YES).
@@ -80,12 +83,12 @@
         jc_indicatorColorEqualTextColorEnabled(YES).
         jc_childsContainerBackColor([UIColor redColor]).
         jc_itemImageSize(CGSizeMake(15, 15)).
-        jc_indicatorFrame(CGRectMake(0,jc_tools.titlesViewFrame.size.height - 10,30,10)).
-        jc_tabItemTextZoomBigEnabled(YES, 14).
+        jc_indicatorFrame(CGRectMake(0,titlesViewH - 10,30,10)).
+        jc_itemTextZoomEnabled(YES, 14).
         jc_itemTextColorArrayNormal(colorArr).jc_itemTextColorArraySelected(colorArr1).
         jc_indicatorsAnimalsEnabled(YES).
         jc_scaleLayoutEnabled(NO).
-        jc_itemBackColor([UIColor redColor]);
+        jc_itemBackColorNormal([UIColor redColor]);
     }];
     [interface intoTitlesArray:titlesArr intoChildViewArray:viewArr hostController:self];
     interface.delegate = self;

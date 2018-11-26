@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
     MJCTestTableViewController *vc2 = [[MJCTestTableViewController alloc]init];
     MJCTestViewController1 *vc3 = [[MJCTestViewController1 alloc]init];
@@ -42,49 +43,59 @@
     NSArray *colorArr = @[[UIColor redColor],[UIColor blackColor],[UIColor purpleColor],[UIColor lightGrayColor],[UIColor orangeColor]];
     NSArray *colorArr1 = @[[UIColor blackColor],[UIColor redColor],[UIColor lightGrayColor],[UIColor purpleColor],[UIColor yellowColor]];
     
+    
+    
    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
-        jc_tools.
-        jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
-        jc_titleBarStyles(MJCTitlesScrollStyle).
-        jc_indicatorStyles(MJCIndicatorItemStyle).
-        jc_itemImageEffectStyles(MJCImageClassicStyle).
-        jc_itemSelectedSegmentIndex(4).
-        jc_ItemDefaultShowCount(3).
-        jc_itemTextFontSize(13).
-        jc_titlesViewBackColor([UIColor orangeColor]).
-        jc_itemTextNormalColor([UIColor redColor]).
-        jc_itemTextSelectedColor([UIColor purpleColor]).
-        jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
-        jc_itemBackImageNormal([UIImage imageNamed:@"222"]).
-        jc_itemBackImageSelected([UIImage imageNamed:@"456"]).
-        jc_itemBackImageArraySelected(backimageArr).
-        jc_itemBackImageArrayNormal(backimageArr1).
-        jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
-        jc_itemImageNormal([UIImage imageNamed:@"food"]).
-        jc_itemImageArrayNormal(imageArr).
-        jc_itemImageArraySelected(imageArr1).
-        jc_indicatorColor([UIColor redColor]).
-        jc_indicatorImage([UIImage imageNamed:@"箭头"]).
-        jc_indicatorHidden(NO).
-        jc_childScollEnabled(YES).
-        jc_childScollAnimalEnabled(YES).
-        jc_indicatorFollowEnabled(YES).
-        jc_tabItemSizeToFitIsEnabled(YES, NO, NO).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(0, 10, 0, 10, 10)).
-        jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,10,0)).
-        jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
-        jc_itemTextGradientEnabled(YES).
-        jc_itemTextHidden(NO).
-        jc_titlesViewPenetrationEnabled(NO).
-        jc_indicatorColorEqualTextColorEnabled(YES).
-        jc_childsContainerBackColor([UIColor redColor]).
-        jc_itemImageSize(CGSizeMake(15, 15)).
-        jc_indicatorFrame(CGRectMake(0,jc_tools.titlesViewFrame.size.height - 10,30,10)).
-        jc_tabItemTextZoomBigEnabled(YES, 14).
-        jc_itemTextColorArrayNormal(colorArr).jc_itemTextColorArraySelected(colorArr1).
-        jc_indicatorsAnimalsEnabled(YES).
-        jc_scaleLayoutEnabled(NO).
-        jc_itemBackColor([UIColor redColor]);
+       
+       jc_tools.
+       jc_titlesViewFrame(CGRectMake(0, 0, self.view.jc_width, 100)).
+       jc_titleBarStyles(MJCTitlesScrollStyle).
+       jc_defaultItemShowCount(5).
+       jc_childScollEnabled(YES).
+       jc_childScollAnimalEnabled(YES).
+       jc_childsContainerBackColor([UIColor redColor]).
+
+       jc_indicatorHidden(NO).
+       jc_indicatorStyles(MJCIndicatorEqualTextEffect).
+       jc_indicatorColor([UIColor orangeColor]).
+       jc_indicatorImage([UIImage imageNamed:@"箭头"]).
+       jc_indicatorFollowEnabled(YES).
+       jc_indicatorsAnimalsEnabled(YES).
+       jc_indicatorFrame(CGRectMake(0,70,50,10)).
+       jc_indicatorColorEqualTextColorEnabled(NO).
+       
+       jc_titlesViewBackColor([UIColor orangeColor]).
+       jc_titlesViewBackImage([UIImage imageNamed:@"back"]).
+       jc_titlesViewPenetrationEnabled(NO).
+       
+       
+       jc_itemTextHidden(NO).
+       jc_itemTextFontSize(14).
+       jc_itemTextNormalColor([UIColor grayColor]).
+       jc_itemTextSelectedColor([UIColor blackColor]).
+//       jc_itemTextColorArrayNormal(colorArr).
+//       jc_itemTextColorArraySelected(colorArr1).
+       jc_itemBackColorNormal([UIColor redColor]).
+//       jc_itemBackColorSelected([UIColor purpleColor]).
+//       jc_itemBackImageNormal([UIImage imageNamed:@"222"]).
+//       jc_itemBackImageSelected([UIImage imageNamed:@"456"]).
+//       jc_itemBackImageArraySelected(backimageArr).
+//       jc_itemBackImageArrayNormal(backimageArr1).
+       jc_itemTextImageStyle(MJCCenterEffect).
+       jc_itemImageSelected([UIImage imageNamed:@"food-2"]).
+       jc_itemImageNormal([UIImage imageNamed:@"food"]).
+//       jc_itemImageArrayNormal(imageArr).
+//       jc_itemImageArraySelected(imageArr1).
+       jc_itemImagesEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
+       jc_itemTextsEdgeInsets(UIEdgeInsetsMake(10,10,10,10)).
+       jc_itemEdgeinsets(MJCItemEdgeInsetsMake(0, 10, 0, 10, 10)).
+       jc_itemImageSize(CGSizeMake(10,10)).
+       jc_itemTextZoomEnabled(YES, 15).
+       jc_itemTextGradientEnabled(YES).
+       jc_tabItemSizeToFitIsEnabled(YES, YES, YES).
+       jc_tabItemExcessSize(CGSizeMake(0,0)).
+       jc_scaleLayoutEnabled(NO).
+       jc_itemSelectedSegmentIndex(0);
     }];
     interFace.delegate = self;
     [self.view addSubview:interFace];
@@ -118,6 +129,7 @@
     NSLog(@"%@",childsController);
     NSLog(@"%@",segmentInterface);
 }
+
 
 -(void)dealloc
 {

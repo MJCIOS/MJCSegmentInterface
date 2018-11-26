@@ -13,6 +13,17 @@
 
 @property (nonatomic,strong) NSArray *mainArr;
 
+/** <#name#>  */
+@property (nonatomic,strong) MJCSegmentInterface *interface;
+
+/** <#name#>  */
+@property (nonatomic,strong) NSArray *titlesArr;
+
+/** <#name#>  */
+@property (nonatomic,strong) NSArray *vcarrr;
+
+
+
 @end
 
 @implementation MJCDemoVC0
@@ -34,24 +45,27 @@
         vc.title = titlesArr[i];
     }
     
-    
-   MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height-64) titlesArray:titlesArr childControllerArray:vcarrr interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
+    MJCSegmentInterface *interFace =  [MJCSegmentInterface jc_initWithFrame:CGRectMake(0,64,self.view.jc_width, self.view.jc_height - 64) titlesArray:titlesArr childControllerArray:vcarrr interFaceStyleToolsBlock:^(MJCSegmentStylesTools *jc_tools) {
         jc_tools.jc_titleBarStyles(MJCTitlesScrollStyle).
+        jc_itemSelectedSegmentIndex(2).
+        jc_indicatorHidden(YES).
         jc_indicatorColor([UIColor orangeColor]).
         jc_childScollAnimalEnabled(YES).
         jc_childScollEnabled(YES).
+        jc_loadAllChildViewEnabled(YES).
         jc_childsContainerBackColor([UIColor whiteColor]).
         jc_titlesViewBackColor([UIColor whiteColor]).
         jc_itemTextNormalColor([UIColor redColor]).
         jc_itemTextSelectedColor([UIColor purpleColor]).
         jc_itemTextFontSize(13).
-        jc_itemTextBoldFontSize(13).
-        jc_ItemDefaultShowCount(5);
+        jc_itemTextBoldFontSizeSelected(15).
+        jc_defaultItemShowCount(5);
     } hostController:self];
     interFace.delegate= self;
     [self.view addSubview:interFace];
     
 }
+
 
 -(void)dealloc
 {

@@ -44,11 +44,11 @@
                                           jc_titleBarStyles(MJCTitlesScrollStyle).
                                           jc_titlesViewFrame(CGRectMake(0,0,MJCScreenWidth,50)).
                                           jc_itemSelectedSegmentIndex(0).
-                                          jc_ItemDefaultShowCount(3).
+                                          jc_defaultItemShowCount(3).
                                           jc_itemTextNormalColor([UIColor redColor]).
                                           jc_itemTextSelectedColor([UIColor purpleColor]).
                                           jc_titlesViewBackColor([UIColor blueColor]).
-                                          jc_itemBackColor([UIColor whiteColor]);
+                                          jc_itemBackColorNormal([UIColor whiteColor]);
                                       }];
     _interFace.jc_stylesTools = tools;
 //    _interFace.delegate = self;

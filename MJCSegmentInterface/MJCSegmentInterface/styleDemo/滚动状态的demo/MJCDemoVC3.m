@@ -39,16 +39,16 @@
         jc_childScollEnabled(YES).
         jc_itemSelectedSegmentIndex(3).
         jc_indicatorColor([[UIColor redColor]colorWithAlphaComponent:0.1]).
-        jc_tabItemTextZoomBigEnabled(YES, 22).
+        jc_itemTextZoomEnabled(YES, 22).
         jc_itemTextFontSize(17).
         jc_itemTextNormalColor([UIColor purpleColor]).
         jc_itemTextSelectedColor([UIColor orangeColor]).
         jc_itemTextFontSize(13).
-        jc_tabItemTextZoomBigEnabled(YES, 18).
+        jc_itemTextZoomEnabled(YES, 18).
         jc_indicatorHidden(NO).
         jc_indicatorsAnimalsEnabled(YES).
-        jc_ItemDefaultShowCount(5).
-        jc_itemBackColor([UIColor whiteColor]).
+        jc_defaultItemShowCount(5).
+        jc_itemBackColorNormal([UIColor whiteColor]).
         jc_itemTextGradientEnabled(NO);
     }];
     [self.view addSubview:interFace];

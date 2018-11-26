@@ -234,11 +234,11 @@
     };
 }
 
--(MJCSegmentStylesTools *(^)(NSInteger))jc_ItemDefaultShowCount
+-(MJCSegmentStylesTools *(^)(NSInteger))jc_defaultItemShowCount
 {
-    return ^MJCSegmentStylesTools *(NSInteger ItemDefaultShowCount)
+    return ^MJCSegmentStylesTools *(NSInteger defaultItemShowCount)
     {
-        _ItemDefaultShowCount = ItemDefaultShowCount;
+        _defaultItemShowCount = defaultItemShowCount;
         return self;
     };
 }
@@ -250,7 +250,7 @@
         _itemImagesEdgeInsets = itemImagesEdgeInsets;
         return self;
     };
-
+    
 }
 
 -(MJCSegmentStylesTools *(^)(UIEdgeInsets))jc_itemTextsEdgeInsets
@@ -262,11 +262,11 @@
     };
 }
 
--(MJCSegmentStylesTools *(^)(MJCImageEffectStyles))jc_itemImageEffectStyles
+-(MJCSegmentStylesTools *(^)(MJCItemTextImageStyle))jc_itemTextImageStyle
 {
-    return ^MJCSegmentStylesTools *(MJCImageEffectStyles itemImageEffectStyles)
+    return ^MJCSegmentStylesTools *(MJCItemTextImageStyle itemTextImageStyle)
     {
-        _itemImageEffectStyles = itemImageEffectStyles;
+        _itemTextImageStyle = itemTextImageStyle;
         return self;
     };
 
@@ -281,11 +281,11 @@
     };
 }
 
--(MJCSegmentStylesTools *(^)(UIColor *))jc_itemBackColor
+-(MJCSegmentStylesTools *(^)(UIColor *))jc_itemBackColorNormal
 {
-    return ^MJCSegmentStylesTools *(UIColor *itemBackColor)
+    return ^MJCSegmentStylesTools *(UIColor *itemBackColorNormal)
     {
-        _itemBackColor = itemBackColor;
+        _itemBackColorNormal = itemBackColorNormal;
         return self;
     };
 }
@@ -298,14 +298,15 @@
     };
 }
 
--(MJCSegmentStylesTools *(^)(CGFloat))jc_itemTextBoldFontSize
+-(MJCSegmentStylesTools *(^)(CGFloat))jc_itemTextBoldFontSizeSelected
 {
-    return ^MJCSegmentStylesTools* (CGFloat itemTextBoldFontSize)
+    return ^MJCSegmentStylesTools* (CGFloat itemTextBoldFontSizeSelected)
     {
-        _itemTextBoldFontSize = itemTextBoldFontSize;
+        _itemTextBoldFontSizeSelected = itemTextBoldFontSizeSelected;
         return self;
     };
 }
+
 
 -(MJCSegmentStylesTools *(^)(UIColor *))jc_itemTextNormalColor
 {
@@ -425,34 +426,33 @@
     };
 }
 
--(MJCSegmentStylesTools *(^)(BOOL, CGFloat))jc_tabItemTextZoomBigEnabled
+-(MJCSegmentStylesTools *(^)(BOOL, CGFloat))jc_itemTextZoomEnabled
 {
-    return ^MJCSegmentStylesTools*(BOOL itemTextZoomBigEnabled,CGFloat itemTextMaxfontSize)
+    return ^MJCSegmentStylesTools*(BOOL itemTextZoomEnabled,CGFloat itemTextZoomFontSize)
     {
-        _itemTextMaxfontSize = itemTextMaxfontSize;
-        _itemTextZoomBigEnabled = itemTextZoomBigEnabled;
+        _itemTextZoomFontSize = itemTextZoomFontSize;
+        _itemTextZoomEnabled = itemTextZoomEnabled;
         return self;
     };
-
 }
 
--(MJCSegmentStylesTools *(^)(MJCEdgeInsets))jc_itemEdgeinsets
+-(MJCSegmentStylesTools *(^)(MJCItemEdgeInsets))jc_itemEdgeinsets
 {
-    return ^MJCSegmentStylesTools*(MJCEdgeInsets itemEdgeinsets)
+    return ^MJCSegmentStylesTools*(MJCItemEdgeInsets itemEdgeinsets)
     {
         _itemEdgeinsets = itemEdgeinsets;
         return self;
     };
 }
 
--(MJCSegmentStylesTools *(^)(CGFloat, CGFloat))jc_tabItemExcessSize
+-(MJCSegmentStylesTools *(^)(CGSize))jc_tabItemExcessSize
 {
-    return ^MJCSegmentStylesTools *(CGFloat excessWidth,CGFloat excessHeight)
+    return ^MJCSegmentStylesTools *(CGSize itemExcessSize)
     {
-        _itemExcessWidth = excessWidth;
-        _itemExcessHeight = excessHeight;
+        _itemExcessSize = itemExcessSize;
         return self;
     };
 }
 
 @end
+

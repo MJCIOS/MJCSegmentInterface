@@ -53,12 +53,12 @@
         jc_itemTextSelectedColor([[UIColor whiteColor]colorWithAlphaComponent:0.7]).
         jc_indicatorColor([UIColor orangeColor]).
         jc_indicatorFrame(CGRectMake(0, jc_tools.titlesViewFrame.size.height - 3, 20, 3)).
-        jc_tabItemTextZoomBigEnabled(YES, 15).
+        jc_itemTextZoomEnabled(YES, 15).
         jc_itemTextFontSize(13).
         jc_indicatorColorEqualTextColorEnabled(YES).
         jc_tabItemSizeToFitIsEnabled(YES, NO, YES).
-        jc_itemEdgeinsets(MJCEdgeInsetsMake(0,15, 0,15, 30)).
-        jc_indicatorStyles(MJCIndicatorItemTextStyle).
+        jc_itemEdgeinsets(MJCItemEdgeInsetsMake(0,15, 0,15, 30)).
+        jc_indicatorStyles(MJCIndicatorEqualTextEffect).
         jc_childScollAnimalEnabled(YES);
     }];
     [self.view addSubview:interface];

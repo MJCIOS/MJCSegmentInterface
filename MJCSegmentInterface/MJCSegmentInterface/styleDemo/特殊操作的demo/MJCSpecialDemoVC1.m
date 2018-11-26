@@ -89,7 +89,7 @@
             jc_itemTextSelectedColor([UIColor blueColor]).
             jc_itemTextNormalColor([UIColor redColor]).
             jc_itemTextFontSize(11).
-            jc_ItemDefaultShowCount(5).
+            jc_defaultItemShowCount(5).
             jc_childsContainerBackColor([UIColor purpleColor]).
             jc_indicatorColor([UIColor purpleColor]).
             jc_indicatorHidden(NO).
@@ -105,7 +105,7 @@
         [interFace intoTitlesArray:titlesArr intoChildControllerArray:vcArr hostController:self];
     }
     
-    [interFace jc_reviseSegmentInterfaceTitleArr:titlesArr childsViewControllerArr:vcArr];
+    [interFace jc_reviseSegmentInterfaceTitleArr:titlesArr childsViewControllerArr:vcArr stylesTools:nil];
 }
 
 -(void)mjc_ClickEventWithItem:(UIButton *)tabItem childsController:(UIViewController *)childsController segmentInterface:(MJCSegmentInterface *)segmentInterface
