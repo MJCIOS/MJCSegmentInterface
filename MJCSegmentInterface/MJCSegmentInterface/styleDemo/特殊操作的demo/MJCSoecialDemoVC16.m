@@ -21,7 +21,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"试试" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
     
     self.view.backgroundColor = [UIColor whiteColor];
-
     
     NSArray *titlesArr = @[@"荣耀",@"联盟",@"DNF",@"CF",@"飞车",@"炫舞",@"天涯"];
     MJCTestViewController *vc1 = [[MJCTestViewController alloc]init];
