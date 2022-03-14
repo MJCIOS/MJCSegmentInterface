@@ -365,7 +365,7 @@
 			path = "使用view用做子视图";
 			sourceTree = "<group>";
 		};
-		2541CB1C1FA03A24003E756F /* 其他app的demo */ = {
+		2541CB1C1FA03A24003E756F /* 模仿其他app的demo */ = {
 			isa = PBXGroup;
 			children = (
 				2541CB1D1FA03A52003E756F /* MJCOtherAppDemo.h */,
@@ -387,7 +387,7 @@
 				25E673B31FA32F8C00F51B3E /* MJCOtherAppDemo7.h */,
 				25E673B41FA32F8D00F51B3E /* MJCOtherAppDemo7.m */,
 			);
-			path = "其他app的demo";
+			path = "模仿其他app的demo";
 			sourceTree = "<group>";
 		};
 		25D9DB391DC2635C00B903B1 = {
@@ -558,11 +558,11 @@
 		25F037941F56D8C400B208CD /* styleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				253300162047A3C400EFB5C9 /* 使用view用做子视图 */,
-				2541CB1C1FA03A24003E756F /* 其他app的demo */,
-				25F037951F56D8C400B208CD /* 可滚动状态下的demo */,
 				25F037B61F56D8C400B208CD /* 不可滚动状态下的demo */,
-				25F037AB1F56D8C400B208CD /* 特殊操作的demo */,
+				25F037951F56D8C400B208CD /* 可滚动状态下的demo */,
+				25F037AB1F56D8C400B208CD /* 有些特殊操作的demo */,
+				2541CB1C1FA03A24003E756F /* 模仿其他app的demo */,
+				253300162047A3C400EFB5C9 /* 使用view用做子视图 */,
 				25FD292A27DF37590040A02A /* MJCTestDemo100.h */,
 				25FD292B27DF37590040A02A /* MJCTestDemo100.m */,
 			);
@@ -597,7 +597,7 @@
 			path = "可滚动状态下的demo";
 			sourceTree = "<group>";
 		};
-		25F037AB1F56D8C400B208CD /* 特殊操作的demo */ = {
+		25F037AB1F56D8C400B208CD /* 有些特殊操作的demo */ = {
 			isa = PBXGroup;
 			children = (
 				25EBD0E41F57FD2C00AF38C6 /* mainVC0 */,
@@ -638,7 +638,7 @@
 				2534B97721ABDB94000557B9 /* MJCSoecialDemoVC16.h */,
 				2534B97821ABDB94000557B9 /* MJCSoecialDemoVC16.m */,
 			);
-			path = "特殊操作的demo";
+			path = "有些特殊操作的demo";
 			sourceTree = "<group>";
 		};
 		25F037B61F56D8C400B208CD /* 不可滚动状态下的demo */ = {
