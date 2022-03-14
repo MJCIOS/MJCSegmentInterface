@@ -422,7 +422,7 @@
 				257033FB1F5D3D6500132A8F /* ViewController.h */,
 				257033FC1F5D3D6500132A8F /* ViewController.m */,
 				25E822EE1F0CE39700FB305F /* MJCSlideInterface */,
-				25F037941F56D8C400B208CD /* styleDemo */,
+				25F037941F56D8C400B208CD /* Demo */,
 				25E822DB1F0CE38200FB305F /* testController */,
 				25D9DB451DC2635C00B903B1 /* Supporting Files */,
 			);
@@ -555,7 +555,7 @@
 			path = mainVC0;
 			sourceTree = "<group>";
 		};
-		25F037941F56D8C400B208CD /* styleDemo */ = {
+		25F037941F56D8C400B208CD /* Demo */ = {
 			isa = PBXGroup;
 			children = (
 				25F037B61F56D8C400B208CD /* 不可滚动状态下的demo */,
@@ -566,7 +566,7 @@
 				25FD292A27DF37590040A02A /* MJCTestDemo100.h */,
 				25FD292B27DF37590040A02A /* MJCTestDemo100.m */,
 			);
-			path = styleDemo;
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		25F037951F56D8C400B208CD /* 可滚动状态下的demo */ = {
