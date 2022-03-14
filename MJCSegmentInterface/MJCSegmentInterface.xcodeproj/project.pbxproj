@@ -560,8 +560,8 @@
 			children = (
 				253300162047A3C400EFB5C9 /* 使用view用做子视图 */,
 				2541CB1C1FA03A24003E756F /* 其他app的demo */,
-				25F037951F56D8C400B208CD /* 滚动状态的demo */,
-				25F037B61F56D8C400B208CD /* 默认不可滚动的demo */,
+				25F037951F56D8C400B208CD /* 可滚动状态下的demo */,
+				25F037B61F56D8C400B208CD /* 不可滚动状态下的demo */,
 				25F037AB1F56D8C400B208CD /* 特殊操作的demo */,
 				25FD292A27DF37590040A02A /* MJCTestDemo100.h */,
 				25FD292B27DF37590040A02A /* MJCTestDemo100.m */,
@@ -569,7 +569,7 @@
 			path = styleDemo;
 			sourceTree = "<group>";
 		};
-		25F037951F56D8C400B208CD /* 滚动状态的demo */ = {
+		25F037951F56D8C400B208CD /* 可滚动状态下的demo */ = {
 			isa = PBXGroup;
 			children = (
 				25EBD0DC1F57FD1000AF38C6 /* mainVC3 */,
@@ -594,7 +594,7 @@
 				25F0379B1F56D8C400B208CD /* MJCDemoVC9.h */,
 				25F0379C1F56D8C400B208CD /* MJCDemoVC9.m */,
 			);
-			path = "滚动状态的demo";
+			path = "可滚动状态下的demo";
 			sourceTree = "<group>";
 		};
 		25F037AB1F56D8C400B208CD /* 特殊操作的demo */ = {
@@ -641,7 +641,7 @@
 			path = "特殊操作的demo";
 			sourceTree = "<group>";
 		};
-		25F037B61F56D8C400B208CD /* 默认不可滚动的demo */ = {
+		25F037B61F56D8C400B208CD /* 不可滚动状态下的demo */ = {
 			isa = PBXGroup;
 			children = (
 				25EBD0E01F57FD1F00AF38C6 /* mainVC1 */,
@@ -652,7 +652,7 @@
 				250396FB1FA8593F00282F34 /* MJCDemoClassicVC2.h */,
 				250396FC1FA8593F00282F34 /* MJCDemoClassicVC2.m */,
 			);
-			path = "默认不可滚动的demo";
+			path = "不可滚动状态下的demo";
 			sourceTree = "<group>";
 		};
 		314D307BA3A40AD120A1D0D3 /* Pods */ = {
