@@ -24,13 +24,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
  
-//    [MJCAlertMessage showMessageViewTitle:@"感谢" message:@"谢谢大家抽空打开我的项目" cancelButtonTitle:@"不用谢"];
+    [MJCAlertMessage showMessageViewTitle:@"感谢" message:@"谢谢大家抽空打开我的项目" cancelButtonTitle:@"不用谢"];
+    
     self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"appStartBackImage"]];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"mainVCData" ofType:@"plist"];
     _mainArr = [NSArray arrayWithContentsOfFile:path];
+    
 }
 
 #pragma mark - UITableviewdatasource,UITableViewDelegate
