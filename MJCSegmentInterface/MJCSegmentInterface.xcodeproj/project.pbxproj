@@ -104,6 +104,7 @@
 		25F037C81F56D8C400B208CD /* MJCSpecialDemoVC2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F037B51F56D8C400B208CD /* MJCSpecialDemoVC2.xib */; };
 		25F037C91F56D8C400B208CD /* MJCDemoClassicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */; };
 		25F66F641F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */; };
+		25FD292C27DF37590040A02A /* MJCTestDemo100.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FD292B27DF37590040A02A /* MJCTestDemo100.m */; };
 		EFFE3A3A071E655AAB9054B9 /* libPods-MJCSegmentInterface.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD4EF3B9C05F6FF768C87F2 /* libPods-MJCSegmentInterface.a */; };
 /* End PBXBuildFile section */
 
@@ -294,6 +295,8 @@
 		25F037B91F56D8C400B208CD /* MJCDemoClassicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJCDemoClassicVC.m; sourceTree = "<group>"; };
 		25F66F621F8CC6AF00A478D3 /* MJCSoecialDemoVC12.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCSoecialDemoVC12.h; sourceTree = "<group>"; };
 		25F66F631F8CC6AF00A478D3 /* MJCSoecialDemoVC12.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCSoecialDemoVC12.m; sourceTree = "<group>"; };
+		25FD292A27DF37590040A02A /* MJCTestDemo100.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJCTestDemo100.h; sourceTree = "<group>"; };
+		25FD292B27DF37590040A02A /* MJCTestDemo100.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJCTestDemo100.m; sourceTree = "<group>"; };
 		BCD4EF3B9C05F6FF768C87F2 /* libPods-MJCSegmentInterface.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MJCSegmentInterface.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -560,6 +563,8 @@
 				25F037951F56D8C400B208CD /* 滚动状态的demo */,
 				25F037B61F56D8C400B208CD /* 默认不可滚动的demo */,
 				25F037AB1F56D8C400B208CD /* 特殊操作的demo */,
+				25FD292A27DF37590040A02A /* MJCTestDemo100.h */,
+				25FD292B27DF37590040A02A /* MJCTestDemo100.m */,
 			);
 			path = styleDemo;
 			sourceTree = "<group>";
@@ -756,6 +761,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -885,6 +891,7 @@
 				25EBD0E31F57FD1F00AF38C6 /* MJCClassicMainVC.m in Sources */,
 				250F5E5F1F2B2D8400B8014A /* UIButton+MJCClassExtension.m in Sources */,
 				2534B97921ABDB94000557B9 /* MJCSoecialDemoVC16.m in Sources */,
+				25FD292C27DF37590040A02A /* MJCTestDemo100.m in Sources */,
 				25D9DB4A1DC2635C00B903B1 /* AppDelegate.m in Sources */,
 				25D9DB471DC2635C00B903B1 /* main.m in Sources */,
 				25E888051F56E95400F0B4C9 /* MJCDemoVC4.m in Sources */,

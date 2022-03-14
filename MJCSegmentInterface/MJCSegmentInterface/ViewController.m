@@ -11,6 +11,7 @@
 #import "MJCPrefixHeader.pch"
 
 #import "MJCAlertMessage.h"
+#import "MJCTestDemo100.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -29,7 +30,7 @@
 
     [MJCAlertMessage showMessageViewTitle:@"感谢" message:@"谢谢大家,多多支持" cancelButtonTitle:@"不用谢"];
     
-    self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"appStartBackImage"]];
+    self.mainTableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"mainVCData" ofType:@"plist"];
@@ -50,13 +51,16 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     cell.textLabel.text = _mainArr[indexPath.row][@"titles"];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor blackColor];
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = [MJCInterfacetools setupViewControllersStr:_mainArr[indexPath.row][@"viewControllers"]];
+    
+//    MJCTestDemo100 *vc = [[MJCTestDemo100 alloc]init];
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
