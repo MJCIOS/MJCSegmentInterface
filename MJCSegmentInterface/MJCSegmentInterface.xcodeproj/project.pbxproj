@@ -356,13 +356,13 @@
 			path = common;
 			sourceTree = "<group>";
 		};
-		253300162047A3C400EFB5C9 /* 用view来用做子视图demo */ = {
+		253300162047A3C400EFB5C9 /* 使用view用做子视图 */ = {
 			isa = PBXGroup;
 			children = (
 				253300172047A41800EFB5C9 /* MJCTestChildViewVC.h */,
 				253300182047A41800EFB5C9 /* MJCTestChildViewVC.m */,
 			);
-			path = "用view来用做子视图demo";
+			path = "使用view用做子视图";
 			sourceTree = "<group>";
 		};
 		2541CB1C1FA03A24003E756F /* 其他app的demo */ = {
@@ -558,7 +558,7 @@
 		25F037941F56D8C400B208CD /* styleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				253300162047A3C400EFB5C9 /* 用view来用做子视图demo */,
+				253300162047A3C400EFB5C9 /* 使用view用做子视图 */,
 				2541CB1C1FA03A24003E756F /* 其他app的demo */,
 				25F037951F56D8C400B208CD /* 滚动状态的demo */,
 				25F037B61F56D8C400B208CD /* 默认不可滚动的demo */,
